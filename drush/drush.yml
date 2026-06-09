@@ -1,0 +1,4 @@
+options:
+  # Point drush config:import and config:export at the git-committed config directory.
+  # This ensures config is always read from/written to the repo, not files/sync.
+  config-dir: web/sites/default/config/sync
