@@ -1,0 +1,10 @@
+uuid: d6d5b14a-5c01-46e0-8d39-ef63d5d024ef
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: r_MtrRTxCyQkshMxRP81bWlgnFxonCGqW_wNEudkdNc
+id: dripyard_card
+label: Card
+revision: false
+description: 'Provides a card block type with title, link, and media.'

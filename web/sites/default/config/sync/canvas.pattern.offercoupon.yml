@@ -1,0 +1,47 @@
+uuid: 9a020e19-07b8-4975-827d-1d56c16ac929
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.fieldset
+    - canvas.component.sdc.dripyard_base.heading
+    - canvas.component.sdc.dripyard_base.text
+    - filter.format.canvas_html_block
+  module:
+    - options
+    - text
+id: offercoupon
+label: 'Offer Coupon'
+component_tree:
+  '0:b658ec64-2f2f-469b-b208-290fd488a01a':
+    uuid: b658ec64-2f2f-469b-b208-290fd488a01a
+    component_id: sdc.dripyard_base.fieldset
+    component_version: c7b416209e637b86
+    inputs:
+      legend_title: 'Save Up to $1,000'
+  '0:fieldset_content:0:17dfafa8-26af-4460-8f0c-6e01ae33647f':
+    parent_uuid: b658ec64-2f2f-469b-b208-290fd488a01a
+    slot: fieldset_content
+    uuid: 17dfafa8-26af-4460-8f0c-6e01ae33647f
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'System Buy Back Program'
+      html_element: p
+      style: h3
+      center: false
+      margin_top: small
+      margin_bottom: small
+  '0:fieldset_content:1:50944041-9700-4df0-a72b-e1234beb527c':
+    parent_uuid: b658ec64-2f2f-469b-b208-290fd488a01a
+    slot: fieldset_content
+    uuid: 50944041-9700-4df0-a72b-e1234beb527c
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p><em>on a new HVAC System with $200 per ton credit toward the installation of a new qualifying HVAC system. Your buy back credit is automatically applied to the total cost of your new system installation, helping make your upgrade more affordable.</em></p>'
+        format: canvas_html_block
+      style: body_m
+      color: inherit
+      center: false

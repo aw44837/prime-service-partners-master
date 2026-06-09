@@ -1,0 +1,35 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b
+  bundle: dripyard_icon_card
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Scientific Research'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  dripyard_icon:
+    -
+      value: flask
+  dripyard_link:
+    -
+      uri: 'internal:/scientific-research'
+      title: ''
+      options: {  }
+  dripyard_title:
+    -
+      value: 'Scientific Research'
+      format: plain_text
+  body:
+    -
+      value: 'Using data-driven approaches to guide our conservation strategies and measure ecological outcomes.'
+      format: plain_text

@@ -1,0 +1,19 @@
+/*
+ * @file
+ * Styles for text component.
+ */
+
+.text {
+  p {
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    font-family: inherit;
+    color: inherit;
+  }
+}
+
+.text--centered {
+  text-align: center;
+}

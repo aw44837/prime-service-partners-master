@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 83ce32ad-c575-48d8-88c9-0bc8f5da257a
+  bundle: image
+  default_langcode: en
+  depends:
+    ea687ad1-5c7b-4429-97a7-a0c6e61caef0: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: david-gavi-fzp4PLJdPxE-unsplash.jpg
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Unsplash test'
+      title: ''
+      width: 2624
+      height: 3936
+      entity: ea687ad1-5c7b-4429-97a7-a0c6e61caef0

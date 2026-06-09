@@ -1,0 +1,23 @@
+uuid: 9f20e53a-43e3-4003-9dd6-d23bd04a90fd
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:dripyard_button:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'
+  module:
+    - block_content
+  theme:
+    - meridian_subtheme
+id: meridian_subtheme_call
+theme: meridian_subtheme
+region: header_third
+weight: 0
+provider: null
+plugin: 'block_content:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'
+settings:
+  id: 'block_content:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'
+  label: Call
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

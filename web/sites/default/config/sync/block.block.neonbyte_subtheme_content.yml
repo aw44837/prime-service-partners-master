@@ -1,0 +1,22 @@
+uuid: 921cd65d-979b-4dd5-bf04-fca99725b706
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - neonbyte_subtheme
+_core:
+  default_config_hash: octAqSrX7QGpCqy6ypQ5sWTePvVMWfzgXuVzvKKD_as
+id: neonbyte_subtheme_content
+theme: neonbyte_subtheme
+region: content
+weight: -6
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

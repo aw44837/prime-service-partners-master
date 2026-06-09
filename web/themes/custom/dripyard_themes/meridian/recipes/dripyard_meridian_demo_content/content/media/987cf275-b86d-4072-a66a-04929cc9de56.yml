@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 987cf275-b86d-4072-a66a-04929cc9de56
+  bundle: image
+  default_langcode: en
+  depends:
+    00f15b6b-98b7-4609-84f3-18dbc4f780dc: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: Gemini_Generated_Image_dp24wzdp24wzdp24.jpg
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Background Image for Hero'
+      title: ''
+      width: 1024
+      height: 1024
+      entity: 00f15b6b-98b7-4609-84f3-18dbc4f780dc

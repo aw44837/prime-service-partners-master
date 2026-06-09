@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 924949ce-5f9c-4709-95c8-76c8e2dfdb7a
+  bundle: article
+  default_langcode: en
+  depends:
+    565c4202-eadb-4cb4-a96f-9372235c467e: file
+    388ff16d-3f58-4f13-a925-1674ec589fe2: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Great Plains'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /great-plains
+  body:
+    -
+      value: '<p>The Great Plains are America''s most endangered ecosystem. Less than four percent of the original tallgrass prairie remains, and the mixed-grass and shortgrass prairies that once stretched from Texas to Saskatchewan continue to be converted to cropland at alarming rates. Meridian''s prairie programs work to protect and restore what remains of this vast grassland heritage.</p><drupal-media data-entity-type="media" data-entity-uuid="59823da9-254b-4a50-8455-ab025499e73a" data-align="left" data-caption="Tallgrass prairie landscape">&nbsp;</drupal-media><p>Prairies are not empty landscapes — they are among the most biologically productive ecosystems on earth. Their deep root systems sequester enormous amounts of carbon, their diverse plant communities support pollinators and grassland birds, and their soils filter water and resist drought. When we lose prairie, we lose all of these benefits.</p><p>Our approach combines strategic land protection with active management. We work with ranchers to implement grazing practices that mimic the natural disturbance patterns that prairies evolved with. We restore degraded grasslands with locally sourced native seed mixes. And we advocate for farm bill policies that reward landowners for keeping grasslands intact. The future of the Great Plains depends on finding ways to sustain both agriculture and the prairie ecosystems that make farming possible.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Tallgrass prairie stretching to flat horizon with dried grasses and scattered fence posts, early November'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 388ff16d-3f58-4f13-a925-1674ec589fe2

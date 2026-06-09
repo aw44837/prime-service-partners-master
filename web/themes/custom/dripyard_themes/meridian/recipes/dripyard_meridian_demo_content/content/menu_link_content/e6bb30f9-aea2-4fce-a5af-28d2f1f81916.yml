@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: e6bb30f9-aea2-4fce-a5af-28d2f1f81916
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    110e880d-13f5-4233-ab8e-1f29efd30ad3: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Contact Us'
+  menu_name:
+    -
+      value: footer
+  link:
+    -
+      uri: 'internal:/'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -48
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:110e880d-13f5-4233-ab8e-1f29efd30ad3'
+  revision_translation_affected:
+    -
+      value: true

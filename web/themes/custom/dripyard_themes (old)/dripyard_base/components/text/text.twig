@@ -1,0 +1,12 @@
+{% set classes = [
+  'text',
+  'text-content',
+  modifier_classes,
+  center ? 'text--centered',
+  style|clean_class,
+  color ? 'color--' ~ color|clean_class,
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ text }}
+</div>

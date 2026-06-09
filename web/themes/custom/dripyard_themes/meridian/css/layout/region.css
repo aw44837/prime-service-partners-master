@@ -1,0 +1,73 @@
+/*
+ * @file
+ * Styling for regions.
+ */
+
+.region-header-above {
+  position: relative;
+  z-index: 1; /* Appear above .site-main's border-image. */
+  margin-bottom: var(--spacing-xs);
+}
+
+ .region-header-second {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+
+  @container (width > 1000px) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.region-header-first {
+  align-self: center;
+}
+
+.region-header-third {
+  display: contents;
+}
+
+.region--fixed-middle-right {
+  position: fixed;
+  top: 50%;
+  inset-inline-end: var(--drupal-displace-offset-right, 0);
+  z-index: 20;
+  transform: rotate(-90deg) translate(50%, 0%);
+  transform-origin: bottom right;
+
+  &:dir(rtl) {
+    inset-inline-end: var(--drupal-displace-offset-left, 0);
+    transform: rotate(90deg) translate(-50%, 0%);
+    transform-origin: bottom left;
+  }
+}
+
+/* We need to use padding bottom instead of margin bottom because of the sticky footer. */
+:where(body:not(:is(.page-node-type-dripyard-landing-page, .canvas-page, .is-canvas))) .region-content {
+  margin-bottom: 0;
+  padding-bottom: var(--spacing-component);
+}
+
+/*
+ * Special treatment for highlighted region.
+ */
+.region-highlighted {
+  /* Create stacking context so the border-image fill shows above
+  .site-main's border-image. */
+  position: relative;
+  z-index: 2;
+  margin-bottom: var(--spacing-component);
+
+  @media (forced-colors: active) {
+    border-bottom: solid 1px transparent;
+  }
+
+  .page-node-type-dripyard-landing-page & {
+    margin-bottom: 0;
+  }
+
+  .page-title {
+    margin-bottom: var(--spacing-m);
+  }
+}

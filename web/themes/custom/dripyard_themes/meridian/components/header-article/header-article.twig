@@ -1,0 +1,20 @@
+<div{{ attributes.addClass('header-article full-width')}}>
+  <div class="header-article__container container grid">
+    <div class="header-article__content grid-area--content">
+      <h1 class="header-article__title">{{ title }}</h1>
+      <div class="header-article__meta">
+        {% block meta_content %}{% endblock %}
+      </div>
+      {% if tags.0 %}
+        <div class="header-article__tags">
+          {{ tags }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% if block('image_content')|striptags('<img>')|trim is not empty %}
+  <div class="header-article__image">
+    {% block image_content %}{% endblock %}
+  </div>
+{% endif %}

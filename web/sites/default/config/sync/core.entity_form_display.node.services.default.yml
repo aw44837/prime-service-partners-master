@@ -1,0 +1,164 @@
+uuid: f92500c7-2e96-45e1-9f99-8c432c42b5cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.services.ai_automator_status
+    - field.field.node.services.field_body
+    - field.field.node.services.field_featured_image
+    - field.field.node.services.field_featured_image_prompt
+    - field.field.node.services.field_intro_description
+    - node.type.services
+  module:
+    - content_moderation
+    - field_group
+    - field_widget_actions
+    - media_library
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_images:
+      children:
+        - field_featured_image_prompt
+        - field_featured_image
+      label: Images
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: open
+        description: ''
+        required_fields: true
+id: node.services.default
+targetEntityType: node
+bundle: services
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_body:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings:
+      field_widget_actions:
+        cf5d1a97-2ada-4ebd-b997-766ea2e92101:
+          plugin_id: automator_text
+          enabled: true
+          button_label: 'Generate body from page title using AI'
+          weight: 0
+          settings:
+            automator_id: node.services.field_body.default
+  field_featured_image:
+    type: media_library_widget
+    weight: 3
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings:
+      field_widget_actions:
+        527765d6-982a-4fd3-bd05-05585715b76f:
+          plugin_id: text_to_image_media_library
+          enabled: true
+          button_label: 'Generate image from prompt'
+          weight: 0
+          settings:
+            automator_id: node.services.field_featured_image.default
+  field_featured_image_prompt:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      field_widget_actions:
+        6bc276a4-6116-483d-a2ae-f10b86274735:
+          plugin_id: automator_text
+          enabled: true
+          button_label: 'Generate AI image prompt'
+          weight: 0
+          settings:
+            automator_id: node.services.field_featured_image_prompt.default
+          remove: 'Remove Action'
+  field_intro_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      field_widget_actions:
+        388b7501-3676-42d8-9c0c-06ac1b33c759:
+          plugin_id: automator_text
+          enabled: true
+          button_label: 'Generate intro paragraph'
+          weight: 0
+          settings:
+            automator_id: node.services.field_intro_description.default
+  moderation_state:
+    type: moderation_state_default
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  ai_automator_status: true
+  promote: true
+  publish_on: true
+  publish_state: true
+  sticky: true
+  unpublish_on: true
+  unpublish_state: true

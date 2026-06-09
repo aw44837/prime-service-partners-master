@@ -1,0 +1,33 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e
+  bundle: dripyard_statistic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Communities (statistic)'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  dripyard_link:
+    -
+      uri: 'internal:/community-partnerships'
+      title: ''
+      options: {  }
+  dripyard_statistic:
+    -
+      value: '120'
+  dripyard_statistic_first_line:
+    -
+      value: local communities
+  dripyard_statistic_second_line:
+    -
+      value: partnered with

@@ -1,0 +1,38 @@
+uuid: e8cb3939-94d9-43f3-b8c4-123d5b2d32cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.services.ai_automator_status
+    - field.field.node.services.field_body
+    - field.field.node.services.field_featured_image
+    - field.field.node.services.field_featured_image_prompt
+    - field.field.node.services.field_intro_description
+    - node.type.services
+  module:
+    - user
+id: node.services.teaser
+targetEntityType: node
+bundle: services
+mode: teaser
+content:
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 4_3_medium
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  ai_automator_status: true
+  field_body: true
+  field_featured_image_prompt: true
+  field_intro_description: true

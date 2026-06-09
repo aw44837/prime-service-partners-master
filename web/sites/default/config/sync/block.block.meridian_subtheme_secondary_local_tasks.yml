@@ -1,0 +1,28 @@
+uuid: d9dae7a6-0cc3-400b-92f2-cf65087ffd9b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - meridian_subtheme
+_core:
+  default_config_hash: zq0cD8WahqAov6hP5oyzTNCSKSR4xIqDkLQiFm4cdc0
+id: meridian_subtheme_secondary_local_tasks
+theme: meridian_subtheme
+region: fixed_middle_right
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/user/login\r\n/user/register\r\n/user/password"

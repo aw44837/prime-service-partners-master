@@ -1,0 +1,52 @@
+favicon:
+  path: ''
+  use_default: false
+features:
+  comment_user_picture: false
+  comment_user_verification: true
+  favicon: false
+  node_user_picture: false
+logo:
+  use_default: true
+third_party_settings:
+  shortcut:
+    module_link: true
+theme_colors:
+  site_theme: white
+  color_scheme: ''
+  colors:
+    base_primary_color: '#411011'
+    base_primary_color_brightness: dark
+    base_secondary_color: '#0c311c'
+    base_secondary_color_brightness: dark
+footer:
+  theme: primary
+layout_settings:
+  container_max_width: '1440'
+  border_radius_sm: '3'
+  border_radius_md: '6'
+  border_radius_lg: '12'
+  border_radius_button: '4'
+header_settings:
+  theme: white
+social_media_links:
+  bluesky: 'https://meridian_subtheme.dripyard.com'
+  discord: ''
+  facebook: 'https://meridian_subtheme.dripyard.com'
+  github: ''
+  instagram: 'https://meridian_subtheme.dripyard.com'
+  linkedin: 'https://meridian_subtheme.dripyard.com'
+  mastodon: ''
+  pinterest: ''
+  reddit: ''
+  snapchat: ''
+  telegram: ''
+  threads: ''
+  tiktok: ''
+  twitch: ''
+  twitter: ''
+  whatsapp: ''
+  youtube: 'https://meridian_subtheme.dripyard.com'
+
+license_uuid: '71052a2f-7b84-48b3-a11b-b7156082ffeb'
+dripyard_uid: 78

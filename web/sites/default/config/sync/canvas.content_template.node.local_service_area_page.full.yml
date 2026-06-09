@@ -1,0 +1,203 @@
+uuid: 7beb3a4f-ea13-43c9-aee8-7668c708e505
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.button
+    - canvas.component.sdc.dripyard_base.canvas-image
+    - canvas.component.sdc.dripyard_base.flex-wrapper
+    - canvas.component.sdc.dripyard_base.grid-cell
+    - canvas.component.sdc.dripyard_base.heading
+    - canvas.component.sdc.dripyard_base.layout-dynamic
+    - canvas.component.sdc.dripyard_base.text
+    - canvas.component.sdc.neonbyte.hero
+    - core.entity_view_mode.node.full
+    - field.field.media.image.field_media_image
+    - field.field.media.svg_image.field_media_svg_image
+    - field.field.node.local_service_area_page.body
+    - filter.format.canvas_html_block
+    - filter.format.content_format
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - media.type.svg_image
+    - node.type.local_service_area_page
+  content:
+    - 'file:file:d51e9add-ee98-46d6-9d4e-47f2a93eedbf'
+    - 'media:image:332ff3f5-ff11-4377-96b3-a65f6efef184'
+  module:
+    - file
+    - link
+    - media
+    - node
+    - options
+    - text
+id: node.local_service_area_page.full
+content_entity_type_id: node
+content_entity_type_bundle: local_service_area_page
+content_entity_type_view_mode: full
+component_tree:
+  '0:9ffe4807-982d-4f90-ba7d-85d3fa6f082d':
+    uuid: 9ffe4807-982d-4f90-ba7d-85d3fa6f082d
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      column_count: 1
+      row_count: 1
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: default
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: large
+      padding_bottom: large
+      column_gutter: default
+      row_gutter: default
+  '0:cell_1:0:0dc4c3d6-c835-4ff5-a259-fa81ea0c3b37':
+    parent_uuid: 9ffe4807-982d-4f90-ba7d-85d3fa6f082d
+    slot: cell_1
+    uuid: 0dc4c3d6-c835-4ff5-a259-fa81ea0c3b37
+    component_id: sdc.neonbyte.hero
+    component_version: fd16917fc8f81fbc
+    inputs:
+      theme: primary
+      height: small
+      position_behind_against_screen_top: true
+      align_x: start
+      align_y: bottom
+      text_color: inherit
+  '0:cell_1:0:hero_content:0:67a784d0-22b0-4a8d-89b7-e1f817fabdda':
+    parent_uuid: 0dc4c3d6-c835-4ff5-a259-fa81ea0c3b37
+    slot: hero_content
+    uuid: 67a784d0-22b0-4a8d-89b7-e1f817fabdda
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:local_service_area_page␝body␞␟processed'
+      style: body_m
+      color: inherit
+      center: false
+      text_max_width: 600px
+  '0:cell_1:0:hero_content:1:b3e5f083-f91e-41a2-8633-118994dea7a0':
+    parent_uuid: 0dc4c3d6-c835-4ff5-a259-fa81ea0c3b37
+    slot: hero_content
+    uuid: b3e5f083-f91e-41a2-8633-118994dea7a0
+    component_id: sdc.dripyard_base.flex-wrapper
+    component_version: 647154c4adbb1587
+    inputs:
+      theme: inherit
+      wrap: true
+      align_x: start
+      align_y: center
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+      column_gutter: small
+      row_gutter: small
+  '0:cell_1:0:hero_content:1:content:0:af775a1f-203d-44d7-af05-7820a439bd7a':
+    parent_uuid: b3e5f083-f91e-41a2-8633-118994dea7a0
+    slot: content
+    uuid: af775a1f-203d-44d7-af05-7820a439bd7a
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Book Now'
+      href:
+        uri: 'internal:/book-online'
+        options: {  }
+      style: secondary
+      size: medium
+      target: false
+      suffix_icon: calendar
+  '0:cell_1:0:hero_media:0:143deceb-d210-41c0-99c7-9e530b869a70':
+    parent_uuid: 0dc4c3d6-c835-4ff5-a259-fa81ea0c3b37
+    slot: hero_media
+    uuid: 143deceb-d210-41c0-99c7-9e530b869a70
+    component_id: sdc.dripyard_base.canvas-image
+    component_version: 432a6a71fe725929
+    inputs:
+      image:
+        target_id: '121'
+      width: 2000
+      loading: lazy
+  '1:cell_1:0:66fd605d-06fa-4a56-b323-a35b0f22888a':
+    parent_uuid: e9181926-fe6a-4129-a1d9-4b27d0bb5251
+    slot: cell_1
+    uuid: 66fd605d-06fa-4a56-b323-a35b0f22888a
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed felis magna. In iaculis nulla vel magna egestas, vel convallis justo sodales.&nbsp;</p><ul><li data-list-item-id="e00e710c9238660c305149f2367840a9b">Proin bibendum magna ac nibh feugiat laoreet.</li><li data-list-item-id="ecdb6655c007246b656ee3d3226bf7271">Integer a arcu ut augue gravida ullamcorper.&nbsp;</li><li data-list-item-id="eb97976b10d62877a6b81472b466c1846">Ut convallis elementum enim nec tristique.&nbsp;</li><li data-list-item-id="eaa1d72f20a28bad47e22a33fd99470e6">Duis quis arcu tincidunt, posuere diam non, pretium ante.&nbsp;</li></ul><p>Ut porta pellentesque tortor, vel gravida ipsum varius lobortis. Aliquam nec arcu sodales, mollis ante nec, viverra ipsum. Suspendisse pulvinar erat sit amet purus efficitur, ut cursus risus feugiat. Curabitur sit amet lobortis felis.</p><p>Aenean dictum dolor in varius feugiat.&nbsp;</p><p>&nbsp;</p>'
+        format: canvas_html_block
+      style: body_l
+      color: inherit
+      center: false
+  '1:cell_2:0:content:0:546614f5-fc71-4818-9f16-50249bc22648':
+    parent_uuid: d96a2235-9527-4114-8416-4c3386563653
+    slot: content
+    uuid: 546614f5-fc71-4818-9f16-50249bc22648
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p><strong>Santa Rosa Beach Office:</strong><br>316 S. County Hwy 83<br>Building 4 Unit A<br>Santa Rosa Beach, FL 32459</p><p><a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;z=15&amp;q=316%20S.%20County%20Hwy%2083,Santa%20Rosa%20Beach,FL,32459"><strong>Map &amp; Directions</strong></a></p>'
+        format: canvas_html_block
+      style: body_l
+      color: inherit
+      center: false
+  '1:cell_2:0:d96a2235-9527-4114-8416-4c3386563653':
+    parent_uuid: e9181926-fe6a-4129-a1d9-4b27d0bb5251
+    slot: cell_2
+    uuid: d96a2235-9527-4114-8416-4c3386563653
+    component_id: sdc.dripyard_base.grid-cell
+    component_version: 54ebe916bdb35c0b
+    inputs:
+      theme: white
+      padding: medium
+      columns_small: 12
+      columns_medium: 6
+      columns_large: 4
+      rows_small: 1
+      rows_medium: 1
+      rows_large: 1
+  '1:e9181926-fe6a-4129-a1d9-4b27d0bb5251':
+    uuid: e9181926-fe6a-4129-a1d9-4b27d0bb5251
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: light
+      column_count: 2
+      row_count: 1
+      two_column_layout: '67% / 33%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: default
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: large
+      padding_bottom: small
+      column_gutter: large
+      row_gutter: default
+  '1:header:0:5420ac27-4d86-45b7-a352-a3ccab22fd87':
+    parent_uuid: e9181926-fe6a-4129-a1d9-4b27d0bb5251
+    slot: header
+    uuid: 5420ac27-4d86-45b7-a352-a3ccab22fd87
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Why Choose JefCo Air Conditioning & Plumbing?'
+      html_element: h2
+      style: h2
+      color: primary
+      center: false
+      margin_top: zero
+      margin_bottom: zero
+exposed_slots: {  }

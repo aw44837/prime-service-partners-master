@@ -1,0 +1,22 @@
+uuid: aa2e0c67-4d09-42fb-b466-eb9969e109eb
+langcode: en
+status: false
+dependencies:
+  config:
+    - canvas.component.block.system_branding_block
+  theme:
+    - neonbyte_subtheme
+id: neonbyte_subtheme.header_first
+region: header_first
+theme: neonbyte_subtheme
+component_tree:
+  '0:f65f7a38-d68f-4dda-b9a3-095224d0324c':
+    uuid: f65f7a38-d68f-4dda-b9a3-095224d0324c
+    component_id: block.system_branding_block
+    component_version: b168140fdcaebae5
+    inputs:
+      label: 'Site branding'
+      label_display: '0'
+      use_site_logo: true
+      use_site_name: false
+      use_site_slogan: false

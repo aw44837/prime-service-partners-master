@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: a4652f63-50a0-4be5-b302-eb1f913e8091
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: north-eastern.jpg
+  uri:
+    -
+      value: 'public://article-images/north-eastern.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 319461
+  status:
+    -
+      value: true

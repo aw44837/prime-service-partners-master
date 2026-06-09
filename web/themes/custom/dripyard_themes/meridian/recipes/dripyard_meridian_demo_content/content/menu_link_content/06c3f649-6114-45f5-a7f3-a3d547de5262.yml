@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 06c3f649-6114-45f5-a7f3-a3d547de5262
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    4eae16ff-b398-42fd-8f6e-64acb847bcb6: node
+    35b26299-c9fe-4071-afd9-d69dc8347924: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: Books
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: 4eae16ff-b398-42fd-8f6e-64acb847bcb6
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -50
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:35b26299-c9fe-4071-afd9-d69dc8347924'
+  revision_translation_affected:
+    -
+      value: true

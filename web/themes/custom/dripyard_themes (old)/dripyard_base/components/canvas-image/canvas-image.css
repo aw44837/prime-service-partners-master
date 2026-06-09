@@ -1,0 +1,31 @@
+/*
+ * @file
+ * Styling for the Canvas image component.
+ */
+
+.canvas-image {
+  --canvas-image-border-radius: 0;
+
+  display: contents;
+
+  img {
+    border-radius: var(--canvas-image-border-radius);
+  }
+}
+
+.canvas-image--radius-small {
+  --canvas-image-border-radius: var(--radius-sm);
+}
+
+.canvas-image--radius-medium {
+  --canvas-image-border-radius:var(--radius-md);
+}
+
+.canvas-image--radius-large {
+  --canvas-image-border-radius: var(--radius-lg);
+}
+
+.canvas-image__link {
+  display: block;
+  width: fit-content;
+}

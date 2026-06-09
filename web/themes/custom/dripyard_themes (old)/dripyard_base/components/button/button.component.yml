@@ -1,0 +1,61 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Button
+status: stable
+group: Dripyard Form Elements
+props:
+  type: object
+  required:
+    - text
+    - href
+  properties:
+    text:
+      title: Button text
+      type: string
+      examples:
+        - Learn more
+    href:
+      title: Hyperlink
+      type: string
+      format: uri-reference
+      examples:
+        - 'https://www.drupal.org'
+    style:
+      title: Button style
+      type:
+        - string
+      enum:
+        - default
+        - primary
+      meta:enum:
+        default: Default
+        primary: Primary
+      examples: [ 'primary' ]
+    size:
+      title: Button size
+      type: string
+      enum:
+        - xs
+        - small
+        - medium
+        - large
+      meta:enum:
+        xs: XS
+        small: Small
+        medium: Medium
+        large: Large
+      examples: [ 'medium' ]
+    target:
+      title: Open link in new window
+      type:
+        - boolean
+        - 'null'
+    prefix_icon:
+      title: Prefix icon
+      type:
+       - string
+       - 'null'
+    suffix_icon:
+      title: Suffix icon
+      type:
+       - string
+       - 'null'

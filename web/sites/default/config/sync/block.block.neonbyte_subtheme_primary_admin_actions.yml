@@ -1,0 +1,20 @@
+uuid: f5b88ffd-4e4c-4ccc-b9cb-0f3fe287c792
+langcode: en
+status: true
+dependencies:
+  theme:
+    - neonbyte_subtheme
+_core:
+  default_config_hash: hkSwB34hvBaBLQmacPDVlT0zC2b00qI_e45HuvigLVw
+id: neonbyte_subtheme_primary_admin_actions
+theme: neonbyte_subtheme
+region: highlighted
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

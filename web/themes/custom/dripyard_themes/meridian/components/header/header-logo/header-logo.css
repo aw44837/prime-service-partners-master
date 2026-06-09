@@ -1,0 +1,68 @@
+/*
+ * @file
+ * Styles for the header logo.
+ */
+
+.header-logo__link {
+  --header-logo-max-height: 44px;
+
+  display: block;
+
+  img {
+    max-height: var(--header-logo-max-height);
+  }
+}
+
+/*
+ * If the site-header is superimposed on a hero, and the theme setting to adjust
+ * the logo's brightness is selected, then adjust the brightness so the logo
+ * will match the text of the hero.
+ */
+.site-header.is-superimposed-on-hero:is(
+    .theme--white,
+    .theme--light,
+    .primary-color-is-light :is(.theme--primary, .theme--secondary)
+  ) {
+  &[data-logo-when-hero="match-hero-theme"] .header-logo__link img {
+    /* Make image black. */
+    filter: brightness(0);
+  }
+}
+
+.site-header.is-superimposed-on-hero:is(
+    .theme--black,
+    .theme--dark,
+    .primary-color-is-dark :is(.theme--primary, .theme--secondary)
+  ) {
+  &[data-logo-when-hero="match-hero-theme"] .header-logo__link img {
+    /* Make image white. */
+    filter: brightness(100);
+  }
+}
+
+/*
+ * When the site-header is stickied, and if the theme setting is selected,
+ * adjust the brightness of the logo to match the brightness of the header
+ * text
+ */
+.site-header:is(
+    .theme--white,
+    .theme--light,
+    .primary-color-is-light :is(.theme--primary, .theme--secondary)
+  ) {
+  &[data-logo-when-stickied="match-header-theme"] .is-sticky .header-logo__link img {
+    /* Make image black. */
+    filter: brightness(0);
+  }
+}
+
+.site-header:is(
+    .theme--black,
+    .theme--dark,
+    .primary-color-is-dark :is(.theme--primary, .theme--secondary)
+  ) {
+  &[data-logo-when-stickied="match-header-theme"] .is-sticky .header-logo__link img {
+    /* Make image white. */
+    filter: brightness(100);
+  }
+}

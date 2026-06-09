@@ -1,0 +1,82 @@
+@container (width > 1180px) {
+  .primary-menu {
+    --top-level-link-border-radius: 0;
+    --top-level-link-color: var(--theme-text-color-loud);
+    --top-level-link-font-weight: bold;
+    --top-level-link-background: transparent;
+    --top-level-link-background-hover: transparent;
+    --top-level-link-color-hover: var(--theme-text-color-accent);
+
+    /* Dropdown. */
+    --dropdown-border-radius: 20px;
+    --dropdown-border-width: 1px;
+    --dropdown-border-color: transparent;
+    --dropdown-padding: 20px 30px;
+
+    /* Dropdown links. */
+    --dropdown-link-color: var(--theme-text-color-loud);
+    --dropdown-link-color-hover: var(--theme-text-color-accent);
+    --dropdown-link-background-hover: var(--theme-text-color-primary);
+    --dropdown-link-border-radius: 3px;
+    --dropdown-link-padding: 4px 0;
+    --dropdown-link-heading-font-size: 12px;
+    --dropdown-link-font-size: 18px;
+  }
+
+  .primary-menu__list-item--level-1.primary-menu__list-item--has-children {
+    &:hover {
+      background-color: var(--top-level-link-background-hover);
+      color: var(--top-level-link-color-hover);
+    }
+  }
+
+  .primary-menu__link--level-1 {
+    border-radius: var(--top-level-link-border-radius);
+    background: var(--top-level-link-background);
+    text-decoration: none;
+    color: var(--top-level-link-color);
+    font-weight: var(--top-level-link-font-weight);
+  }
+
+  .primary-menu__link--level-1[class] {
+    border-radius: var(--top-level-link-border-radius);
+    background: var(--top-level-link-background);
+    text-decoration: none;
+    color: var(--top-level-link-color);
+    font-weight: var(--top-level-link-font-weight);
+  }
+
+  /* Dropdown <ul> element. */
+  .primary-menu__list--level-2 {
+    --dropdown-background: var(--theme-surface);
+    --dropdown-drop-shadow: 0 0 2px var(--theme-border-color-soft);
+
+    background: var(--dropdown-background);
+    padding: var(--dropdown-padding);
+    border-radius: var(--dropdown-border-radius);
+    border: solid var(--dropdown-border-width) var(--dropdown-border-color);
+    filter: drop-shadow(var(--dropdown-drop-shadow));
+    min-width: 200px;
+  }
+
+  .primary-menu__link--level-2[class],
+  .primary-menu__link--level-3[class] {
+    display: inline-block;
+    margin-block: 4px;
+    padding: var(--dropdown-link-padding);
+    border-radius: var(--dropdown-link-border-radius);
+    color: var(--theme-text-color-loud);
+
+    &:where(a, button):hover {
+      color: var(--dropdown-link-background-hover);
+    }
+  }
+
+  .primary-menu__link--level-2 {
+    font-size: var(--dropdown-link-heading-font-size);
+  }
+
+  .primary-menu__link--level-2 {
+    font-size: var(--dropdown-link-font-size);
+  }
+}

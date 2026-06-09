@@ -1,0 +1,94 @@
+/*
+ * @file
+ * Button style overrides.
+ */
+
+:where(:root) {
+  --button-padding-block: 2px;
+  --button-padding-inline: 16px;
+}
+
+.button {
+  &:has(.button__prefix) {
+    padding-inline-start: 4px;
+  }
+
+  &:has(.button__suffix) {
+    padding-inline-end: 4px;
+  }
+}
+
+.button--large {
+  --button-padding-inline: 15px;
+
+  &:has(.button__prefix) {
+    padding-inline-start: 4px;
+  }
+
+  &:has(.button__suffix) {
+    padding-inline-end: 4px;
+  }
+}
+
+.button--small {
+  --button-padding-block: 2px;
+  --button-padding-inline: 12px;
+  --theme-button-primary-icon-fill: currentColor;
+  --theme-button-primary-icon-fill-hover: currentColor;
+  --theme-button-primary-icon-fill-active: currentColor;
+  --theme-button-primary-icon-background-color: transparent;
+  --theme-button-primary-icon-background-color-hover: transparent;
+  --theme-button-primary-icon-background-color-active: transparent;
+  --theme-button-secondary-icon-fill: currentColor;
+  --theme-button-secondary-icon-fill-hover: currentColor;
+  --theme-button-secondary-icon-fill-active: currentColor;
+  --theme-button-secondary-icon-background-color: transparent;
+  --theme-button-secondary-icon-background-color-hover: transparent;
+  --theme-button-secondary-icon-background-color-active: transparent;
+  --theme-button-icon-fill: currentColor;
+  --theme-button-icon-fill-hover: currentColor;
+  --theme-button-icon-fill-active: currentColor;
+  --theme-button-icon-background-color: transparent;
+  --theme-button-icon-background-color-hover: transparent;
+  --theme-button-icon-background-color-active: transparent;
+
+  font-weight: bold;
+
+  &:has(.button__prefix) {
+    padding-inline-start: var(--button-padding-block);
+  }
+
+  &:has(.button__suffix) {
+    padding-inline-end: var(--button-padding-block);
+  }
+
+  svg {
+    height: 18px;
+  }
+
+  .button__prefix {
+    margin-inline-start: 4px;
+  }
+
+  .button__suffix {
+    margin-inline-end: 4px;
+  }
+}
+
+.button--xs {
+  --button-padding-block: 2px;
+  --button-padding-inline: 12px;
+
+  &:has(.button__prefix) {
+    padding-inline-start: var(--button-padding-block);
+  }
+
+  &:has(.button__suffix) {
+    padding-inline-end: var(--button-padding-block);
+  }
+}
+
+.button__prefix,
+.button__suffix {
+  border-radius: calc(var(--button-border-radius) * 0.8);
+}

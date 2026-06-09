@@ -1,0 +1,1022 @@
+_meta:
+  version: '1.0'
+  entity_type: canvas_page
+  uuid: 16ed6b8c-bea3-4846-aa06-dec91d58ff5d
+  default_langcode: en
+  depends:
+    a8dfe527-9072-4826-b546-200b1c859704: file
+    13c65a87-d30d-4426-9630-bf1620d76289: media
+    45c96f82-b80f-4055-ac46-5b2f4708f445: file
+    1c0a2428-8afe-43b9-80f9-e473d9dae865: media
+    a505ca44-3b5b-471f-8c7e-e3de5ce67a59: file
+    1d21c534-94a6-45a8-80bd-5e5948627d16: media
+    43cce53c-d272-4043-a59a-a12ce6e3e08c: file
+    ef16b85f-e6b9-4ac7-99da-4275672bc2eb: media
+    9f1785b7-101d-467f-81d0-190931605b8f: file
+    1aabbfee-ee20-4a26-a06a-8ca5baf6bc2c: media
+    690060a3-67bb-4cb0-845b-26fcc89b4cb1: file
+    89a5ab8f-7218-497f-b840-a903337a521d: media
+    fbc9c3f5-4985-4f65-9922-aaf86f65aa2c: file
+    c98bc7ac-6d5a-4fde-9b91-a6203f86f301: media
+    7f3135e9-0d4b-4df9-a8a8-6e93c466ee72: file
+    f22f6c6b-3b09-4558-b422-ca70b906d462: media
+    d1f11a69-0cd5-4121-8fba-82c4425ffccb: file
+    1862ad19-bc4d-4418-93bb-37d78b028539: media
+    b1acc1ee-6215-4116-b747-f3c242991eb5: file
+    67e74ef6-413a-476d-9436-005115ca018e: media
+    6c45f965-3042-473b-9e5d-38c07c5eb477: file
+    9c6df4e7-0ea1-47a8-b962-81462dd9bdb8: media
+    cb2bb364-dec7-4cf5-9be0-052c4e3d7d37: file
+    75cb75fd-82a3-423e-bbca-b5c2d5437074: media
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  owner:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Home Page'
+  components:
+    -
+      uuid: 048938a7-620d-43b0-8f8a-0a15753849e3
+      component_id: sdc.dripyard_base.section
+      inputs:
+        theme: inherit
+        section_width: edge-to-edge
+        content_width: max-width
+        margin_top: zero
+        margin_bottom: zero
+        padding_top: zero
+        padding_bottom: large
+    -
+      parent_uuid: 048938a7-620d-43b0-8f8a-0a15753849e3
+      slot: content
+      uuid: 009d67e0-435c-4ef0-96bb-fa1ab810cd52
+      component_id: sdc.meridian.hero
+      inputs:
+        height: large
+        align_x: center
+        align_y: top
+        text_color: primary
+        position_behind_header: true
+        theme: inherit
+    -
+      parent_uuid: 009d67e0-435c-4ef0-96bb-fa1ab810cd52
+      slot: hero_media
+      uuid: caeb7dae-5f6a-48b6-9819-15d3a936d131
+      component_id: sdc.dripyard_base.canvas-image
+      inputs:
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: 13c65a87-d30d-4426-9630-bf1620d76289
+            target_type: media
+        width: 1568
+        loading: lazy
+        border_radius: large
+    -
+      parent_uuid: 009d67e0-435c-4ef0-96bb-fa1ab810cd52
+      slot: hero_content
+      uuid: c653f038-c922-4d18-bbcd-ad950bab9550
+      component_id: sdc.dripyard_base.heading
+      inputs:
+        text: 'Landscape as Identity'
+        html_element: h1
+        style: h2
+        center: false
+        margin_top: zero
+        margin_bottom: zero
+    -
+      parent_uuid: 009d67e0-435c-4ef0-96bb-fa1ab810cd52
+      slot: hero_content
+      uuid: 7f677df4-3204-4e85-9fb8-9afd38245cb8
+      component_id: sdc.dripyard_base.text
+      inputs:
+        text:
+          value: '<p>Dedicated to preserving our natural heritage&nbsp;<br>and protecting vital ecosystems for future generations.</p>'
+          format: canvas_html_block
+        style: body_s
+        color: primary
+        center: true
+        text_max_width: 600px
+    -
+      parent_uuid: 009d67e0-435c-4ef0-96bb-fa1ab810cd52
+      slot: hero_content
+      uuid: 2592da49-82f0-4ba2-9c02-c78177209f1e
+      component_id: sdc.dripyard_base.flex-wrapper
+      inputs:
+        theme: inherit
+        wrap: true
+        align_x: center
+        align_y: center
+        margin_top: zero
+        margin_bottom: zero
+        padding_top: zero
+        padding_bottom: zero
+        column_gutter: small
+        row_gutter: small
+    -
+      parent_uuid: 2592da49-82f0-4ba2-9c02-c78177209f1e
+      slot: content
+      uuid: c9afe8fe-96a7-462b-97df-9aeaced9d9e0
+      component_id: sdc.dripyard_base.button
+      inputs:
+        text: 'Donate Today'
+        href:
+          uri: 'internal:/donate'
+          options: {  }
+        size: medium
+        target: false
+        style: secondary
+    -
+      uuid: 9e0e069d-bdf8-4e3d-be04-1d63bfacb53e
+      component_id: sdc.dripyard_base.section
+      inputs:
+        theme: secondary
+        section_width: edge-to-edge
+        content_width: max-width
+        margin_top: zero
+        margin_bottom: zero
+        padding_top: large
+        padding_bottom: large
+    -
+      parent_uuid: 9e0e069d-bdf8-4e3d-be04-1d63bfacb53e
+      slot: header
+      uuid: a0965a6b-98a3-4a3f-b18b-e04238584825
+      component_id: sdc.dripyard_base.heading
+      inputs:
+        text: 'Ways to Get Involved'
+        html_element: h2
+        style: h1
+        center: true
+        margin_top: zero
+        margin_bottom: zero
+    -
+      parent_uuid: 9e0e069d-bdf8-4e3d-be04-1d63bfacb53e
+      slot: content
+      uuid: c47eff42-a5cc-4d52-8a9a-1a54c7c14b1f
+      component_id: sdc.dripyard_base.carousel
+      inputs:
+        canvas_edit_mode: true
+        label: 'Conservation Opportunities'
+        pager: true
+        navigation_position: hidden
+        slides_per_view: 4
+        rows: 1
+        autoplay: true
+    -
+      parent_uuid: c47eff42-a5cc-4d52-8a9a-1a54c7c14b1f
+      slot: carousel_items
+      uuid: 000e28d0-d25d-4baa-a593-f8296b22a310
+      component_id: sdc.dripyard_base.card-canvas
+      inputs:
+        eyebrow_text: 'Get Active'
+        title: 'Volunteer Programs'
+        body: 'Join hands-on conservation efforts in your community, from trail maintenance to wildlife monitoring.'
+        flip_layout: false
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: 1c0a2428-8afe-43b9-80f9-e473d9dae865
+            target_type: media
+    -
+      parent_uuid: c47eff42-a5cc-4d52-8a9a-1a54c7c14b1f
+      slot: carousel_items
+      uuid: eb29b795-dd29-417d-9954-7d60eb26da09
+      component_id: sdc.dripyard_base.card-canvas
+      inputs:
+        eyebrow_text: 'Make an Impact'
+        title: 'Donate Today'
+        body: 'Your contribution directly funds land acquisition, habitat restoration, and species protection programs.'
+        flip_layout: false
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: 1d21c534-94a6-45a8-80bd-5e5948627d16
+            target_type: media
+    -
+      parent_uuid: c47eff42-a5cc-4d52-8a9a-1a54c7c14b1f
+      slot: carousel_items
+      uuid: 93444a7b-4338-4717-aafd-97fb03cd636e
+      component_id: sdc.dripyard_base.card-canvas
+      inputs:
+        eyebrow_text: 'Wildlife Support'
+        title: 'Adopt a Species'
+        body: 'Symbolically adopt endangered wildlife and receive updates on conservation efforts protecting them.'
+        flip_layout: false
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: ef16b85f-e6b9-4ac7-99da-4275672bc2eb
+            target_type: media
+    -
+      parent_uuid: c47eff42-a5cc-4d52-8a9a-1a54c7c14b1f
+      slot: carousel_items
+      uuid: fa85635a-48ee-4903-9e06-aca33490d40b
+      component_id: sdc.dripyard_base.card-canvas
+      inputs:
+        eyebrow_text: 'Learn More'
+        title: 'Educational Events'
+        body: 'Attend workshops, guided nature walks, and educational seminars to deepen your connection with nature.'
+        flip_layout: false
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: 1aabbfee-ee20-4a26-a06a-8ca5baf6bc2c
+            target_type: media
+    -
+      parent_uuid: c47eff42-a5cc-4d52-8a9a-1a54c7c14b1f
+      slot: carousel_items
+      uuid: edba1be7-1c3d-4d24-8ce5-4f3af3a05165
+      component_id: sdc.dripyard_base.card-canvas
+      inputs:
+        eyebrow_text: 'Business for Good'
+        title: 'Corporate Partnerships'
+        body: 'Partner with us to meet sustainability goals while making a real difference for wildlife and wild places.'
+        flip_layout: false
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: 89a5ab8f-7218-497f-b840-a903337a521d
+            target_type: media
+    -
+      parent_uuid: c47eff42-a5cc-4d52-8a9a-1a54c7c14b1f
+      slot: carousel_items
+      uuid: 3dba1649-f21d-4ad7-874f-a565ace3ee60
+      component_id: sdc.dripyard_base.card-canvas
+      inputs:
+        eyebrow_text: 'Next Generation'
+        title: 'Youth Programs'
+        body: 'Engage young people through summer camps, school programs, and junior naturalist opportunities.'
+        flip_layout: false
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: c98bc7ac-6d5a-4fde-9b91-a6203f86f301
+            target_type: media
+    -
+      parent_uuid: c47eff42-a5cc-4d52-8a9a-1a54c7c14b1f
+      slot: carousel_items
+      uuid: 43d11119-bc56-4a95-9966-6a4900872516
+      component_id: sdc.dripyard_base.card-canvas
+      inputs:
+        eyebrow_text: 'Raise Your Voice'
+        title: 'Advocacy & Action'
+        body: 'Speak up for nature by supporting policies that protect wildlife and preserve wild spaces.'
+        flip_layout: false
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: f22f6c6b-3b09-4558-b422-ca70b906d462
+            target_type: media
+    -
+      uuid: 2f579dd5-f0f0-488c-9e46-245d46b6b6d4
+      component_id: sdc.dripyard_base.section
+      inputs:
+        theme: inherit
+        section_width: edge-to-edge
+        content_width: max-width
+        margin_top: zero
+        margin_bottom: zero
+        padding_top: large
+        padding_bottom: large
+    -
+      parent_uuid: 2f579dd5-f0f0-488c-9e46-245d46b6b6d4
+      slot: content
+      uuid: 39bcab17-9d33-4822-a0e4-f59043e4af39
+      component_id: sdc.dripyard_base.grid-wrapper
+      inputs:
+        canvas_edit_mode: true
+        column_gutter: medium
+        row_gutter: medium
+    -
+      parent_uuid: 39bcab17-9d33-4822-a0e4-f59043e4af39
+      slot: grid_cells
+      uuid: 844070ca-222a-4d10-94e8-42153c126199
+      component_id: sdc.dripyard_base.grid-cell
+      inputs:
+        theme: inherit
+        padding: zero
+        columns_small: 12
+        columns_medium: 6
+        columns_large: 6
+        rows_small: 1
+        rows_medium: 1
+        rows_large: 1
+    -
+      parent_uuid: 844070ca-222a-4d10-94e8-42153c126199
+      slot: content
+      uuid: 1cf13974-e242-40ef-bda8-9470e6dedf65
+      component_id: sdc.dripyard_base.canvas-image
+      inputs:
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: 1862ad19-bc4d-4418-93bb-37d78b028539
+            target_type: media
+        width: 800
+        loading: lazy
+        border_radius: small
+    -
+      parent_uuid: 39bcab17-9d33-4822-a0e4-f59043e4af39
+      slot: grid_cells
+      uuid: 7f8288e1-80a8-4828-8837-5dd6f1e61cc4
+      component_id: sdc.dripyard_base.grid-cell
+      inputs:
+        theme: inherit
+        padding: zero
+        columns_small: 12
+        columns_medium: 6
+        columns_large: 6
+        rows_small: 1
+        rows_medium: 1
+        rows_large: 1
+    -
+      parent_uuid: 7f8288e1-80a8-4828-8837-5dd6f1e61cc4
+      slot: content
+      uuid: df5c0d6c-6731-42bd-a935-d388d1b6c13d
+      component_id: sdc.dripyard_base.heading
+      inputs:
+        text: 'Securing Redwoods'
+        html_element: h2
+        style: h2
+        margin_top: zero
+        margin_bottom: zero
+        center: false
+        color: primary
+    -
+      parent_uuid: 7f8288e1-80a8-4828-8837-5dd6f1e61cc4
+      slot: content
+      uuid: 96287471-5339-417a-ade0-c82d6ad539e2
+      component_id: sdc.dripyard_base.text
+      inputs:
+        text:
+          value: "<p>Coast redwoods are among Earth's oldest and tallest living organisms, with some trees reaching over 350 feet tall and living for more than 2,000 years. Our conservation efforts focus on protecting remaining old-growth forests, restoring logged areas, and creating wildlife corridors that connect fragmented habitats. Through strategic land acquisition and partnerships with local communities, we're working to ensure these magnificent giants continue to thrive for generations to come.</p>"
+          format: canvas_html_block
+        style: body_m
+        color: medium
+        center: false
+    -
+      parent_uuid: 7f8288e1-80a8-4828-8837-5dd6f1e61cc4
+      slot: content
+      uuid: 3f890e59-e782-4646-a832-5ed8a51ee70e
+      component_id: sdc.dripyard_base.flex-wrapper
+      inputs:
+        theme: inherit
+        wrap: true
+        align_x: start
+        align_y: center
+        margin_top: zero
+        margin_bottom: zero
+        padding_top: zero
+        padding_bottom: zero
+        column_gutter: small
+        row_gutter: small
+    -
+      parent_uuid: 3f890e59-e782-4646-a832-5ed8a51ee70e
+      slot: content
+      uuid: 5afb5e91-45cf-473a-809c-36d38b3a860b
+      component_id: sdc.dripyard_base.button
+      inputs:
+        text: 'Learn more'
+        href:
+          uri: 'internal:/pacific-coast'
+          options: {  }
+        style: secondary
+        size: medium
+        target: false
+    -
+      parent_uuid: 39bcab17-9d33-4822-a0e4-f59043e4af39
+      slot: grid_cells
+      uuid: 1f921bdd-ceb1-4f6e-afde-e8530137e659
+      component_id: sdc.dripyard_base.grid-cell
+      inputs:
+        theme: inherit
+        padding: zero
+        columns_small: 12
+        columns_medium: 6
+        columns_large: 6
+        rows_small: 1
+        rows_medium: 1
+        rows_large: 1
+    -
+      parent_uuid: 1f921bdd-ceb1-4f6e-afde-e8530137e659
+      slot: content
+      uuid: 5bf6fd1f-3370-44d4-8c97-69f90a5e14ee
+      component_id: sdc.dripyard_base.heading
+      inputs:
+        text: 'Saving coasts'
+        html_element: h2
+        style: h2
+        margin_top: zero
+        margin_bottom: small
+        center: false
+        color: primary
+    -
+      parent_uuid: 1f921bdd-ceb1-4f6e-afde-e8530137e659
+      slot: content
+      uuid: 1b056252-3a43-44c4-a430-9e76639ff962
+      component_id: sdc.dripyard_base.accordion-group
+      inputs:
+        variation: borders
+    -
+      parent_uuid: 1b056252-3a43-44c4-a430-9e76639ff962
+      slot: accordion_group_content
+      uuid: be7ec238-4e54-46a9-8762-e5e42a5a83ca
+      component_id: sdc.dripyard_base.accordion-item
+      inputs:
+        title: 'Wetland Restoration'
+        open: false
+    -
+      parent_uuid: be7ec238-4e54-46a9-8762-e5e42a5a83ca
+      slot: accordion_item_content
+      uuid: 7224102b-9996-4b6f-a6b4-e911e8bece2b
+      component_id: sdc.dripyard_base.text
+      inputs:
+        text:
+          value: "<p>Our coastal wetlands serve as critical nurseries for marine life and act as natural buffers against storm surges. We're working to restore over 5,000 acres of salt marshes and estuaries along the Atlantic coastline, protecting both wildlife and coastal communities from rising sea levels.</p>"
+          format: canvas_html_block
+        style: body_m
+        color: medium
+        center: false
+    -
+      parent_uuid: 1b056252-3a43-44c4-a430-9e76639ff962
+      slot: accordion_group_content
+      uuid: 74806fad-4817-4c41-926f-c1dbb1a33e3d
+      component_id: sdc.dripyard_base.accordion-item
+      inputs:
+        title: 'Marine Sanctuaries'
+        open: false
+    -
+      parent_uuid: 74806fad-4817-4c41-926f-c1dbb1a33e3d
+      slot: accordion_item_content
+      uuid: d15e59e7-3192-4b10-a64e-9dc71d638a75
+      component_id: sdc.dripyard_base.text
+      inputs:
+        text:
+          value: '<p>We partner with federal and state agencies to establish and maintain marine protected areas that safeguard critical ocean habitats. These sanctuaries provide refuge for endangered sea turtles, migrating whales, and countless fish species while supporting sustainable fishing communities.</p>'
+          format: canvas_html_block
+        style: body_m
+        color: medium
+        center: false
+    -
+      parent_uuid: 1b056252-3a43-44c4-a430-9e76639ff962
+      slot: accordion_group_content
+      uuid: 1920be4c-bda0-42a5-b960-aa99b1af9a19
+      component_id: sdc.dripyard_base.accordion-item
+      inputs:
+        title: 'Dune Restoration'
+        open: false
+    -
+      parent_uuid: 1920be4c-bda0-42a5-b960-aa99b1af9a19
+      slot: accordion_item_content
+      uuid: 9cdc42ed-fa47-4eff-bdf1-158bae7f820c
+      component_id: sdc.dripyard_base.text
+      inputs:
+        text:
+          value: "<p>Coastal dunes are nature's first line of defense against erosion and flooding. Our restoration projects replant native sea oats and beach grasses while removing invasive species, rebuilding these vital barriers that protect inland communities and provide essential nesting habitat for shorebirds.</p>"
+          format: canvas_html_block
+        style: body_m
+        color: medium
+        center: false
+    -
+      parent_uuid: 1f921bdd-ceb1-4f6e-afde-e8530137e659
+      slot: content
+      uuid: b215653f-ab76-433f-a904-cfb5008ace04
+      component_id: sdc.dripyard_base.flex-wrapper
+      inputs:
+        theme: inherit
+        wrap: true
+        align_x: start
+        align_y: center
+        margin_top: zero
+        margin_bottom: zero
+        padding_top: zero
+        padding_bottom: zero
+        column_gutter: small
+        row_gutter: small
+    -
+      parent_uuid: b215653f-ab76-433f-a904-cfb5008ace04
+      slot: content
+      uuid: 69483947-2f79-43bb-ba72-19ff76fc26e1
+      component_id: sdc.dripyard_base.button
+      inputs:
+        text: 'Learn more'
+        href:
+          uri: 'internal:/south-atlantic'
+          options: {  }
+        style: secondary
+        size: medium
+        target: false
+    -
+      parent_uuid: 39bcab17-9d33-4822-a0e4-f59043e4af39
+      slot: grid_cells
+      uuid: e03b4f8b-be08-4272-8814-88e292baac5c
+      component_id: sdc.dripyard_base.grid-cell
+      inputs:
+        theme: inherit
+        padding: zero
+        columns_small: 12
+        columns_medium: 6
+        columns_large: 6
+        rows_small: 1
+        rows_medium: 1
+        rows_large: 1
+    -
+      parent_uuid: e03b4f8b-be08-4272-8814-88e292baac5c
+      slot: content
+      uuid: d6445893-7184-48f0-b675-93e0ac4bf5ce
+      component_id: sdc.dripyard_base.canvas-image
+      inputs:
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: 67e74ef6-413a-476d-9436-005115ca018e
+            target_type: media
+        width: 800
+        loading: lazy
+        border_radius: small
+    -
+      parent_uuid: 39bcab17-9d33-4822-a0e4-f59043e4af39
+      slot: grid_cells
+      uuid: 86bda25e-868e-4532-81bf-ac3a589fad43
+      component_id: sdc.dripyard_base.grid-cell
+      inputs:
+        theme: inherit
+        padding: zero
+        columns_small: 12
+        columns_medium: 6
+        columns_large: 6
+        rows_small: 1
+        rows_medium: 1
+        rows_large: 1
+    -
+      parent_uuid: 86bda25e-868e-4532-81bf-ac3a589fad43
+      slot: content
+      uuid: 18d3fb3d-0d47-445a-b77c-f55cbe3effd6
+      component_id: sdc.dripyard_base.canvas-image
+      inputs:
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: 9c6df4e7-0ea1-47a8-b962-81462dd9bdb8
+            target_type: media
+        width: 800
+        loading: lazy
+        border_radius: small
+    -
+      parent_uuid: 39bcab17-9d33-4822-a0e4-f59043e4af39
+      slot: grid_cells
+      uuid: 570b6b8c-70b3-4124-9a2e-fa8d3f1a4a7a
+      component_id: sdc.dripyard_base.grid-cell
+      inputs:
+        theme: inherit
+        padding: zero
+        columns_small: 12
+        columns_medium: 6
+        columns_large: 6
+        rows_small: 1
+        rows_medium: 1
+        rows_large: 1
+    -
+      parent_uuid: 570b6b8c-70b3-4124-9a2e-fa8d3f1a4a7a
+      slot: content
+      uuid: 9a7bc15b-995c-41d7-a4d4-4684d71f9d0d
+      component_id: sdc.dripyard_base.heading
+      inputs:
+        text: 'Deserts and High Plains'
+        html_element: h3
+        style: h3
+        margin_top: zero
+        margin_bottom: zero
+        center: false
+        color: primary
+    -
+      parent_uuid: 570b6b8c-70b3-4124-9a2e-fa8d3f1a4a7a
+      slot: content
+      uuid: 13d41195-7dab-4492-941f-778ee0bb8701
+      component_id: sdc.dripyard_base.tab-group
+      inputs:
+        placement: top
+        icon_size: small
+        icon_placement: vertical
+    -
+      parent_uuid: 13d41195-7dab-4492-941f-778ee0bb8701
+      slot: tabs
+      uuid: 66c69021-4c00-4292-9f3f-7e540399f0ec
+      component_id: sdc.dripyard_base.tab
+      inputs:
+        title: 'Desert Conservation'
+        icon: person-hiking
+    -
+      parent_uuid: 66c69021-4c00-4292-9f3f-7e540399f0ec
+      slot: tab_panel_content
+      uuid: 24d7b9f1-cee3-41f8-9412-ecaad0202a95
+      component_id: sdc.dripyard_base.text
+      inputs:
+        text:
+          value: "<p>America's deserts support remarkable biodiversity, from iconic saguaro cacti to elusive desert tortoises. Our desert conservation initiatives focus on protecting critical water sources, combating invasive species, and working with local communities to preserve these fragile ecosystems that have evolved over millennia.</p>"
+          format: canvas_html_block
+        style: body_m
+        color: medium
+        center: false
+    -
+      parent_uuid: 13d41195-7dab-4492-941f-778ee0bb8701
+      slot: tabs
+      uuid: 572416a1-8456-4a90-b72e-ca353d708caf
+      component_id: sdc.dripyard_base.tab
+      inputs:
+        title: 'Grassland Prairies'
+        icon: crow
+    -
+      parent_uuid: 572416a1-8456-4a90-b72e-ca353d708caf
+      slot: tab_panel_content
+      uuid: 045f6525-2537-4fac-976c-ee825cbf7fc9
+      component_id: sdc.dripyard_base.text
+      inputs:
+        text:
+          value: '<p>North American prairies once covered 170 million acres but have declined by over 99%. Our grassland restoration projects work with ranchers to implement rotational grazing practices that benefit both livestock and native species like bison, prairie dogs, and grassland birds.</p>'
+          format: canvas_html_block
+        style: body_m
+        color: medium
+        center: false
+    -
+      parent_uuid: 570b6b8c-70b3-4124-9a2e-fa8d3f1a4a7a
+      slot: content
+      uuid: 0b47f5f8-a9d8-44bc-966e-db200dd5ec62
+      component_id: sdc.dripyard_base.flex-wrapper
+      inputs:
+        theme: inherit
+        wrap: true
+        align_x: start
+        align_y: center
+        margin_top: zero
+        margin_bottom: zero
+        padding_top: zero
+        padding_bottom: zero
+        column_gutter: small
+        row_gutter: small
+    -
+      parent_uuid: 0b47f5f8-a9d8-44bc-966e-db200dd5ec62
+      slot: content
+      uuid: bb9bf4a4-afa8-467f-a3d0-2051bc885dba
+      component_id: sdc.dripyard_base.button
+      inputs:
+        text: 'Learn more'
+        href:
+          uri: 'internal:/desert-southwest'
+          options: {  }
+        style: secondary
+        size: medium
+        target: false
+    -
+      uuid: f48d71ba-be4f-47a5-816e-1eaf36c9358f
+      component_id: sdc.dripyard_base.section
+      inputs:
+        theme: dark
+        section_width: edge-to-edge
+        content_width: max-width
+        margin_top: zero
+        margin_bottom: zero
+        padding_top: large
+        padding_bottom: large
+    -
+      parent_uuid: f48d71ba-be4f-47a5-816e-1eaf36c9358f
+      slot: header
+      uuid: ede6058e-236d-4df5-a06f-38870534236f
+      component_id: sdc.dripyard_base.background-image
+      inputs:
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: 75cb75fd-82a3-423e-bbca-b5c2d5437074
+            target_type: media
+        background_image_opacity: 30
+        loading: lazy
+        position_x: 50
+        position_y: 50
+    -
+      parent_uuid: f48d71ba-be4f-47a5-816e-1eaf36c9358f
+      slot: header
+      uuid: f49c02de-2e7b-4100-a900-ed702059e74d
+      component_id: sdc.dripyard_base.heading
+      inputs:
+        text: 'Join Our Mission'
+        html_element: h2
+        style: h2
+        margin_top: zero
+        margin_bottom: zero
+        center: true
+    -
+      parent_uuid: f48d71ba-be4f-47a5-816e-1eaf36c9358f
+      slot: content
+      uuid: 2b5cf110-cadd-4453-9b23-19a3e15d2aba
+      component_id: sdc.dripyard_base.grid-wrapper
+      inputs:
+        canvas_edit_mode: true
+        column_gutter: medium
+        row_gutter: medium
+    -
+      parent_uuid: 2b5cf110-cadd-4453-9b23-19a3e15d2aba
+      slot: grid_cells
+      uuid: fdb84e34-1d4a-4289-9fa2-344435eae5ab
+      component_id: sdc.dripyard_base.text
+      inputs:
+        text:
+          value: '<p><strong>Every acre protected</strong>, every species saved, and every ecosystem restored brings us closer to a world where nature and communities can thrive together.&nbsp;</p>'
+          format: canvas_html_block
+        style: body_l
+        color: inherit
+        center: true
+        text_max_width: 800px
+    -
+      parent_uuid: f48d71ba-be4f-47a5-816e-1eaf36c9358f
+      slot: content
+      uuid: 4b5b4ea8-cc99-4ef0-894c-8e2ba79baa85
+      component_id: sdc.dripyard_base.flex-wrapper
+      inputs:
+        theme: inherit
+        wrap: true
+        align_x: center
+        align_y: center
+        margin_top: small
+        margin_bottom: zero
+        padding_top: zero
+        padding_bottom: zero
+        column_gutter: small
+        row_gutter: small
+    -
+      parent_uuid: 4b5b4ea8-cc99-4ef0-894c-8e2ba79baa85
+      slot: content
+      uuid: 626fc208-cdcf-4d9c-8df6-5518b81cd19a
+      component_id: sdc.dripyard_base.button
+      inputs:
+        text: 'Find Volunteer Opportunities'
+        href:
+          uri: 'internal:/volunteer-programs'
+          options: {  }
+        style: light
+        size: medium
+        target: false
+    -
+      parent_uuid: 4b5b4ea8-cc99-4ef0-894c-8e2ba79baa85
+      slot: content
+      uuid: f0fa0ae8-6eb4-4f6e-8b3f-5280bcba60d2
+      component_id: sdc.dripyard_base.button
+      inputs:
+        text: 'See Our Calendar'
+        href:
+          uri: 'internal:/events'
+          options: {  }
+        style: outline
+        size: medium
+        target: false
+    -
+      uuid: 33577dc1-c894-4368-ad14-46830dd11b1a
+      component_id: sdc.dripyard_base.section
+      inputs:
+        theme: light
+        section_width: edge-to-edge
+        content_width: max-width
+        margin_top: zero
+        margin_bottom: zero
+        padding_top: large
+        padding_bottom: large
+    -
+      parent_uuid: 33577dc1-c894-4368-ad14-46830dd11b1a
+      slot: header
+      uuid: a4ccca0a-c370-4066-aff3-06da8bc95356
+      component_id: sdc.dripyard_base.heading
+      inputs:
+        text: 'See us in action'
+        html_element: h2
+        style: h2
+        center: true
+        margin_top: zero
+        margin_bottom: zero
+    -
+      parent_uuid: 33577dc1-c894-4368-ad14-46830dd11b1a
+      slot: content
+      uuid: 552e5851-f6a2-4ab9-a35f-19166d6993c6
+      component_id: sdc.dripyard_base.grid-wrapper
+      inputs:
+        canvas_edit_mode: true
+        column_gutter: large
+        row_gutter: zero
+    -
+      parent_uuid: 552e5851-f6a2-4ab9-a35f-19166d6993c6
+      slot: grid_cells
+      uuid: 23435071-a83f-4b5e-9949-d2a3cd8482e1
+      component_id: sdc.dripyard_base.grid-cell
+      inputs:
+        padding: zero
+        columns_small: 12
+        columns_medium: 6
+        columns_large: 6
+        rows_small: 1
+        rows_medium: 1
+        rows_large: 1
+        vertical_alignment: center
+    -
+      parent_uuid: 23435071-a83f-4b5e-9949-d2a3cd8482e1
+      slot: content
+      uuid: 79f4fa43-b6f4-4e48-982a-3ef714eb58ce
+      component_id: sdc.dripyard_base.video-youtube
+      inputs:
+        url: 'https://www.youtube.com/watch?v=8bfd7dCxlRE'
+        title: ' a mountain scene of the land preserved by Meridian conservation.'
+        border_radius: small
+    -
+      parent_uuid: 552e5851-f6a2-4ab9-a35f-19166d6993c6
+      slot: grid_cells
+      uuid: da6ab80a-5185-4070-89dd-2b2eb50422c8
+      component_id: sdc.dripyard_base.grid-cell
+      inputs:
+        padding: zero
+        columns_small: 12
+        columns_medium: 6
+        columns_large: 6
+        rows_small: 1
+        rows_medium: 1
+        rows_large: 1
+        vertical_alignment: center
+    -
+      parent_uuid: da6ab80a-5185-4070-89dd-2b2eb50422c8
+      slot: content
+      uuid: 2703b033-52b7-4333-ab8a-0c21a031b104
+      component_id: sdc.dripyard_base.icon-list
+      inputs:
+        size: medium
+        icon_color: primary
+        column_width: small
+    -
+      parent_uuid: 2703b033-52b7-4333-ab8a-0c21a031b104
+      slot: content
+      uuid: 1d585290-3ebf-471a-b865-750fa11d5e35
+      component_id: sdc.dripyard_base.icon-list-item
+      inputs:
+        icon: mountain
+        text: 'Over 500,000 acres of wild habitat protected and restored.'
+    -
+      parent_uuid: 2703b033-52b7-4333-ab8a-0c21a031b104
+      slot: content
+      uuid: 74f64a93-bf71-46bc-8a55-155116f3bf93
+      component_id: sdc.dripyard_base.icon-list-item
+      inputs:
+        icon: handshake
+        text: 'Partnered with 120 local communities on sustainable conservation projects.'
+    -
+      parent_uuid: 2703b033-52b7-4333-ab8a-0c21a031b104
+      slot: content
+      uuid: 2ad628a5-a95c-4ed6-802d-b6b13a8bb606
+      component_id: sdc.dripyard_base.icon-list-item
+      inputs:
+        icon: paw
+        text: 'Tracked and monitored 85 endangered species across key ecosystems.'
+    -
+      parent_uuid: 2703b033-52b7-4333-ab8a-0c21a031b104
+      slot: content
+      uuid: 0a65ee90-a3dd-464e-9ecf-1891b371300f
+      component_id: sdc.dripyard_base.icon-list-item
+      inputs:
+        icon: tree
+        text: 'Planted over 2 million native trees to rebuild forest corridors.'
+    -
+      uuid: 62d963b2-9c60-476f-a645-1e7b68fcffd2
+      component_id: sdc.dripyard_base.section
+      inputs:
+        theme: primary
+        section_width: edge-to-edge
+        content_width: max-width
+        margin_top: zero
+        margin_bottom: zero
+        padding_top: large
+        padding_bottom: large
+    -
+      parent_uuid: 62d963b2-9c60-476f-a645-1e7b68fcffd2
+      slot: header
+      uuid: 9b52ae82-e34c-46f9-9788-d30b1338b85a
+      component_id: sdc.dripyard_base.background-image
+      inputs:
+        image:
+          CANVAS_ENTITY_REFERENCE:
+            target_uuid: 75cb75fd-82a3-423e-bbca-b5c2d5437074
+            target_type: media
+        background_image_opacity: 20
+        loading: lazy
+        position_x: 1
+        position_y: 1
+    -
+      parent_uuid: 62d963b2-9c60-476f-a645-1e7b68fcffd2
+      slot: header
+      uuid: afe86217-565d-4013-8c2f-2c7f193f0674
+      component_id: sdc.dripyard_base.heading
+      inputs:
+        text: 'Our Conservation Approach'
+        html_element: h2
+        style: h2
+        margin_top: zero
+        margin_bottom: zero
+        center: false
+    -
+      parent_uuid: 62d963b2-9c60-476f-a645-1e7b68fcffd2
+      slot: content
+      uuid: 14bc2ec6-0a50-4bd1-a2e2-09cb5261ca07
+      component_id: sdc.dripyard_base.grid-wrapper
+      inputs:
+        canvas_edit_mode: true
+        column_gutter: medium
+        row_gutter: medium
+    -
+      parent_uuid: 14bc2ec6-0a50-4bd1-a2e2-09cb5261ca07
+      slot: grid_cells
+      uuid: 52fbf740-490f-425d-9483-e8c8ba35818b
+      component_id: sdc.dripyard_base.grid-cell
+      inputs:
+        theme: inherit
+        padding: zero
+        columns_small: 12
+        columns_medium: 4
+        columns_large: 4
+        rows_small: 1
+        rows_medium: 1
+        rows_large: 1
+    -
+      parent_uuid: 52fbf740-490f-425d-9483-e8c8ba35818b
+      slot: content
+      uuid: 9d8f90e0-4baf-48d3-aca9-c62b8084bf86
+      component_id: sdc.dripyard_base.icon-card
+      inputs:
+        title: 'Land Protection'
+        body:
+          value: '<p>Acquiring and preserving critical habitats to safeguard biodiversity for future generations.</p>'
+          format: canvas_html_block
+        icon: mountain
+        href:
+          uri: 'internal:/land-protection'
+          options: {  }
+        layout: landscape
+        icon_size: small
+        no_background: false
+    -
+      parent_uuid: 14bc2ec6-0a50-4bd1-a2e2-09cb5261ca07
+      slot: grid_cells
+      uuid: fb4aaaf6-8a4a-47d3-8177-e0ff505de79d
+      component_id: sdc.dripyard_base.grid-cell
+      inputs:
+        theme: inherit
+        padding: zero
+        columns_small: 12
+        columns_medium: 4
+        columns_large: 4
+        rows_small: 1
+        rows_medium: 1
+        rows_large: 1
+    -
+      parent_uuid: fb4aaaf6-8a4a-47d3-8177-e0ff505de79d
+      slot: content
+      uuid: 2dd6f99f-46a9-4d74-b3d0-f7be76685afa
+      component_id: sdc.dripyard_base.icon-card
+      inputs:
+        title: 'Community Partnerships'
+        body:
+          value: '<p>Working alongside local communities to create sustainable conservation solutions that benefit people and nature.</p>'
+          format: canvas_html_block
+        icon: handshake-simple
+        href:
+          uri: 'internal:/community-partnerships'
+          options: {  }
+        layout: landscape
+        icon_size: small
+        no_background: false
+    -
+      parent_uuid: 14bc2ec6-0a50-4bd1-a2e2-09cb5261ca07
+      slot: grid_cells
+      uuid: e39e6d13-c6f8-4a29-af21-86d218711abf
+      component_id: sdc.dripyard_base.grid-cell
+      inputs:
+        theme: inherit
+        padding: zero
+        columns_small: 12
+        columns_medium: 4
+        columns_large: 4
+        rows_small: 1
+        rows_medium: 1
+        rows_large: 1
+    -
+      parent_uuid: e39e6d13-c6f8-4a29-af21-86d218711abf
+      slot: content
+      uuid: 4b45f18f-7b26-4c8c-93b2-60e45b1e512b
+      component_id: sdc.dripyard_base.icon-card
+      inputs:
+        title: 'Scientific Research'
+        body:
+          value: '<p>Using data-driven approaches to guide our conservation strategies and measure ecological outcomes.</p>'
+          format: canvas_html_block
+        icon: binoculars
+        href:
+          uri: 'internal:/scientific-research'
+          options: {  }
+        layout: landscape
+        icon_size: small
+        no_background: false
+  path:
+    -
+      alias: /meridian-home-page
+      langcode: en
+  revision_translation_affected:
+    -
+      value: true

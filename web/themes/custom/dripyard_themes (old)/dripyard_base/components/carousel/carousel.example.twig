@@ -1,0 +1,47 @@
+{% embed 'dripyard_base:carousel' with {
+  label: 'Features',
+  theme: 'inherit',
+  pager: true,
+  navigation: true,
+  slides_per_view: 1,
+  rows: 1,
+  theme: 'primary',
+} only %}
+  {% block carousel_items %}
+    {{ include('@dripyard_base/../components/testimonial/testimonial.example.twig', with_context = false) }}
+  {% endblock %}
+{% endembed %}
+
+
+{% embed 'dripyard_base:carousel' with {
+  label: 'Features',
+  theme: 'inherit',
+  pager: true,
+  navigation: true,
+  slides_per_view: 4,
+  rows: 1,
+  theme: 'white',
+} only %}
+  {% block carousel_items %}
+    {% for i in 0..16 %}
+      {{ include('@dripyard_base/../components/card/card.example.twig', with_context = false) }}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}
+
+
+{% embed 'dripyard_base:carousel' with {
+  label: 'Features',
+  theme: 'inherit',
+  pager: true,
+  navigation: true,
+  slides_per_view: 4,
+  rows: 2,
+  theme: 'white',
+} only %}
+  {% block carousel_items %}
+    {% for i in 0..16 %}
+      {{ include('@dripyard_base/../components/icon-card/icon-card.example.twig', with_context = false) }}
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

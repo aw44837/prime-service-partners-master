@@ -1,0 +1,242 @@
+uuid: f01c4ee7-bea6-4553-b22c-d0b93c5a110d
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.field_display.field_display
+    - canvas.component.sdc.dripyard_base.button
+    - canvas.component.sdc.dripyard_base.canvas-image
+    - canvas.component.sdc.dripyard_base.flex-wrapper
+    - canvas.component.sdc.dripyard_base.heading
+    - canvas.component.sdc.dripyard_base.layout-dynamic
+    - canvas.component.sdc.dripyard_base.text
+    - canvas.component.sdc.neonbyte.hero
+    - core.entity_view_mode.node.full
+    - field.field.media.image.field_media_image
+    - field.field.media.svg_image.field_media_svg_image
+    - field.field.node.article.body
+    - field.field.node.article.field_featured_image
+    - filter.format.full_html
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - media.type.svg_image
+    - node.type.article
+  content:
+    - 'file:file:b29885ad-5ccb-4460-ae57-f7b0f6804021'
+    - 'media:image:b2898793-807b-44d8-8d29-8bec2debe324'
+  module:
+    - file
+    - link
+    - media
+    - node
+    - options
+id: node.article.full
+content_entity_type_id: node
+content_entity_type_bundle: article
+content_entity_type_view_mode: full
+component_tree:
+  '0:cell_1:0:dc9cd810-b8a3-4052-b2ce-14a27d9aaaed':
+    parent_uuid: dbec14ef-9b5b-4dc2-9a8e-64ad4decdd5f
+    slot: cell_1
+    uuid: dc9cd810-b8a3-4052-b2ce-14a27d9aaaed
+    component_id: sdc.neonbyte.hero
+    component_version: fd16917fc8f81fbc
+    inputs:
+      theme: primary
+      height: small
+      position_behind_against_screen_top: 'true'
+      align_x: start
+      align_y: bottom
+      text_color: inherit
+  '0:cell_1:0:hero_content:0:4ebed2f9-0d2a-4023-831e-efb2482820b1':
+    parent_uuid: dc9cd810-b8a3-4052-b2ce-14a27d9aaaed
+    slot: hero_content
+    uuid: 4ebed2f9-0d2a-4023-831e-efb2482820b1
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: inherit
+      column_count: 2
+      row_count: 1
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: center
+      section_width: max-width
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: small
+      padding_bottom: small
+      column_gutter: medium
+      row_gutter: default
+  '0:cell_1:0:hero_content:0:cell_1:0:dc23d7b3-50fd-496e-adbc-54db9903100c':
+    parent_uuid: 4ebed2f9-0d2a-4023-831e-efb2482820b1
+    slot: cell_1
+    uuid: dc23d7b3-50fd-496e-adbc-54db9903100c
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:article␝title␞␟value'
+      html_element: h1
+      style: h1
+      center: false
+      margin_top: zero
+      margin_bottom: zero
+  '0:cell_1:0:hero_content:0:cell_1:1:5c716f43-38dc-4ecb-922b-95c06963ea0e':
+    parent_uuid: 4ebed2f9-0d2a-4023-831e-efb2482820b1
+    slot: cell_1
+    uuid: 5c716f43-38dc-4ecb-922b-95c06963ea0e
+    component_id: sdc.dripyard_base.flex-wrapper
+    component_version: 647154c4adbb1587
+    inputs:
+      theme: inherit
+      wrap: true
+      align_x: start
+      align_y: center
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+      column_gutter: small
+      row_gutter: small
+  '0:cell_1:0:hero_content:0:cell_1:1:content:0:0a33e5aa-0ab3-490d-a9c7-407563cc4648':
+    parent_uuid: 5c716f43-38dc-4ecb-922b-95c06963ea0e
+    slot: content
+    uuid: 0a33e5aa-0ab3-490d-a9c7-407563cc4648
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Book Now'
+      href:
+        uri: 'internal:/book-online'
+        options: {  }
+      style: secondary
+      size: large
+      target: false
+      suffix_icon: calendar
+  '0:cell_1:0:hero_content:0:cell_2:0:5f82b357-797b-49b5-8259-706bb8c2d754':
+    parent_uuid: 4ebed2f9-0d2a-4023-831e-efb2482820b1
+    slot: cell_2
+    uuid: 5f82b357-797b-49b5-8259-706bb8c2d754
+    component_id: sdc.dripyard_base.canvas-image
+    component_version: 432a6a71fe725929
+    inputs:
+      image:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:article␝field_featured_image␞␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
+      border_radius: large
+      width: 1000
+      loading: lazy
+  '0:cell_1:0:hero_media:0:f7a6d165-b459-4afd-9ef9-35da9c4f375d':
+    parent_uuid: dc9cd810-b8a3-4052-b2ce-14a27d9aaaed
+    slot: hero_media
+    uuid: f7a6d165-b459-4afd-9ef9-35da9c4f375d
+    component_id: sdc.dripyard_base.canvas-image
+    component_version: 432a6a71fe725929
+    inputs:
+      image:
+        target_id: '125'
+      width: 2000
+      loading: lazy
+  '0:dbec14ef-9b5b-4dc2-9a8e-64ad4decdd5f':
+    uuid: dbec14ef-9b5b-4dc2-9a8e-64ad4decdd5f
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: inherit
+      column_count: '1'
+      row_count: '1'
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: default
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: large
+      padding_bottom: large
+      column_gutter: default
+      row_gutter: default
+  '1:5a088033-5815-481d-b8d8-db6da38a23b4':
+    uuid: 5a088033-5815-481d-b8d8-db6da38a23b4
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: inherit
+      column_count: 2
+      row_count: 1
+      two_column_layout: '67% / 33%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: default
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: medium
+      padding_bottom: medium
+      column_gutter: large
+      row_gutter: default
+  '1:cell_1:0:cea62ccb-0e58-42e0-94c0-1358fd97e9aa':
+    parent_uuid: 5a088033-5815-481d-b8d8-db6da38a23b4
+    slot: cell_1
+    uuid: cea62ccb-0e58-42e0-94c0-1358fd97e9aa
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:article␝body␞␟processed'
+      style: body_m
+      color: inherit
+  '1:cell_2:0:54c25111-6532-4db4-9fc5-e0710d7c0ecc':
+    parent_uuid: 5a088033-5815-481d-b8d8-db6da38a23b4
+    slot: cell_2
+    uuid: 54c25111-6532-4db4-9fc5-e0710d7c0ecc
+    component_id: field_display.field_display
+    component_version: d51828e603b0f85c
+    inputs:
+      field_name: created
+      entity_type_id: node
+      bundle: article
+      view_mode: full
+      formatter_id: timestamp
+      formatter_settings:
+        date_format: html_date
+        custom_date_format: ''
+        timezone: ''
+        tooltip:
+          date_format: long
+          custom_date_format: ''
+        time_diff:
+          enabled: false
+          future_format: '@interval hence'
+          past_format: '@interval ago'
+          granularity: '2'
+          refresh: '60'
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: '2'
+      formatter_third_party_settings: {  }
+      label_display: hidden
+  '1:cell_2:1:08e86505-d87c-4518-9db6-9b28ac1aaa7d':
+    parent_uuid: 5a088033-5815-481d-b8d8-db6da38a23b4
+    slot: cell_2
+    uuid: 08e86505-d87c-4518-9db6-9b28ac1aaa7d
+    component_id: field_display.field_display
+    component_version: d51828e603b0f85c
+    inputs:
+      field_name: field_tags
+      entity_type_id: node
+      bundle: article
+      view_mode: full
+      formatter_id: entity_reference_label
+      formatter_settings:
+        link: true
+      formatter_third_party_settings: {  }
+      label_display: hidden
+exposed_slots: {  }

@@ -1,0 +1,25 @@
+uuid: 1c35700f-113b-474b-872c-39ff00c8ede1
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:dripyard_button:0a885524-3461-46a7-af04-a13b08f08d6a'
+  module:
+    - block_content
+active_version: baf05a4bcdd22e06
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'block_content:0a885524-3461-46a7-af04-a13b08f08d6a'
+        label: 'Book Online Button'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+label: 'Book Online Button'
+id: block.block_content.0a885524-3461-46a7-af04-a13b08f08d6a
+provider: block_content
+source: block
+source_local_id: 'block_content:0a885524-3461-46a7-af04-a13b08f08d6a'

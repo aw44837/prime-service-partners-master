@@ -1,0 +1,10 @@
+uuid: d6fa2b06-7fab-4782-a275-98914c68c1c8
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: h97V_qF8exqybx-IZK8F9Vg644tqcAJmAT0buL70Faw
+id: dripyard_statistic
+label: Statistic
+revision: false
+description: 'Provides a statistic block type with a numerical value and optional descriptive text lines.'

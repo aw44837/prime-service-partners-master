@@ -1,0 +1,12 @@
+/*
+ * Meridian specific styles for layout builder form.
+ */
+
+/* hero */
+.layout-builder-block:has(.hero) {
+  display: flex;
+}
+
+.hero__content {
+  padding-inline: 50px;
+}

@@ -1,0 +1,28 @@
+uuid: f35bd2e5-3d23-4267-a8da-e9ffe97557be
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - meridian
+_core:
+  default_config_hash: wIMmX1nuY-_nb1bQjs7Ux73R2o1foXyGIgbOsvBH6YY
+id: meridian_primary_local_tasks
+theme: meridian
+region: fixed_middle_right
+weight: -5
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/user/login\r\n/user/register\r\n/user/password"

@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 9aa70b1c-4c50-4250-8f42-1bc972006540
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    110e880d-13f5-4233-ab8e-1f29efd30ad3: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: Careers
+  menu_name:
+    -
+      value: footer
+  link:
+    -
+      uri: 'internal:/'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -50
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:110e880d-13f5-4233-ab8e-1f29efd30ad3'
+  revision_translation_affected:
+    -
+      value: true

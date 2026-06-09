@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 205f7de0-5304-4d77-a30f-83cf0b3015f4
+  bundle: article
+  default_langcode: en
+  depends:
+    79171050-239d-49a6-8878-e0cd267475df: file
+    c3330c07-671f-4cad-b5c1-1874d313b5c0: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Pacific Coast'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /pacific-coast
+  body:
+    -
+      value: '<p>The Pacific Coast is a landscape of contrasts — ancient forests meet rugged shorelines, productive estuaries feed some of the richest marine ecosystems on earth, and migratory pathways connect habitats from Alaska to Baja California. Meridian''s coastal programs address the interconnected challenges facing these dynamic environments.</p><drupal-media data-entity-type="media" data-entity-uuid="be6356f9-2243-4566-a4dc-1829a9f6b84b" data-align="left" data-caption="Pacific coastal ecosystem">&nbsp;</drupal-media><p>Sea level rise, ocean acidification, and coastal development threaten the salt marshes, tidal flats, and barrier beaches that serve as nurseries for countless marine species. Our work focuses on protecting and restoring these critical transition zones where land meets sea.</p><p>We support community-based conservation along the Pacific coast, working with fishing communities, Indigenous nations, and local governments to develop management approaches that sustain both ecosystems and livelihoods. From kelp forest restoration in the Pacific Northwest to wetland protection in California''s Central Coast, our programs recognize that healthy coasts are the foundation of healthy coastal communities.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Pacific Northwest coastline with sea stacks and rocky shore, overcast January afternoon'
+      title: ''
+      width: 1376
+      height: 768
+      entity: c3330c07-671f-4cad-b5c1-1874d313b5c0

@@ -1,0 +1,54 @@
+uuid: 849c022d-b08d-450d-a3fb-ae0e5549dd34
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.article.body
+id: node.article.body.default
+label: 'Generate body from title'
+rule: llm_text_with_summary
+input_mode: base
+weight: 100
+worker_type: field_widget_actions
+entity_type: node
+bundle: article
+field_name: body
+edit_mode: false
+base_field: title
+prompt: |-
+  Generate a website article from the context found here: {{ context }}
+
+  The content you are about to generate is for a HVAC and plumbing services company called: JefCo Air Conditioning & Plumbing 
+
+  Location: based in Santa Rosa Beach, Florida and will be used primarily on their website for consumers. 
+
+  Tone: Use a helpful, advisory tone in informing a consumer of their options, when to make repairs or replacements while reminding them the value of quality service without being overly salesy.
+
+  Use HTML formatting with correct markup. 
+token: ''
+guardrail_set_id: null
+plugin_config:
+  automator_enabled: 1
+  automator_rule: llm_text_with_summary
+  automator_mode: base
+  automator_base_field: title
+  automator_prompt: |-
+    Generate a website article from the context found here: {{ context }}
+
+    The content you are about to generate is for a HVAC and plumbing services company called: JefCo Air Conditioning & Plumbing 
+
+    Location: based in Santa Rosa Beach, Florida and will be used primarily on their website for consumers. 
+
+    Tone: Use a helpful, advisory tone in informing a consumer of their options, when to make repairs or replacements while reminding them the value of quality service without being overly salesy.
+
+    Use HTML formatting with correct markup. 
+  automator_token: ''
+  automator_edit_mode: 0
+  automator_label: 'Generate body from title'
+  automator_weight: '100'
+  automator_worker_type: field_widget_actions
+  automator_guardrail_set_id: ''
+  automator_ai_provider: default_json
+  automator_joiner: ''
+  automator_joiner_other: ''
+  automator_use_text_format: ''

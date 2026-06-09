@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 9b4f92a1-b010-4e37-bb3e-bd9072989000
+  bundle: image
+  default_langcode: en
+  depends:
+    0855ac7a-4781-4591-9c1f-7eaee9b2db51: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Land Protection Inline'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Conservation easement boundary marker at edge of field and forest'
+      title: ''
+      width: 1536
+      height: 1024
+      entity: 0855ac7a-4781-4591-9c1f-7eaee9b2db51

@@ -1,0 +1,26 @@
+uuid: 0e34f168-1c90-41a4-b212-e0105a9d016c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - meridian
+_core:
+  default_config_hash: erK_gmyt_S8kuuyJW6EIJD9NaJacd9My4VsuH-VhHqg
+id: meridian_page_title
+theme: meridian
+region: highlighted
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "<front>\r\n/canvas*"

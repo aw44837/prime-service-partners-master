@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: d1f11a69-0cd5-4121-8fba-82c4425ffccb
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: california.jpg
+  uri:
+    -
+      value: 'public://2026-01/california.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 439877
+  status:
+    -
+      value: true

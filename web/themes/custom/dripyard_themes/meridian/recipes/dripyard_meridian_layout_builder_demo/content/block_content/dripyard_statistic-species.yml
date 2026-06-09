@@ -1,0 +1,33 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f
+  bundle: dripyard_statistic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Species (statistic)'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  dripyard_link:
+    -
+      uri: 'internal:/wildlife-protection'
+      title: ''
+      options: {  }
+  dripyard_statistic:
+    -
+      value: '85'
+  dripyard_statistic_first_line:
+    -
+      value: endangered species
+  dripyard_statistic_second_line:
+    -
+      value: tracked and monitored

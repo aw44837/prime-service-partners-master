@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 1aabbfee-ee20-4a26-a06a-8ca5baf6bc2c
+  bundle: image
+  default_langcode: en
+  depends:
+    9f1785b7-101d-467f-81d0-190931605b8f: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Educational Events'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Nature walk group gathered at interpretive sign in Appalachian forest clearing, May morning'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 9f1785b7-101d-467f-81d0-190931605b8f

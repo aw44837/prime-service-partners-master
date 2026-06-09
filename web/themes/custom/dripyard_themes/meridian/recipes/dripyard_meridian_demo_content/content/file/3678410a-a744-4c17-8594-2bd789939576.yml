@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 3678410a-a744-4c17-8594-2bd789939576
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: desert-southwest.jpg
+  uri:
+    -
+      value: 'public://article-images/desert-southwest.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 159543
+  status:
+    -
+      value: true

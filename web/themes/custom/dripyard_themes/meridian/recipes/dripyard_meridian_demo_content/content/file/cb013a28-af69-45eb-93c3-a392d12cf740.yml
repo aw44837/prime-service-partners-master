@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: cb013a28-af69-45eb-93c3-a392d12cf740
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: community-partnerships-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/community-partnerships-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 137680
+  status:
+    -
+      value: true

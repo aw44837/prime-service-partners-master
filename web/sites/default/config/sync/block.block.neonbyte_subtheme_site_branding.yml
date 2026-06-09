@@ -1,0 +1,25 @@
+uuid: f65f7a38-d68f-4dda-b9a3-095224d0324c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - neonbyte_subtheme
+_core:
+  default_config_hash: zeI-ChjVlmXvf5LGs_1k-jDJ3kxKRMJ1tw9ScwUgkDo
+id: neonbyte_subtheme_site_branding
+theme: neonbyte_subtheme
+region: header_first
+weight: -10
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

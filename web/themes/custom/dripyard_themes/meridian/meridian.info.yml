@@ -1,0 +1,38 @@
+# Licensed to: ANDYWALDROP@GMAIL.COM (71052a2f-7b84-48b3-a11b-b7156082ffeb)
+name: Meridian
+type: theme
+base theme: dripyard_base
+description: A highly accessible, flexible, and beautiful theme from the friendly Drupal experts at <a href="https://www.dripyard.com" target="_blank">DripYard</a>.
+core_version_requirement: ^11.2
+libraries:
+  - meridian/global
+libraries-override:
+  dripyard_base/themes: meridian/themes
+  dripyard_base/variables: meridian/variables
+libraries-extend:
+  core/components.dripyard_base--card:
+    - meridian/card
+  core/components.dripyard_base--button:
+    - meridian/button
+  core/components.dripyard_base--layout-dynamic:
+    - meridian/layout-dynamic
+  core/components.dripyard_base--header-commerce-cart:
+    - meridian/header-commerce-cart
+  dripyard_base/user-login-form:
+    - meridian/user-login-form
+  layout_builder/drupal.layout_builder:
+    - meridian/drupal.layout_builder
+regions:
+  header_above: Header above
+  header_first: Header first (logo)
+  header_second: Header second (center)
+  header_third: Header third (right)
+  highlighted: Highlighted
+  content: Content
+  fixed_middle_right: Fixed middle right (local actions tabs)
+  fixed_bottom_right: Fixed bottom right (messages)
+  footer_top: Footer top
+  footer_left: Footer left
+  footer_right: Footer right
+  footer_bottom: Footer bottom
+dripyard_theme_level: primary

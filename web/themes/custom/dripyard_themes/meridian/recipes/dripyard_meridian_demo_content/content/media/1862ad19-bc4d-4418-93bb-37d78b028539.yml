@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 1862ad19-bc4d-4418-93bb-37d78b028539
+  bundle: image
+  default_langcode: en
+  depends:
+    d1f11a69-0cd5-4121-8fba-82c4425ffccb: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: california.jpg
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Artistic drawing of California redwoods'
+      title: ''
+      width: 1536
+      height: 1024
+      entity: d1f11a69-0cd5-4121-8fba-82c4425ffccb

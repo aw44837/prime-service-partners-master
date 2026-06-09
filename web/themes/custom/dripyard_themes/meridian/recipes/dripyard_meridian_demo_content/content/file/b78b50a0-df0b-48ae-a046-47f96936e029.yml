@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: b78b50a0-df0b-48ae-a046-47f96936e029
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: volunteer-programs.jpg
+  uri:
+    -
+      value: 'public://article-images/volunteer-programs.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 230610
+  status:
+    -
+      value: true

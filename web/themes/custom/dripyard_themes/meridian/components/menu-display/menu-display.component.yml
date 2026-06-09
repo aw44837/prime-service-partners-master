@@ -1,0 +1,77 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Menu Display
+status: stable
+group: JefCo
+props:
+  type: object
+  required:
+    - menu_name
+  properties:
+    menu_name:
+      title: Menu
+      type: string
+      enum:
+        - main
+        - footer
+        - account
+        - tools
+      meta:enum:
+        main: Main navigation
+        footer: Footer
+        account: User account
+        tools: Tools
+      examples: [ main ]
+    depth:
+      title: Menu depth
+      description: Number of menu levels to display. 0 = unlimited.
+      type:
+        - integer
+        - 'null'
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+      meta:enum:
+        0: All levels
+        1: 1 level
+        2: 2 levels
+        3: 3 levels
+        4: 4 levels
+      examples: [ 1 ]
+    style:
+      type:
+        - string
+        - 'null'
+      title: Text size
+      enum:
+        - body_l
+        - body_m
+        - body_s
+      meta:enum:
+        body_l: Large
+        body_m: Medium
+        body_s: Small
+      examples: [ body_m ]
+    color:
+      type:
+        - string
+        - 'null'
+      title: Text color
+      enum:
+        - inherit
+        - soft
+        - medium
+        - loud
+        - primary
+      meta:enum:
+        inherit: Inherit
+        soft: Soft
+        medium: Medium
+        loud: Loud
+        primary: Primary
+      examples: [ inherit ]
+    modifier_classes:
+      type: string
+      title: Modifier CSS classes

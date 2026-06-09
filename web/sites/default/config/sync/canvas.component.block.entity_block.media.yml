@@ -1,0 +1,24 @@
+uuid: 09c4aaf7-8762-4b2c-b8e6-e4d01692a4ac
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: 31b64f740a480212
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:media'
+        label: Media
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: Media
+id: block.entity_block.media
+provider: entity_block
+source: block
+source_local_id: 'entity_block:media'

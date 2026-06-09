@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 81210485-a360-4186-98c0-a841a73cac46
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    b9e120a7-e0c4-498d-a763-ca939e38fcbe: node
+    874e0713-1d59-47d2-9282-96c4cefa40d9: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Youth Programs'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: b9e120a7-e0c4-498d-a763-ca939e38fcbe
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -48
+  expanded:
+    -
+      value: true
+  parent:
+    -
+      value: 'menu_link_content:874e0713-1d59-47d2-9282-96c4cefa40d9'
+  revision_translation_affected:
+    -
+      value: true

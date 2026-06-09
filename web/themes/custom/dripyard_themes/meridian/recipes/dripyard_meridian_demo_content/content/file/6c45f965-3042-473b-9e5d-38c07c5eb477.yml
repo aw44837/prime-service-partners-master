@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 6c45f965-3042-473b-9e5d-38c07c5eb477
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: utah.jpg
+  uri:
+    -
+      value: 'public://2026-01/utah.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 326326
+  status:
+    -
+      value: true

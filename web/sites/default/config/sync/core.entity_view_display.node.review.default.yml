@@ -1,0 +1,58 @@
+uuid: 97a1bb10-e354-41b0-8af2-6b1475e9afd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.review.field_rating_score
+    - field.field.node.review.field_review
+    - field.field.node.review.field_review_date
+    - field.field.node.review.field_reviewer_name
+    - node.type.review
+  module:
+    - datetime
+    - text
+    - user
+id: node.review.default
+targetEntityType: node
+bundle: review
+mode: default
+content:
+  field_rating_score:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_review:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_review_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_reviewer_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

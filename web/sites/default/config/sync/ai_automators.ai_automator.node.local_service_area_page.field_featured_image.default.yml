@@ -1,0 +1,47 @@
+uuid: 482a4b84-d9ff-4306-a5dc-1143263cc1a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.local_service_area_page.field_featured_image
+id: node.local_service_area_page.field_featured_image.default
+label: 'AI Image Creation from Body'
+rule: llm_media_image_generation
+input_mode: base
+weight: 100
+worker_type: field_widget_actions
+entity_type: node
+bundle: local_service_area_page
+field_name: field_featured_image
+edit_mode: false
+base_field: body
+prompt: |-
+  Based on the web article context found below, create an image for a roofing and home services company. Images can feature home, roofing features, geographic areas, representative customers and roofing project coordinators collaborating in a friendly and professional manner. 
+
+  Images should be realistic, real photo appearance. 
+
+  Article context here: {{ context }} 
+token: ''
+plugin_config:
+  automator_enabled: 1
+  automator_rule: llm_media_image_generation
+  automator_llm_media_type: image
+  automator_mode: base
+  automator_base_field: body
+  automator_prompt: |-
+    Based on the web article context found below, create an image for a roofing and home services company. Images can feature home, roofing features, geographic areas, representative customers and roofing project coordinators collaborating in a friendly and professional manner. 
+
+    Images should be realistic, real photo appearance. 
+
+    Article context here: {{ context }} 
+  automator_token: ''
+  automator_edit_mode: 0
+  automator_label: 'AI Image Creation from Body'
+  automator_weight: '100'
+  automator_worker_type: field_widget_actions
+  automator_ai_provider: openai
+  automator_ai_model: gpt-image-1.5
+  automator_configuration_n: '1'
+  automator_configuration_size: 1536x1024
+  automator_configuration_quality: auto
+  automator_configuration_output_format: jpeg

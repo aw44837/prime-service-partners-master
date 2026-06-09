@@ -1,0 +1,22 @@
+uuid: 26506bce-97bd-48bd-9445-96543174fa91
+langcode: en
+status: false
+dependencies:
+  config:
+    - canvas.component.block.system_menu_block.main
+  theme:
+    - neonbyte_subtheme
+id: neonbyte_subtheme.header_second
+region: header_second
+theme: neonbyte_subtheme
+component_tree:
+  '0:0beb09bb-14a4-4672-9d72-61f3eb4f3931':
+    uuid: 0beb09bb-14a4-4672-9d72-61f3eb4f3931
+    component_id: block.system_menu_block.main
+    component_version: 023ff7ba63f80798
+    inputs:
+      label: 'Main navigation'
+      label_display: '0'
+      level: 1
+      depth: 3
+      expand_all_items: true

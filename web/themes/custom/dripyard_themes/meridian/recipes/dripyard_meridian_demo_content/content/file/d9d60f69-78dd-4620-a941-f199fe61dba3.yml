@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: d9d60f69-78dd-4620-a941-f199fe61dba3
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: south-atlantic.jpg
+  uri:
+    -
+      value: 'public://article-images/south-atlantic.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 116125
+  status:
+    -
+      value: true

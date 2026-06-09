@@ -1,0 +1,25 @@
+uuid: dab146e1-5a3f-4d7d-b413-b47e947f5f0e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - meridian_subtheme
+_core:
+  default_config_hash: 5WgBbJi9rnugMCsbua1qDp7hteXA9GSPF2uaaGAjOIQ
+id: meridian_subtheme_site_branding
+theme: meridian_subtheme
+region: header_first
+weight: -10
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

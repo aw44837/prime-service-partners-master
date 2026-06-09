@@ -1,0 +1,11 @@
+uuid: 3b3c279a-4f27-4e3a-ba55-71f699921224
+langcode: en
+status: true
+dependencies: {  }
+name: Other
+configEntityTypeId: component
+weight: 0
+items:
+  - sdc.dripyard_base.theme-test
+  - sdc.meridian.language-switcher
+  - sdc.navigation.title

@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 665d4c1e-133a-4943-b815-7438c71d0257
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: appalachian-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/appalachian-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 255782
+  status:
+    -
+      value: true

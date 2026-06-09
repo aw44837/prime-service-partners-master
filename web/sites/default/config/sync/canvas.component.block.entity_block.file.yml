@@ -1,0 +1,24 @@
+uuid: f05fb504-170e-4d8b-beb2-5ed1268d4068
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: 69bd04938ffed245
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:file'
+        label: File
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: File
+id: block.entity_block.file
+provider: entity_block
+source: block
+source_local_id: 'entity_block:file'

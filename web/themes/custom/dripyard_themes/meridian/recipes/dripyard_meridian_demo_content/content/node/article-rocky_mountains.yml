@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 62987eb0-7676-4005-bcfb-c893e0ac16fe
+  bundle: article
+  default_langcode: en
+  depends:
+    76181e42-4300-452f-8a43-77618ca6dd53: file
+    188cdc5c-d521-413f-b3d2-189f276b253d: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Rocky Mountains'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /rocky-mountains
+  body:
+    -
+      value: '<p>The Rocky Mountains represent one of North America''s most significant ecological corridors — a spine of high country stretching from New Mexico to Montana that supports an extraordinary diversity of life. Meridian''s work in the Rockies focuses on protecting high-elevation ecosystems that are among the most vulnerable to climate change.</p><drupal-media data-entity-type="media" data-entity-uuid="402745d8-b9c2-471e-a2a8-d59aace859ef" data-align="left" data-caption="Rocky Mountain alpine meadow">&nbsp;</drupal-media><p>Alpine meadows, subalpine forests, and mountain streams provide critical habitat for species like the American pika, wolverine, and cutthroat trout. These cold-adapted species are already showing signs of range contraction as temperatures rise. Our monitoring programs track these shifts and inform adaptive management strategies.</p><p>We partner with federal land managers, ranching communities, and tribal nations to address conservation challenges that cross jurisdictional boundaries. From protecting winter wildlife corridors in the Greater Yellowstone Ecosystem to restoring degraded riparian areas in Colorado''s high country, our Rocky Mountain programs combine scientific rigor with deep respect for the communities and cultures that call these mountains home.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'High elevation rocky mountain meadow with subalpine fir and distant snow-dusted peaks, early October'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 188cdc5c-d521-413f-b3d2-189f276b253d

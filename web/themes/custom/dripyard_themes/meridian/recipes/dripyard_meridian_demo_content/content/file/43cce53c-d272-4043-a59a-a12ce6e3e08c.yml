@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 43cce53c-d272-4043-a59a-a12ce6e3e08c
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: involve-species.jpg
+  uri:
+    -
+      value: 'public://involve-species.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 271861
+  status:
+    -
+      value: true

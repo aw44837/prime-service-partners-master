@@ -1,0 +1,25 @@
+#!/bin/bash
+## Description: Fix Easy Encryption key paths after pulling DB from production.
+## Usage: fix-keys
+## Example: ddev fix-keys
+
+set -e
+
+DDEV_PATH="/var/www/html/.easy_encryption"
+KEY_ID="easy_encrypted__f2758717_29d5_4576_ad8c_e7ae5affca40__private_key"
+KEY_FILE="${DDEV_PATH}/${KEY_ID}.php"
+
+echo "Updating Easy Encryption private key path to DDEV container path..."
+
+drush ev "
+\$key_id = '${KEY_ID}';
+\$correct_path = '${KEY_FILE}';
+\$config = \Drupal::configFactory()->getEditable('key.key.' . \$key_id);
+\$settings = \$config->get('key_provider_settings');
+\$settings['file_location'] = \$correct_path;
+\$config->set('key_provider_settings', \$settings)->save();
+echo 'Key path updated to: ' . \$correct_path . PHP_EOL;
+"
+
+drush cache:rebuild
+echo "Done. Canvas pages should work again."

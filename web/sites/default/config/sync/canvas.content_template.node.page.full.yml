@@ -1,0 +1,129 @@
+uuid: 19c27972-3f2d-4ccf-9d61-f6e94404879d
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.block.system_breadcrumb_block
+    - canvas.component.sdc.dripyard_base.canvas-image
+    - canvas.component.sdc.dripyard_base.heading
+    - canvas.component.sdc.dripyard_base.layout-dynamic
+    - canvas.component.sdc.dripyard_base.section
+    - canvas.component.sdc.dripyard_base.text
+    - canvas.component.sdc.neonbyte.hero
+    - core.entity_view_mode.node.full
+    - field.field.media.image.field_media_image
+    - field.field.media.svg_image.field_media_svg_image
+    - field.field.node.page.field_content
+    - filter.format.content_format
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - media.type.svg_image
+    - node.type.page
+  content:
+    - 'file:file:b29885ad-5ccb-4460-ae57-f7b0f6804021'
+    - 'media:image:b2898793-807b-44d8-8d29-8bec2debe324'
+  module:
+    - file
+    - media
+    - node
+    - options
+_core:
+  default_config_hash: 2BfedraXHklo2SksC0MXx0HmQwdpoG28b_sahpy75AM
+id: node.page.full
+content_entity_type_id: node
+content_entity_type_bundle: page
+content_entity_type_view_mode: full
+component_tree:
+  '0:64d3d60e-9b77-43ac-98a2-71abb7edca21':
+    uuid: 64d3d60e-9b77-43ac-98a2-71abb7edca21
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: inherit
+      column_count: '1'
+      row_count: '1'
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: default
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: large
+      padding_bottom: large
+      column_gutter: default
+      row_gutter: default
+  '0:cell_1:0:ac25e047-c67b-4e38-ab63-0ec4071a4307':
+    parent_uuid: 64d3d60e-9b77-43ac-98a2-71abb7edca21
+    slot: cell_1
+    uuid: ac25e047-c67b-4e38-ab63-0ec4071a4307
+    component_id: sdc.neonbyte.hero
+    component_version: fd16917fc8f81fbc
+    inputs:
+      theme: primary
+      height: small
+      position_behind_against_screen_top: true
+      align_x: start
+      align_y: bottom
+      text_color: inherit
+  '0:cell_1:0:hero_content:0:34fea276-8f45-4f63-a0ba-a87ee61b0060':
+    parent_uuid: ac25e047-c67b-4e38-ab63-0ec4071a4307
+    slot: hero_content
+    uuid: 34fea276-8f45-4f63-a0ba-a87ee61b0060
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:page␝title␞␟value'
+      html_element: h1
+      style: h1
+      center: true
+      margin_top: zero
+      margin_bottom: zero
+  '0:cell_1:0:hero_media:0:c7f87812-6eb0-461d-97f0-e2c575a4b220':
+    parent_uuid: ac25e047-c67b-4e38-ab63-0ec4071a4307
+    slot: hero_media
+    uuid: c7f87812-6eb0-461d-97f0-e2c575a4b220
+    component_id: sdc.dripyard_base.canvas-image
+    component_version: 432a6a71fe725929
+    inputs:
+      image:
+        target_id: '125'
+      width: 800
+      loading: lazy
+  '1:1d254e10-d4e2-417c-835e-2f2d426428d4':
+    uuid: 1d254e10-d4e2-417c-835e-2f2d426428d4
+    component_id: sdc.dripyard_base.section
+    component_version: e6079b189d228dad
+    inputs:
+      theme: inherit
+      section_width: max-width
+      content_width: narrow
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: small
+      padding_bottom: medium
+  '1:content:0:041adcbe-ab6e-4610-b6cc-176971e4ac63':
+    parent_uuid: 1d254e10-d4e2-417c-835e-2f2d426428d4
+    slot: content
+    uuid: 041adcbe-ab6e-4610-b6cc-176971e4ac63
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:page␝field_content␞␟processed'
+      style: body_m
+      color: inherit
+  '1:header:0:92e68054-9f78-4420-8752-96ec693d2fa9':
+    parent_uuid: 1d254e10-d4e2-417c-835e-2f2d426428d4
+    slot: header
+    uuid: 92e68054-9f78-4420-8752-96ec693d2fa9
+    component_id: block.system_breadcrumb_block
+    component_version: ad6359c331fc7c45
+    inputs:
+      label: Breadcrumbs
+      label_display: '0'
+exposed_slots: {  }

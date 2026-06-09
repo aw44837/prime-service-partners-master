@@ -1,0 +1,22 @@
+uuid: d1bac9c2-b247-40d0-9e04-1d049ea359c2
+langcode: en
+status: false
+dependencies:
+  config:
+    - canvas.component.block.system_menu_block.footer
+  theme:
+    - meridian_subtheme
+id: meridian_subtheme.footer_left
+region: footer_left
+theme: meridian_subtheme
+component_tree:
+  '0:512c0b03-910c-4bef-b2ed-45c40bc77a6b':
+    uuid: 512c0b03-910c-4bef-b2ed-45c40bc77a6b
+    component_id: block.system_menu_block.footer
+    component_version: 68bdb40e1ac48125
+    inputs:
+      label: Footer
+      label_display: '0'
+      level: 1
+      depth: 2
+      expand_all_items: true

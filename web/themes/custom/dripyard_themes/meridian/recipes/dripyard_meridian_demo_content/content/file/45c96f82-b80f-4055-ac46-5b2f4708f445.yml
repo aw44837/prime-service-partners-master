@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 45c96f82-b80f-4055-ac46-5b2f4708f445
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: involve-volunteer.jpg
+  uri:
+    -
+      value: 'public://involve-volunteer.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 349617
+  status:
+    -
+      value: true

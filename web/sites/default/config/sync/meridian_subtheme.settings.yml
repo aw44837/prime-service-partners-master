@@ -1,0 +1,58 @@
+_core:
+  default_config_hash: BcNkOc1d7S9Ie4zptPL7JaNwT9cXPDBx6li9HMHhAEM
+favicon:
+  mimetype: image/png
+  path: 'public://JefCo-favicon.png'
+  use_default: false
+features:
+  comment_user_picture: false
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: false
+logo:
+  path: 'public://JefCo-Plumbing-Logo.png'
+  use_default: false
+third_party_settings:
+  shortcut:
+    module_link: true
+theme_colors:
+  site_theme: white
+  color_scheme: ''
+  colors:
+    base_primary_color: '#085ca8'
+    base_primary_color_brightness: dark
+    base_secondary_color: '#ce2830'
+    base_secondary_color_brightness: dark
+footer:
+  theme: dark
+layout_settings:
+  container_max_width: '1440'
+  border_radius_sm: '3'
+  border_radius_md: '6'
+  border_radius_lg: '12'
+  border_radius_button: '5'
+header_settings:
+  theme: white
+  logo_adjustments:
+    when_hero: no_change
+    when_stickied: no_change
+social_media_links:
+  bluesky: ''
+  discord: ''
+  facebook: 'https://www.facebook.com/jefcoac/'
+  github: ''
+  instagram: 'https://www.instagram.com/jefco_ac/'
+  linkedin: ''
+  mastodon: ''
+  pinterest: ''
+  reddit: ''
+  snapchat: ''
+  telegram: ''
+  threads: ''
+  tiktok: ''
+  twitch: ''
+  twitter: ''
+  whatsapp: ''
+  youtube: ''
+license_uuid: 71052a2f-7b84-48b3-a11b-b7156082ffeb
+dripyard_uid: 78

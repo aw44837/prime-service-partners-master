@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 76181e42-4300-452f-8a43-77618ca6dd53
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: rocky-mountains-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/rocky-mountains-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 221093
+  status:
+    -
+      value: true

@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: bc822615-52b2-4e67-bb63-2e0281b93216
+  bundle: article
+  default_langcode: en
+  depends:
+    3673cb5b-1579-4f7e-8213-6613aaa6d294: file
+    3678410a-a744-4c17-8594-2bd789939576: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Desert Southwest'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /desert-southwest
+  body:
+    -
+      value: '<p>The deserts of the American Southwest are landscapes of austere beauty and surprising ecological richness. From the Sonoran Desert''s saguaro forests to the Colorado Plateau''s canyon country, these arid lands support highly adapted plant and animal communities that have evolved over millennia to thrive in conditions of extreme heat and limited water.</p><drupal-media data-entity-type="media" data-entity-uuid="19a75287-8a9f-46e9-999b-3a989a742247" data-align="left" data-caption="Desert spring oasis">&nbsp;</drupal-media><p>Water is the defining challenge of desert conservation. Meridian works to protect the springs, seeps, and ephemeral waterways that sustain desert wildlife — from desert pupfish and Gila monsters to kit foxes and elf owls. These water sources are lifelines in an arid landscape, and their protection is essential to maintaining desert biodiversity.</p><p>We also address the growing pressures on desert ecosystems from renewable energy development, urban expansion, and overgrazing. Through strategic land protection and collaborative planning, we help ensure that the transition to clean energy does not come at the expense of irreplaceable desert habitats. The desert teaches patience and resilience — qualities that guide our conservation approach in these remarkable landscapes.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Desert Southwest landscape with scattered saguaro cactus and distant mesa formation, late October'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 3678410a-a744-4c17-8594-2bd789939576

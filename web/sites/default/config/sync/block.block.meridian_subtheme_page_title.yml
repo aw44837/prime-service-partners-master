@@ -1,0 +1,26 @@
+uuid: bdb10c53-8df7-45fe-970c-638b7b8022b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - meridian_subtheme
+_core:
+  default_config_hash: q341AiIRx55UCu3pMtuEBMae6rlnUHtuCzTH_8mWZm8
+id: meridian_subtheme_page_title
+theme: meridian_subtheme
+region: highlighted
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /blog

@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: e0c544f0-0acd-40f2-8542-be88c44afd79
+  bundle: article
+  default_langcode: en
+  depends:
+    750af4c7-e07c-49da-89d6-6d5b308a5700: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Gift Cards'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /gift-cards
+  body:
+    -
+      value: "<p>A Meridian gift card is an invitation to explore — to choose a field guide, a hand-printed map, or a piece of apparel that connects someone you care about to the landscapes and conservation work that define our organization.</p><p>Our gift cards are printed on recycled kraft paper with pressed botanical designs featuring native plants from the regions we serve. Each card comes in a simple envelope with a brief note about Meridian's conservation mission.</p><p>Gift cards are available in denominations of $25, $50, $75, and $100, and can be redeemed for any item in our shop. They never expire. Whether for a birthday, holiday, or simply because someone deserves to be reminded of the wild places that sustain us, a Meridian gift card is a thoughtful way to support conservation while sharing something meaningful.</p>"
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Kraft paper gift cards with pressed botanical prints on wooden counter, overcast indoor light'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 750af4c7-e07c-49da-89d6-6d5b308a5700

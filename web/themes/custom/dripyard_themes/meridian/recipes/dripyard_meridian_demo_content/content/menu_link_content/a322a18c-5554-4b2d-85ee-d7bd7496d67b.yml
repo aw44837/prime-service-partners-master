@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: a322a18c-5554-4b2d-85ee-d7bd7496d67b
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    14fa434d-4c44-41a8-84f8-3ad510ff7482: node
+    9eead6d7-bd79-4f9e-8a18-555a30046240: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Scientific Research'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: 14fa434d-4c44-41a8-84f8-3ad510ff7482
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -47
+  expanded:
+    -
+      value: true
+  parent:
+    -
+      value: 'menu_link_content:9eead6d7-bd79-4f9e-8a18-555a30046240'
+  revision_translation_affected:
+    -
+      value: true

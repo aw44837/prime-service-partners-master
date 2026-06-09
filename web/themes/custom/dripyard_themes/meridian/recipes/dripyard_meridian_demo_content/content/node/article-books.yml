@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 4eae16ff-b398-42fd-8f6e-64acb847bcb6
+  bundle: article
+  default_langcode: en
+  depends:
+    b4979da3-fd06-4393-87dc-c97e633b8fe5: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Books
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /books
+  body:
+    -
+      value: "<p>Our curated book collection reflects the landscapes, species, and conservation philosophy that guide Meridian's work. From field guides to ecological histories, these titles are selected by our staff naturalists and researchers for their depth, accuracy, and ability to deepen your connection with the natural world.</p><p>Browse our selection of regional field guides covering the birds, trees, wildflowers, and fungi of the Appalachians and beyond. Explore titles on forest ecology, watershed science, and wildlife biology that inform our conservation programs. Discover narratives by writers who have spent years observing and documenting the landscapes we work to protect.</p><p>Every purchase directly supports Meridian's conservation programs. Whether you are looking for a comprehensive tree identification guide for your next hike or a thoughtful gift for someone who cares about wild places, our bookshop offers titles that inform, inspire, and sustain the work of conservation.</p>"
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Stack of well-worn field guides and conservation books on rustic wooden table, overcast window light'
+      title: ''
+      width: 1376
+      height: 768
+      entity: b4979da3-fd06-4393-87dc-c97e633b8fe5

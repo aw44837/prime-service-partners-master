@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: a1929c69-0b36-4e61-a627-0df6ffaf815a
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: montana.jpg
+  uri:
+    -
+      value: 'public://2026-01/montana.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 346654
+  status:
+    -
+      value: true

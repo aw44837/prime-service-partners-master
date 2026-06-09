@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 3673cb5b-1579-4f7e-8213-6613aaa6d294
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: desert-southwest-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/desert-southwest-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 270442
+  status:
+    -
+      value: true

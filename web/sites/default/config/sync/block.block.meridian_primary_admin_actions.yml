@@ -1,0 +1,20 @@
+uuid: 5ce94f74-b23a-485c-ac9c-399eb327a8c1
+langcode: en
+status: true
+dependencies:
+  theme:
+    - meridian
+_core:
+  default_config_hash: NnsjSE4wKzdb3mf5DKD1wOSPAn0EelSeQxovxNAjdcA
+id: meridian_primary_admin_actions
+theme: meridian
+region: highlighted
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

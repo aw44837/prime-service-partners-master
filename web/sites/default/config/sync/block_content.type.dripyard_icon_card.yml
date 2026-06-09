@@ -1,0 +1,10 @@
+uuid: dcecb80b-cdd0-40d2-837d-6482ef488bc3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: npB6DX1qa4SKRtGw3vSXpr8ghYOEmFAfpE74ycW6CcA
+id: dripyard_icon_card
+label: 'Icon Card'
+revision: false
+description: 'Provides an icon card block.'

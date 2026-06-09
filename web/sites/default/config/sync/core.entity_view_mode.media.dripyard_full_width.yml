@@ -1,0 +1,13 @@
+uuid: 8341ebf9-5c1a-400b-8df4-6cb49785ef43
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: aB909YVH4aTbpdvaE1MW8OpKiWs0B4xoqhwu-98NgOY
+id: media.dripyard_full_width
+label: 'Full Width'
+description: ''
+targetEntityType: media
+cache: true

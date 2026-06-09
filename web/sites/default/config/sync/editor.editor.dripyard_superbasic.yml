@@ -1,0 +1,20 @@
+uuid: 830bc826-119a-4a62-b0b6-3ba00623cc9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.dripyard_superbasic
+  module:
+    - ckeditor5
+_core:
+  default_config_hash: QcjkXFuhVL3odTkC9HQgzsbiA27O8S6pmJ553fUUEDg
+format: dripyard_superbasic
+editor: ckeditor5
+settings:
+  toolbar:
+    items:
+      - bold
+      - link
+  plugins: {  }
+image_upload:
+  status: false

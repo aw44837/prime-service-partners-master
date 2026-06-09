@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: be6356f9-2243-4566-a4dc-1829a9f6b84b
+  bundle: image
+  default_langcode: en
+  depends:
+    79171050-239d-49a6-8878-e0cd267475df: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Pacific Coast Inline'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Pacific Northwest rocky coastline with tide pools and sea stacks in coastal mist'
+      title: ''
+      width: 1536
+      height: 1024
+      entity: 79171050-239d-49a6-8878-e0cd267475df

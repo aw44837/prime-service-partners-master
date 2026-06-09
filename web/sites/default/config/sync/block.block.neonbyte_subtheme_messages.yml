@@ -1,0 +1,22 @@
+uuid: 6958ef39-b94e-4211-b6d2-8be560e8f2fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - neonbyte_subtheme
+_core:
+  default_config_hash: QSSX8XxRXKiOW4kCP5bPCaZzXH8hXDGotQwl553q7kE
+id: neonbyte_subtheme_messages
+theme: neonbyte_subtheme
+region: fixed_bottom_right
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

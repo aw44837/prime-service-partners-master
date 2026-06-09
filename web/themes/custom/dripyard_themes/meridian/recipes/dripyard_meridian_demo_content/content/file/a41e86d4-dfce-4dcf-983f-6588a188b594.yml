@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: a41e86d4-dfce-4dcf-983f-6588a188b594
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: scientific-research.jpg
+  uri:
+    -
+      value: 'public://article-images/scientific-research.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 221583
+  status:
+    -
+      value: true

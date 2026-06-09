@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: c71f226c-d699-445d-bf3e-e0e9965a8ffc
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: volunteer-programs-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/volunteer-programs-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 220681
+  status:
+    -
+      value: true

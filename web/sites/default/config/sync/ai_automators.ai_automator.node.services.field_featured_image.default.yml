@@ -1,0 +1,39 @@
+uuid: 4e59144e-ff72-49e3-b161-e24a0b7328a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.services.field_featured_image
+id: node.services.field_featured_image.default
+label: 'Generate image'
+rule: llm_media_image_generation
+input_mode: base
+weight: 100
+worker_type: field_widget_actions
+entity_type: node
+bundle: services
+field_name: field_featured_image
+edit_mode: false
+base_field: field_featured_image_prompt
+prompt: 'Generate an image based on the image prompt found here: {{ context }}'
+token: ''
+guardrail_set_id: null
+plugin_config:
+  automator_enabled: 1
+  automator_rule: llm_media_image_generation
+  automator_llm_media_type: image
+  automator_mode: base
+  automator_base_field: field_featured_image_prompt
+  automator_prompt: 'Generate an image based on the image prompt found here: {{ context }}'
+  automator_token: ''
+  automator_edit_mode: 0
+  automator_label: 'Generate image'
+  automator_weight: '100'
+  automator_worker_type: field_widget_actions
+  automator_guardrail_set_id: ''
+  automator_ai_provider: openai
+  automator_ai_model: gpt-image-2
+  automator_configuration_n: '1'
+  automator_configuration_size: 1536x1024
+  automator_configuration_quality: auto
+  automator_configuration_output_format: jpeg

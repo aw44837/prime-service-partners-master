@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 0855ac7a-4781-4591-9c1f-7eaee9b2db51
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: land-protection-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/land-protection-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 222425
+  status:
+    -
+      value: true

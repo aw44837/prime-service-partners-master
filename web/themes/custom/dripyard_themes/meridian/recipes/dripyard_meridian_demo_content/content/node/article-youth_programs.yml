@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: b9e120a7-e0c4-498d-a763-ca939e38fcbe
+  bundle: article
+  default_langcode: en
+  depends:
+    ecf98891-b810-40d3-80dc-0448e27e31f9: file
+    05370775-9b1f-44b0-b562-efb13a2d32bd: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Youth Programs'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /youth-programs
+  body:
+    -
+      value: '<p>The next generation of conservationists is growing up in a world where the connection between people and wild places is increasingly fragile. Meridian''s youth programs work to rebuild that connection through direct experience in the field — not lectures, but genuine encounters with the natural world.</p><drupal-media data-entity-type="media" data-entity-uuid="65ca3f56-cf32-40ba-b85c-51668003c52d" data-align="left" data-caption="Youth field education">&nbsp;</drupal-media><p>Our programs serve students from elementary school through high school, with age-appropriate curricula developed by educators and field scientists. Elementary students explore local habitats through guided nature walks and hands-on activities. Middle school students participate in citizen science projects, collecting real data that contributes to our monitoring programs. High school students join our summer field crews, working alongside professional conservationists on active restoration projects.</p><p>We prioritize access and equity, ensuring that our programs reach young people from all backgrounds and communities. Transportation, equipment, and meals are provided at no cost. Because the future of conservation depends on who shows up to do the work — and we need everyone.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Teenagers with backpacks walking forest trail with naturalist guide, late May'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 05370775-9b1f-44b0-b562-efb13a2d32bd

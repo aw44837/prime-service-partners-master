@@ -1,0 +1,35 @@
+uuid: f939d36e-e1ef-49e0-9ba7-49500d592c75
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:dripyard_menu_card:bd48f72e-dea6-40dc-9a3c-0083ca039f18'
+  module:
+    - block_content
+active_version: 75ead788c9de5e90
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'block_content:bd48f72e-dea6-40dc-9a3c-0083ca039f18'
+        label: 'New Roof Guarantee'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+  b82aa54da6cbf38c:
+    settings:
+      default_settings:
+        id: 'block_content:bd48f72e-dea6-40dc-9a3c-0083ca039f18'
+        label: AiByte
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+label: 'New Roof Guarantee'
+id: block.block_content.bd48f72e-dea6-40dc-9a3c-0083ca039f18
+provider: block_content
+source: block
+source_local_id: 'block_content:bd48f72e-dea6-40dc-9a3c-0083ca039f18'

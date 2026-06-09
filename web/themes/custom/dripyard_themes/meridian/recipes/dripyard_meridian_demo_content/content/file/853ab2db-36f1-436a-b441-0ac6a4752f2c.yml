@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 853ab2db-36f1-436a-b441-0ac6a4752f2c
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: south-atlantic-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/south-atlantic-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 164544
+  status:
+    -
+      value: true

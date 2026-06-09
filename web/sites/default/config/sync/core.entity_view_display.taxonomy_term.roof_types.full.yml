@@ -1,0 +1,43 @@
+uuid: 7252784d-c76e-4f2c-9d60-e24209c8120b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.full
+    - taxonomy.vocabulary.roof_types
+  module:
+    - layout_builder
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          2e01a3a2-f226-4591-ab55-7a9b4f494cc3:
+            uuid: 2e01a3a2-f226-4591-ab55-7a9b4f494cc3
+            region: content
+            configuration:
+              id: 'field_block:taxonomy_term:roof_types:description'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: taxonomy_term.roof_types.full
+targetEntityType: taxonomy_term
+bundle: roof_types
+mode: full
+content: {  }
+hidden:
+  description: true

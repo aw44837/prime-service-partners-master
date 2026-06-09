@@ -1,0 +1,6 @@
+{#
+  Drupal Canvas does not invoke block templates, therefore our template
+  suggestions (based on regions) so not work. To make sure the primary menu
+  displays properly in the header, we create this template suggestion.
+#}
+{{ include('meridian:primary-menu', { items, theme: header_theme }, with_context = false) }}

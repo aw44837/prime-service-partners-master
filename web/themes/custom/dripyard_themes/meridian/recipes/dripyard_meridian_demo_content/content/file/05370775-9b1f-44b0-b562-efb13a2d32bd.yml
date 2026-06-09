@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 05370775-9b1f-44b0-b562-efb13a2d32bd
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: youth-programs.jpg
+  uri:
+    -
+      value: 'public://article-images/youth-programs.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 308388
+  status:
+    -
+      value: true

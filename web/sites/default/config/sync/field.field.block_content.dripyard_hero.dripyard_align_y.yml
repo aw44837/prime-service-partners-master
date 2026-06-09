@@ -1,0 +1,25 @@
+uuid: 4870f2af-140a-4fe6-9d1a-2d9874357473
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.dripyard_hero
+    - field.storage.block_content.dripyard_align_y
+  module:
+    - options
+_core:
+  default_config_hash: SwvDGMwU736tF6sBCOYDK1-hSjYPb1VOAj8bzQt8kaM
+id: block_content.dripyard_hero.dripyard_align_y
+field_name: dripyard_align_y
+entity_type: block_content
+bundle: dripyard_hero
+label: 'Align Y'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: center
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,101 @@
+uuid: 52eaa3aa-337a-484d-bf0e-f05989e8dd5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.local_service_area_page.ai_automator_status
+    - field.field.node.local_service_area_page.body
+    - field.field.node.local_service_area_page.field_featured_image
+    - node.type.local_service_area_page
+  module:
+    - content_moderation
+    - field_widget_actions
+    - media_library
+    - path
+    - text
+id: node.local_service_area_page.default
+targetEntityType: node
+bundle: local_service_area_page
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_featured_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings:
+      field_widget_actions:
+        94b2807c-1be4-4681-9f7d-f04bc4e6e0fa:
+          plugin_id: text_to_image_media_library
+          enabled: true
+          button_label: 'Generate Image with AI'
+          weight: 0
+          settings:
+            automator_id: node.local_service_area_page.field_featured_image.default
+  moderation_state:
+    type: moderation_state_default
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  ai_automator_status: true
+  promote: true
+  publish_on: true
+  publish_state: true
+  sticky: true
+  unpublish_on: true
+  unpublish_state: true

@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 02101c5f-b0bf-4fca-8f27-95aea22d6c46
+  bundle: article
+  default_langcode: en
+  depends:
+    06187298-3c52-4d05-b14c-3aa71be7f0ea: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Our Mission'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /our-mission
+  body:
+    -
+      value: '<p>The Meridian Conservation Society exists to protect and preserve the wild landscapes, waterways, and wildlife that define our natural heritage. Founded on the belief that healthy ecosystems are essential to thriving communities, we work at the intersection of science, policy, and grassroots action.</p><p>Our mission is rooted in a simple truth: the land sustains us, and we must sustain the land. From the high ridges of the Appalachians to the coastal marshes of the Atlantic, we pursue conservation outcomes that are measurable, lasting, and grounded in the needs of both people and nature.</p><p>We approach this work with humility and determination. Every acre protected, every species monitored, every community engaged represents a step toward a future where conservation is not an afterthought but a way of life. Our programs span land protection, scientific research, wildlife conservation, and environmental education — each informed by decades of field experience and a deep commitment to the places we serve.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Appalachian mountain ridgeline with conservation marker on dirt path, overcast October afternoon'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 06187298-3c52-4d05-b14c-3aa71be7f0ea

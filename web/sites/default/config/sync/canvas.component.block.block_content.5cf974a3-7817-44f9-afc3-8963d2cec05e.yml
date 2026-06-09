@@ -1,0 +1,25 @@
+uuid: dcf18074-9202-4d5f-91c8-5fdb2470c070
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:dripyard_menu_card:5cf974a3-7817-44f9-afc3-8963d2cec05e'
+  module:
+    - block_content
+active_version: dba3678476c5fe9e
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'block_content:5cf974a3-7817-44f9-afc3-8963d2cec05e'
+        label: 'Data Security'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+label: 'Data Security'
+id: block.block_content.5cf974a3-7817-44f9-afc3-8963d2cec05e
+provider: block_content
+source: block
+source_local_id: 'block_content:5cf974a3-7817-44f9-afc3-8963d2cec05e'

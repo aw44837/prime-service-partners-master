@@ -1,0 +1,35 @@
+/*
+ * @file
+ * Various layout utility classes essential to the layout of the site.
+ */
+
+.layout-container {
+  display: flow-root;
+  padding-top: 20px;
+
+  /* @todo - Move this into Dripyard base, and maybe refactor out many of the
+     Drupal.displace() variables. The reason that its not in there now is because
+     in previous versions of Safari (18.5 I think), container-type above position
+     fixed or sticky would break the stickyness.  */
+  container-type: inline-size;
+}
+
+.site-main {
+  position: relative;
+  z-index: 1; /* Appear above the sticky footer. */
+  min-height: 40vh;
+  background-color: var(--theme-surface);
+  border-end-start-radius: var(--radius-lg);
+  border-end-end-radius: var(--radius-lg);
+
+  /* This prevents the fixed footer from "shining through" transparent parts of
+  prior regions (e.g. highlighted, headers), which can happen when the viewport
+  is short. */
+  border-image: linear-gradient(var(--theme-surface), var(--theme-surface)) fill 0 / / 100vh 0 0 0;
+
+  @media (forced-colors: active) {
+    > :last-child {
+      border-bottom: solid 1px transparent; /* Forced colors. */
+    }
+  }
+}

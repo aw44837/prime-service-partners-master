@@ -1,0 +1,15 @@
+{% set language_switcher_content_id = 'language-switcher-' ~ random() %}
+<div class="language-switcher-wrapper"> {# This div is needed for once(). #}
+  <div{{ attributes.addClass('language-switcher') }}>
+    <button type="button" class="language-switcher__trigger" aria-expanded="false" aria-controls="{{ language_switcher_content_id }}">
+      <div class="language-switcher__icon">
+        {{ source('/' ~ componentMetadata.path ~ '/images/globe.svg') }}
+      </div>
+      <span class="language-switcher__close-icon"></span>
+      <span class="visually-hidden">{{ 'Change language'|t }}</span>
+    </button>
+    <div id="{{ language_switcher_content_id }}" class="language-switcher__dropdown theme--white">
+      {{ content }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+uuid: 64e0b486-9a3f-4e25-a2d1-10337d4ff888
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.dripyard_card
+    - field.field.node.local_service_area_page.ai_automator_status
+    - field.field.node.local_service_area_page.body
+    - field.field.node.local_service_area_page.field_featured_image
+    - node.type.local_service_area_page
+  module:
+    - text
+    - user
+id: node.local_service_area_page.dripyard_card
+targetEntityType: node
+bundle: local_service_area_page
+mode: dripyard_card
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 175
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  ai_automator_status: true
+  field_featured_image: true

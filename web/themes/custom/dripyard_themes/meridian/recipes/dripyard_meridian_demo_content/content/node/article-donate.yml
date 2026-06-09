@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 0d69b01d-9e01-4d35-a6bf-c00ca3105a93
+  bundle: article
+  default_langcode: en
+  depends:
+    ee8de51d-5a70-4e98-b0c0-ecde9252d7a6: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Donate
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /donate
+  body:
+    -
+      value: "<p>Your financial support makes Meridian's conservation work possible. Every dollar donated goes directly toward protecting land, restoring habitats, monitoring wildlife, and engaging communities in the work of conservation.</p><p>We are transparent about how donations are used. In our most recent fiscal year, 87% of all funds went directly to conservation programs — land protection, scientific research, wildlife monitoring, habitat restoration, and community partnerships. The remaining 13% supports the organizational infrastructure that keeps our programs effective and accountable.</p><p>There are many ways to give. One-time gifts provide immediate support for active projects. Monthly sustaining gifts provide reliable funding that allows us to plan and execute long-term conservation strategies. Legacy gifts through estate planning ensure that your commitment to conservation endures beyond your lifetime. Corporate matching programs can double the impact of your contribution.</p><p>However you choose to give, know that your support has a direct, measurable impact on the landscapes and communities we serve. Conservation is a long game, and we are grateful for every partner who joins us in playing it.</p>"
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Hands planting native tree seedling in forest clearing with dark soil, overcast October morning'
+      title: ''
+      width: 1376
+      height: 768
+      entity: ee8de51d-5a70-4e98-b0c0-ecde9252d7a6

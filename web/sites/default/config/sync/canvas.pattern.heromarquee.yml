@@ -1,0 +1,117 @@
+uuid: 3164fc31-9141-4b77-9170-c3866a603ff7
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.button
+    - canvas.component.sdc.dripyard_base.canvas-image
+    - canvas.component.sdc.dripyard_base.flex-wrapper
+    - canvas.component.sdc.dripyard_base.layout-dynamic
+    - canvas.component.sdc.neonbyte.hero
+    - field.field.media.image.field_media_image
+    - field.field.media.svg_image.field_media_svg_image
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - media.type.svg_image
+  content:
+    - 'file:file:169953eb-167f-4df6-9a09-e146b3c4347b'
+    - 'media:image:36a94e54-320f-4126-91b6-2838e4ade39f'
+  module:
+    - file
+    - link
+    - media
+    - options
+id: heromarquee
+label: 'Hero Marquee'
+component_tree:
+  '0:cell_1:0:3c9a25bf-2e5f-4eac-9121-a2e264903e8a':
+    parent_uuid: decad486-a0f7-40a8-9edd-1bab3456a162
+    slot: cell_1
+    uuid: 3c9a25bf-2e5f-4eac-9121-a2e264903e8a
+    component_id: sdc.neonbyte.hero
+    component_version: fd16917fc8f81fbc
+    inputs:
+      theme: dark
+      height: medium
+      position_behind_against_screen_top: true
+      align_x: start
+      align_y: center
+      text_color: inherit
+  '0:cell_1:0:hero_content:0:content:0:364dc3ad-2d0c-4d64-b1b2-662cf5bbc5d2':
+    parent_uuid: ee462641-5f8f-416c-8375-11bebb603634
+    slot: content
+    uuid: 364dc3ad-2d0c-4d64-b1b2-662cf5bbc5d2
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Request an Estimate'
+      href:
+        uri: 'internal:/contact-us'
+        options: {  }
+      style: primary
+      size: medium
+      target: false
+      suffix_icon: arrow-right
+  '0:cell_1:0:hero_content:0:content:1:e80189ac-5ecd-40ad-909e-af741993994f':
+    parent_uuid: ee462641-5f8f-416c-8375-11bebb603634
+    slot: content
+    uuid: e80189ac-5ecd-40ad-909e-af741993994f
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Text Us'
+      href:
+        uri: 'internal:/'
+        options: {  }
+      style: outline
+      size: medium
+      target: false
+      suffix_icon: mobile
+  '0:cell_1:0:hero_content:0:ee462641-5f8f-416c-8375-11bebb603634':
+    parent_uuid: 3c9a25bf-2e5f-4eac-9121-a2e264903e8a
+    slot: hero_content
+    uuid: ee462641-5f8f-416c-8375-11bebb603634
+    component_id: sdc.dripyard_base.flex-wrapper
+    component_version: 647154c4adbb1587
+    inputs:
+      theme: inherit
+      wrap: true
+      align_x: start
+      align_y: center
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+      column_gutter: small
+      row_gutter: small
+  '0:cell_1:0:hero_media:0:71b1befa-c021-4efe-94a9-4f63dcb5bda5':
+    parent_uuid: 3c9a25bf-2e5f-4eac-9121-a2e264903e8a
+    slot: hero_media
+    uuid: 71b1befa-c021-4efe-94a9-4f63dcb5bda5
+    component_id: sdc.dripyard_base.canvas-image
+    component_version: 432a6a71fe725929
+    inputs:
+      image:
+        target_id: '14'
+      width: 2200
+      loading: eager
+  '0:decad486-a0f7-40a8-9edd-1bab3456a162':
+    uuid: decad486-a0f7-40a8-9edd-1bab3456a162
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: inherit
+      column_count: '1'
+      row_count: '1'
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: default
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: large
+      padding_bottom: large
+      column_gutter: default
+      row_gutter: default

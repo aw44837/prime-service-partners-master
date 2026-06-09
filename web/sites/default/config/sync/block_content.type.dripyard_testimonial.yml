@@ -1,0 +1,10 @@
+uuid: 2fb86e61-a39c-4154-a046-f7ee42efed6d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: llNF3qwF2HxAe5MPnraMNKn6_K1viLMNWpTBoNpwrbE
+id: dripyard_testimonial
+label: Testimonial
+revision: false
+description: 'Provides a testimonial block type with quote, citation, and image.'

@@ -1,0 +1,24 @@
+uuid: 3370703b-7d07-44ce-8525-2846de70a724
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: b2fe9560c371757a
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:ai_log_type'
+        label: 'AI Log Type'
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: 'AI Log Type'
+id: block.entity_block.ai_log_type
+provider: entity_block
+source: block
+source_local_id: 'entity_block:ai_log_type'

@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 671eea4c-f422-4047-b8ea-2f082eb4c867
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: appalachian.jpg
+  uri:
+    -
+      value: 'public://article-images/appalachian.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 304553
+  status:
+    -
+      value: true

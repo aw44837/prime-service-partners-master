@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: a5eb0e6f-ba55-40d8-8557-57f00ce645c4
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: redwoords.jpg
+  uri:
+    -
+      value: 'public://2026-01/redwoords.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 552030
+  status:
+    -
+      value: true

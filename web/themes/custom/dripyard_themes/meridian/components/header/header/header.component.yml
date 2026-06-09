@@ -1,0 +1,13 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Meridian Header
+status: stable
+noUi: true
+props:
+  type: object
+  properties: {}
+libraryOverrides:
+  js:
+    header.js: {}
+    sticky-header.js: {}
+  dependencies:
+    - core/drupal

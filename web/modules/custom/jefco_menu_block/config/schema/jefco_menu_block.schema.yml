@@ -1,0 +1,25 @@
+block.settings.jefco_menu_block:
+  type: block_settings
+  label: 'Menu Block settings'
+  constraints:
+    FullyValidatable: ~
+  mapping:
+    menu_name:
+      type: string
+      label: 'Menu'
+    level:
+      type: integer
+      label: 'Starting level'
+    depth:
+      type: integer
+      label: 'Menu depth'
+    expand_all_items:
+      type: boolean
+      label: 'Expand all items'
+    follow_active_trail:
+      type: boolean
+      label: 'Follow active trail'
+    columns:
+      type: integer
+      label: 'Maximum columns'
+      nullable: true

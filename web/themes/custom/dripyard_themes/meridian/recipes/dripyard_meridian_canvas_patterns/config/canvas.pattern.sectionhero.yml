@@ -1,0 +1,152 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.background-image
+    - canvas.component.sdc.dripyard_base.button
+    - canvas.component.sdc.dripyard_base.flex-wrapper
+    - canvas.component.sdc.dripyard_base.heading
+    - canvas.component.sdc.dripyard_base.section
+    - canvas.component.sdc.dripyard_base.text
+    - canvas.component.sdc.meridian.hero
+    - filter.format.canvas_html_block
+  module:
+    - link
+    - options
+    - text
+id: sectionhero
+label: 'Section - Hero'
+component_tree:
+  0:
+    uuid: 39a5556d-0dc8-49a5-ae04-02eeda5cd83a
+    component_id: sdc.dripyard_base.section
+    component_version: e6079b189d228dad
+    inputs:
+      theme: inherit
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+  '0:content:0':
+    parent_uuid: 39a5556d-0dc8-49a5-ae04-02eeda5cd83a
+    slot: content
+    uuid: b076768c-478e-4112-b23c-55d1b3df22bf
+    component_id: sdc.meridian.hero
+    component_version: ddc003ef11ff2330
+    inputs:
+      theme: dark
+      height: large
+      align_x: start
+      align_y: bottom
+      text_color: inherit
+      position_behind_header: true
+  '0:content:0:hero_content:0':
+    parent_uuid: b076768c-478e-4112-b23c-55d1b3df22bf
+    slot: hero_content
+    uuid: c4a310e1-6f7e-4d12-a24c-e3cf0ff8e87e
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'This is my hero'
+      html_element: h1
+      style: title
+      margin_top: zero
+      margin_bottom: zero
+      center: false
+  '0:content:0:hero_content:1':
+    parent_uuid: b076768c-478e-4112-b23c-55d1b3df22bf
+    slot: hero_content
+    uuid: 0906aa29-3404-402a-95fb-bfdad3a25fc1
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae amet harum placeat voluptates nobis, quis ratione, blanditiis inventore esse, libero magnam facilis odio nostrum ullam saepe. Iure, obcaecati quisquam.'
+        format: canvas_html_block
+      style: body_m
+      color: inherit
+  '0:content:0:hero_content:2':
+    parent_uuid: b076768c-478e-4112-b23c-55d1b3df22bf
+    slot: hero_content
+    uuid: 5247b865-d080-4c94-b37f-a475314187ea
+    component_id: sdc.dripyard_base.flex-wrapper
+    component_version: 647154c4adbb1587
+    inputs:
+      theme: inherit
+      wrap: true
+      align_x: start
+      align_y: center
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+      column_gutter: small
+      row_gutter: small
+  '0:content:0:hero_content:2:content:0':
+    parent_uuid: 5247b865-d080-4c94-b37f-a475314187ea
+    slot: content
+    uuid: 4aa7cf20-aef2-48bc-a50b-b6bc7443cb5d
+    component_id: sdc.dripyard_base.button
+    component_version: f0368947665f0cbf
+    inputs:
+      text: 'Click me'
+      href:
+        uri: 'https://www.drupal.org'
+        options: {  }
+      style: light
+      size: large
+      target: false
+      suffix_icon: arrow-right
+  '0:content:0:hero_content:2:content:1':
+    parent_uuid: 5247b865-d080-4c94-b37f-a475314187ea
+    slot: content
+    uuid: c06dcfce-b33b-4d48-8526-df5408b29ae1
+    component_id: sdc.dripyard_base.button
+    component_version: f0368947665f0cbf
+    inputs:
+      text: 'Learn more'
+      href:
+        uri: 'https://www.drupal.org'
+        options: {  }
+      style: outline
+      size: large
+      target: false
+  '0:content:0:hero_media:0':
+    parent_uuid: b076768c-478e-4112-b23c-55d1b3df22bf
+    slot: hero_media
+    uuid: b4e86e55-7855-49e0-99a4-f379d1e1e6c3
+    component_id: sdc.dripyard_base.background-image
+    component_version: 6b716cd0789b24bf
+    inputs:
+      image:
+        sourceType: default-relative-url
+        value:
+          src: images/placeholder.webp
+          alt: 'Placeholder image'
+          width: 1024
+          height: 1024
+        jsonSchema:
+          type: object
+          properties:
+            src:
+              type: string
+              contentMediaType: 'image/*'
+              format: uri-reference
+              x-allowed-schemes:
+                - http
+                - https
+            alt:
+              type: string
+            width:
+              type: integer
+            height:
+              type: integer
+          required:
+            - src
+        componentId: sdc.dripyard_base.background-image
+      background_image_opacity: 100
+      loading: eager
+      position_x: 50
+      position_y: 50

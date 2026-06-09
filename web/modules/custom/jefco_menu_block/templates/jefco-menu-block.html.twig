@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * JefCo Menu Block — vertical sidebar navigation.
+ *
+ * This template is owned by the jefco_menu_block module, not the theme,
+ * so it cannot be overridden by theme menu templates (including
+ * menu--main.html.twig) or Canvas's component rendering pipeline.
+ *
+ * Variables:
+ * - items:   list of menu items (same structure as Drupal's menu theme).
+ * - level:   current depth (starts at 1).
+ * - columns: maximum columns for top-level items (1–3). CSS container
+ *            queries ensure the actual count never exceeds available width,
+ *            so narrow placements (e.g. sidebars) always stay 1 column.
+ */
+#}
+{% import _self as menus %}
+
+{# Wrap in a container div so @container queries have a reference box. #}
+<div class="jefco-menu-block jefco-menu-block--max-cols-{{ columns }}">
+  <ul class="jefco-menu-block__list jefco-menu-block__list--level-1">
+    {{ menus.menu_links(items, 1) }}
+  </ul>
+</div>
+
+{% macro menu_links(items, level) %}
+  {% import _self as menus %}
+  {% for item in items %}
+    <li class="jefco-menu-block__item jefco-menu-block__item--level-{{ level }}
+      {{- item.in_active_trail ? ' jefco-menu-block__item--active-trail' -}}
+      {{- item.below ? ' jefco-menu-block__item--has-children' -}}">
+
+      {{ link(item.title, item.url, {
+        'class': [
+          'jefco-menu-block__link',
+          'jefco-menu-block__link--level-' ~ level,
+          item.in_active_trail ? 'jefco-menu-block__link--active-trail' : null,
+          item.is_currentPage ? 'is-active' : null,
+        ]|filter(v => v),
+      }) }}
+
+      {% if item.below %}
+        <ul class="jefco-menu-block__list jefco-menu-block__list--level-{{ level + 1 }}">
+          {{ menus.menu_links(item.below, level + 1) }}
+        </ul>
+      {% endif %}
+
+    </li>
+  {% endfor %}
+{% endmacro %}

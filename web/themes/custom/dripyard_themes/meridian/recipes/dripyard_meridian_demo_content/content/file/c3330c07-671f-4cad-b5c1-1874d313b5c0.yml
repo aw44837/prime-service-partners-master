@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: c3330c07-671f-4cad-b5c1-1874d313b5c0
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: pacific-coast.jpg
+  uri:
+    -
+      value: 'public://article-images/pacific-coast.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 124972
+  status:
+    -
+      value: true

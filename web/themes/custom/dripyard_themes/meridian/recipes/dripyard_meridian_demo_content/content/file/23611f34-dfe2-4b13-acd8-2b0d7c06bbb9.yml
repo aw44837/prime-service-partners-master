@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 23611f34-dfe2-4b13-acd8-2b0d7c06bbb9
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: acadia.jpg
+  uri:
+    -
+      value: 'public://2026-01/acadia.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 362186
+  status:
+    -
+      value: true

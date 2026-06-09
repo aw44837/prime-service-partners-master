@@ -1,0 +1,39 @@
+name: Dripyard Meridian Demo Content
+type: Dripyard
+description: 'This recipe provides the demo content for Meridian used to build https://meridian.dripyard.com including article nodes, and block content.'
+recipes:
+  - 'dripyard_meridian_blocks'
+  - 'dripyard_meridian_nodes'
+config:
+  strict: false
+  actions:
+    block.block.dripyard_base_socialmedialinks:
+      placeBlockInDefaultTheme:
+        plugin: 'block_content:192edb9e-7c1e-4244-a309-2f623a8307f2'
+        region: footer_left
+        settings:
+          label: 'Social Media Links'
+          label_display: 0
+          status: true
+          info: ''
+          view_mode: full
+    block.block.meridian_footeraddress:
+      placeBlockInDefaultTheme:
+        plugin: 'block_content:e6dfc17a-cb82-489b-bd35-c99a3a78024f'
+        region: footer_right
+        settings:
+          label: 'Footer Address'
+          label_display: 0
+          status: true
+          info: ''
+          view_mode: full
+    block.block.meridian_footerlogo:
+      placeBlockInDefaultTheme:
+        plugin: 'block_content:748f9532-62e9-4656-b187-3c7de76fbf4e'
+        region: footer_left
+        settings:
+          label: 'Footer Logo'
+          label_display: 0
+          status: true
+          info: ''
+          view_mode: full

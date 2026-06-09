@@ -1,0 +1,23 @@
+uuid: 6919d144-0fd2-4756-bc99-21426bf7d75b
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:dripyard_button:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'
+  module:
+    - block_content
+  theme:
+    - neonbyte
+id: neonbyte_call
+theme: neonbyte
+region: header_third
+weight: 0
+provider: null
+plugin: 'block_content:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'
+settings:
+  id: 'block_content:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'
+  label: Call
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

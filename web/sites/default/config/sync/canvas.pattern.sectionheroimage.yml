@@ -1,0 +1,148 @@
+uuid: 8381ec5d-8cf4-4f4c-b8c6-9bf8391de59d
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.button
+    - canvas.component.sdc.dripyard_base.canvas-image
+    - canvas.component.sdc.dripyard_base.flex-wrapper
+    - canvas.component.sdc.dripyard_base.layout-dynamic
+    - canvas.component.sdc.dripyard_base.text
+    - canvas.component.sdc.neonbyte.hero
+    - filter.format.canvas_html_block
+  module:
+    - link
+    - options
+    - text
+_core:
+  default_config_hash: cuzFPg4zdyw6Y6LPKj9IGgXsF59-_ZlZIpv1GTWimDU
+id: sectionheroimage
+label: 'Section - Hero with Image'
+component_tree:
+  '0:63c02a03-3fea-4b85-9f4f-c1e8de874d19':
+    uuid: 63c02a03-3fea-4b85-9f4f-c1e8de874d19
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: inherit
+      column_count: '1'
+      row_count: '1'
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: default
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: large
+      padding_bottom: large
+      column_gutter: default
+      row_gutter: default
+  '0:cell_1:0:bbb8f34a-4e35-4f6a-904a-7729c3450958':
+    parent_uuid: 63c02a03-3fea-4b85-9f4f-c1e8de874d19
+    slot: cell_1
+    uuid: bbb8f34a-4e35-4f6a-904a-7729c3450958
+    component_id: sdc.neonbyte.hero
+    component_version: fd16917fc8f81fbc
+    inputs:
+      theme: inherit
+      height: full-screen
+      position_behind_against_screen_top: true
+      align_x: start
+      align_y: bottom
+      text_color: white
+  '0:cell_1:0:hero_content:0:9596f811-600f-4df1-8d6c-4584dba06db9':
+    parent_uuid: bbb8f34a-4e35-4f6a-904a-7729c3450958
+    slot: hero_content
+    uuid: 9596f811-600f-4df1-8d6c-4584dba06db9
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae amet harum placeat voluptates nobis, quis ratione, blanditiis inventore esse, libero magnam facilis odio nostrum ullam saepe. Iure, obcaecati quisquam.'
+        format: canvas_html_block
+      style: body_l
+      color: medium
+      center: false
+  '0:cell_1:0:hero_content:1:5394818c-a995-441b-981b-83fcc871c7f0':
+    parent_uuid: bbb8f34a-4e35-4f6a-904a-7729c3450958
+    slot: hero_content
+    uuid: 5394818c-a995-441b-981b-83fcc871c7f0
+    component_id: sdc.dripyard_base.flex-wrapper
+    component_version: 647154c4adbb1587
+    inputs:
+      theme: inherit
+      wrap: true
+      align_x: start
+      align_y: center
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+      column_gutter: small
+      row_gutter: small
+  '0:cell_1:0:hero_content:1:content:0:709e8eda-c312-4a9f-b160-0bb42d6cbcb2':
+    parent_uuid: 5394818c-a995-441b-981b-83fcc871c7f0
+    slot: content
+    uuid: 709e8eda-c312-4a9f-b160-0bb42d6cbcb2
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Learn more'
+      href:
+        uri: 'https://www.drupal.org'
+        options: {  }
+      style: primary
+      size: large
+      target: false
+      suffix_icon: arrow-right
+  '0:cell_1:0:hero_content:1:content:1:01a15e2c-ff45-4c4a-aace-162d96185656':
+    parent_uuid: 5394818c-a995-441b-981b-83fcc871c7f0
+    slot: content
+    uuid: 01a15e2c-ff45-4c4a-aace-162d96185656
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Learn more'
+      href:
+        uri: 'https://www.drupal.org'
+        options: {  }
+      style: default
+      size: large
+      target: false
+  '0:cell_1:0:hero_media:0:5072215c-33d0-4b3e-84b2-766db18b6482':
+    parent_uuid: bbb8f34a-4e35-4f6a-904a-7729c3450958
+    slot: hero_media
+    uuid: 5072215c-33d0-4b3e-84b2-766db18b6482
+    component_id: sdc.dripyard_base.canvas-image
+    component_version: 432a6a71fe725929
+    inputs:
+      image:
+        sourceType: default-relative-url
+        value:
+          src: ./images/drupalcon-nashville.webp
+          alt: Placeholder
+          width: 2000
+          height: 1500
+        jsonSchema:
+          type: object
+          properties:
+            src:
+              type: string
+              contentMediaType: 'image/*'
+              format: uri-reference
+              x-allowed-schemes:
+                - http
+                - https
+            alt:
+              type: string
+            width:
+              type: integer
+            height:
+              type: integer
+          required:
+            - src
+        componentId: sdc.dripyard_base.canvas-image
+      width: 0
+      loading: eager

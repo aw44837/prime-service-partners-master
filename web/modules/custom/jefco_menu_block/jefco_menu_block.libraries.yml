@@ -1,0 +1,4 @@
+menu-block:
+  css:
+    component:
+      css/menu-block.css: {}

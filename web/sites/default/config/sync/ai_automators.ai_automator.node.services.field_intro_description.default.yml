@@ -1,0 +1,53 @@
+uuid: 7af66616-a4bc-49d9-876e-da5afcc4bc22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.services.field_intro_description
+id: node.services.field_intro_description.default
+label: 'Intro Description Default'
+rule: llm_text_long
+input_mode: token
+weight: 100
+worker_type: field_widget_actions
+entity_type: node
+bundle: services
+field_name: field_intro_description
+edit_mode: false
+base_field: revision_log
+prompt: ''
+token: |+
+  Based on the context found here, write a short intro paragraph about this page that focuses on the user's potential pain point and how JeffCo can be the solution.
+
+  Primary context is the page title: [node:title]
+
+  Secondary context is the page body: [node:body]
+
+guardrail_set_id: null
+plugin_config:
+  automator_enabled: 1
+  automator_rule: llm_text_long
+  automator_mode: token
+  automator_base_field: revision_log
+  automator_prompt: ''
+  automator_token: |+
+    Based on the context found here, write a short intro paragraph about this page that focuses on the user's potential pain point and how JeffCo can be the solution.
+
+    Primary context is the page title: [node:title]
+
+    Secondary context is the page body: [node:body]
+
+  automator_edit_mode: 0
+  automator_label: 'Intro Description Default'
+  automator_weight: '100'
+  automator_worker_type: field_widget_actions
+  automator_guardrail_set_id: ''
+  automator_ai_provider: openai
+  automator_ai_model: gpt-5.4-nano
+  automator_configuration_max_completion_tokens: '4096'
+  automator_configuration_reasoning_effort: medium
+  automator_configuration_image_field: ''
+  automator_configuration_image_style: ''
+  automator_joiner: ''
+  automator_joiner_other: ''
+  automator_use_text_format: ''

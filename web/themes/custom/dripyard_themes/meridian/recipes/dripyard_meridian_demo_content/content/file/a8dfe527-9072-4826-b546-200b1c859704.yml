@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: a8dfe527-9072-4826-b546-200b1c859704
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: Hero_6.jpg
+  uri:
+    -
+      value: 'public://2026-01/Hero_6.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 345412
+  status:
+    -
+      value: true

@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: b4979da3-fd06-4393-87dc-c97e633b8fe5
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: books.jpg
+  uri:
+    -
+      value: 'public://article-images/books.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 126253
+  status:
+    -
+      value: true

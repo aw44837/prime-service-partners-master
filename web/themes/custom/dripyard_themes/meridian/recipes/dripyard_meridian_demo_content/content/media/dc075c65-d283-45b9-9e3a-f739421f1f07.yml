@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: dc075c65-d283-45b9-9e3a-f739421f1f07
+  bundle: image
+  default_langcode: en
+  depends:
+    a5eb0e6f-ba55-40d8-8557-57f00ce645c4: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: redwoords.jpg
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Artistic illustration of the Redwood forest. '
+      title: ''
+      width: 1536
+      height: 1024
+      entity: a5eb0e6f-ba55-40d8-8557-57f00ce645c4

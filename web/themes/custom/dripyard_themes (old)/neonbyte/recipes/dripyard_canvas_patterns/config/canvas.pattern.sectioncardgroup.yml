@@ -1,0 +1,193 @@
+uuid: 8586254a-f177-4708-a4b9-2f2a1a28cd6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.card-canvas
+    - canvas.component.sdc.dripyard_base.layout-dynamic
+    - canvas.component.sdc.dripyard_base.title-cta
+  module:
+    - link
+    - options
+id: sectioncardgroup
+label: 'Section - Card Group'
+component_tree:
+  0:
+    uuid: 96f2cd30-b1d2-4eb3-a1d3-ff043a9df31e
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: ae1efcac2a38bfc2
+    inputs:
+      theme: light
+      column_count: 4
+      row_count: 1
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: default
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: large
+      padding_bottom: large
+      column_gutter: default
+      row_gutter: default
+  '0:cell_1:0':
+    parent_uuid: 96f2cd30-b1d2-4eb3-a1d3-ff043a9df31e
+    slot: cell_1
+    uuid: b92a413f-0eda-451a-bebb-dbc6e5240b16
+    component_id: sdc.dripyard_base.card-canvas
+    component_version: 8b36538a04188d86
+    inputs:
+      image:
+        sourceType: default-relative-url
+        value:
+          src: images/drupalcon-nashville.webp
+          alt: 'Boring placeholder'
+          width: 325
+          height: 210
+        jsonSchema:
+          type: object
+          properties:
+            src:
+              type: string
+              contentMediaType: 'image/*'
+              format: uri-reference
+              x-allowed-schemes:
+                - http
+                - https
+            alt:
+              type: string
+            width:
+              type: integer
+            height:
+              type: integer
+          required:
+            - src
+        componentId: sdc.dripyard_base.card-canvas
+      eyebrow_text: 'Eyebrow text'
+      title: 'Card title'
+      body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, amet.'
+  '0:cell_2:0':
+    parent_uuid: 96f2cd30-b1d2-4eb3-a1d3-ff043a9df31e
+    slot: cell_2
+    uuid: a53c3754-c8a1-4b5f-a1d1-04e3088611c5
+    component_id: sdc.dripyard_base.card-canvas
+    component_version: 8b36538a04188d86
+    inputs:
+      image:
+        sourceType: default-relative-url
+        value:
+          src: images/drupalcon-nashville.webp
+          alt: 'Boring placeholder'
+          width: 325
+          height: 210
+        jsonSchema:
+          type: object
+          properties:
+            src:
+              type: string
+              contentMediaType: 'image/*'
+              format: uri-reference
+              x-allowed-schemes:
+                - http
+                - https
+            alt:
+              type: string
+            width:
+              type: integer
+            height:
+              type: integer
+          required:
+            - src
+        componentId: sdc.dripyard_base.card-canvas
+      eyebrow_text: 'Eyebrow text'
+      title: 'Card title'
+      body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, amet.'
+  '0:cell_3:0':
+    parent_uuid: 96f2cd30-b1d2-4eb3-a1d3-ff043a9df31e
+    slot: cell_3
+    uuid: ab3a0550-e8d4-4997-98a9-0e851de1d378
+    component_id: sdc.dripyard_base.card-canvas
+    component_version: 8b36538a04188d86
+    inputs:
+      image:
+        sourceType: default-relative-url
+        value:
+          src: images/drupalcon-nashville.webp
+          alt: 'Boring placeholder'
+          width: 325
+          height: 210
+        jsonSchema:
+          type: object
+          properties:
+            src:
+              type: string
+              contentMediaType: 'image/*'
+              format: uri-reference
+              x-allowed-schemes:
+                - http
+                - https
+            alt:
+              type: string
+            width:
+              type: integer
+            height:
+              type: integer
+          required:
+            - src
+        componentId: sdc.dripyard_base.card-canvas
+      eyebrow_text: 'Eyebrow text'
+      title: 'Card title'
+      body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, amet.'
+  '0:cell_4:0':
+    parent_uuid: 96f2cd30-b1d2-4eb3-a1d3-ff043a9df31e
+    slot: cell_4
+    uuid: 9b8ae150-1c69-4cfc-a3e7-fe4bca75396a
+    component_id: sdc.dripyard_base.card-canvas
+    component_version: 8b36538a04188d86
+    inputs:
+      image:
+        sourceType: default-relative-url
+        value:
+          src: images/drupalcon-nashville.webp
+          alt: 'Boring placeholder'
+          width: 325
+          height: 210
+        jsonSchema:
+          type: object
+          properties:
+            src:
+              type: string
+              contentMediaType: 'image/*'
+              format: uri-reference
+              x-allowed-schemes:
+                - http
+                - https
+            alt:
+              type: string
+            width:
+              type: integer
+            height:
+              type: integer
+          required:
+            - src
+        componentId: sdc.dripyard_base.card-canvas
+      eyebrow_text: 'Eyebrow text'
+      title: 'Card title'
+      body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, amet.'
+  '0:header:0':
+    parent_uuid: 96f2cd30-b1d2-4eb3-a1d3-ff043a9df31e
+    slot: header
+    uuid: 2e8bcb90-a451-47ee-887a-500acaf6d212
+    component_id: sdc.dripyard_base.title-cta
+    component_version: 0e6028af474a6a4b
+    inputs:
+      layout: default
+      title: 'This is title text that is paired with a CTA'
+      heading_style: h2
+      button_text: 'Learn more'
+      button_href:
+        uri: 'https://www.drupal.org'
+        options: {  }
+      button_style: default

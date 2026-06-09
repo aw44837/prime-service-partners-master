@@ -1,0 +1,34 @@
+uuid: 692dd9df-baf5-4fdb-b586-9eee193b4fe7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.services.field_body
+id: node.services.field_body.default
+label: 'Generate body from page title using AI'
+rule: llm_text_with_summary
+input_mode: base
+weight: 100
+worker_type: field_widget_actions
+entity_type: node
+bundle: services
+field_name: field_body
+edit_mode: false
+base_field: title
+prompt: "Generate a services page content based on the context found here: \r\n\r\n{{ context }}\r\n\r\nUse HTML formatting with correct markup. \r\n\r\n"
+token: ''
+plugin_config:
+  automator_enabled: 1
+  automator_rule: llm_text_with_summary
+  automator_mode: base
+  automator_base_field: title
+  automator_prompt: "Generate a services page content based on the context found here: \r\n\r\n{{ context }}\r\n\r\nUse HTML formatting with correct markup. \r\n\r\n"
+  automator_token: ''
+  automator_edit_mode: 0
+  automator_label: 'Generate body from page title using AI'
+  automator_weight: '100'
+  automator_worker_type: field_widget_actions
+  automator_ai_provider: default_json
+  automator_joiner: ''
+  automator_joiner_other: ''
+  automator_use_text_format: content_format

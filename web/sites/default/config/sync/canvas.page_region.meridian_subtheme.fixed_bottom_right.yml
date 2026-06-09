@@ -1,0 +1,19 @@
+uuid: 2de673bb-d3b0-431e-a22b-62a197a0b50c
+langcode: en
+status: false
+dependencies:
+  config:
+    - canvas.component.block.system_messages_block
+  theme:
+    - meridian_subtheme
+id: meridian_subtheme.fixed_bottom_right
+region: fixed_bottom_right
+theme: meridian_subtheme
+component_tree:
+  '0:a1316911-ee08-44be-b554-cf66e8c0f474':
+    uuid: a1316911-ee08-44be-b554-cf66e8c0f474
+    component_id: block.system_messages_block
+    component_version: 0fd5234097704a5d
+    inputs:
+      label: 'Status messages'
+      label_display: '0'

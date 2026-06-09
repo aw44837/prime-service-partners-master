@@ -1,0 +1,23 @@
+uuid: 594a56dc-3e34-4399-a797-bad86759942c
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:dripyard_button:0a885524-3461-46a7-af04-a13b08f08d6a'
+  module:
+    - block_content
+  theme:
+    - meridian_subtheme
+id: meridian_subtheme_bookonlinebutton
+theme: meridian_subtheme
+region: header_third
+weight: 0
+provider: null
+plugin: 'block_content:0a885524-3461-46a7-af04-a13b08f08d6a'
+settings:
+  id: 'block_content:0a885524-3461-46a7-af04-a13b08f08d6a'
+  label: 'Book Online Button'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

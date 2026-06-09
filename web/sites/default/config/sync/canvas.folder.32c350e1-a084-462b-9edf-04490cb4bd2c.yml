@@ -1,0 +1,19 @@
+uuid: 32c350e1-a084-462b-9edf-04490cb4bd2c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Content block'
+configEntityTypeId: component
+weight: 0
+items:
+  - block.block_content.0a885524-3461-46a7-af04-a13b08f08d6a
+  - block.block_content.0ead4788-1baa-43da-bedc-31e3a4e27df5
+  - block.block_content.192edb9e-7c1e-4244-a309-2f623a8307f2
+  - block.block_content.2bad27be-c17c-4034-9645-58056e6c5833
+  - block.block_content.405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c
+  - block.block_content.4b11f2dc-65a0-4cf8-a6db-914ccab3610c
+  - block.block_content.5cf974a3-7817-44f9-afc3-8963d2cec05e
+  - block.block_content.748f9532-62e9-4656-b187-3c7de76fbf4e
+  - block.block_content.7d0f606a-e73b-459f-a69e-4cdd4c6f1eaa
+  - block.block_content.bd48f72e-dea6-40dc-9a3c-0083ca039f18
+  - block.block_content.e6dfc17a-cb82-489b-bd35-c99a3a78024f

@@ -1,0 +1,22 @@
+uuid: dc36a5df-06df-4d8e-b7d8-929170feafa5
+langcode: en
+status: false
+dependencies:
+  config:
+    - canvas.component.block.system_branding_block
+  theme:
+    - meridian_subtheme
+id: meridian_subtheme.header_first
+region: header_first
+theme: meridian_subtheme
+component_tree:
+  '0:dab146e1-5a3f-4d7d-b413-b47e947f5f0e':
+    uuid: dab146e1-5a3f-4d7d-b413-b47e947f5f0e
+    component_id: block.system_branding_block
+    component_version: b168140fdcaebae5
+    inputs:
+      label: 'Site branding'
+      label_display: '0'
+      use_site_logo: true
+      use_site_name: false
+      use_site_slogan: false

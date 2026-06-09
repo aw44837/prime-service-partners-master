@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Theme override for page titles.
+ *
+ * Available variables:
+ * - title_attributes: HTML attributes for the page title element.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title: The page title, for use in the actual content.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ */
+#}
+{{ title_prefix }}
+{% if title %}
+  {{ include('dripyard_base:heading', {
+    html_element: 'h1',
+    style: 'h2',
+    center: true,
+    text_max_width: '1000px',
+    text: title,
+    margin_top: 'zero',
+    margin_bottom: 'zero',
+    modifier_classes: 'page-title',
+  }, with_context = false) }}
+{% endif %}
+{{ title_suffix }}

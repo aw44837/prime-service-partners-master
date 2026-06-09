@@ -1,0 +1,40 @@
+/**
+ * @file
+ * Menu Display canvas component.
+ *
+ * Renders a Drupal menu with text size and color control.
+ */
+
+.menu-display {
+  /* Hide the block title — menu name is for admin context only */
+  .block-system-menu-block > h2 {
+    display: none;
+  }
+
+  /* Base list resets */
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Links inherit color and size from component classes */
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /* Indent sub-menus */
+  ul ul {
+    padding-inline-start: 1.25em;
+  }
+
+  /* Spacing between items */
+  li + li {
+    margin-block-start: 0.4em;
+  }
+}

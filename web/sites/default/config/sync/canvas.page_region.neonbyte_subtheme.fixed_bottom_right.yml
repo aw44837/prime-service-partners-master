@@ -1,0 +1,19 @@
+uuid: 112b4832-acc3-4da8-b9b2-fb447d0a1f40
+langcode: en
+status: false
+dependencies:
+  config:
+    - canvas.component.block.system_messages_block
+  theme:
+    - neonbyte_subtheme
+id: neonbyte_subtheme.fixed_bottom_right
+region: fixed_bottom_right
+theme: neonbyte_subtheme
+component_tree:
+  '0:6958ef39-b94e-4211-b6d2-8be560e8f2fb':
+    uuid: 6958ef39-b94e-4211-b6d2-8be560e8f2fb
+    component_id: block.system_messages_block
+    component_version: 0fd5234097704a5d
+    inputs:
+      label: 'Status messages'
+      label_display: '0'

@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 6c3e837f-cdb3-4030-b274-f2ed5a3b5d27
+  bundle: article
+  default_langcode: en
+  depends:
+    0855ac7a-4781-4591-9c1f-7eaee9b2db51: file
+    1051d117-d052-40c3-bc63-a526571c4553: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Land Protection'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /land-protection
+  body:
+    -
+      value: '<p>Land protection is the cornerstone of conservation. At Meridian, we work to permanently safeguard critical habitats through strategic land acquisition, conservation easements, and partnerships with willing landowners who share our vision for the future.</p><drupal-media data-entity-type="media" data-entity-uuid="9b4f92a1-b010-4e37-bb3e-bd9072989000" data-align="left" data-caption="Protected land boundary">&nbsp;</drupal-media><p>Since our founding, we have helped protect over 500,000 acres of forests, wetlands, grasslands, and riparian corridors across the eastern United States. Each parcel is evaluated for its ecological significance — its role in maintaining biodiversity, water quality, wildlife connectivity, and climate resilience.</p><p>Our approach is deliberate. We prioritize landscapes that serve as wildlife corridors, protect headwater streams, or buffer existing protected areas. We work closely with land trusts, state agencies, and private landowners to structure agreements that balance conservation goals with the practical needs of rural communities. Land protection is not about locking people out — it is about ensuring that the land can continue to sustain life for generations to come.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Protected land boundary with weathered fence posts through mixed forest, early November'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 1051d117-d052-40c3-bc63-a526571c4553

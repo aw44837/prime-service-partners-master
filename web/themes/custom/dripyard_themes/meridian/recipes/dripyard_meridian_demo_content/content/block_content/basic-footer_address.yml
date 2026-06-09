@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: e6dfc17a-cb82-489b-bd35-c99a3a78024f
+  bundle: basic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Footer Address'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  body:
+    -
+      value: '<p><strong>Meridian Conservation Society</strong><br>1247 Blue Ridge Parkway, Suite 300<br>Asheville, NC 28801</p><p>Phone: (828) 555-0142<br>Email: info@meridianconservation.org</p>'
+      format: full_html
+      summary: ''

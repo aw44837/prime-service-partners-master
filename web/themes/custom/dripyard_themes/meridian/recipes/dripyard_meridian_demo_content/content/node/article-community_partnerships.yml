@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: fb376ce1-f8a8-44b3-82be-a432a6d3b103
+  bundle: article
+  default_langcode: en
+  depends:
+    cb013a28-af69-45eb-93c3-a392d12cf740: file
+    ef09d141-f820-4fa3-9e90-c1eba60ae7f7: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Community Partnerships'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /community-partnerships
+  body:
+    -
+      value: '<p>Lasting conservation cannot happen without the support and involvement of local communities. Meridian''s community partnership programs are built on the principle that conservation should benefit the people who live closest to the land — not just the land itself.</p><drupal-media data-entity-type="media" data-entity-uuid="f9330fc2-f722-48e8-8e92-b0a5c6f8f239" data-align="left" data-caption="Community conservation planning">&nbsp;</drupal-media><p>We work with rural communities, municipalities, school districts, and local organizations to develop conservation strategies that address shared priorities. That might mean protecting a forested watershed that provides a town''s drinking water, creating public access trails on newly conserved land, or partnering with a school district to build outdoor classrooms on community conservation areas.</p><p>Our partnership model is collaborative, not prescriptive. We listen first, then work together to identify projects that serve both ecological and community needs. We provide technical assistance, funding support, and long-term stewardship — but the direction comes from the community. Over the past decade, these partnerships have resulted in over 50 collaborative conservation projects and lasting relationships built on mutual respect and shared purpose.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Community meeting at rural town hall entrance, overcast October afternoon'
+      title: ''
+      width: 1376
+      height: 768
+      entity: ef09d141-f820-4fa3-9e90-c1eba60ae7f7

@@ -1,0 +1,233 @@
+/*
+ * @file
+ * Styles for our primary hero.
+ */
+
+.hero {
+  --hero-max-height: calc(min(90vh, 1100px) - var(--drupal-displace-offset-top, 0px));
+  --hero-background: var(--theme-surface);
+  --hero-text-color-light: var(--theme-text-color-soft);
+  --hero-text-color: var(--theme-text-color-medium);
+  --hero-link-color: var(--theme-text-color-primary);
+  --hero-text-shadow-color: transparent;
+  --hero-text-shadow: none;
+  --hero-border-radius: var(--radius-lg);
+  --hero-extra-wide-space: min(60px, calc((100cqw - var(--container-max-percentage))/2));
+
+  position: relative; /* Anchor image. */
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--spacing-xs);
+  padding-inline: var(--spacing-xs);
+  background-color: var(--hero-background);
+  color: var(--hero-text-color);
+  border-radius: var(--hero-border-radius);
+  overflow: clip;
+
+  @container (width > 800px) {
+    width: calc(100% + var(--hero-extra-wide-space) * 2 - 20px);
+    margin-inline-start: calc(-1 * var(--hero-extra-wide-space) + 10px);
+    padding-inline: 0;
+    padding-block: var(--spacing-component-internal);
+  }
+
+  &.is-behind-header {
+    padding-block: calc(15 * var(--sp1)) var(--spacing-component-internal);
+
+    /* Apply any negative margin to the parent dynamic layout. */
+    :is(.dy-section, .layout-dynamic:not(.layout-builder *)):has(&) {
+      --header-height-and-margin: calc(68px + var(--spacing-m));
+
+      margin-top: calc(-1 * var(--header-height-and-margin) - 10px);
+      overflow: revert;
+    }
+
+    @container (width > 800px) {
+      padding-block: calc(18 * var(--sp1)) var(--spacing-component-internal);
+    }
+  }
+
+  &.hero--height-small {
+    min-height: 400px;
+  }
+
+  &.hero--height-medium {
+    min-height: min(var(--hero-max-height), 600px);
+  }
+
+  &.hero--height-large {
+    min-height: min(var(--hero-max-height), 800px);
+
+    @container (width > 800px) {
+      min-height: min(var(--hero-max-height), 1000px);
+    }
+  }
+
+  &.theme--dark {
+    --theme-text-color-medium: var(--white);
+  }
+
+  &.theme--light {
+    --theme-text-color-medium: var(--black);
+  }
+
+  .layout-builder & {
+    margin-top: 0;
+  }
+}
+
+.hero--text-color-white {
+  --hero-text-color-light: var(--white);
+  --hero-text-color: var(--white);
+  --hero-text-shadow-color: var(--black);
+
+  * {
+    color: inherit;
+  }
+}
+
+.hero--text-color-black {
+  --hero-text-color-light: var(--black);
+  --hero-text-color: var(--black);
+  --hero-text-shadow-color: var(--white);
+
+  * {
+    color: inherit;
+  }
+}
+
+.hero--text-color-primary {
+  --hero-text-color-light: var(--theme-text-color-primary);
+  --hero-text-color: var(--theme-text-color-primary);
+
+  * {
+    color: inherit;
+  }
+}
+
+.hero__container {
+  display: flex;
+  height: 100%;
+
+  @container (width > 700px) {
+    width: var(--container-width);
+    margin-inline: auto;
+  }
+
+  .layout-dynamic.container & {
+    width: revert;
+    margin-inline: revert;
+  }
+}
+
+.hero__title {
+  color: inherit;
+  text-shadow: var(--hero-text-shadow);
+}
+
+.hero__media {
+  display: contents;
+
+  .video-player,
+  .video-player__container {
+    display: contents;
+  }
+
+  img,
+  video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-inline: auto;
+    border-radius: var(--hero-border-radius);
+  }
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1100px;
+
+  > *, [class] {
+    margin-block: 0;
+  }
+
+  .hero--align-x-start & {
+    justify-self: start;
+  }
+
+  .hero--align-x-center & {
+    justify-self: center;
+    text-align: center;
+    margin-inline: auto;
+/*
+    .layout-dynamic & {
+      .flex-wrapper {
+        width: fit-content;
+        margin-inline: auto;
+      }
+    } */
+  }
+
+  .hero--align-x-end & {
+    margin-inline: auto 0;
+    justify-self: end;
+    text-align: end;
+  }
+
+  .hero--align-y-top & {
+    align-self: start;
+  }
+
+  .hero--align-y-center & {
+    align-self: center;
+  }
+
+  .hero--align-y-bottom & {
+    align-self: end;
+  }
+
+  .text-content {
+    text-shadow: var(--hero-text-shadow);
+  }
+}
+
+.hero__block-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-large);
+  width: 100%;
+
+  @media (prefers-contrast: more) {
+    > * {
+      width: fit-content;
+      padding: 5px;
+      background: var(--theme-surface);
+    }
+
+    .flex-wrapper__container {
+      width: max-content;
+      padding: 5px;
+      background: var(--theme-surface);
+    }
+  }
+
+  &:empty {
+    display: none;
+  }
+}
+
+/* Hide the header slot within dynamic layout & basic sections if hero is
+   present and set to appear behind the header. This is important for Canvas
+   editing mode. */
+.dy-section__container:has(.dy-section__content .is-behind-header) .dy-section__header,
+.layout-dynamic:has(.layout-dynamic__cell .is-behind-header) .layout-dynamic__header {
+  display: none;
+}

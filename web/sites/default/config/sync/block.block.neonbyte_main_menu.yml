@@ -1,0 +1,27 @@
+uuid: 51f53414-7c50-4c81-a507-4753cedfae6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - neonbyte
+_core:
+  default_config_hash: k3pFrPuWPBMbF5hebuZyOTkev-yRSpTxwImsUKBpM5k
+id: neonbyte_main_menu
+theme: neonbyte
+region: header_second
+weight: -5
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 3
+  expand_all_items: true
+visibility: {  }

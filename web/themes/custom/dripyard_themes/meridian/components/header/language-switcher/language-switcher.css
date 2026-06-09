@@ -1,0 +1,154 @@
+/*
+ * @file
+ * Styles for the language switcher when it resides in the header.
+ */
+
+.language-switcher-wrapper {
+  display: contents;
+}
+
+.language-switcher {
+  --language-switcher-icon-color: var(--theme-text-color-loud);
+
+  position: relative; /* Anchor dropdown. */
+  display: flex;
+  align-items: center;
+}
+
+.language-switcher__dropdown {
+  --language-switcher-link-color: var(--theme-text-color-loud);
+  --language-switcher-link-background-color-hover: var(--theme-surface-alt);
+  --language-switcher-link-color-active: var(--theme-surface);
+  --language-switcher-background-color-active: var(--theme-text-color-loud);
+  --language-switcher-dropdown-border-radius: var(--radius-lg);
+  --language-switcher-dropdown-padding-block: 20px;
+  --language-switcher-dropdown-padding-inline: 20px;
+  --language-switcher-dropdown-background-color: var(--theme-surface);
+  --language-switcher-dropdown-text-color: var(--theme-text-color-loud);
+}
+
+.language-switcher__trigger {
+  position: relative;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 44px;
+  padding: 0;
+  appearance: none;
+  color: var(--language-switcher-icon-color);
+
+  @container (width > 1180px) {
+    display: flex;
+  }
+}
+
+.language-switcher__icon {
+  display: contents;
+
+  svg {
+    height: 24px;
+
+    .language-switcher__trigger[aria-expanded="true"] & {
+      display: none;
+    }
+  }
+}
+
+.language-switcher__close-icon {
+  --line-width: 3px;
+  --icon-size: 20px;
+
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: calc(50% - var(--line-width) / 2);
+    left: calc(50% - var(--icon-size) / 2);
+    width: var(--icon-size);
+    height: 0;
+    border-top: solid var(--line-width) currentColor;
+    content: "";
+    transition: all 0.2s;
+  }
+
+  &::before {
+    rotate: -45deg;
+  }
+
+  &::after {
+    rotate: 45deg;
+  }
+
+  .language-switcher__trigger[aria-expanded="true"] & {
+    display: block;
+  }
+}
+
+.language-switcher__dropdown {
+  @container (width > 1180px) {
+    position: absolute;
+    top: calc(100% + var(--site-header-dropdown-top-offset));
+    inset-inline-end: 0;
+    padding-inline: var(--language-switcher-dropdown-padding-inline);
+    border-radius: var(--language-switcher-dropdown-border-radius);
+    background: var(--language-switcher-dropdown-background-color);
+    visibility: hidden;
+    height: 0;
+    opacity: 0;
+    overflow: clip;
+    transition: opacity 0.2s linear;
+
+    &.is-active {
+      visibility: visible;
+      height: auto;
+      padding-block: var(--language-switcher-dropdown-padding-block);
+      opacity: 1;
+    }
+  }
+}
+
+.language-switcher__list[class] {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 4px;
+  margin: 0;
+  padding-inline: 0;
+  list-style: none;
+
+  @container (width > 1180px) {
+    display: block;
+  }
+}
+
+.language-switcher__item {
+  margin: 0 0 var(--spacing-xxs);
+  padding: 0;
+  list-style: none;
+  font-size: var(--body-s-size);
+  line-height: var(--body-s-line-height);
+  letter-spacing: var(--body-s-letter-spacing);
+
+  a {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    color: var(--language-switcher-link-color);
+    text-decoration: none;
+
+    &:hover {
+      background-color: var(--language-switcher-background-color-hover);
+    }
+
+    &.is-active {
+      --focus-ring-color: var(--language-switcher-background-color-active);
+
+      background-color: var(--language-switcher-background-color-active);
+      border: solid 1px transparent;
+      color: var(--language-switcher-link-color-active);
+    }
+  }
+}

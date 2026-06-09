@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: b49eb974-57f2-4dbd-8e4c-887c8c5444be
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    516d9267-4a72-4113-8423-5d4e19cdc411: node
+    874e0713-1d59-47d2-9282-96c4cefa40d9: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Volunteer Programs'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: 516d9267-4a72-4113-8423-5d4e19cdc411
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -50
+  expanded:
+    -
+      value: true
+  parent:
+    -
+      value: 'menu_link_content:874e0713-1d59-47d2-9282-96c4cefa40d9'
+  revision_translation_affected:
+    -
+      value: true

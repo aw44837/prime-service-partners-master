@@ -1,0 +1,63 @@
+global:
+  css:
+    base:
+      css/base/fonts.css: {}
+      components/external-panel/external-panel.css: {}
+      css/components/review-cards.css: {}
+      components/menu-display/menu-display.css: {}
+    layout:
+      css/layout/layout.css: {}
+      css/layout/grid.css: {}
+      css/layout/region.css: {}
+      css/components/page-title.css: {}
+  js:
+    components/external-panel/external-panel.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+themes:
+  css:
+    base:
+      css/themes/theme-white.css: {}
+      css/themes/theme-light.css: {}
+      css/themes/theme-dark.css: {}
+      css/themes/theme-black.css: {}
+      css/themes/theme-primary.css: {}
+      css/themes/theme-secondary.css: {}
+variables:
+  css:
+    base:
+      css/_variables/variables-colors-semantic.css: {}
+      css/_variables/variables-forms.css: {}
+      css/_variables/variables-layout.css: {}
+      css/_variables/variables-misc.css: {}
+      css/_variables/variables-typography.css: {}
+
+article-full:
+  css:
+    component:
+      css/components/article-full.css: {}
+card:
+  css:
+    component:
+      css/components/card.css: {}
+button:
+  css:
+    component:
+      css/components/button.css: {}
+drupal.layout_builder:
+  css:
+    component:
+      css/components/layout-builder-form.css: {}
+layout-dynamic:
+  css:
+    component:
+      css/components/layout-dynamic.css: {}
+header-commerce-cart:
+  css:
+    component:
+      css/components/header-commerce-cart.css: {}
+user-login-form:
+  css:
+    component:
+      css/components/user-login-form.css: {}

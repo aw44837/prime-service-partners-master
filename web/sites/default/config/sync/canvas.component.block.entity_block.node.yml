@@ -1,0 +1,24 @@
+uuid: 3207395d-0713-4fd3-9476-f29b724f878e
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: 3a15d5ae9d2b6289
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:node'
+        label: Content
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: Content
+id: block.entity_block.node
+provider: entity_block
+source: block
+source_local_id: 'entity_block:node'

@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 516d9267-4a72-4113-8423-5d4e19cdc411
+  bundle: article
+  default_langcode: en
+  depends:
+    c71f226c-d699-445d-bf3e-e0e9965a8ffc: file
+    b78b50a0-df0b-48ae-a046-47f96936e029: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Volunteer Programs'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /volunteer-programs
+  body:
+    -
+      value: '<p>Conservation happens on the ground, and volunteers are essential to making it work. Meridian''s volunteer programs connect people with hands-on conservation opportunities — from trail maintenance and tree planting to wildlife monitoring and stream restoration.</p><drupal-media data-entity-type="media" data-entity-uuid="428b29dc-840e-44fd-bb3a-ff1f5b771724" data-align="left" data-caption="Volunteer restoration work">&nbsp;</drupal-media><p>Our regular volunteer days take place at project sites across the region, typically on weekends from March through November. No special skills are required — just a willingness to work outdoors, get your hands dirty, and contribute to something lasting. We provide tools, training, and experienced crew leaders for every project.</p><p>For those seeking deeper engagement, our seasonal volunteer crews offer multi-day commitments on larger restoration projects. These crews work alongside our professional staff on priority conservation sites, gaining practical field experience while making a measurable difference. Many of our current staff members started as volunteers. Whatever your schedule or experience level, there is a way to contribute. The land needs your help.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Volunteers planting native seedlings along stream bank in Appalachian foothills, overcast September morning'
+      title: ''
+      width: 1376
+      height: 768
+      entity: b78b50a0-df0b-48ae-a046-47f96936e029

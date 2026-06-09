@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 4e5dd843-b310-4175-b764-ba649c1c5f0e
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    02101c5f-b0bf-4fca-8f27-95aea22d6c46: node
+    9eead6d7-bd79-4f9e-8a18-555a30046240: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Our Mission'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: 02101c5f-b0bf-4fca-8f27-95aea22d6c46
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -50
+  expanded:
+    -
+      value: true
+  parent:
+    -
+      value: 'menu_link_content:9eead6d7-bd79-4f9e-8a18-555a30046240'
+  revision_translation_affected:
+    -
+      value: true

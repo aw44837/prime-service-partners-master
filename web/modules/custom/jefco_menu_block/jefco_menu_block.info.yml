@@ -1,0 +1,5 @@
+name: 'JefCo Menu Block'
+type: module
+description: 'A configurable menu block supporting any menu, start level, depth, and active trail following.'
+package: JefCo
+core_version_requirement: ^10 || ^11

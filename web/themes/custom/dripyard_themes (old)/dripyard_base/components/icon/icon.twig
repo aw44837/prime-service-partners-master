@@ -1,0 +1,7 @@
+{# Check if the field type comes from UI icons OR is rendered SVG. #}
+{% if icon['#field_type'] == 'ui_icon' or '<svg' in icon|render|striptags('<svg>')|trim %}
+  {{ icon }}
+{# Otherwise, we assume a simple string and pass it to the Icon API. #}
+{% else %}
+  {{ icon('the_drip_font_awesome', icon, {'size': size}) }}
+{% endif %}

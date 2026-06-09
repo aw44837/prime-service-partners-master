@@ -1,0 +1,26 @@
+uuid: c62f6766-9ec0-446d-b7cf-670156954951
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.services_cards
+  module:
+    - views
+active_version: 78197d2278e7e462
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'views_block:services_cards-card'
+        label: 'Services Cards: Dripyard Card'
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: null
+    fallback_metadata:
+      slot_definitions: null
+label: 'Services Cards: Dripyard Card'
+id: block.views_block.services_cards-card
+provider: views
+source: block
+source_local_id: 'views_block:services_cards-card'

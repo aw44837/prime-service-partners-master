@@ -1,0 +1,24 @@
+uuid: b7cffc86-936e-48e3-af0d-5dbdd43498ad
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: 316c99642ac73483
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:taxonomy_term'
+        label: 'Taxonomy term'
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: 'Taxonomy term'
+id: block.entity_block.taxonomy_term
+provider: entity_block
+source: block
+source_local_id: 'entity_block:taxonomy_term'

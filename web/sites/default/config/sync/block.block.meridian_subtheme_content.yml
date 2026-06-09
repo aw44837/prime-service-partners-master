@@ -1,0 +1,22 @@
+uuid: c06d9ffc-f802-4732-b87e-7881a8baaba1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - meridian_subtheme
+_core:
+  default_config_hash: AGQasRlpH6A9E3BXLYQydiux_JuuDtUWRjDjlR0RNHM
+id: meridian_subtheme_content
+theme: meridian_subtheme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

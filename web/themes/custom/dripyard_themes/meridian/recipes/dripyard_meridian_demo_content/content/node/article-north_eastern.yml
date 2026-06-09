@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 150d06d8-d946-4623-8747-64e7041cfd07
+  bundle: article
+  default_langcode: en
+  depends:
+    e431a823-d37d-4176-a495-39873a6dbf6f: file
+    a4652f63-50a0-4be5-b302-eb1f913e8091: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'North Eastern'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /north-eastern
+  body:
+    -
+      value: '<p>The forests of the Northeastern United States tell a story of resilience. Cleared almost entirely for agriculture in the 18th and 19th centuries, these landscapes have regenerated into some of the most extensive temperate forests in the world. Stone walls running through mature woodland mark the boundaries of long-abandoned farms — a reminder that ecological recovery is possible when given time and space.</p><drupal-media data-entity-type="media" data-entity-uuid="365ea172-48b9-4064-850c-d23436633e14" data-align="left" data-caption="New England forest conservation">&nbsp;</drupal-media><p>Meridian''s Northeastern programs focus on protecting the large, unfragmented forest blocks that are essential for maintaining biodiversity in a rapidly developing region. Species like the wood thrush, black bear, and brook trout require extensive forest cover to thrive, and suburban sprawl continues to eat away at the edges of remaining wildlands.</p><p>We work with communities, land trusts, and state agencies to protect critical parcels before they are lost to development. We also invest in forest stewardship — helping landowners manage their woodlands in ways that support wildlife habitat, water quality, and carbon storage while providing sustainable timber harvests. The Northeastern forest is a conservation success story, but only if we commit to protecting what has been regained.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'New England mixed hardwood forest with stone wall through bare November trees'
+      title: ''
+      width: 1376
+      height: 768
+      entity: a4652f63-50a0-4be5-b302-eb1f913e8091

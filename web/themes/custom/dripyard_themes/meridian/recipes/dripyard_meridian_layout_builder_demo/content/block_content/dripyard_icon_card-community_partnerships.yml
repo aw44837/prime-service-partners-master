@@ -1,0 +1,35 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a
+  bundle: dripyard_icon_card
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Community Partnerships'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  dripyard_icon:
+    -
+      value: users
+  dripyard_link:
+    -
+      uri: 'internal:/community-partnerships'
+      title: ''
+      options: {  }
+  dripyard_title:
+    -
+      value: 'Community Partnerships'
+      format: plain_text
+  body:
+    -
+      value: 'Working alongside local communities to create sustainable conservation solutions that benefit people and nature.'
+      format: plain_text

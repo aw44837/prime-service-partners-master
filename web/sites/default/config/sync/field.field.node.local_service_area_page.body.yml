@@ -1,0 +1,26 @@
+uuid: 57fec348-85a3-45ca-b463-de5fe866cc0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.content_format
+    - node.type.local_service_area_page
+  module:
+    - text
+id: node.local_service_area_page.body
+field_name: body
+entity_type: node
+bundle: local_service_area_page
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - content_format
+field_type: text_with_summary

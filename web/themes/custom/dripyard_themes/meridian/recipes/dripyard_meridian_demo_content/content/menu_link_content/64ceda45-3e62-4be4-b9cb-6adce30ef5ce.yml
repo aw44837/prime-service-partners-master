@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 64ceda45-3e62-4be4-b9cb-6adce30ef5ce
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    fb376ce1-f8a8-44b3-82be-a432a6d3b103: node
+    874e0713-1d59-47d2-9282-96c4cefa40d9: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Community Partnerships'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: fb376ce1-f8a8-44b3-82be-a432a6d3b103
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -49
+  expanded:
+    -
+      value: true
+  parent:
+    -
+      value: 'menu_link_content:874e0713-1d59-47d2-9282-96c4cefa40d9'
+  revision_translation_affected:
+    -
+      value: true

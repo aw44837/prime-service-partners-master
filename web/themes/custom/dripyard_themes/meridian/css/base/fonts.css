@@ -1,0 +1,30 @@
+/*
+ * Fonts.
+ *
+ * ⚠️ Note when making changes here, be sure to change font preloading in
+ * `templates/includes/html-header.twig`
+ */
+
+@font-face {
+  font-display: block;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../../fonts/lato/lato-v25-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: block;
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../../fonts/lato/lato-v25-latin-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: block;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../fonts/lato/lato-v25-latin-700.woff2') format('woff2');
+}

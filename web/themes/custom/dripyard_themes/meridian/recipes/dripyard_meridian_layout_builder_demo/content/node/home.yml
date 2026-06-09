@@ -1,0 +1,500 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: f5a6b7c8-d9e0-1f2a-3b4c-5d6e7f8a9b0c
+  bundle: dripyard_landing_page
+  default_langcode: en
+  depends:
+    8a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d: block_content
+    1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d: block_content
+    3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f: block_content
+    2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e: block_content
+    5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b: block_content
+    4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a: block_content
+    6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c: block_content
+    7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d: block_content
+    8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e: block_content
+    9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f: block_content
+    a0b1c2d3-e4f5-6a7b-8c9d-0e1f2a3b4c5e: block_content
+    b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6f: block_content
+    c2d3e4f5-a6b7-8c9d-0e1f-2a3b4c5d6e7f: block_content
+    d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a: block_content
+    e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b: block_content
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Meridian Home Page'
+  promote:
+    -
+      value: false
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      alias: /meridian-home-page
+      langcode: en
+  dripyard_hide_page_title:
+    -
+      value: true
+  layout_builder__layout:
+    -
+      section:
+        layout_id: dripyard_layout_dynamic
+        layout_settings:
+          column_count: 1
+          row_count: 1
+          two_column_layout: '50% / 50%'
+          three_column_layout: '33% / 33% / 33%'
+          section_width: edge-to-edge
+          content_width: max-width
+          cell_align_x: ''
+          cell_align_y: ''
+          margin_top: ''
+          margin_bottom: ''
+          padding_top: ''
+          padding_bottom: ''
+          column_gutter: ''
+          row_gutter: ''
+          additional_classes: ''
+          dripyard_theme: inherit
+          dripyard_layout: default
+          label: 'Hero Section'
+          context_mapping: {  }
+        components:
+          a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d:
+            uuid: a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+            region: cell_1
+            configuration:
+              id: 'block_content:8a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d'
+              label: 'Landscape as Identity Hero'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+    -
+      section:
+        layout_id: dripyard_layout_dynamic
+        layout_settings:
+          column_count: 1
+          row_count: 1
+          two_column_layout: '50% / 50%'
+          three_column_layout: '33% / 33% / 33%'
+          section_width: edge-to-edge
+          content_width: max-width
+          cell_align_x: ''
+          cell_align_y: ''
+          margin_top: ''
+          margin_bottom: zero
+          padding_top: ''
+          padding_bottom: zero
+          column_gutter: ''
+          row_gutter: ''
+          additional_classes: ''
+          dripyard_theme: inherit
+          dripyard_layout: default
+          label: 'Ways to Get Involved Title'
+          context_mapping: {  }
+        components:
+          b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e:
+            uuid: b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e
+            region: cell_1
+            configuration:
+              id: 'block_content:1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d'
+              label: 'Ways to Get Involved (title cta)'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+    -
+      section:
+        layout_id: dripyard_layout_dynamic
+        layout_settings:
+          column_count: 1
+          row_count: 1
+          two_column_layout: '50% / 50%'
+          three_column_layout: '33% / 33% / 33%'
+          section_width: edge-to-edge
+          content_width: max-width
+          cell_align_x: ''
+          cell_align_y: ''
+          margin_top: zero
+          margin_bottom: ''
+          padding_top: zero
+          padding_bottom: ''
+          column_gutter: ''
+          row_gutter: ''
+          additional_classes: ''
+          dripyard_theme: inherit
+          dripyard_layout: default
+          label: 'Article Cards Carousel'
+          context_mapping: {  }
+        components:
+          c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f:
+            uuid: c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f
+            region: cell_1
+            configuration:
+              id: 'views_block:dripyard_article_cards-card_full_image'
+              label: ''
+              label_display: 0
+              provider: views
+              views_label: ''
+              items_per_page: none
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+    -
+      section:
+        layout_id: dripyard_layout_dynamic
+        layout_settings:
+          column_count: 2
+          row_count: 1
+          two_column_layout: '50% / 50%'
+          three_column_layout: '33% / 33% / 33%'
+          section_width: edge-to-edge
+          content_width: max-width
+          cell_align_x: ''
+          cell_align_y: center
+          margin_top: ''
+          margin_bottom: ''
+          padding_top: ''
+          padding_bottom: ''
+          column_gutter: ''
+          row_gutter: ''
+          additional_classes: ''
+          dripyard_theme: light
+          dripyard_layout: default
+          label: 'Securing Redwoods Section'
+          context_mapping: {  }
+        components:
+          d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a:
+            uuid: d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a
+            region: cell_1
+            configuration:
+              id: 'block_content:3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f'
+              label: 'Redwoods Image'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+          e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b:
+            uuid: e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b
+            region: cell_2
+            configuration:
+              id: 'block_content:2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e'
+              label: 'Securing Redwoods (promo)'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+    -
+      section:
+        layout_id: dripyard_layout_dynamic
+        layout_settings:
+          column_count: 2
+          row_count: 1
+          two_column_layout: '50% / 50%'
+          three_column_layout: '33% / 33% / 33%'
+          section_width: edge-to-edge
+          content_width: max-width
+          cell_align_x: ''
+          cell_align_y: center
+          margin_top: ''
+          margin_bottom: ''
+          padding_top: ''
+          padding_bottom: ''
+          column_gutter: ''
+          row_gutter: ''
+          additional_classes: ''
+          dripyard_theme: primary
+          dripyard_layout: default
+          label: 'Join Our Mission Section'
+          context_mapping: {  }
+        components:
+          f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c:
+            uuid: f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c
+            region: cell_1
+            configuration:
+              id: 'block_content:5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b'
+              label: 'Mission Image'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+          a7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d:
+            uuid: a7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d
+            region: cell_2
+            configuration:
+              id: 'block_content:4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a'
+              label: 'Join Our Mission (promo)'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+    -
+      section:
+        layout_id: dripyard_layout_dynamic
+        layout_settings:
+          column_count: 1
+          row_count: 1
+          two_column_layout: '50% / 50%'
+          three_column_layout: '33% / 33% / 33%'
+          section_width: edge-to-edge
+          content_width: max-width
+          cell_align_x: ''
+          cell_align_y: ''
+          margin_top: ''
+          margin_bottom: ''
+          padding_top: ''
+          padding_bottom: medium
+          column_gutter: ''
+          row_gutter: ''
+          additional_classes: ''
+          dripyard_theme: dark
+          dripyard_layout: default
+          label: 'See Us in Action Title'
+          context_mapping: {  }
+        components:
+          b8c9d0e1-f2a3-4b5c-6d7e-8f9a0b1c2d3e:
+            uuid: b8c9d0e1-f2a3-4b5c-6d7e-8f9a0b1c2d3e
+            region: cell_1
+            configuration:
+              id: 'block_content:6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c'
+              label: 'See us in action (title cta)'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+    -
+      section:
+        layout_id: dripyard_layout_dynamic
+        layout_settings:
+          column_count: 4
+          row_count: 1
+          two_column_layout: '50% / 50%'
+          three_column_layout: '33% / 33% / 33%'
+          section_width: edge-to-edge
+          content_width: max-width
+          cell_align_x: ''
+          cell_align_y: ''
+          margin_top: zero
+          margin_bottom: ''
+          padding_top: zero
+          padding_bottom: ''
+          column_gutter: ''
+          row_gutter: ''
+          additional_classes: ''
+          dripyard_theme: dark
+          dripyard_layout: default
+          label: 'Stats Section'
+          context_mapping: {  }
+        components:
+          c9d0e1f2-a3b4-5c6d-7e8f-9a0b1c2d3e4f:
+            uuid: c9d0e1f2-a3b4-5c6d-7e8f-9a0b1c2d3e4f
+            region: cell_1
+            configuration:
+              id: 'block_content:7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d'
+              label: 'Acres Protected (statistic)'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+          d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a:
+            uuid: d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a
+            region: cell_2
+            configuration:
+              id: 'block_content:8b9c0d1e-2f3a-4b5c-6d7e-8f9a0b1c2d3e'
+              label: 'Communities (statistic)'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+          e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b:
+            uuid: e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b
+            region: cell_3
+            configuration:
+              id: 'block_content:9c0d1e2f-3a4b-5c6d-7e8f-9a0b1c2d3e4f'
+              label: 'Species (statistic)'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+          f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c:
+            uuid: f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c
+            region: cell_4
+            configuration:
+              id: 'block_content:a0b1c2d3-e4f5-6a7b-8c9d-0e1f2a3b4c5e'
+              label: 'Trees (statistic)'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+    -
+      section:
+        layout_id: dripyard_layout_dynamic
+        layout_settings:
+          column_count: 1
+          row_count: 1
+          two_column_layout: '50% / 50%'
+          three_column_layout: '33% / 33% / 33%'
+          section_width: edge-to-edge
+          content_width: max-width
+          cell_align_x: ''
+          cell_align_y: ''
+          margin_top: ''
+          margin_bottom: zero
+          padding_top: ''
+          padding_bottom: medium
+          column_gutter: ''
+          row_gutter: ''
+          additional_classes: ''
+          dripyard_theme: inherit
+          dripyard_layout: default
+          label: 'Conservation Approach Title'
+          context_mapping: {  }
+        components:
+          a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d:
+            uuid: a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d
+            region: cell_1
+            configuration:
+              id: 'block_content:b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6f'
+              label: 'Our Conservation Approach (title cta)'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+    -
+      section:
+        layout_id: dripyard_layout_dynamic
+        layout_settings:
+          column_count: 3
+          row_count: 1
+          two_column_layout: '50% / 50%'
+          three_column_layout: '33% / 33% / 33%'
+          section_width: edge-to-edge
+          content_width: max-width
+          cell_align_x: ''
+          cell_align_y: ''
+          margin_top: zero
+          margin_bottom: ''
+          padding_top: zero
+          padding_bottom: ''
+          column_gutter: ''
+          row_gutter: ''
+          additional_classes: ''
+          dripyard_theme: inherit
+          dripyard_layout: default
+          label: 'Conservation Approach Cards'
+          context_mapping: {  }
+        components:
+          b4c5d6e7-f8a9-0b1c-2d3e-4f5a6b7c8d9e:
+            uuid: b4c5d6e7-f8a9-0b1c-2d3e-4f5a6b7c8d9e
+            region: cell_1
+            configuration:
+              id: 'block_content:c2d3e4f5-a6b7-8c9d-0e1f-2a3b4c5d6e7f'
+              label: 'Land Protection'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+          c5d6e7f8-a9b0-1c2d-3e4f-5a6b7c8d9e0f:
+            uuid: c5d6e7f8-a9b0-1c2d-3e4f-5a6b7c8d9e0f
+            region: cell_2
+            configuration:
+              id: 'block_content:d3e4f5a6-b7c8-9d0e-1f2a-3b4c5d6e7f8a'
+              label: 'Community Partnerships'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+          d6e7f8a9-b0c1-2d3e-4f5a-6b7c8d9e0f1a:
+            uuid: d6e7f8a9-b0c1-2d3e-4f5a-6b7c8d9e0f1a
+            region: cell_3
+            configuration:
+              id: 'block_content:e4f5a6b7-c8d9-0e1f-2a3b-4c5d6e7f8a9b'
+              label: 'Scientific Research'
+              label_display: 0
+              provider: block_content
+              status: true
+              info: ''
+              view_mode: full
+              context_mapping: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }

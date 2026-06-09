@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: c0d6e365-2240-40b2-bc16-821aafbf36d8
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    26a699f7-2c76-409e-91da-45b44b7931ec: node
+    1783b545-86b6-4f39-ac63-d1d986903f87: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Great Lakes'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: 26a699f7-2c76-409e-91da-45b44b7931ec
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -50
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:1783b545-86b6-4f39-ac63-d1d986903f87'
+  revision_translation_affected:
+    -
+      value: true

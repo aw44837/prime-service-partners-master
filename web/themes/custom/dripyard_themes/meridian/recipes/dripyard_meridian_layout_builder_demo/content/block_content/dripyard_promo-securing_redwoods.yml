@@ -1,0 +1,39 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e
+  bundle: dripyard_promo
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Securing Redwoods (promo)'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  body:
+    -
+      value: '<p>Coast redwoods are among Earth''s oldest and tallest living organisms, with some trees reaching over 350 feet tall and living for more than 2,000 years. Our conservation efforts focus on protecting remaining old-growth forests, restoring logged areas, and creating wildlife corridors that connect fragmented habitats.</p>'
+      format: dripyard_superbasic
+      summary: ''
+  dripyard_ctas:
+    -
+      uri: 'internal:/pacific-coast'
+      title: 'Learn more'
+      options: {  }
+  dripyard_align_x:
+    -
+      value: start
+  dripyard_align_y:
+    -
+      value: center
+  dripyard_title:
+    -
+      value: '<p>Securing Redwoods</p>'
+      format: dripyard_superbasic

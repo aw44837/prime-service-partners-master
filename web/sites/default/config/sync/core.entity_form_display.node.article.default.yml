@@ -1,0 +1,192 @@
+uuid: fa6ac3f2-eaa1-421b-84a6-fedf068347f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.article.ai_automator_status
+    - field.field.node.article.body
+    - field.field.node.article.field_featured_image
+    - field.field.node.article.field_featured_image_prompt
+    - field.field.node.article.field_image
+    - field.field.node.article.field_tags
+    - image.style.thumbnail
+    - node.type.article
+  module:
+    - content_moderation
+    - field_group
+    - field_widget_actions
+    - media_library
+    - path
+    - svg_image
+    - text
+third_party_settings:
+  field_group:
+    group_images:
+      children:
+        - field_featured_image_prompt
+        - field_featured_image
+        - field_image
+      label: Images
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        label_as_html: false
+        formatter: open
+        description: ''
+        required_fields: true
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 1
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings:
+      field_widget_actions:
+        0d9d0a0d-df33-4f0a-8993-ae01ab4eb51d:
+          plugin_id: automator_text
+          enabled: true
+          button_label: 'Generate body from title'
+          weight: 2
+          settings:
+            automator_id: node.article.body.default
+          remove: 'Remove Action'
+  created:
+    type: datetime_timestamp
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_featured_image:
+    type: media_library_widget
+    weight: 6
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings:
+      field_widget_actions:
+        94b2807c-1be4-4681-9f7d-f04bc4e6e0fa:
+          plugin_id: text_to_image_media_library
+          enabled: true
+          button_label: 'Generate Image with AI'
+          weight: 0
+          settings:
+            automator_id: node.article.field_featured_image.default
+          remove: 'Remove Action'
+  field_featured_image_prompt:
+    type: string_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      field_widget_actions:
+        6bc276a4-6116-483d-a2ae-f10b86274735:
+          plugin_id: automator_text
+          enabled: true
+          button_label: 'Generate AI image prompt'
+          weight: 0
+          settings:
+            automator_id: node.article.field_featured_image_prompt.default
+          remove: 'Remove Action'
+  field_image:
+    type: image_image
+    weight: 7
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_tags:
+    type: entity_reference_autocomplete_tags
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      field_widget_actions:
+        1c4aa688-3f9a-45a3-858a-48192179b6c4:
+          plugin_id: automator_autocomplete_tags_on_taxonomy
+          enabled: true
+          button_label: 'Generate tags'
+          weight: 0
+          settings:
+            automator_id: node.article.field_tags.default
+  moderation_state:
+    type: moderation_state_default
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  ai_automator_status: true
+  publish_on: true
+  publish_state: true
+  unpublish_on: true
+  unpublish_state: true

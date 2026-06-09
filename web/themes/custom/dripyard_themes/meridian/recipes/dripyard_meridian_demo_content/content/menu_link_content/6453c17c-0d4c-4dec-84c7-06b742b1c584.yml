@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 6453c17c-0d4c-4dec-84c7-06b742b1c584
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    205f7de0-5304-4d77-a30f-83cf0b3015f4: node
+    73463dfa-72df-41c6-acaa-ed89079c5d8f: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Pacific Coast'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: 205f7de0-5304-4d77-a30f-83cf0b3015f4
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -49
+  expanded:
+    -
+      value: true
+  parent:
+    -
+      value: 'menu_link_content:73463dfa-72df-41c6-acaa-ed89079c5d8f'
+  revision_translation_affected:
+    -
+      value: true

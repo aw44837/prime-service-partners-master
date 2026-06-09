@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: ea687ad1-5c7b-4429-97a7-a0c6e61caef0
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: david-gavi-fzp4PLJdPxE-unsplash.jpg
+  uri:
+    -
+      value: 'public://2026-01/david-gavi-fzp4PLJdPxE-unsplash.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 822558
+  status:
+    -
+      value: true

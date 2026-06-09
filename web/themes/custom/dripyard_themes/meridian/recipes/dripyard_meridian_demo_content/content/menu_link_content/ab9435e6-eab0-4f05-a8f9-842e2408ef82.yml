@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: ab9435e6-eab0-4f05-a8f9-842e2408ef82
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    c7b79304-896e-436b-ba92-009880ec4cfd: node
+    444496cd-92e8-4ec9-bc83-c381aa6d6706: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: Appalachian
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: c7b79304-896e-436b-ba92-009880ec4cfd
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -48
+  expanded:
+    -
+      value: true
+  parent:
+    -
+      value: 'menu_link_content:444496cd-92e8-4ec9-bc83-c381aa6d6706'
+  revision_translation_affected:
+    -
+      value: true

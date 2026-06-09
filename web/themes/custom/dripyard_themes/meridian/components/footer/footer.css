@@ -1,0 +1,78 @@
+/*
+ * @file
+ * Styles for site footer.
+ */
+
+.site-footer {
+  --footer-surface: var(--theme-surface);
+  --footer-text-color-soft: var(--theme-text-color-soft);
+  --footer-text-color-medium: var(--theme-text-color-medium);
+  --footer-link-color: var(--theme-text-color-loud);
+  --footer-border-color: var(--theme-border-color-alt);
+
+  position: sticky;
+  left: var(--drupal-displace-offset-left, 0);
+  bottom: var(--drupal-displace-offset-bottom, 0);
+  container-type: inline-size;
+  width: 100%;
+  padding-block: var(--spacing-component);
+  background-color: var(--footer-surface);
+  color: var(--footer-text-color-medium);
+
+  @media (scripting: none) {
+    position: static;
+    width: 100%;
+  }
+
+  /* If footer height greater than height of the viewport, unfix it. */
+  &.site-footer--no-sticky {
+    position: static;
+    width: 100%;
+  }
+
+  &:dir(rtl) {
+    right: var(--drupal-displace-offset-right, 0);
+  }
+
+  &[class] :where(a:not([class*="button"])) {
+    color: var(--footer-link-color);
+    text-underline-offset: 2px;
+    transition: text-underline-offset 0.2s;
+    box-shadow: none;
+
+    &:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.7ex;
+      text-decoration-color: currentColor;
+    }
+  }
+
+  .text-content {
+    font-size: inherit;
+  }
+}
+
+.site-footer__top {
+  grid-column: 1 / -1;
+}
+
+.site-footer__left {
+  grid-column: 1 / -1;
+
+  @container (width > 700px) {
+    grid-column: 1 / 9;
+  }
+}
+
+.site-footer__right {
+  grid-column: 1 / -1;
+
+  @container (width > 700px) {
+    grid-column: span 4 / -1;
+    justify-self: end;
+  }
+}
+
+.site-footer__bottom {
+  grid-column: 1 / -1;
+}

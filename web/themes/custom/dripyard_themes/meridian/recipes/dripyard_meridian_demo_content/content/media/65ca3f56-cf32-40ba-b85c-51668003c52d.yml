@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 65ca3f56-cf32-40ba-b85c-51668003c52d
+  bundle: image
+  default_langcode: en
+  depends:
+    ecf98891-b810-40d3-80dc-0448e27e31f9: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Youth Programs Inline'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Students on nature education field trip walking forest trail with naturalist guide'
+      title: ''
+      width: 1536
+      height: 1024
+      entity: ecf98891-b810-40d3-80dc-0448e27e31f9

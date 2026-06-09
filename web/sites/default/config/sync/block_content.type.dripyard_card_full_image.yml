@@ -1,0 +1,10 @@
+uuid: 0fc47caf-0f23-47ea-a908-a31f53681bfe
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: fT-h-MaeJZDe_RB1tFkD9Qq5CleRtslHORBkRjUMG_U
+id: dripyard_card_full_image
+label: 'Card Full Image'
+revision: false
+description: 'Provides a card block type with full image, title, and link.'

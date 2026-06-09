@@ -1,0 +1,35 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 13c65a87-d30d-4426-9630-bf1620d76289
+  bundle: image
+  default_langcode: en
+  depends:
+    a8dfe527-9072-4826-b546-200b1c859704: file
+default:
+  revision_user:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: Hero_6.jpg
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Artistic sketch of waterfall scene.'
+      title: ''
+      width: 1518
+      height: 1024
+      entity: a8dfe527-9072-4826-b546-200b1c859704

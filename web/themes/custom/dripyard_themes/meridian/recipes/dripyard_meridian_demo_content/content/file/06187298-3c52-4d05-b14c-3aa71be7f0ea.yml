@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 06187298-3c52-4d05-b14c-3aa71be7f0ea
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: our-mission.jpg
+  uri:
+    -
+      value: 'public://article-images/our-mission.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 190600
+  status:
+    -
+      value: true

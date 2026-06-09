@@ -1,0 +1,30 @@
+uuid: 9e32aa4a-bff9-427a-8fa3-31f4c19da22c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Entity Block'
+configEntityTypeId: component
+weight: 0
+items:
+  - block.entity_block.ai_agent_decision
+  - block.entity_block.ai_log
+  - block.entity_block.ai_log_type
+  - block.entity_block.automator_chain
+  - block.entity_block.block
+  - block.entity_block.block_content
+  - block.entity_block.canvas_page
+  - block.entity_block.content_moderation_state
+  - block.entity_block.crop
+  - block.entity_block.easy_email
+  - block.entity_block.easy_email_override
+  - block.entity_block.easy_email_type
+  - block.entity_block.file
+  - block.entity_block.media
+  - block.entity_block.menu_link_content
+  - block.entity_block.node
+  - block.entity_block.path_alias
+  - block.entity_block.redirect
+  - block.entity_block.taxonomy_term
+  - block.entity_block.user
+  - block.entity_block.webform
+  - block.entity_block.webform_submission

@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: f22f6c6b-3b09-4558-b422-ca70b906d462
+  bundle: image
+  default_langcode: en
+  depends:
+    7f3135e9-0d4b-4df9-a8a8-6e93c466ee72: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Advocacy and Action'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Community gathering in open meadow near forest edge for conservation discussion, September afternoon'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 7f3135e9-0d4b-4df9-a8a8-6e93c466ee72

@@ -1,0 +1,10 @@
+uuid: 52ae8b58-9fd5-473d-9e19-8be424b2af87
+langcode: en
+status: false
+dependencies:
+  theme:
+    - meridian_subtheme
+id: meridian_subtheme.footer_bottom
+region: footer_bottom
+theme: meridian_subtheme
+component_tree: {  }

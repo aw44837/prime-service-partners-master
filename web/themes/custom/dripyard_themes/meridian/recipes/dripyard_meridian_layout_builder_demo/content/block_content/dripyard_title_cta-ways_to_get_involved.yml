@@ -1,0 +1,26 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+  bundle: dripyard_title_cta
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Ways to Get Involved (title cta)'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  dripyard_component_layout:
+    -
+      value: default
+  dripyard_title:
+    -
+      value: '<p>Ways to Get Involved</p>'
+      format: dripyard_superbasic

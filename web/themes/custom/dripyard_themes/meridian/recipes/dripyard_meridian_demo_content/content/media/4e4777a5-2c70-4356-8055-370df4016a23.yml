@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 4e4777a5-2c70-4356-8055-370df4016a23
+  bundle: image
+  default_langcode: en
+  depends:
+    7a4198db-9c3d-4044-a405-8da3cf4b8d89: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Scientific Research Inline'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Field researcher collecting water samples at forest stream with scientific equipment'
+      title: ''
+      width: 1536
+      height: 1024
+      entity: 7a4198db-9c3d-4044-a405-8da3cf4b8d89

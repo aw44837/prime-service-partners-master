@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 428b29dc-840e-44fd-bb3a-ff1f5b771724
+  bundle: image
+  default_langcode: en
+  depends:
+    c71f226c-d699-445d-bf3e-e0e9965a8ffc: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Volunteer Programs Inline'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Volunteers planting native seedlings along stream bank during restoration project'
+      title: ''
+      width: 1536
+      height: 1024
+      entity: c71f226c-d699-445d-bf3e-e0e9965a8ffc

@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: ee8de51d-5a70-4e98-b0c0-ecde9252d7a6
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: donate.jpg
+  uri:
+    -
+      value: 'public://article-images/donate.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 167430
+  status:
+    -
+      value: true

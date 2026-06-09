@@ -1,0 +1,13 @@
+{% set classes = [
+  'menu-display',
+  style ? style|clean_class,
+  color and color != 'inherit' ? 'color--' ~ color|clean_class,
+  modifier_classes,
+] %}
+
+<div{{ attributes.addClass(classes) }}>
+  {{- drupal_block('system_menu_block:' ~ menu_name, {
+    level: 1,
+    depth: depth ?: 0,
+  }) -}}
+</div>

@@ -1,0 +1,24 @@
+uuid: 2bf008e9-2d8e-405a-ace5-6aee2380f434
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: cfbaca35c37e51cf
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:content_moderation_state'
+        label: 'Content moderation state'
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: 'Content moderation state'
+id: block.entity_block.content_moderation_state
+provider: entity_block
+source: block
+source_local_id: 'entity_block:content_moderation_state'

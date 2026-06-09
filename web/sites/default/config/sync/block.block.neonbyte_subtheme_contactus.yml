@@ -1,0 +1,23 @@
+uuid: 35f35a6b-9c25-49b6-ab4a-033fcf54f1c3
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:dripyard_button:7d0f606a-e73b-459f-a69e-4cdd4c6f1eaa'
+  module:
+    - block_content
+  theme:
+    - neonbyte_subtheme
+id: neonbyte_subtheme_contactus
+theme: neonbyte_subtheme
+region: header_third
+weight: 0
+provider: null
+plugin: 'block_content:7d0f606a-e73b-459f-a69e-4cdd4c6f1eaa'
+settings:
+  id: 'block_content:7d0f606a-e73b-459f-a69e-4cdd4c6f1eaa'
+  label: 'Contact Us'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

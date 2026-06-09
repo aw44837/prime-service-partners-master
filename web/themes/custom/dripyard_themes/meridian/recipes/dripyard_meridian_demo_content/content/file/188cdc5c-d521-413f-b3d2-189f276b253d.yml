@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 188cdc5c-d521-413f-b3d2-189f276b253d
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: rocky-mountains.jpg
+  uri:
+    -
+      value: 'public://article-images/rocky-mountains.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 175122
+  status:
+    -
+      value: true

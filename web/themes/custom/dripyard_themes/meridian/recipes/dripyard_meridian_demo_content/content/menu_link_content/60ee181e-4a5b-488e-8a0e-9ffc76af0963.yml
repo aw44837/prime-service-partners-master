@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 60ee181e-4a5b-488e-8a0e-9ffc76af0963
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    924949ce-5f9c-4709-95c8-76c8e2dfdb7a: node
+    1783b545-86b6-4f39-ac63-d1d986903f87: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Great Plains'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: 924949ce-5f9c-4709-95c8-76c8e2dfdb7a
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -49
+  expanded:
+    -
+      value: true
+  parent:
+    -
+      value: 'menu_link_content:1783b545-86b6-4f39-ac63-d1d986903f87'
+  revision_translation_affected:
+    -
+      value: true

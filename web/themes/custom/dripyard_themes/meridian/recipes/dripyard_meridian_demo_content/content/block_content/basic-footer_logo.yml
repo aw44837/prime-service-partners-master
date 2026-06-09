@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 748f9532-62e9-4656-b187-3c7de76fbf4e
+  bundle: basic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Footer Logo'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  body:
+    -
+      value: '<img src="/sites/default/files/meridian-logo-white.png" data-entity-uuid="1aad0320-7db1-495c-aa59-bb0f7c5f8be9" alt="Meridian Conservation Society" width="300">'
+      format: full_html
+      summary: ''

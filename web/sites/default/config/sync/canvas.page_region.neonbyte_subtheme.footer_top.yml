@@ -1,0 +1,10 @@
+uuid: 76458971-1a68-41dc-b066-b9915c0b8ce7
+langcode: en
+status: false
+dependencies:
+  theme:
+    - neonbyte_subtheme
+id: neonbyte_subtheme.footer_top
+region: footer_top
+theme: neonbyte_subtheme
+component_tree: {  }

@@ -1,0 +1,24 @@
+uuid: ddd9ecc4-08d6-45a8-a821-2c0fa110c7df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intro_description
+    - filter.format.full_html
+    - node.type.services
+  module:
+    - text
+id: node.services.field_intro_description
+field_name: field_intro_description
+entity_type: node
+bundle: services
+label: 'Intro Description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

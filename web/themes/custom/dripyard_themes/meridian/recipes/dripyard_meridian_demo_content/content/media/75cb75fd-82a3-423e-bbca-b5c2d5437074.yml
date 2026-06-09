@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 75cb75fd-82a3-423e-bbca-b5c2d5437074
+  bundle: image
+  default_langcode: en
+  depends:
+    cb2bb364-dec7-4cf5-9be0-052c4e3d7d37: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: Gemini_Generated_Image_xq6z99xq6z99xq6z.jpg
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: test
+      title: ''
+      width: 1024
+      height: 1024
+      entity: cb2bb364-dec7-4cf5-9be0-052c4e3d7d37

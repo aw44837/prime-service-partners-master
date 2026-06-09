@@ -1,0 +1,7 @@
+/*
+ * Meridian specific styles for header-commerce-cart component.
+ */
+
+.header-commerce-cart__dropdown {
+  top: calc(100% + var(--site-header-dropdown-top-offset))
+}

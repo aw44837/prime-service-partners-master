@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 1c0a2428-8afe-43b9-80f9-e473d9dae865
+  bundle: image
+  default_langcode: en
+  depends:
+    45c96f82-b80f-4055-ac46-5b2f4708f445: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Volunteer Programs'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Volunteers maintaining a forest trail in Appalachian hardwood forest, overcast November day'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 45c96f82-b80f-4055-ac46-5b2f4708f445

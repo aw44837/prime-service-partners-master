@@ -1,0 +1,22 @@
+uuid: ff279018-2e8a-4eba-9ac0-cb6b22b7a03c
+langcode: en
+status: false
+dependencies:
+  config:
+    - canvas.component.block.system_menu_block.footer
+  theme:
+    - neonbyte_subtheme
+id: neonbyte_subtheme.footer_left
+region: footer_left
+theme: neonbyte_subtheme
+component_tree:
+  '0:72cd1290-6bcb-4da2-a5c8-a4a6cdab08e9':
+    uuid: 72cd1290-6bcb-4da2-a5c8-a4a6cdab08e9
+    component_id: block.system_menu_block.footer
+    component_version: 68bdb40e1ac48125
+    inputs:
+      label: Footer
+      label_display: '0'
+      level: 1
+      depth: 2
+      expand_all_items: true

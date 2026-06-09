@@ -1,0 +1,24 @@
+uuid: 73e8a0bb-568f-4471-b933-c13c2d5c412d
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: d4d34e3dc5dc8120
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:automator_chain'
+        label: 'Automator Chain'
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: 'Automator Chain'
+id: block.entity_block.automator_chain
+provider: entity_block
+source: block
+source_local_id: 'entity_block:automator_chain'

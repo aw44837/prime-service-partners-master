@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming.
+ */
+
+// Support autoloading of classes when composer is not used.
+require_once __DIR__ . '/../dripyard_base/dripyard-classloader.php';
+
+/**
+ * Prevents the front page from being cached by Drupal or Hostinger's CDN
+ * when a user is logged in. Fixes the admin toolbar disappearing on the
+ * homepage after a cache rebuild.
+ */
+function meridian_page_attachments(array &$attachments): void {
+  $account = \Drupal::currentUser();
+  if (!$account->isAnonymous() && \Drupal::service('path.matcher')->isFrontPage()) {
+    // Tell Drupal's page cache to skip this response.
+    \Drupal::service('page_cache_kill_switch')->trigger();
+    // Tell CDN/browser not to cache this page.
+    $attachments['#cache']['max-age'] = 0;
+  }
+}

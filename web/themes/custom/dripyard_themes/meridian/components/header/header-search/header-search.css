@@ -1,0 +1,210 @@
+/*
+ * @file
+ * Styles for the header search.
+ */
+
+.header-search {
+  --header-search-background: var(--theme-surface);
+  --header-search-text-color: var(--theme-text-color-medium);
+  --header-search-padding-inline: var(--spacing-xs);
+  --header-search-padding-block: var(--spacing-xxs);
+  --header-search-border-radius: var(--radius-lg);
+  --header-search-font-size: var(--h5-size);
+  --header-search-drop-shadow: 0 0 2px var(--theme-border-color-soft);
+
+  display: flex;
+  align-items: center;
+
+  @container (width <= 1180px) {
+    --header-search-font-size: var(--body-m-size);
+
+    flex-basis: 100%;
+    order: 10;
+  }
+
+  &.contextual-region {
+    position: static;
+  }
+}
+
+.header-search__trigger {
+  position: relative;
+  display: none;
+  width: 24px;
+  height: 44px;
+  padding: 0;
+  color: inherit;
+
+  &[aria-expanded="true"] {
+    background-color: transparent;
+  }
+
+  @container (width > 1180px) {
+    display: block;
+  }
+
+  @media (forced-colors: active) {
+    /* Extra specificity to override aria-expanded attribute. */
+    &[class] {
+      background: canvas;
+    }
+  }
+}
+
+.header-search__search-icon {
+  display: flex;
+  justify-content: center;
+
+  .header-search__trigger[aria-expanded="true"] & {
+    display: none;
+  }
+}
+
+.header-search__close-icon {
+  --line-width: 3px;
+  --icon-size: 20px;
+
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: calc(50% - var(--line-width) / 2);
+    left: calc(50% - var(--icon-size) / 2);
+    width: var(--icon-size);
+    height: 0;
+    border-top: solid var(--line-width) currentColor;
+    content: "";
+    transition: all 0.2s;
+  }
+
+  &::before {
+    rotate: -45deg;
+  }
+
+  &::after {
+    rotate: 45deg;
+  }
+
+  .header-search__trigger[aria-expanded="true"] & {
+    display: block;
+  }
+}
+
+.header-search__content {
+  order: 10;
+  width: 100%;
+
+  @container (width > 1180px) {
+    --animation-duration: 0.2s;
+
+    visibility: hidden;
+    position: absolute;
+    top: calc(100% + var(--site-header-dropdown-top-offset));
+    inset-inline-end: 0;
+    z-index: 5;
+    order: revert;
+    width: min(100%, 500px);
+    height: 0;
+    padding-block: 0;
+    padding-inline: var(--header-search-padding-inline);
+    background: var(--header-search-background);
+    border: solid 1px transparent;
+    border-radius: var(--header-search-border-radius);
+    filter: drop-shadow(var(--header-search-drop-shadow));
+
+    /* This makes the search usable if JS is disabled. Not beautiful, but usable! */
+    @media (scripting: none) {
+      &:is(.header-search:focus-within *) {
+        visibility: visible;
+        height: auto;
+        padding-inline: var(--header-padding-inline);
+        padding-block: var(--header-search-padding-block);
+        background-color: var(--theme-surface);
+        border-radius: var(--header-border-radius);
+      }
+    }
+  }
+
+  &.is-active {
+    visibility: visible;
+    height: auto;
+    padding-inline: var(--header-search-padding-inline);
+    padding-block: var(--header-search-padding-block);
+  }
+
+  form {
+    display: flex;
+    align-items: center;
+
+    .form-item,
+    .form-actions {
+      display: contents;
+    }
+
+    [type="text"],
+    [type="search"] {
+      flex-grow: 1;
+      padding: 4px 20px;
+      padding-inline-end: 0;
+      font-size: var(--header-search-font-size);
+      border: solid 1px transparent;
+      border-radius: var(--radius-md);
+
+      &:focus {
+        outline: 1px solid var(--white);
+      }
+
+      @container (width < 1180px) {
+        background-color: var(--white);
+        color: var(--neutral-700);
+        border-color: var(--theme-border-color);
+      }
+    }
+
+    button[type="submit"] {
+      position: relative; /* Anchor pseudo. */
+      display: block; /* Necessary for Safari 18.6. */
+      height: 100%;
+      aspect-ratio: 1;
+      margin-inline-start: 10px;
+      background-color: transparent;
+      text-indent: -999px;
+      outline-offset: -2px;
+      overflow: clip; /* Hide text. */
+      border: 0;
+
+      &::before {
+        position: absolute;
+        inset: 0;
+        margin-block: auto;
+        width: 80%;
+        height: 80%;
+        content: "";
+        mask-image: url('images/search.svg');
+        mask-size: contain;
+        mask-repeat: no-repeat;
+        mask-position: center;
+        background-color: var(--form-text-color);
+      }
+
+      @media (forced-colors: active) {
+        background: none !important;
+
+        &::before {
+          background-color: buttonText;
+        }
+      }
+    }
+  }
+}
+
+/*
+ * Override for Drupal CMS's advanced search recipe.
+ */
+.search-api-autocomplete-search .ui-menu-item-wrapper.ui-state-active .search-api-autocomplete-suggestion[class] {
+  background: transparent;
+  color: inherit;
+}

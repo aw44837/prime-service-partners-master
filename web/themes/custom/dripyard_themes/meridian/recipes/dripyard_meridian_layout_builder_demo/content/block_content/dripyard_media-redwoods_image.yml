@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f
+  bundle: dripyard_media
+  default_langcode: en
+  depends:
+    be6356f9-2243-4566-a4dc-1829a9f6b84b: media
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Redwoods Image'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  dripyard_media:
+    -
+      entity: be6356f9-2243-4566-a4dc-1829a9f6b84b

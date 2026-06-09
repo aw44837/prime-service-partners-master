@@ -1,0 +1,22 @@
+uuid: d24868f1-3cf2-4aa6-a694-b02c068045ef
+langcode: en
+status: false
+dependencies:
+  config:
+    - canvas.component.block.system_menu_block.main
+  theme:
+    - meridian_subtheme
+id: meridian_subtheme.header_second
+region: header_second
+theme: meridian_subtheme
+component_tree:
+  '0:6005a098-c10a-4a22-af9e-2a389457f10e':
+    uuid: 6005a098-c10a-4a22-af9e-2a389457f10e
+    component_id: block.system_menu_block.main
+    component_version: 023ff7ba63f80798
+    inputs:
+      label: 'Main navigation'
+      label_display: '0'
+      level: 1
+      depth: 3
+      expand_all_items: true

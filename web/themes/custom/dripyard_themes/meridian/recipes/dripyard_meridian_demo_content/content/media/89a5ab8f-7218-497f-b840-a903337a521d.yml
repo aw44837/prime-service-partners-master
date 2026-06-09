@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 89a5ab8f-7218-497f-b840-a903337a521d
+  bundle: image
+  default_langcode: en
+  depends:
+    690060a3-67bb-4cb0-845b-26fcc89b4cb1: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Corporate Partnerships'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Managed forest edge meeting meadow with split-rail fence and conservation markers, September'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 690060a3-67bb-4cb0-845b-26fcc89b4cb1

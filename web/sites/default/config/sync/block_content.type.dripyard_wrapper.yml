@@ -1,0 +1,10 @@
+uuid: 5d2667a3-72f0-44b9-b6ed-7c42756f51d2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: TmEfgPkF_a02tfBd9KShIpaeUKwODaPKmLKL3Al80aQ
+id: dripyard_wrapper
+label: 'Layout Builder Wrapper'
+revision: false
+description: 'Provides a wrapper (accordion, carousel, tab group) placeholder for use in Layout Builder to wrap other blocks automatically.'

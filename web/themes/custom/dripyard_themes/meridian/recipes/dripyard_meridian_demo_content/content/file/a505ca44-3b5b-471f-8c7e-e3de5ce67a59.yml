@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: a505ca44-3b5b-471f-8c7e-e3de5ce67a59
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: involve-donate.jpg
+  uri:
+    -
+      value: 'public://involve-donate.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 167608
+  status:
+    -
+      value: true

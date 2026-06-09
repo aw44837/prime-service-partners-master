@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: b5460617-38ae-43ad-8056-414151244b7a
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: meridian-logo-white.png
+  uri:
+    -
+      value: 'public://meridian-logo-white.png'
+  filemime:
+    -
+      value: image/png
+  filesize:
+    -
+      value: 10441
+  status:
+    -
+      value: true

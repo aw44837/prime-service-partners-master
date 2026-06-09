@@ -1,0 +1,24 @@
+uuid: 96457251-bca0-4be4-92bc-4e53c3879108
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: 553f80a7f93aa31d
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:canvas_page'
+        label: Page
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: Page
+id: block.entity_block.canvas_page
+provider: entity_block
+source: block
+source_local_id: 'entity_block:canvas_page'

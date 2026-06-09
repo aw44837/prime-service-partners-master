@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: c98bc7ac-6d5a-4fde-9b91-a6203f86f301
+  bundle: image
+  default_langcode: en
+  depends:
+    fbc9c3f5-4985-4f65-9922-aaf86f65aa2c: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Youth Programs'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Youth group walking forest trail with naturalist guide in Appalachian woodland, late May'
+      title: ''
+      width: 1376
+      height: 768
+      entity: fbc9c3f5-4985-4f65-9922-aaf86f65aa2c

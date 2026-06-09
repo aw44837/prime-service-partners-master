@@ -1,0 +1,35 @@
+uuid: 03c27ea1-3f66-42b8-a338-bb9129de635f
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:dripyard_button:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'
+  module:
+    - block_content
+active_version: 8a4b8ffe2593581b
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'block_content:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'
+        label: 'Call Button'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+  1385352eedd53a35:
+    settings:
+      default_settings:
+        id: 'block_content:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'
+        label: Call
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+label: 'Call Button'
+id: block.block_content.405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c
+provider: block_content
+source: block
+source_local_id: 'block_content:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'

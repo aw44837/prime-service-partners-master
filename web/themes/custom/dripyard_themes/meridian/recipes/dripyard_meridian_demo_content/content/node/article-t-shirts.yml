@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 938c3e9b-42ca-4062-b4e1-ac13eebded25
+  bundle: article
+  default_langcode: en
+  depends:
+    fb87dc30-190f-4eb5-9a56-a1a0402db5d0: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: T-shirts
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /t-shirts
+  body:
+    -
+      value: "<p>Meridian's apparel line reflects our commitment to quality, simplicity, and the landscapes we protect. Our t-shirts are made from 100% organic cotton, printed with water-based inks, and designed with the same understated aesthetic that defines our conservation work.</p><p>Each design draws inspiration from the ecosystems we serve — from Appalachian ridgeline silhouettes to native plant illustrations rendered by regional artists. The colors are drawn from the landscape itself: forest greens, clay browns, slate grays, and the muted golds of autumn meadows.</p><p>We partner with domestic manufacturers who share our values around sustainability and fair labor practices. Every shirt purchased supports our land protection and wildlife conservation programs. Wear your commitment to wild places — not as a statement, but as a quiet reminder of what matters.</p>"
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Folded cotton t-shirts in muted earth tones on wooden shelf, overcast daylight'
+      title: ''
+      width: 1376
+      height: 768
+      entity: fb87dc30-190f-4eb5-9a56-a1a0402db5d0

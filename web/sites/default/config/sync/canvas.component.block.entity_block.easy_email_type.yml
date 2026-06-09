@@ -1,0 +1,24 @@
+uuid: 1d89262d-99c2-4147-8963-aa1d7ee22f0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: 60e242704fe2bfd4
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:easy_email_type'
+        label: 'Email template'
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: 'Email template'
+id: block.entity_block.easy_email_type
+provider: entity_block
+source: block
+source_local_id: 'entity_block:easy_email_type'

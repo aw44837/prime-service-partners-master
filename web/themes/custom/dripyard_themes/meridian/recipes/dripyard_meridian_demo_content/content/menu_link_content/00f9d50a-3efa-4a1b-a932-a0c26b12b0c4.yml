@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 00f9d50a-3efa-4a1b-a932-a0c26b12b0c4
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    150d06d8-d946-4623-8747-64e7041cfd07: node
+    444496cd-92e8-4ec9-bc83-c381aa6d6706: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'North Eastern'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: 150d06d8-d946-4623-8747-64e7041cfd07
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -50
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:444496cd-92e8-4ec9-bc83-c381aa6d6706'
+  revision_translation_affected:
+    -
+      value: true

@@ -1,0 +1,144 @@
+uuid: e8388814-1ec3-4302-9e04-44e58586b8f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.services.ai_automator_status
+    - field.field.node.services.field_body
+    - field.field.node.services.field_featured_image
+    - field.field.node.services.field_featured_image_prompt
+    - field.field.node.services.field_intro_description
+    - node.type.services
+  module:
+    - layout_builder
+    - layout_discovery
+    - text
+    - user
+  theme:
+    - dripyard_base
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: dripyard_layout_dynamic
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          column_count: 2
+          row_count: 1
+          two_column_layout: '75% / 25%'
+          three_column_layout: '33% / 33% / 33%'
+          section_width: edge-to-edge
+          content_width: max-width
+          cell_align_x: ''
+          cell_align_y: ''
+          margin_top: ''
+          margin_bottom: ''
+          padding_top: ''
+          padding_bottom: ''
+          column_gutter: ''
+          row_gutter: ''
+          additional_classes: ''
+          dripyard_theme: inherit
+          dripyard_layout: default
+        components:
+          f76202ac-5619-49cf-a10c-041451309e3e:
+            uuid: f76202ac-5619-49cf-a10c-041451309e3e
+            region: cell_1
+            configuration:
+              id: 'field_block:node:services:field_featured_image'
+              label: 'Featured image'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_entity_view
+                label: visually_hidden
+                settings:
+                  view_mode: 16_9_large
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          250c099a-6aec-4a84-ae44-939c10e8b6b5:
+            uuid: 250c099a-6aec-4a84-ae44-939c10e8b6b5
+            region: cell_1
+            configuration:
+              id: 'field_block:node:services:field_body'
+              label: Body
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: visually_hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          787b00ba-6c12-4b63-89e0-bcf886c7b28f:
+            uuid: 787b00ba-6c12-4b63-89e0-bcf886c7b28f
+            region: cell_1
+            configuration:
+              id: 'field_block:node:services:field_featured_image_prompt'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: basic_string
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+          2ca26478-7167-4f90-9345-4e222efb30d4:
+            uuid: 2ca26478-7167-4f90-9345-4e222efb30d4
+            region: cell_1
+            configuration:
+              id: 'field_block:node:services:field_intro_description'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 4
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components: {  }
+        third_party_settings: {  }
+id: node.services.default
+targetEntityType: node
+bundle: services
+mode: default
+content:
+  field_featured_image_prompt:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: cell_1
+  field_intro_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: cell_1
+hidden:
+  ai_automator_status: true
+  field_body: true
+  field_featured_image: true
+  links: true

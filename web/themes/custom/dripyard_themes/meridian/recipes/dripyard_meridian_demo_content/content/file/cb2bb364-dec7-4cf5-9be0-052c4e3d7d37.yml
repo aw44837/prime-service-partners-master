@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: cb2bb364-dec7-4cf5-9be0-052c4e3d7d37
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: mountain-overlook-sunset.jpg
+  uri:
+    -
+      value: 'public://2026-01/mountain-overlook-sunset.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 213905
+  status:
+    -
+      value: true

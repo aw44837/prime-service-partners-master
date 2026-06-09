@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: ce946c03-a9ab-43a6-bac5-25d0e3fda406
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    938c3e9b-42ca-4062-b4e1-ac13eebded25: node
+    35b26299-c9fe-4071-afd9-d69dc8347924: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: T-shirts
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: 938c3e9b-42ca-4062-b4e1-ac13eebded25
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -49
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:35b26299-c9fe-4071-afd9-d69dc8347924'
+  revision_translation_affected:
+    -
+      value: true

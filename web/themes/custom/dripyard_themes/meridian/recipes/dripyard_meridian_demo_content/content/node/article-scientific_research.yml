@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 14fa434d-4c44-41a8-84f8-3ad510ff7482
+  bundle: article
+  default_langcode: en
+  depends:
+    7a4198db-9c3d-4044-a405-8da3cf4b8d89: file
+    a41e86d4-dfce-4dcf-983f-6588a188b594: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Scientific Research'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /scientific-research
+  body:
+    -
+      value: '<p>Good conservation requires good data. Meridian''s scientific research programs provide the evidence base that guides our land protection, wildlife management, and restoration efforts. We believe that decisions about natural resources should be grounded in observation, measurement, and honest analysis.</p><drupal-media data-entity-type="media" data-entity-uuid="4e4777a5-2c70-4356-8055-370df4016a23" data-align="left" data-caption="Field research in action">&nbsp;</drupal-media><p>Our research teams maintain long-term monitoring plots across multiple ecosystems, tracking changes in forest composition, water quality, wildlife populations, and soil health. This longitudinal data is invaluable — it reveals trends that short-term studies cannot detect and helps us adapt our strategies as conditions change.</p><p>We also invest in applied research that addresses specific conservation challenges: How do forest management practices affect water quality in headwater streams? What is the minimum corridor width needed for successful wildlife movement? How are changing climate patterns shifting species distributions? By answering these questions with field-based evidence, we make our conservation work more effective and accountable.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Forest monitoring plot with marker stake and field notebook in Appalachian woodland, May'
+      title: ''
+      width: 1376
+      height: 768
+      entity: a41e86d4-dfce-4dcf-983f-6588a188b594

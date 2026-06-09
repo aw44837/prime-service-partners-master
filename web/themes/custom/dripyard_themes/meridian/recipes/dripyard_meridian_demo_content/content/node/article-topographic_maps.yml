@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 03094b14-e297-4e78-8485-483afa07b8b0
+  bundle: article
+  default_langcode: en
+  depends:
+    98dfb7a0-f8d9-4bb6-a9c5-20ef025bf6c9: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Topographic Maps'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /topographic-maps
+  body:
+    -
+      value: "<p>There is no substitute for a good topographic map. While digital tools have their place, a printed topo map offers something screens cannot — a comprehensive view of the terrain that reveals relationships between ridges, valleys, waterways, and elevation that are essential for understanding a landscape.</p><p>Meridian's map collection features USGS topographic quadrangles and custom trail maps covering the conservation lands and wild spaces where we work. Our custom maps are produced in partnership with regional cartographers and include updated trail information, conservation easement boundaries, and points of ecological interest.</p><p>Whether you are planning a backcountry trip, studying the watershed that feeds your community, or simply appreciating the art of cartography, our maps connect you to the landscape in a tangible way. Proceeds support our trail maintenance and public access programs that keep wild places open and accessible for everyone.</p>"
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Unfolded topographic map on weathered picnic table with compass and pencil, overcast afternoon'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 98dfb7a0-f8d9-4bb6-a9c5-20ef025bf6c9

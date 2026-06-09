@@ -1,0 +1,21 @@
+name: Dripyard Meridian Layout Builder Demo
+type: Dripyard
+description: 'This recipe provides a Layout Builder based install of https://meridian.dripyard.com. It includes a landing page with various blocks and configurations.'
+recipes:
+  - 'dripyard_meridian_demo_content'
+  - 'dripyard_meridian_landing_pages'
+config:
+  strict: false
+  actions:
+    system.site:
+      simpleConfigUpdate:
+        page:
+          front: '/meridian-home-page'
+    core.menu.static_menu_link_overrides:
+      simpleConfigUpdate:
+        definitions.standard__front_page:
+          menu_name: main
+          enabled: false
+          expanded: false
+          parent: false
+          weight: -50

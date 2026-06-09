@@ -1,0 +1,21 @@
+uuid: f18a16e4-9b4b-4411-ac62-19314e1eed14
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: bvvSscBiDtFr9CGg8gctFtg5ujJ8rLiQs9Rwpl-TyU4
+id: block_content.dripyard_wrapper_props
+field_name: dripyard_wrapper_props
+entity_type: block_content
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

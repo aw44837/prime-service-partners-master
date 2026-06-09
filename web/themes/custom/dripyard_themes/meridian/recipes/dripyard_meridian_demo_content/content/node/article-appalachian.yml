@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: c7b79304-896e-436b-ba92-009880ec4cfd
+  bundle: article
+  default_langcode: en
+  depends:
+    665d4c1e-133a-4943-b815-7438c71d0257: file
+    671eea4c-f422-4047-b8ea-2f082eb4c867: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Appalachian
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /appalachian
+  body:
+    -
+      value: '<p>The Appalachian Mountains are among the oldest on earth and support one of the most biodiverse temperate ecosystems anywhere. From the spruce-fir forests of the highest peaks to the rich cove hardwoods of sheltered valleys, these mountains harbor species found nowhere else — including more than 30 species of salamanders in the southern Appalachians alone.</p><drupal-media data-entity-type="media" data-entity-uuid="d52e777f-b1a2-4fd7-8c9e-cbc6ac1b9233" data-align="left" data-caption="Appalachian mountain stream">&nbsp;</drupal-media><p>Meridian''s Appalachian programs are rooted in this landscape. We work to protect the headwater streams that supply drinking water to millions of people downstream. We safeguard the unfragmented forest blocks that black bears, cerulean warblers, and eastern box turtles need to survive. And we support the mountain communities whose cultural heritage is inseparable from the land.</p><p>The Appalachians face ongoing threats from resource extraction, invasive pests like the hemlock woolly adelgid, and climate-driven shifts in species composition. Our monitoring programs track these changes, and our land protection efforts focus on the most ecologically significant parcels — places where protection will have the greatest impact for biodiversity, water quality, and community resilience.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Southern Appalachian mountain cove with rhododendron thicket and rocky stream, early November'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 671eea4c-f422-4047-b8ea-2f082eb4c867

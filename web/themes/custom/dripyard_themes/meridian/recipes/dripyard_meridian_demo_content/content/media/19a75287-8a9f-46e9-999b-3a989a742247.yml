@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 19a75287-8a9f-46e9-999b-3a989a742247
+  bundle: image
+  default_langcode: en
+  depends:
+    3673cb5b-1579-4f7e-8213-6613aaa6d294: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Desert Southwest Inline'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Desert oasis spring pool surrounded by cottonwood trees amid red rock formations'
+      title: ''
+      width: 1536
+      height: 1024
+      entity: 3673cb5b-1579-4f7e-8213-6613aaa6d294

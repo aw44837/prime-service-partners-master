@@ -1,0 +1,41 @@
+uuid: 81c5ed30-dd95-4634-9854-64558303fc46
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+_core:
+  default_config_hash: G3qt8r3H27kByw45Wo6MsJ2AH5661PJQ9Z98zkXZd2Q
+id: block_content.dripyard_component_theme
+field_name: dripyard_component_theme
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: inherit
+      label: Inherit
+    -
+      value: white
+      label: White
+    -
+      value: light
+      label: Light
+    -
+      value: dark
+      label: Dark
+    -
+      value: black
+      label: Black
+    -
+      value: primary
+      label: Primary
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

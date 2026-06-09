@@ -1,0 +1,60 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 8a1b2c3d-4e5f-6a7b-8c9d-0e1f2a3b4c5d
+  bundle: dripyard_hero
+  default_langcode: en
+  depends:
+    0d69b01d-9e01-4d35-a6bf-c00ca3105a93: node
+    13c65a87-d30d-4426-9630-bf1620d76289: media
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Landscape as Identity Hero'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  body:
+    -
+      value: '<p>Dedicated to preserving our natural heritage&nbsp;<br>and protecting vital ecosystems for future generations.</p>'
+      format: dripyard_superbasic
+      summary: ''
+  dripyard_align_x:
+    -
+      value: center
+  dripyard_align_y:
+    -
+      value: top
+  dripyard_button_style:
+    -
+      value: secondary
+  dripyard_component_theme:
+    -
+      value: white
+  dripyard_ctas:
+    -
+      title: 'Donate Today'
+      options: {  }
+      target_uuid: 0d69b01d-9e01-4d35-a6bf-c00ca3105a93
+  dripyard_hero_height:
+    -
+      value: large
+  dripyard_hero_position_top:
+    -
+      value: true
+  dripyard_image_media:
+    -
+      entity: 13c65a87-d30d-4426-9630-bf1620d76289
+  dripyard_text_color:
+    -
+      value: primary
+  dripyard_title:
+    -
+      value: '<p>Landscape as Identity</p>'
+      format: dripyard_superbasic

@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 9f1785b7-101d-467f-81d0-190931605b8f
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: involve-education.jpg
+  uri:
+    -
+      value: 'public://involve-education.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 346507
+  status:
+    -
+      value: true

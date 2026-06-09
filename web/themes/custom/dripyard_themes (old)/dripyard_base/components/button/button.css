@@ -1,0 +1,247 @@
+/**
+ * @file
+ * Button styles.
+ */
+
+:where(:root) {
+  /* Borders. */
+  --button-border-radius: var(--radius-button);
+  --button-border-width: 1px;
+  --button-icon-background-radius: 50%;
+
+  /* Typography. */
+  --button-font-family: inherit;
+  --button-font-size: var(--body-m-size);
+  --button-font-weight: 600;
+
+  /* Layout. */
+  --button-height: 48px;
+  --button-padding-block: 10px;
+  --button-padding-inline: 20px;
+}
+
+.button {
+  &:has(.button__prefix) {
+    padding-inline-start: 8px;
+  }
+
+  &:has(.button__suffix) {
+    padding-inline-end: 8px;
+  }
+
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  height: var(--button-height);
+  margin: 0;
+  white-space: nowrap;
+  padding-block: var(--button-padding-block);
+  padding-inline: var(--button-padding-inline);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: var(--theme-button-text-color);
+  border: solid var(--button-border-width) var(--theme-button-border-color);
+  border-radius: var(--button-border-radius);
+  background-color: var(--theme-button-background-color);
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  line-height: 1;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  touch-action: manipulation;
+  text-box: trim-both cap alphabetic;
+  transition: scale 0.1s, background-color 0.2s;
+
+  &:where(:not(:disabled)):hover {
+    background-color: var(--theme-button-background-color-hover);
+    border-color: var(--theme-button-border-color-hover);
+    color: var(--theme-button-text-color-hover);
+  }
+
+  &:where(:not(:disabled)):active {
+    background-color: var(--theme-button-background-color-active);
+    border-color: var(--theme-button-border-color-active);
+    color: var(--theme-button-text-color-active);
+    scale: 1.03;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    border-color: var(--button-border-color);
+    background-color: color-mix(in oklch, var(--theme-button-background-color), transparent);
+    color: color-mix(in oklch, var(--theme-button-text-color), transparent);
+
+    .button__prefix,
+    .button__suffix {
+      opacity: 0.4;
+    }
+  }
+}
+
+.button--primary:where(:not([disabled])) {
+  background-color: var(--theme-button-primary-background-color);
+  color: var(--theme-button-primary-text-color);
+  border-color: var(--theme-button-primary-border-color);
+
+  &:hover {
+    background-color: var(--theme-button-primary-background-color-hover);
+    border-color: var(--theme-button-primary-border-color-hover);
+    color: var(--theme-button-primary-text-color-hover);
+  }
+
+  &:active {
+    background-color: var(--theme-button-primary-background-color-active);
+    border-color: var(--theme-button-primary-border-color-active);
+    color: var(--theme-button-primary-text-color-active);
+  }
+
+  .button__prefix,
+  .button__suffix {
+    background-color: var(--theme-button-primary-icon-background-color);
+
+    svg,
+    path {
+      fill: var(--theme-button-primary-icon-fill);
+      color: var(--theme-button-primary-icon-fill);
+    }
+  }
+}
+
+.button__prefix,
+.button__suffix {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  padding: 3px;
+  background: var(--theme-button-icon-background-color);
+  border-radius: var(--button-icon-background-radius);
+  aspect-ratio: 1;
+  transition: translate 0.2s;
+
+  svg {
+    height: 100%;
+    width: auto;
+
+    &,
+    path {
+      fill: var(--theme-button-icon-fill);
+      color: var(--theme-button-icon-fill);
+
+      @media (forced-colors: active)  {
+        fill: linkText !important;
+        color: linkText !important;
+      }
+    }
+  }
+
+  .button:where(:not(:disabled)):hover & {
+    background: var(--theme-button-icon-background-color-hover);
+
+    svg,
+    path {
+      fill: var(--theme-button-icon-fill-hover);
+      color: var(--theme-button-icon-fill-hover);
+    }
+  }
+
+  .button:where(:not(:disabled)):active & {
+    background: var(--theme-button-icon-background-color-active);
+
+    svg,
+    path {
+      fill: var(--theme-button-icon-fill-active);
+      color: var(--theme-button-icon-fill-active);
+    }
+  }
+
+  .button--primary:where(:not(:disabled)):hover & {
+    background: var(--theme-button-primary-icon-background-color-hover);
+
+    svg,
+    path {
+      fill: var(--theme-button-primary-icon-fill-hover);
+      color: var(--theme-button-primary-icon-fill-hover);
+    }
+  }
+
+  .button--primary:where(:not(:disabled)):active & {
+    background: var(--theme-button-primary-icon-background-color-active);
+
+    svg,
+    path {
+      fill: var(--theme-button-primary-icon-fill-active);
+      color: var(--theme-button-primary-icon-fill-active);
+    }
+  }
+
+  .button--small & {
+    padding: 0;
+  }
+
+  .button--large & {
+    padding: 8px;
+  }
+}
+
+.button--xs {
+  --button-font-size: 12px;
+  --button-font-weight: 400;
+  --button-height: 25px;
+  --button-padding-block: 4px;
+  --button-padding-inline: 12px;
+  --theme-button-background-color-icon: transparent;
+
+  &:has(.button__prefix) {
+    padding-inline-start: 6px;
+  }
+
+  &:has(.button__suffix) {
+    padding-inline-end: 6px;
+  }
+}
+
+.button--small {
+  --button-font-size: 12px;
+  --button-font-weight: 400;
+  --button-height: 35px;
+  --button-padding-block: 10px;
+  --button-padding-inline: var(--sp2);
+  --theme-button-background-color-icon: transparent;
+
+  &:has(.button__prefix) {
+    padding-inline-start: 8px;
+  }
+
+  &:has(.button__suffix) {
+    padding-inline-end: 8px;
+  }
+}
+
+.button--large {
+  --button-height: 56px;
+  --button-padding-inline: 20px;
+  --button-font-size: 20px;
+
+  &:has(.button__prefix) {
+    padding-inline-start: 10px;
+  }
+
+  &:has(.button__suffix) {
+    padding-inline-end: 10px;
+  }
+}
+
+.button--danger {
+  background-color: var(--color-error-dark);
+  color: var(--white);
+
+  &:hover {
+    background-color: var(--color-error-light);
+    color: var(--white);
+  }
+}

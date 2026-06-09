@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: f73af616-b5a7-49f4-82fc-780caf395024
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    c8fef65a-f05b-4781-aab7-35866e979796: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Get Involved'
+  menu_name:
+    -
+      value: footer
+  link:
+    -
+      uri: 'internal:/'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -49
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:c8fef65a-f05b-4781-aab7-35866e979796'
+  revision_translation_affected:
+    -
+      value: true

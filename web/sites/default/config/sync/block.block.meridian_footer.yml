@@ -1,0 +1,27 @@
+uuid: 4689fe2c-9c84-46e9-8e1f-52d38131c1c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - meridian
+_core:
+  default_config_hash: _MoUWwMrSmJr-yBgGZvA177o10QfLKSld647eUXwOP0
+id: meridian_footer
+theme: meridian
+region: footer_left
+weight: 0
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 2
+  expand_all_items: true
+visibility: {  }

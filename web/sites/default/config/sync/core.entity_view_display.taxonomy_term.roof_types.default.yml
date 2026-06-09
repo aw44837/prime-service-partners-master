@@ -1,0 +1,21 @@
+uuid: be7561cf-93f2-4ad6-96d6-c908bd096d78
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.roof_types
+  module:
+    - text
+id: taxonomy_term.roof_types.default
+targetEntityType: taxonomy_term
+bundle: roof_types
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

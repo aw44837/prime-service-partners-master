@@ -1,0 +1,12 @@
+uuid: 4183a0e6-81e2-47f0-b873-a6515b3e5310
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+id: node.review.full
+content_entity_type_id: node
+content_entity_type_bundle: review
+content_entity_type_view_mode: full
+component_tree: {  }
+exposed_slots: {  }

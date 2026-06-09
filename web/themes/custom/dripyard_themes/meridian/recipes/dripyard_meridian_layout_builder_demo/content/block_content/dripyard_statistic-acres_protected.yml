@@ -1,0 +1,33 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: 7a8b9c0d-1e2f-3a4b-5c6d-7e8f9a0b1c2d
+  bundle: dripyard_statistic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Acres Protected (statistic)'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  dripyard_link:
+    -
+      uri: 'internal:/land-protection'
+      title: ''
+      options: {  }
+  dripyard_statistic:
+    -
+      value: 500,000+
+  dripyard_statistic_first_line:
+    -
+      value: acres of wild habitat
+  dripyard_statistic_second_line:
+    -
+      value: protected and restored

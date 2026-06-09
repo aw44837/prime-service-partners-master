@@ -1,0 +1,17 @@
+# Deployment is handled by a server-side cron job (/home/u569401512/jefco-deploy-cron.php)
+# that runs every 5 minutes, pulls new commits from GitHub, and runs Drush post-deploy commands.
+# This workflow exists as a record — no action needed from GitHub's side.
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Confirm push to main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deployment queued
+        run: echo "Push received. Server cron will pull and deploy within 5 minutes."

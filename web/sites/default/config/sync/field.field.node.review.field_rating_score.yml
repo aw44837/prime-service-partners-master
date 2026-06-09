@@ -1,0 +1,25 @@
+uuid: e2012ead-b421-43d6-ae13-cedc838dea9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rating_score
+    - node.type.review
+id: node.review.field_rating_score
+field_name: field_rating_score
+entity_type: node
+bundle: review
+label: 'Rating Score'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 5
+default_value_callback: ''
+settings:
+  min: 1
+  max: 5
+  prefix: ''
+  suffix: stars
+field_type: integer

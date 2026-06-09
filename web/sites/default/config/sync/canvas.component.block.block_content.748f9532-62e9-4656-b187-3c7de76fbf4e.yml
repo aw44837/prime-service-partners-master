@@ -1,0 +1,25 @@
+uuid: 681a9687-8415-4dff-b48e-a04b27ba43f6
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:748f9532-62e9-4656-b187-3c7de76fbf4e'
+  module:
+    - block_content
+active_version: 67e622fbffc9289d
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'block_content:748f9532-62e9-4656-b187-3c7de76fbf4e'
+        label: 'Footer Logo'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+label: 'Footer Logo'
+id: block.block_content.748f9532-62e9-4656-b187-3c7de76fbf4e
+provider: block_content
+source: block
+source_local_id: 'block_content:748f9532-62e9-4656-b187-3c7de76fbf4e'

@@ -1,0 +1,52 @@
+{% set classes = [
+  'site-header',
+  'container',
+  'theme--' ~  header_settings.site_theme|clean_class,
+  ]
+%}
+
+{% if header_settings.header_theme %}
+  {% set attributes = attributes.setAttribute('data-header-theme',  'theme--' ~ header_settings.header_theme|clean_class) %}
+{% endif %}
+
+{% if header_settings.header_theme == 'inherit' %}
+  {% set attributes = attributes.setAttribute('data-header-theme',  'theme--' ~ header_settings.site_theme|clean_class) %}
+{% endif %}
+
+{% if header_settings.site_theme %}
+  {% set attributes = attributes.setAttribute('data-site-theme',  'theme--' ~ header_settings.site_theme|clean_class) %}
+{% endif %}
+
+{% if header_settings.logo_when_hero %}
+  {% set attributes = attributes.setAttribute('data-logo-when-hero', header_settings.logo_when_hero|clean_class) %}
+{% endif %}
+
+{% if header_settings.logo_when_stickied %}
+  {% set attributes = attributes.setAttribute('data-logo-when-stickied', header_settings.logo_when_stickied|clean_class) %}
+{% endif %}
+
+<div class="site-header__sentinel"></div>
+<header{{ attributes.addClass(classes) }}>
+  <div class="site-header__inner">
+    <div class="site-header__container">
+      {# Main header content wrapper with layout styles. #}
+      <div class="site-header__content">
+        {{ header_first }}
+        {{ include('meridian:mobile-nav-button', with_context = false) }}
+        {# This is the element that the mobile navigation button controls.  #}
+        <div id="{{ 'header-navigation-wrapper-' ~ random() }}" class="header-navigation-wrapper" data-drupal-selector="header-navigation-wrapper">
+          <div class="header-navigation-wrapper__scrollable">
+            {{ header_second }}
+            {% if block('header_third') is defined %}
+              <div class="header-navigation-wrapper__third">
+                {% block header_third %}
+                  {{ header_third }}
+                {% endblock %}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

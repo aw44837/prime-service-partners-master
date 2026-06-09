@@ -1,0 +1,108 @@
+uuid: a105fca0-2af7-467c-8a7e-885ef7238eb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.button
+    - canvas.component.sdc.dripyard_base.canvas-image
+    - canvas.component.sdc.dripyard_base.flex-wrapper
+    - canvas.component.sdc.dripyard_base.heading
+    - canvas.component.sdc.neonbyte.hero
+    - field.field.media.image.field_media_image
+    - field.field.media.svg_image.field_media_svg_image
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - media.type.svg_image
+  content:
+    - 'file:file:169953eb-167f-4df6-9a09-e146b3c4347b'
+    - 'media:image:36a94e54-320f-4126-91b6-2838e4ade39f'
+  module:
+    - file
+    - link
+    - media
+    - options
+id: neonbytehero
+label: 'Neonbyte Hero'
+component_tree:
+  '0:3c9a25bf-2e5f-4eac-9121-a2e264903e8a':
+    uuid: 3c9a25bf-2e5f-4eac-9121-a2e264903e8a
+    component_id: sdc.neonbyte.hero
+    component_version: fd16917fc8f81fbc
+    inputs:
+      theme: dark
+      height: medium
+      position_behind_against_screen_top: true
+      align_x: start
+      align_y: center
+      text_color: inherit
+  '0:hero_content:0:1ce22852-3bf6-4146-8812-3c6dbc12fdc3':
+    parent_uuid: 3c9a25bf-2e5f-4eac-9121-a2e264903e8a
+    slot: hero_content
+    uuid: 1ce22852-3bf6-4146-8812-3c6dbc12fdc3
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Quality Roofing Services for Burlington, NC & Beyond'
+      html_element: h1
+      style: h1
+      center: false
+      margin_top: zero
+      margin_bottom: zero
+  '0:hero_content:1:content:0:364dc3ad-2d0c-4d64-b1b2-662cf5bbc5d2':
+    parent_uuid: ee462641-5f8f-416c-8375-11bebb603634
+    slot: content
+    uuid: 364dc3ad-2d0c-4d64-b1b2-662cf5bbc5d2
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Request a Free Quote'
+      href:
+        uri: 'internal:/request-quote'
+        options: {  }
+      style: primary
+      size: medium
+      target: false
+      suffix_icon: arrow-right
+  '0:hero_content:1:content:1:e80189ac-5ecd-40ad-909e-af741993994f':
+    parent_uuid: ee462641-5f8f-416c-8375-11bebb603634
+    slot: content
+    uuid: e80189ac-5ecd-40ad-909e-af741993994f
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Call Us'
+      href:
+        uri: 'internal:/contact'
+        options: {  }
+      style: outline
+      size: medium
+      target: false
+      suffix_icon: mobile
+  '0:hero_content:1:ee462641-5f8f-416c-8375-11bebb603634':
+    parent_uuid: 3c9a25bf-2e5f-4eac-9121-a2e264903e8a
+    slot: hero_content
+    uuid: ee462641-5f8f-416c-8375-11bebb603634
+    component_id: sdc.dripyard_base.flex-wrapper
+    component_version: 647154c4adbb1587
+    inputs:
+      theme: inherit
+      wrap: true
+      align_x: start
+      align_y: center
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+      column_gutter: small
+      row_gutter: small
+  '0:hero_media:0:71b1befa-c021-4efe-94a9-4f63dcb5bda5':
+    parent_uuid: 3c9a25bf-2e5f-4eac-9121-a2e264903e8a
+    slot: hero_media
+    uuid: 71b1befa-c021-4efe-94a9-4f63dcb5bda5
+    component_id: sdc.dripyard_base.canvas-image
+    component_version: 432a6a71fe725929
+    inputs:
+      image:
+        target_id: '14'
+      width: 2200
+      loading: eager

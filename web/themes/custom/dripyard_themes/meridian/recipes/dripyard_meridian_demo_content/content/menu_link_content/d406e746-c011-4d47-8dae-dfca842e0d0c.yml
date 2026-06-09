@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: d406e746-c011-4d47-8dae-dfca842e0d0c
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    79d4445c-23fe-4ac1-8bee-5e99859c67fd: node
+    9eead6d7-bd79-4f9e-8a18-555a30046240: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Wildlife Protection'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: 79d4445c-23fe-4ac1-8bee-5e99859c67fd
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -48
+  expanded:
+    -
+      value: true
+  parent:
+    -
+      value: 'menu_link_content:9eead6d7-bd79-4f9e-8a18-555a30046240'
+  revision_translation_affected:
+    -
+      value: true

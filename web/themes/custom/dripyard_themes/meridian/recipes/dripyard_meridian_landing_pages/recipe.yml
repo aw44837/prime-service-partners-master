@@ -1,0 +1,11 @@
+name: Dripyard Meridian Landing Pages
+type: Dripyard
+description: 'create layout builder for landing pages'
+install:
+  - layout_builder
+  - layout_discovery
+recipes:
+  - 'dripyard_meridian_blocks'
+  - 'dripyard_node_landing_pages'
+config:
+  strict: false

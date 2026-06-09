@@ -1,0 +1,8 @@
+name: Dripyard Meridian Nodes
+type: Dripyard
+description: 'Provides node types for Dripyard Meridian'
+recipes:
+  - 'dripyard_node_article_cards'
+  - 'dripyard_text_format_full_html'
+config:
+  strict: false

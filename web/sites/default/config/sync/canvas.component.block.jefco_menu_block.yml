@@ -1,0 +1,27 @@
+uuid: 867adfb4-db43-43c7-a415-93c630c294ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - jefco_menu_block
+active_version: fe0b65cdcb957a38
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: jefco_menu_block
+        label: 'Menu Block'
+        label_display: '0'
+        provider: jefco_menu_block
+        menu_name: main
+        level: 1
+        depth: 0
+        expand_all_items: false
+        follow_active_trail: false
+    fallback_metadata:
+      slot_definitions: null
+label: 'Menu Block'
+id: block.jefco_menu_block
+provider: jefco_menu_block
+source: block
+source_local_id: jefco_menu_block

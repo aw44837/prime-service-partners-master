@@ -1,0 +1,10 @@
+uuid: 57aa3cb6-0969-4efa-9e27-757c33378cb3
+langcode: en
+status: true
+dependencies: {  }
+name: JefCo
+configEntityTypeId: component
+weight: 0
+items:
+  - block.jefco_menu_block
+  - sdc.meridian.menu-display

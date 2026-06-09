@@ -1,0 +1,26 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: b1c2d3e4-f5a6-7b8c-9d0e-1f2a3b4c5d6f
+  bundle: dripyard_title_cta
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Our Conservation Approach (title cta)'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  dripyard_component_layout:
+    -
+      value: default
+  dripyard_title:
+    -
+      value: '<p>Our Conservation Approach</p>'
+      format: dripyard_superbasic

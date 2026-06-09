@@ -1,0 +1,35 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: c2d3e4f5-a6b7-8c9d-0e1f-2a3b4c5d6e7f
+  bundle: dripyard_icon_card
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Land Protection'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  dripyard_icon:
+    -
+      value: tree
+  dripyard_link:
+    -
+      uri: 'internal:/land-protection'
+      title: ''
+      options: {  }
+  dripyard_title:
+    -
+      value: 'Land Protection'
+      format: plain_text
+  body:
+    -
+      value: 'Acquiring and preserving critical habitats to safeguard biodiversity for future generations.'
+      format: plain_text

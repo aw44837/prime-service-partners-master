@@ -1,0 +1,36 @@
+uuid: defd8dbd-69f2-4fc5-82fc-7d6ab9e65555
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.card-canvas
+    - core.entity_view_mode.node.dripyard_card
+    - field.field.media.image.field_media_image
+    - field.field.node.article.field_featured_image
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - node.type.article
+  module:
+    - file
+    - media
+    - node
+    - options
+id: node.article.dripyard_card
+content_entity_type_id: node
+content_entity_type_bundle: article
+content_entity_type_view_mode: dripyard_card
+component_tree:
+  '0:1e4981d9-0ed3-4fdd-82e2-0da3cd49adfe':
+    uuid: 1e4981d9-0ed3-4fdd-82e2-0da3cd49adfe
+    component_id: sdc.dripyard_base.card-canvas
+    component_version: 552876d9540c5ead
+    inputs:
+      image:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:article␝field_featured_image␞␟entity␜␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}'
+      title:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:article␝title␞␟value'
+      theme: white
+      flip_layout: false
+exposed_slots: {  }

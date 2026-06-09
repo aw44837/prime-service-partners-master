@@ -1,0 +1,33 @@
+_meta:
+  version: '1.0'
+  entity_type: block_content
+  uuid: a0b1c2d3-e4f5-6a7b-8c9d-0e1f2a3b4c5e
+  bundle: dripyard_statistic
+  default_langcode: en
+default:
+  status:
+    -
+      value: true
+  info:
+    -
+      value: 'Trees (statistic)'
+  reusable:
+    -
+      value: true
+  revision_translation_affected:
+    -
+      value: true
+  dripyard_link:
+    -
+      uri: 'internal:/'
+      title: ''
+      options: {  }
+  dripyard_statistic:
+    -
+      value: 2M+
+  dripyard_statistic_first_line:
+    -
+      value: native trees planted
+  dripyard_statistic_second_line:
+    -
+      value: to rebuild forests

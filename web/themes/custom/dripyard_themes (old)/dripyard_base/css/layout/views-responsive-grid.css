@@ -1,0 +1,7 @@
+/*
+ * Helper for Views responsive grid.
+ */
+
+.views-view-responsive-grid__item {
+  grid-column: revert;
+}

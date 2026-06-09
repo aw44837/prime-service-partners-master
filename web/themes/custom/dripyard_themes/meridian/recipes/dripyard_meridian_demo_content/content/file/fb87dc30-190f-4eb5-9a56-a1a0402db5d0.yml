@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: fb87dc30-190f-4eb5-9a56-a1a0402db5d0
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: t-shirts.jpg
+  uri:
+    -
+      value: 'public://article-images/t-shirts.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 95293
+  status:
+    -
+      value: true

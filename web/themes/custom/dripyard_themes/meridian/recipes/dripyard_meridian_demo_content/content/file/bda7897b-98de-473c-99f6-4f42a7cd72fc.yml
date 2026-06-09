@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: bda7897b-98de-473c-99f6-4f42a7cd72fc
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: waterfall-sketch_1.jpg
+  uri:
+    -
+      value: 'public://2026-01/waterfall-sketch_1.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 361306
+  status:
+    -
+      value: true

@@ -1,0 +1,25 @@
+uuid: 197279f3-67a3-46c2-84b5-26b0eec87307
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:2bad27be-c17c-4034-9645-58056e6c5833'
+  module:
+    - block_content
+active_version: 1b9edd01550b2e38
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'block_content:2bad27be-c17c-4034-9645-58056e6c5833'
+        label: 'Burlington, NC Office'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+label: 'Burlington, NC Office'
+id: block.block_content.2bad27be-c17c-4034-9645-58056e6c5833
+provider: block_content
+source: block
+source_local_id: 'block_content:2bad27be-c17c-4034-9645-58056e6c5833'

@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: e3d1ec74-60ed-4d4f-abc8-8f11a123074a
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: wildlife-protection-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/wildlife-protection-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 294781
+  status:
+    -
+      value: true

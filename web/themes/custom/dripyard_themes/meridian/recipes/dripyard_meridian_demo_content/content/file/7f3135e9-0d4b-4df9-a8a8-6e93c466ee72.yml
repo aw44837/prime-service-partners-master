@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 7f3135e9-0d4b-4df9-a8a8-6e93c466ee72
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: involve-advocacy.jpg
+  uri:
+    -
+      value: 'public://involve-advocacy.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 251412
+  status:
+    -
+      value: true

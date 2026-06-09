@@ -1,0 +1,172 @@
+/**
+ * @file
+ * Styling for the primary menu at wide widths.
+ */
+
+@container (width > 1180px) {
+  .primary-menu__mobile-button,
+  .primary-menu-overlay {
+    display: none;
+  }
+
+  /* <ul> elements. */
+  .primary-menu__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Top level <ul> element. */
+  .primary-menu__list--level-1 {
+    display: flex;
+  }
+
+  /* Second level <ul> element. */
+  .primary-menu__list--level-2 {
+    position: absolute;
+    z-index: 5; /* Appear above any heros that have stacking context. */
+    top: calc(100% + var(--site-header-dropdown-top-offset));
+    inset-inline-start: 50%;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: max-content;
+    min-width: 100%;
+    padding: var(--padding-y) 0;
+    transition: visibility 0.2s, opacity 0.2s;
+    opacity: 0;
+    border: solid 1px currentColor;
+    background-color: white;
+    translate: -50% 0;
+
+    &:dir(rtl) {
+      translate: 50% 0;
+    }
+
+    @media (scripting: none) {
+      &:where(.primary-menu__list-item--level-1:is(:hover, :focus-within) *) {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &.is-active-menu-parent {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* When there are three menu levels, we adjust into a megamenu configuration. */
+    &:has(.primary-menu__list--level-3) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+      gap: 24px;
+
+      /* Nested <li>. */
+      .primary-menu__list-item--has-children {
+        flex: 1;
+        display: block;
+      }
+
+      .primary-menu__link--level-2 {
+        font-size: var(--dropdown-link-heading-font-size);
+        text-transform: uppercase;
+      }
+
+      .primary-menu__list--level-3 {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        min-width: 150px;
+      }
+
+      .primary-menu__link--level-3 {
+        font-size: var(--dropdown-link-font-size);
+      }
+    }
+  }
+
+  /* First level <li> elements. */
+  .primary-menu__list-item--level-1 {
+    --padding-x: 1rem;
+    --padding-y: 1rem;
+
+    display: flex;
+  }
+
+  .primary-menu__list-item--has-children {
+    position: relative; /* Anchor child <ul>. */
+  }
+
+  /* Link (<a>, <button>, or <span>). */
+  .primary-menu__link {
+    display: block;
+    padding: var(--padding-y) var(--padding-x);
+    text-decoration: none;
+
+    svg {
+      height: 1.4cap;
+      width: auto;
+      margin-block: -0.15cap;
+      margin-inline-end: 0.5em;
+      fill: currentColor;
+      color: var(--theme-border-color-soft);
+    }
+  }
+
+  /* <button> element that is created when top-level <a> link components have submenus. */
+  .primary-menu__button-toggle {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    appearance: none;
+    margin-inline: calc(-1 * var(--padding-x)) var(--padding-x);
+    color: var(--top-level-link-color);
+
+    &:hover {
+      color: var(--top-level-link-color);
+    }
+  }
+
+  /* Links that are <button> elements. */
+  .primary-menu__link--button {
+    display: flex;
+    align-items: center;
+    appearance: none;
+    border: 0;
+    background: transparent;
+
+    &.primary-menu__link--has-children {
+      padding-inline-end: calc(var(--padding-x) / 2);
+    }
+  }
+
+  /* Chevron icon. */
+  .primary-menu__button-icon {
+    margin-inline-start: calc(var(--padding-x) / 2);
+  }
+
+  .primary-menu__button-icon {
+    --icon-size: 8px;
+
+    position: relative;
+    display: block;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    margin-inline: calc(var(--padding-x) / 2);
+
+    /* Down chevron icon. */
+    &::after {
+      display: block;
+      width: 100%;
+      height: 100%;
+      content: "";
+      transform: translateY(-25%) rotate(-45deg);
+      border-bottom: solid 2px currentColor;
+      border-left: solid 2px currentColor;
+    }
+  }
+}

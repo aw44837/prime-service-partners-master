@@ -1,0 +1,21 @@
+uuid: a1a6efb3-a058-4d67-8d40-b7734ec714f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.dripyard_statistic
+    - field.storage.block_content.dripyard_statistic_second_line
+_core:
+  default_config_hash: jKnZ-j48Iwi3rI17tlr-mzzHIh0QAtjU6a3O2yB_YT8
+id: block_content.dripyard_statistic.dripyard_statistic_second_line
+field_name: dripyard_statistic_second_line
+entity_type: block_content
+bundle: dripyard_statistic
+label: 'Second Line'
+description: 'Second line of descriptive text (e.g., Enrolled students from 45 countries)'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

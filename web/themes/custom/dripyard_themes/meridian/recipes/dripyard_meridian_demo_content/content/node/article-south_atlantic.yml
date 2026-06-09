@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: a2eecd87-83b4-4f3a-8599-28f2b1d6ae4e
+  bundle: article
+  default_langcode: en
+  depends:
+    853ab2db-36f1-436a-b441-0ac6a4752f2c: file
+    d9d60f69-78dd-4620-a941-f199fe61dba3: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'South Atlantic'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /south-atlantic
+  body:
+    -
+      value: '<p>The South Atlantic coast stretches from the Outer Banks of North Carolina to the Sea Islands of Georgia — a landscape of barrier islands, salt marshes, maritime forests, and tidal creeks that supports one of the most productive ecosystems in North America. These coastal habitats are also among the most threatened.</p><drupal-media data-entity-type="media" data-entity-uuid="6b8b9e41-90d3-4ef9-801d-bd0b4eda50fb" data-align="left" data-caption="South Atlantic salt marsh">&nbsp;</drupal-media><p>Rising seas, intensifying storms, and rapid coastal development are squeezing these ecosystems from both sides. Salt marshes that once buffered communities from storm surge are drowning as sea levels rise faster than marsh grasses can migrate inland. Barrier islands are eroding and migrating, and the maritime forests that anchor them are increasingly fragmented.</p><p>Meridian''s South Atlantic programs take a long view. We protect coastal lands that allow marshes to migrate inland as seas rise. We restore oyster reefs that stabilize shorelines and filter water. We work with coastal communities to plan for a future where the relationship between land and sea is constantly shifting. Conservation on the South Atlantic coast is not about holding the line — it is about making room for natural processes to continue.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'South Atlantic salt marsh with cordgrass and tidal creek, overcast October morning'
+      title: ''
+      width: 1376
+      height: 768
+      entity: d9d60f69-78dd-4620-a941-f199fe61dba3

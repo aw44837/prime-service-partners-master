@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: d76affd5-717e-44a3-82eb-9fa61aaea84f
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: great-lakes.jpg
+  uri:
+    -
+      value: 'public://article-images/great-lakes.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 204006
+  status:
+    -
+      value: true

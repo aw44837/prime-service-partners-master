@@ -1,0 +1,34 @@
+uuid: 999ff782-807c-4c4a-8a8e-73bfb6281b6a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+  theme:
+    - neonbyte_subtheme
+_core:
+  default_config_hash: w1wz7PFEb-kl1dpumlVLP8GuNh2I1ja4vBhe-TVismI
+id: neonbyte_subtheme_page_title
+theme: neonbyte_subtheme
+region: highlighted
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "<front>\r\n/canvas\r\n/canvas*"
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      article: article

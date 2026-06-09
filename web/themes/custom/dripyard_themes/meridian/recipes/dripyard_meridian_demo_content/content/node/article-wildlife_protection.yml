@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 79d4445c-23fe-4ac1-8bee-5e99859c67fd
+  bundle: article
+  default_langcode: en
+  depends:
+    e3d1ec74-60ed-4d4f-abc8-8f11a123074a: file
+    e32f42e1-c5d0-4e52-92e3-316e6ffd365c: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Wildlife Protection'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /wildlife-protection
+  body:
+    -
+      value: '<p>Wildlife does not recognize property lines or political boundaries. Effective wildlife protection requires landscape-scale thinking, rigorous science, and sustained commitment. At Meridian, we work to ensure that native species have the habitat, connectivity, and conditions they need to survive and recover.</p><drupal-media data-entity-type="media" data-entity-uuid="035e8272-c61d-483a-8946-3ed006eba043" data-align="left" data-caption="Wildlife monitoring">&nbsp;</drupal-media><p>Our wildlife programs focus on monitoring and protecting species of greatest conservation need — from black bears and brook trout to cerulean warblers and hellbenders. We conduct long-term population surveys, map critical habitats, and collaborate with state and federal agencies on recovery plans.</p><p>Equally important is our work on habitat connectivity. Fragmented landscapes isolate populations and reduce genetic diversity. Through targeted land protection and restoration, we create and maintain wildlife corridors that allow species to move, migrate, and adapt to changing conditions. Every species we help protect strengthens the web of life that sustains us all.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Black bear at distance crossing a forest clearing in the southern Blue Ridge, overcast November morning'
+      title: ''
+      width: 1376
+      height: 768
+      entity: e32f42e1-c5d0-4e52-92e3-316e6ffd365c

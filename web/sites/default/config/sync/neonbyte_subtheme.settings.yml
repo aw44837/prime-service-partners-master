@@ -1,0 +1,67 @@
+_core:
+  default_config_hash: x3U8WUfnHXrXULODISngOiRgNWM--xeCnHxI6-6npVM
+favicon:
+  mimetype: image/jpeg
+  path: 'public://suretop-roofing-logo.jpg'
+  use_default: false
+features:
+  comment_user_picture: false
+  comment_user_verification: true
+  favicon: true
+  node_user_picture: false
+logo:
+  path: 'public://Suretop-Roofing-Logo-Right-Roof_0.png'
+  use_default: false
+third_party_settings:
+  shortcut:
+    module_link: true
+theme_colors:
+  site_theme: white
+  color_scheme: ''
+  colors:
+    base_primary_color: '#6d0a0a'
+    base_primary_color_brightness: dark
+    base_secondary_color: '#b4ac8d'
+    base_secondary_color_brightness: light
+footer:
+  theme: primary
+layout_settings:
+  container_max_width: '1440'
+  border_radius_sm: '4'
+  border_radius_md: '8'
+  border_radius_lg: '16'
+  border_radius_button: '40'
+header_settings:
+  full_width: 0
+  remove_sticky: 0
+  remove_transparency: 1
+  theme: white
+social_media_links:
+  bluesky: ''
+  discord: ''
+  facebook: ''
+  github: ''
+  instagram: ''
+  linkedin: ''
+  mastodon: ''
+  pinterest: ''
+  reddit: ''
+  snapchat: ''
+  telegram: ''
+  threads: ''
+  tiktok: ''
+  twitch: ''
+  twitter: ''
+  whatsapp: ''
+  youtube: ''
+apply_recipes:
+  notice: ''
+  dripyard_neonbyte_blocks: 0
+  dripyard_neonbyte_nodes: 0
+  dripyard_neonbyte_landing_pages: 0
+  dripyard_neonbyte_demo_content: 0
+  dripyard_neonbyte_layout_builder_demo: 0
+  dripyard_neonbyte_canvas_demo: 0
+  dripyard_neonbyte_canvas_patterns: 0
+license_uuid: 60b9eeeb-8426-4b64-94cf-4c71549c9744
+dripyard_uid: 29

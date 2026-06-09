@@ -1,0 +1,11 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Site branding logo
+status: stable
+replaces: 'dripyard_base:header-logo'
+noUi: true
+props:
+  type: object
+  properties:
+    site_logo:
+      title: Logo
+      type: string

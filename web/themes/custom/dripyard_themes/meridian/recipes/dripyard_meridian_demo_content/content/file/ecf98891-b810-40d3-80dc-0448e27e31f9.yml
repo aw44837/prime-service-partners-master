@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: ecf98891-b810-40d3-80dc-0448e27e31f9
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: youth-programs-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/youth-programs-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 295790
+  status:
+    -
+      value: true

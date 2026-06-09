@@ -1,0 +1,23 @@
+uuid: 315d439f-d4eb-48fa-96ac-e274bce11e32
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e6dfc17a-cb82-489b-bd35-c99a3a78024f'
+  module:
+    - block_content
+  theme:
+    - meridian_subtheme
+id: meridian_footeraddress
+theme: meridian_subtheme
+region: footer_right
+weight: 0
+provider: null
+plugin: 'block_content:e6dfc17a-cb82-489b-bd35-c99a3a78024f'
+settings:
+  id: broken
+  label: 'Footer Address'
+  label_display: '0'
+  provider: core
+  view_mode: full
+visibility: {  }

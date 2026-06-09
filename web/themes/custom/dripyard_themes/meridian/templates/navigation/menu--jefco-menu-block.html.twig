@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * JefCo Menu Block — vertical sidebar navigation.
+ *
+ * Intentionally does NOT use dripyard_base:side-menu because that template
+ * adds data-drupal-selector="default-nav-menu--level-*" which the main
+ * navigation JavaScript hooks onto, causing horizontal layout conflicts.
+ *
+ * @see web/modules/custom/jefco_menu_block/src/Plugin/Block/MenuBlock.php
+ */
+#}
+{% import _self as menus %}
+
+<ul class="jefco-menu-block jefco-menu-block__list jefco-menu-block__list--level-1">
+  {{ menus.menu_links(items, 1) }}
+</ul>
+
+{% macro menu_links(items, level) %}
+  {% import _self as menus %}
+  {% for item in items %}
+    <li class="jefco-menu-block__item jefco-menu-block__item--level-{{ level }}{{ item.in_active_trail ? ' jefco-menu-block__item--active-trail' }}{{ item.below ? ' jefco-menu-block__item--has-children' }}">
+
+      {{ link(item.title, item.url, {
+        'class': [
+          'jefco-menu-block__link',
+          'jefco-menu-block__link--level-' ~ level,
+          item.in_active_trail ? 'jefco-menu-block__link--active-trail',
+          item.is_currentPage ? 'is-active',
+        ]|filter,
+      }) }}
+
+      {% if item.below %}
+        <ul class="jefco-menu-block__list jefco-menu-block__list--level-{{ level + 1 }}">
+          {{ menus.menu_links(item.below, level + 1) }}
+        </ul>
+      {% endif %}
+
+    </li>
+  {% endfor %}
+{% endmacro %}

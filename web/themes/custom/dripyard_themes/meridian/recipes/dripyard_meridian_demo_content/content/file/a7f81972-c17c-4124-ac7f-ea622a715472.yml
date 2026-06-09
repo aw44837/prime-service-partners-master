@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: a7f81972-c17c-4124-ac7f-ea622a715472
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: great-lakes-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/great-lakes-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 174954
+  status:
+    -
+      value: true

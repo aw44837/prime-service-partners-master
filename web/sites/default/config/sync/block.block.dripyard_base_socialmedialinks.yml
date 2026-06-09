@@ -1,0 +1,23 @@
+uuid: f0681d5b-5c73-4a49-8c16-ecc3a7f4887d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:192edb9e-7c1e-4244-a309-2f623a8307f2'
+  module:
+    - block_content
+  theme:
+    - meridian_subtheme
+id: dripyard_base_socialmedialinks
+theme: meridian_subtheme
+region: footer_left
+weight: -5
+provider: null
+plugin: 'block_content:192edb9e-7c1e-4244-a309-2f623a8307f2'
+settings:
+  id: 'block_content:192edb9e-7c1e-4244-a309-2f623a8307f2'
+  label: 'Social Media Links'
+  label_display: '0'
+  provider: block_content
+  view_mode: full
+visibility: {  }

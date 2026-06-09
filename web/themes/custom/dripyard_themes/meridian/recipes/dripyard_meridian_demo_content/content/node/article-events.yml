@@ -1,0 +1,46 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: acb3cb96-a2d8-48e0-9a1a-98070e61d10d
+  bundle: article
+  default_langcode: en
+  depends:
+    5a906b08-fb35-4b7a-8401-08f85e9a9806: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: Events
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /events
+  body:
+    -
+      value: '<p>Meridian hosts a year-round calendar of events that bring people together around conservation — from guided field walks and bird counts to workshops on forest management and community conservation planning.</p><p>Our seasonal offerings include spring wildflower walks, summer stream monitoring workshops, fall foliage hikes with ecologist-led interpretation, and winter tracking expeditions. Each event is led by experienced naturalists and researchers who share their knowledge of local ecosystems in accessible, engaging ways.</p><p>We also host an annual conservation symposium that brings together landowners, researchers, policymakers, and community members to discuss the most pressing conservation challenges facing our region. Past symposium topics have included forest health, water quality, wildlife corridors, and the future of rural conservation communities. Most events are free and open to the public. Check our calendar for upcoming opportunities to learn, explore, and connect with others who care about wild places.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Outdoor conservation event setup in meadow clearing with tables and folding chairs, overcast September afternoon'
+      title: ''
+      width: 1376
+      height: 768
+      entity: 5a906b08-fb35-4b7a-8401-08f85e9a9806

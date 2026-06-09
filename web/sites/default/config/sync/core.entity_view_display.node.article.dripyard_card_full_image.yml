@@ -1,0 +1,38 @@
+uuid: d39ae333-5007-4b11-a1b2-a637e74db9b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.dripyard_card_full_image
+    - field.field.node.article.ai_automator_status
+    - field.field.node.article.body
+    - field.field.node.article.field_featured_image
+    - field.field.node.article.field_featured_image_prompt
+    - field.field.node.article.field_image
+    - field.field.node.article.field_tags
+    - node.type.article
+  module:
+    - user
+_core:
+  default_config_hash: A6AMroO4E3k1rRZ6QR34W1fyjWsRMLp2M-Nz0M6hLnY
+id: node.article.dripyard_card_full_image
+targetEntityType: node
+bundle: article
+mode: dripyard_card_full_image
+content:
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  ai_automator_status: true
+  body: true
+  field_featured_image_prompt: true
+  field_image: true
+  field_tags: true
+  links: true

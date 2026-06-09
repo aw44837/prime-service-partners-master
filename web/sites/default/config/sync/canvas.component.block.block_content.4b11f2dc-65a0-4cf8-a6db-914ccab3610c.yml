@@ -1,0 +1,25 @@
+uuid: 4415fff1-403a-42e0-b2fd-b8cee82b2202
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:dripyard_menu_card:4b11f2dc-65a0-4cf8-a6db-914ccab3610c'
+  module:
+    - block_content
+active_version: ed0fddd609508389
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'block_content:4b11f2dc-65a0-4cf8-a6db-914ccab3610c'
+        label: Neony
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+label: Neony
+id: block.block_content.4b11f2dc-65a0-4cf8-a6db-914ccab3610c
+provider: block_content
+source: block
+source_local_id: 'block_content:4b11f2dc-65a0-4cf8-a6db-914ccab3610c'

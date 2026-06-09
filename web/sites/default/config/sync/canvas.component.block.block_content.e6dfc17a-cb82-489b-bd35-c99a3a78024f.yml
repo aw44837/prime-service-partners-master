@@ -1,0 +1,25 @@
+uuid: 648de999-1415-4683-a872-330b9fa17aef
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:e6dfc17a-cb82-489b-bd35-c99a3a78024f'
+  module:
+    - block_content
+active_version: e6bfcf50788c15c9
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'block_content:e6dfc17a-cb82-489b-bd35-c99a3a78024f'
+        label: 'Footer Address'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+label: 'Footer Address'
+id: block.block_content.e6dfc17a-cb82-489b-bd35-c99a3a78024f
+provider: block_content
+source: block
+source_local_id: 'block_content:e6dfc17a-cb82-489b-bd35-c99a3a78024f'

@@ -1,0 +1,27 @@
+uuid: eca6e38d-b262-476e-b036-d426e963d72a
+langcode: en
+status: false
+dependencies:
+  config:
+    - canvas.component.block.local_actions_block
+    - canvas.component.block.system_breadcrumb_block
+  theme:
+    - neonbyte_subtheme
+id: neonbyte_subtheme.highlighted
+region: highlighted
+theme: neonbyte_subtheme
+component_tree:
+  '0:f5b88ffd-4e4c-4ccc-b9cb-0f3fe287c792':
+    uuid: f5b88ffd-4e4c-4ccc-b9cb-0f3fe287c792
+    component_id: block.local_actions_block
+    component_version: 29753123eb31b8ab
+    inputs:
+      label: 'Primary admin actions'
+      label_display: '0'
+  '1:29bb2610-8aa1-437b-b22c-8cabdb844311':
+    uuid: 29bb2610-8aa1-437b-b22c-8cabdb844311
+    component_id: block.system_breadcrumb_block
+    component_version: ad6359c331fc7c45
+    inputs:
+      label: Breadcrumbs
+      label_display: '0'

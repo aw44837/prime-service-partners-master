@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 690060a3-67bb-4cb0-845b-26fcc89b4cb1
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: involve-corporate.jpg
+  uri:
+    -
+      value: 'public://involve-corporate.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 195394
+  status:
+    -
+      value: true

@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: dba8272c-b247-4f54-82e0-ddb9a27433a0
+  bundle: image
+  default_langcode: en
+  depends:
+    a1929c69-0b36-4e61-a627-0df6ffaf815a: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: montana.jpg
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Montana artistic rendering line art style'
+      title: ''
+      width: 1536
+      height: 1024
+      entity: a1929c69-0b36-4e61-a627-0df6ffaf815a

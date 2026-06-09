@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 7d0f35b4-2ad8-41d3-bd30-fc3aba5fc5f0
+  bundle: image
+  default_langcode: en
+  depends:
+    eee0a092-8c83-4078-b4e6-2c7af1135346: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: waterfall-sketch.jpg
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'A peaceful sketch of a waterfall '
+      title: ''
+      width: 1536
+      height: 1024
+      entity: eee0a092-8c83-4078-b4e6-2c7af1135346

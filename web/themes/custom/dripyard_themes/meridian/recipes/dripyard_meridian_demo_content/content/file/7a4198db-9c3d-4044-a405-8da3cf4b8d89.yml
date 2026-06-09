@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 7a4198db-9c3d-4044-a405-8da3cf4b8d89
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: scientific-research-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/scientific-research-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 266441
+  status:
+    -
+      value: true

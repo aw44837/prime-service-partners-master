@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: a6efa458-ec21-4781-a5e2-67b7a423f08a
+  bundle: image
+  default_langcode: en
+  depends:
+    a7f81972-c17c-4124-ac7f-ea622a715472: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Great Lakes Inline'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Great Lakes coastal wetland with cattails and sedges at misty morning'
+      title: ''
+      width: 1536
+      height: 1024
+      entity: a7f81972-c17c-4124-ac7f-ea622a715472

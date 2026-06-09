@@ -1,0 +1,24 @@
+uuid: ca50a1f5-4dd3-4c70-b78c-a6f6033ddd32
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: c57c7118f81154de
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:ai_log'
+        label: 'AI Log'
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: 'AI Log'
+id: block.entity_block.ai_log
+provider: entity_block
+source: block
+source_local_id: 'entity_block:ai_log'

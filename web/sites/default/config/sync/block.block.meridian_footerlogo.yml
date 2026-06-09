@@ -1,0 +1,23 @@
+uuid: b4bc7deb-3a02-4844-a247-534773281620
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:748f9532-62e9-4656-b187-3c7de76fbf4e'
+  module:
+    - block_content
+  theme:
+    - meridian_subtheme
+id: meridian_footerlogo
+theme: meridian_subtheme
+region: footer_left
+weight: -6
+provider: null
+plugin: 'block_content:748f9532-62e9-4656-b187-3c7de76fbf4e'
+settings:
+  id: broken
+  label: 'Footer Logo'
+  label_display: '0'
+  provider: core
+  view_mode: full
+visibility: {  }

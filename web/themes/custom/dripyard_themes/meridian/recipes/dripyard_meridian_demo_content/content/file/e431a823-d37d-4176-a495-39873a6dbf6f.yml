@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: e431a823-d37d-4176-a495-39873a6dbf6f
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: north-eastern-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/north-eastern-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 326830
+  status:
+    -
+      value: true

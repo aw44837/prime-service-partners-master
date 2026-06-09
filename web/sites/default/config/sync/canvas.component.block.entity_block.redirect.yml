@@ -1,0 +1,24 @@
+uuid: 02400b48-b2c1-448e-b0d6-e698de9e9f0a
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: 10f7d485b73f0e76
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:redirect'
+        label: Redirect
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: Redirect
+id: block.entity_block.redirect
+provider: entity_block
+source: block
+source_local_id: 'entity_block:redirect'

@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 565c4202-eadb-4cb4-a96f-9372235c467e
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: great-plains-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/great-plains-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 116269
+  status:
+    -
+      value: true

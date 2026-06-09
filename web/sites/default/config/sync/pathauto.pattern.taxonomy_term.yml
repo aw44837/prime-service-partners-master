@@ -1,0 +1,25 @@
+uuid: 9eabaca3-d6a7-47c2-bb47-d6c881a1aca6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.roof_types
+    - taxonomy.vocabulary.tags
+  module:
+    - taxonomy
+id: taxonomy_term
+label: 'Taxonomy Term'
+type: 'canonical_entities:taxonomy_term'
+pattern: '/[term:vocabulary]/[term:name]'
+selection_criteria:
+  2cbcd63e-6aac-4ece-9506-095984e058ef:
+    id: 'entity_bundle:taxonomy_term'
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    bundles:
+      roof_types: roof_types
+      tags: tags
+selection_logic: and
+weight: -5
+relationships: {  }

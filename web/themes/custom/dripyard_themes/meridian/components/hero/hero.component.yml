@@ -1,0 +1,91 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Hero
+status: stable
+group: Dripyard Heros
+props:
+  type: object
+  required:
+    - height
+  properties:
+    theme:
+      title: Theme
+      type: string
+      enum:
+        - inherit
+        - white
+        - light
+        - dark
+        - black
+        - primary
+        - secondary
+      meta:enum:
+        inherit: Inherit
+        white: White
+        light: Light
+        dark: Dark
+        black: Black
+        primary: Primary
+        secondary: Secondary
+      examples: [ inherit ]
+    height:
+      title: Hero height
+      type: string
+      enum:
+        - small
+        - medium
+        - large
+      meta:enum:
+       small: Small
+       medium: Medium
+       large: Large
+      examples: [ 'large' ]
+    align_x:
+      title: Alignment - horizontal
+      type: string
+      enum:
+        - start
+        - center
+        - end
+      meta:enum:
+       start: Start
+       center: Center
+       end: End
+      examples: [ start ]
+    align_y:
+      title: Alignment - vertical
+      type: string
+      enum:
+        - top
+        - center
+        - bottom
+      meta:enum:
+        top: Top
+        center: Center
+        bottom: Bottom
+      examples: [ bottom ]
+    text_color:
+      title: Text color
+      type: string
+      enum:
+        - inherit
+        - black
+        - white
+        - primary
+      meta:enum:
+        inherit: Inherit
+        black: Black
+        white: White
+        primary: Primary
+      default: inherit
+      examples: [ 'inherit' ]
+    position_behind_header:
+      title: Position behind header
+      type: boolean
+      examples: [ true ]
+slots:
+  hero_media:
+    title: Image or video
+    description: Accepts either image or video components to be used as background media. For Drupal Canvas, use canvas-image, and video-player-canvas components.
+  hero_content:
+    title: Hero content
+    description: Accepts any component including text, and button-group.

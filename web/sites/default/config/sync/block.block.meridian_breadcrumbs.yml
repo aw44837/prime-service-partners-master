@@ -1,0 +1,22 @@
+uuid: 42fe6cdf-4d7a-4470-9918-9f9598427535
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - meridian
+_core:
+  default_config_hash: 8Dd_nDlYuYokxdV3Y0lnSJRUWhs7G7BSijRgEE2evQs
+id: meridian_breadcrumbs
+theme: meridian
+region: highlighted
+weight: -4
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 388ff16d-3f58-4f13-a925-1674ec589fe2
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: great-plains.jpg
+  uri:
+    -
+      value: 'public://article-images/great-plains.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 199837
+  status:
+    -
+      value: true

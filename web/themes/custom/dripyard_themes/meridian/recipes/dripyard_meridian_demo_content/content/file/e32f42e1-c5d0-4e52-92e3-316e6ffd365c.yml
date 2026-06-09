@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: e32f42e1-c5d0-4e52-92e3-316e6ffd365c
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: wildlife-protection.jpg
+  uri:
+    -
+      value: 'public://article-images/wildlife-protection.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 327921
+  status:
+    -
+      value: true

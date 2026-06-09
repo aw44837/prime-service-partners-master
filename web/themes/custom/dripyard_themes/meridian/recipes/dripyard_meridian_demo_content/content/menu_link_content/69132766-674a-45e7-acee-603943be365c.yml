@@ -1,0 +1,42 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: 69132766-674a-45e7-acee-603943be365c
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    62987eb0-7676-4005-bcfb-c893e0ac16fe: node
+    73463dfa-72df-41c6-acaa-ed89079c5d8f: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Rocky Mountains'
+  menu_name:
+    -
+      value: main
+  link:
+    -
+      title: null
+      options: {  }
+      target_uuid: 62987eb0-7676-4005-bcfb-c893e0ac16fe
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -50
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:73463dfa-72df-41c6-acaa-ed89079c5d8f'
+  revision_translation_affected:
+    -
+      value: true

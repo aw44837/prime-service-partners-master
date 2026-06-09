@@ -1,0 +1,219 @@
+/*
+ * @file
+ * Styles for site header.
+ */
+
+.site-header {
+  --site-header-background-transparency: 80%;
+  --site-header-background: color-mix(in oklch, transparent, var(--theme-surface) var(--site-header-background-transparency));
+  --site-header-flyout-padding: var(--spacing-xs);
+  --site-header-top-offset: 10px;
+  --site-header-dropdown-top-offset: 0px;
+  --site-header-fixed-inline-margin: var(--spacing-xs);
+  --site-header-text-color: var(--theme-text-color-medium);
+  --site-header-padding-block: 5px;
+  --site-header-radius: 26px;
+  --header-navigation-offset: 20px;
+  --header-navigation-border-radius: var(--radius-lg);
+  --theme-focus-ring-color: var(--site-header-text-color);
+  --site-header-fixed-offset: 20px; /* How far off the edge the fixed header "stickies". */
+
+  position: sticky;
+  top: calc(var(--drupal-displace-offset-top, 0px) + var(--site-header-fixed-offset, 0px));
+  z-index: 10;
+  padding-bottom: var(--spacing-m);
+  color: var(--theme-text-color-medium);
+
+  &:has(> .is-sticky) {
+    --site-header-dropdown-top-offset: 20px;
+  }
+
+  @media (forced-colors: active) {
+    --site-header-background-transparency: 100%;
+  }
+
+  @media (prefers-reduced-transparency) {
+    --site-header-background-transparency: 100%;
+  }
+
+  @container (width > 600px) {
+    --site-header-flyout-padding: var(--spacing-m);
+  }
+
+  @container (width > 800px) {
+    --site-header-flyout-padding: var(--spacing-s) var(--spacing-xxl) var(--spacing-xl);
+    --site-header-margin: 30px;
+  }
+
+  @container (1200px <= width < 1400px) {
+    --site-header-margin: 20px;
+  }
+
+  @container (width <= 1180px) and (scripting: none) {
+    position: relative;
+    top: 0;
+  }
+}
+
+/* This is monitored by JS to see when it overflows viewport. */
+.site-header__sentinel {
+  width: 100%;
+}
+
+.site-header__inner {
+  padding-inline: 20px;
+  border-radius: var(--site-header-radius);
+  background-color: transparent;
+  transition: background-color 0.2s, padding 0.2s;
+
+  @container (width > 900px) {
+    padding-inline: 0;
+  }
+
+  @media (prefers-contrast: more) {
+    padding-inline: 30px;
+    border: solid 1px transparent;
+    background-color: var(--site-header-background);
+
+    @container (width > 800px) {
+      padding-inline: 40px;
+    }
+  }
+
+  @media (scripting: none) {
+    padding-inline: 30px;
+    border: solid 1px transparent;
+    background-color: var(--site-header-background);
+
+    @container (width > 800px) {
+      padding-inline: 40px;
+    }
+  }
+
+  &.is-sticky {
+    padding-inline: 30px;
+    border: solid 1px transparent;
+    background-color: var(--site-header-background);
+
+    @container (width > 800px) {
+      padding-inline: 40px;
+    }
+  }
+}
+
+.site-header__content {
+  position: relative; /* Anchor dropdowns. */
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap);
+  padding-block: var(--site-header-padding-block);
+
+  @container (width <=1180px) and (scripting: none) {
+    flex-wrap: wrap; /* No-JS support at mobile. */
+  }
+}
+
+.header-navigation-wrapper__scrollable {
+  @container (width <= 1180px) {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+    padding: var(--site-header-flyout-padding);
+    padding-top: var(--sp8);
+
+    .region-header-first {
+      padding: var(--site-header-flyout-padding);
+    }
+
+    .region-header-second {
+      gap: var(--site-header-flyout-padding);
+    }
+  }
+
+  @container (width > 800px) {
+    padding-top: var(--sp10);
+  }
+
+  @container (width > 1180px) {
+    display: contents;
+  }
+}
+
+/* Region wrapper <div>. This is the element that shows/hides on narrow screens. */
+.header-navigation-wrapper {
+  @container (width > 1180px) {
+    display: contents;
+  }
+
+  @container (width <= 1180px) {
+    --mobile-menu-offset: 10px; /* How far the mobile menu is offset from the header. */
+    --header-height: 68px; /* Height of the header (although we don't force this height. */
+    --header-navigation-background: var(--theme-surface);
+
+    position: fixed;
+    z-index: 10;
+    visibility: hidden;
+    width: calc(100% - var(--header-navigation-offset) * 2 - var(--drupal-displace-offset-left, 0px) - var(--drupal-displace-offset-right, 0px));
+    height: calc(100dvh - var(--drupal-displace-offset-top, 0px) - var(--header-navigation-offset)*2 );
+    transition: all 0.2s;
+    background: var(--header-navigation-background);
+    inset-block-start: calc(var(--drupal-displace-offset-top, 0px) + var(--header-navigation-offset));
+    left: calc(var(--drupal-displace-offset-left, 0px) + var(--header-navigation-offset));
+    border: solid 1px transparent;
+    border-radius: var(--header-navigation-border-radius);
+    opacity: 0;
+    translate: 0 -30px;
+    overflow: clip;
+    box-shadow:
+      -50vw 50vw 0 var(--theme-text-color-loud),
+      -50vw -50vw 0 var(--theme-text-color-loud),
+      0 -50vw 0 var(--theme-text-color-loud),
+      50vw 50vw 0 var(--theme-text-color-loud),
+      50vw -50vw 0 var(--theme-text-color-loud),
+      0 50vw 0 var(--theme-text-color-loud);
+
+    @container (scripting: none) {
+      position: unset;
+      visibility: unset;
+      height: unset;
+      translate: unset;
+      opacity: unset;
+      flex-basis: 100%;
+    }
+
+    &:dir(rtl) {
+      right: calc(var(--drupal-displace-offset-right, 0px) + var(--header-navigation-offset));
+    }
+
+    &.is-expanded {
+      visibility: visible;
+      opacity: 1;
+      translate: 0;
+    }
+  }
+
+  @container (width > 1180px) {
+    flex-grow: 1;
+  }
+}
+
+.header-navigation-wrapper__third {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  reading-flow: flex-visual;
+
+  @container (width <=1180px) {
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: auto;
+  }
+}
+
+.is-active-mobile-menu {
+  @container (width <=1180px) {
+    width: 100%;
+    overflow: hidden;
+  }
+}

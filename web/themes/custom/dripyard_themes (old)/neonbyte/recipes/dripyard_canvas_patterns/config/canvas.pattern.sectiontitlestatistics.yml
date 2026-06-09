@@ -1,0 +1,68 @@
+uuid: 3ac9fe13-25aa-4ce5-8d36-0cd900b3680f
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.heading
+    - canvas.component.sdc.dripyard_base.layout-dynamic
+    - canvas.component.sdc.dripyard_base.statistic
+  module:
+    - options
+id: sectiontitlestatistics
+label: 'Section - Title with Statistics'
+component_tree:
+  0:
+    uuid: c7034d09-bb20-4b92-9482-622855ec85c6
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: ae1efcac2a38bfc2
+    inputs:
+      theme: primary
+      column_count: 3
+      row_count: 1
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: default
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: large
+      padding_bottom: large
+      column_gutter: large
+      row_gutter: default
+  '0:cell_1:0':
+    parent_uuid: c7034d09-bb20-4b92-9482-622855ec85c6
+    slot: cell_1
+    uuid: 5d7a42b0-5746-4fee-a78a-89ad2c23cad9
+    component_id: sdc.dripyard_base.heading
+    component_version: c96600e2ecb6e175
+    inputs:
+      text: 'This is my heading'
+      html_element: h2
+      style: h1
+      center: false
+      margin_top: small
+      margin_bottom: zero
+  '0:cell_2:0':
+    parent_uuid: c7034d09-bb20-4b92-9482-622855ec85c6
+    slot: cell_2
+    uuid: 62475925-3401-48d5-9797-d03535c36630
+    component_id: sdc.dripyard_base.statistic
+    component_version: 9743427112a0a222
+    inputs:
+      statistic: '$2,400'
+      first_line: Students
+      second_line: 'Enrolled students from 45 countries'
+      href: 'http://www.drupal.org'
+  '0:cell_3:0':
+    parent_uuid: c7034d09-bb20-4b92-9482-622855ec85c6
+    slot: cell_3
+    uuid: 2fbabe40-8b4f-4cce-88fd-62a68ef0eb98
+    component_id: sdc.dripyard_base.statistic
+    component_version: 9743427112a0a222
+    inputs:
+      statistic: '$2,400'
+      first_line: Students
+      second_line: 'Enrolled students from 45 countries'
+      href: 'http://www.drupal.org'

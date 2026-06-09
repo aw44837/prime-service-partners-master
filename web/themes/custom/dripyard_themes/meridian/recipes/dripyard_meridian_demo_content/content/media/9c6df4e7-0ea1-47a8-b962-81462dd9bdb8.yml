@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 9c6df4e7-0ea1-47a8-b962-81462dd9bdb8
+  bundle: image
+  default_langcode: en
+  depends:
+    6c45f965-3042-473b-9e5d-38c07c5eb477: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: utah.jpg
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Utah area artistic line drawing'
+      title: ''
+      width: 1536
+      height: 1024
+      entity: 6c45f965-3042-473b-9e5d-38c07c5eb477

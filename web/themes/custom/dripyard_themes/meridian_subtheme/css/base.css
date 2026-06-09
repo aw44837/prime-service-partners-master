@@ -1,0 +1,47 @@
+/**
+ * @file
+ * Global styles.
+ */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Nunito:ital,wght@0,200..900;1,200..900&display=swap');
+
+/* Two-column dropdown for "Areas we Serve" menu item (desktop only) */
+@container (width > 1000px) {
+  .has-two-col-dropdown > .primary-menu__list--level-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: max-content;
+    min-width: 300px;
+  }
+}
+
+/* Logo size */
+.header-logo__link {
+  --header-logo-max-height: 66px;
+}
+
+/* Font overrides */
+:root {
+  --font-heading: 'Caprasimo', serif;
+  --font-body: 'Nunito', sans-serif;
+}
+
+body,
+p,
+li,
+td,
+th,
+label,
+input,
+textarea,
+select,
+button {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+}

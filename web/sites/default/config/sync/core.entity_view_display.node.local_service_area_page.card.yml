@@ -1,0 +1,34 @@
+uuid: 26a63d92-ff94-4748-9a09-e7d5bd50ec8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.local_service_area_page.ai_automator_status
+    - field.field.node.local_service_area_page.body
+    - field.field.node.local_service_area_page.field_featured_image
+    - node.type.local_service_area_page
+  module:
+    - user
+id: node.local_service_area_page.card
+targetEntityType: node
+bundle: local_service_area_page
+mode: card
+content:
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: 16_9_medium
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  ai_automator_status: true
+  body: true

@@ -1,0 +1,24 @@
+uuid: 756f1503-387a-4e27-9fb6-472cf6c650bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: a64634c8211f9c7f
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:easy_email_override'
+        label: 'Email override'
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: 'Email override'
+id: block.entity_block.easy_email_override
+provider: entity_block
+source: block
+source_local_id: 'entity_block:easy_email_override'

@@ -1,0 +1,24 @@
+uuid: 319b9792-023d-4043-af69-415e55a6c509
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_block
+active_version: b81f7624ddf3f68c
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'entity_block:easy_email'
+        label: Email
+        label_display: '0'
+        provider: entity_block
+        entity: ''
+        view_mode: default
+    fallback_metadata:
+      slot_definitions: null
+label: Email
+id: block.entity_block.easy_email
+provider: entity_block
+source: block
+source_local_id: 'entity_block:easy_email'

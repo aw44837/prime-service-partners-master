@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 1d21c534-94a6-45a8-80bd-5e5948627d16
+  bundle: image
+  default_langcode: en
+  depends:
+    a505ca44-3b5b-471f-8c7e-e3de5ce67a59: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: 'Donate Today'
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Protected Appalachian valley with rolling forested hills and meandering stream, late October'
+      title: ''
+      width: 1376
+      height: 768
+      entity: a505ca44-3b5b-471f-8c7e-e3de5ce67a59

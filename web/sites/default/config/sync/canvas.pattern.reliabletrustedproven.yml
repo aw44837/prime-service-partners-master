@@ -1,0 +1,82 @@
+uuid: 18a14e82-4447-4004-8cf2-b4e4de9234fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.heading
+    - canvas.component.sdc.dripyard_base.layout-dynamic
+    - canvas.component.sdc.dripyard_base.statistic
+    - canvas.component.sdc.dripyard_base.text
+    - filter.format.canvas_html_block
+  module:
+    - options
+    - text
+id: reliabletrustedproven
+label: 'Reliable.Trusted. Proven.'
+component_tree:
+  '0:c8dd5b76-a598-44cb-8f0c-21d1a99a8e35':
+    uuid: c8dd5b76-a598-44cb-8f0c-21d1a99a8e35
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: light
+      column_count: 3
+      row_count: 1
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: default
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: large
+      padding_bottom: large
+      column_gutter: default
+      row_gutter: default
+  '0:cell_1:0:bb62ef80-4e85-49c5-888a-0891da6129be':
+    parent_uuid: c8dd5b76-a598-44cb-8f0c-21d1a99a8e35
+    slot: cell_1
+    uuid: bb62ef80-4e85-49c5-888a-0891da6129be
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Reliable. Trusted. Proven.'
+      html_element: h2
+      style: h2
+      center: false
+      margin_top: zero
+      margin_bottom: zero
+  '0:cell_1:1:51120325-550c-4eeb-ada2-844f3f63ba45':
+    parent_uuid: c8dd5b76-a598-44cb-8f0c-21d1a99a8e35
+    slot: cell_1
+    uuid: 51120325-550c-4eeb-ada2-844f3f63ba45
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p>When you need the job done right,<em> <strong>JefCo has got you covered.&nbsp;</strong></em></p>'
+        format: canvas_html_block
+      style: body_m
+      color: medium
+      center: false
+  '0:cell_2:0:09383ed1-5838-4824-ab10-2a53eb819b96':
+    parent_uuid: c8dd5b76-a598-44cb-8f0c-21d1a99a8e35
+    slot: cell_2
+    uuid: 09383ed1-5838-4824-ab10-2a53eb819b96
+    component_id: sdc.dripyard_base.statistic
+    component_version: 9743427112a0a222
+    inputs:
+      statistic: '4.9 Avg'
+      first_line: 'Star Ratings'
+      second_line: 'on Google Reviews'
+  '0:cell_3:0:7451aa2f-600a-4171-a78e-cabdd54b5c18':
+    parent_uuid: c8dd5b76-a598-44cb-8f0c-21d1a99a8e35
+    slot: cell_3
+    uuid: 7451aa2f-600a-4171-a78e-cabdd54b5c18
+    component_id: sdc.dripyard_base.statistic
+    component_version: 9743427112a0a222
+    inputs:
+      statistic: 30+
+      first_line: Years
+      second_line: 'in Business'

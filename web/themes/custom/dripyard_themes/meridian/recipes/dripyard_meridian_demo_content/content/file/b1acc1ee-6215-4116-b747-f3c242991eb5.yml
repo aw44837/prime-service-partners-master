@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: b1acc1ee-6215-4116-b747-f3c242991eb5
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: maine.jpg
+  uri:
+    -
+      value: 'public://2026-01/maine.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 261602
+  status:
+    -
+      value: true

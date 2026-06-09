@@ -1,0 +1,41 @@
+_meta:
+  version: '1.0'
+  entity_type: menu_link_content
+  uuid: d3d910b0-44fa-4e5e-bc5f-4e800802e622
+  bundle: menu_link_content
+  default_langcode: en
+  depends:
+    c8fef65a-f05b-4781-aab7-35866e979796: menu_link_content
+default:
+  enabled:
+    -
+      value: true
+  title:
+    -
+      value: 'Land Protection'
+  menu_name:
+    -
+      value: footer
+  link:
+    -
+      uri: 'internal:/'
+      title: ''
+      options: {  }
+  external:
+    -
+      value: false
+  rediscover:
+    -
+      value: true
+  weight:
+    -
+      value: -48
+  expanded:
+    -
+      value: false
+  parent:
+    -
+      value: 'menu_link_content:c8fef65a-f05b-4781-aab7-35866e979796'
+  revision_translation_affected:
+    -
+      value: true

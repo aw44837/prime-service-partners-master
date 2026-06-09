@@ -1,0 +1,25 @@
+uuid: 10b71db2-40a7-4d50-b41d-52e3c747d8ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.dripyard_icon_card
+    - field.storage.block_content.dripyard_no_background
+_core:
+  default_config_hash: vOVHn9tEFHZdT-dbY-iA0VKCaHO3mJy4w2pzfdPC0ys
+id: block_content.dripyard_icon_card.dripyard_no_background
+field_name: dripyard_no_background
+entity_type: block_content
+bundle: dripyard_icon_card
+label: 'No Background'
+description: 'Enable to remove the background from the icon card.'
+required: false
+translatable: false
+default_value:
+  -
+    value: false
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

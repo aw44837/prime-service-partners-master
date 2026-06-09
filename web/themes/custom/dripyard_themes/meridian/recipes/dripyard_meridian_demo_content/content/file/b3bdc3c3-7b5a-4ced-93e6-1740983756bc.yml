@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: b3bdc3c3-7b5a-4ced-93e6-1740983756bc
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: arches.jpg
+  uri:
+    -
+      value: 'public://2026-01/arches.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 440972
+  status:
+    -
+      value: true

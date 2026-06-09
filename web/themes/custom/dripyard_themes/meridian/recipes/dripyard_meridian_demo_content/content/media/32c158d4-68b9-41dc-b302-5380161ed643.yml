@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 32c158d4-68b9-41dc-b302-5380161ed643
+  bundle: image
+  default_langcode: en
+  depends:
+    23611f34-dfe2-4b13-acd8-2b0d7c06bbb9: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: acadia.jpg
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Artistic illustration of a Maine coastline'
+      title: ''
+      width: 1536
+      height: 1024
+      entity: 23611f34-dfe2-4b13-acd8-2b0d7c06bbb9

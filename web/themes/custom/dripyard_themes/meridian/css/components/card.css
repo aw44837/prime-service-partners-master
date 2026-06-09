@@ -1,0 +1,17 @@
+/*
+ * @file
+ * Card style overrides.
+ */
+
+.card {
+  --card-border-radius: var(--radius-lg);
+}
+
+.card__top[class][class] {
+  border-bottom-left-radius: var(--card-border-radius);
+  border-bottom-right-radius: var(--card-border-radius);
+}
+
+.card__icon {
+  display: none;
+}

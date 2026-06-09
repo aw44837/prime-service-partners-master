@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 79171050-239d-49a6-8878-e0cd267475df
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: pacific-coast-inline.jpg
+  uri:
+    -
+      value: 'public://article-images/pacific-coast-inline.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 155603
+  status:
+    -
+      value: true

@@ -1,0 +1,50 @@
+uuid: 7db9b68b-743e-4a45-8d26-270e237da7d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.article.field_tags
+id: node.article.field_tags.default
+label: 'Generate tags'
+rule: llm_taxonomy
+input_mode: token
+weight: 100
+worker_type: field_widget_actions
+entity_type: node
+bundle: article
+field_name: field_tags
+edit_mode: false
+base_field: revision_log
+prompt: ''
+token: |-
+  Based on the context found below, tag this article with related keywords or existing vocabulary terms. Generate up to 5 tags. You can also generate one if that is all that is relevant. 
+
+  Primary context: [node:title]
+
+  Supporting context: [node:body]
+guardrail_set_id: null
+plugin_config:
+  automator_enabled: 1
+  automator_rule: llm_taxonomy
+  automator_mode: token
+  automator_base_field: revision_log
+  automator_prompt: ''
+  automator_token: |-
+    Based on the context found below, tag this article with related keywords or existing vocabulary terms. Generate up to 5 tags. You can also generate one if that is all that is relevant. 
+
+    Primary context: [node:title]
+
+    Supporting context: [node:body]
+  automator_edit_mode: 0
+  automator_label: 'Generate tags'
+  automator_weight: '100'
+  automator_worker_type: field_widget_actions
+  automator_guardrail_set_id: ''
+  automator_ai_provider: openai
+  automator_ai_model: gpt-5.4-nano
+  automator_configuration_max_completion_tokens: '4096'
+  automator_configuration_reasoning_effort: low
+  automator_configuration_image_field: ''
+  automator_configuration_image_style: ''
+  automator_clean_up: ''
+  automator_search_similar_tags: 1

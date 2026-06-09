@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * JefCo Menu Block module hooks.
+ */
+
+/**
+ * Implements hook_theme().
+ *
+ * Registers a private theme hook so the block renders through its own
+ * template — completely bypassing the theme's menu templates (including
+ * menu--main.html.twig → meridian:primary-menu) and Canvas's template
+ * pipeline.
+ */
+function jefco_menu_block_theme(): array {
+  return [
+    'jefco_menu_block' => [
+      'variables' => [
+        'items'   => [],
+        'level'   => 1,
+        'columns' => 1,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for the jefco_menu_block theme.
+ */
+function template_preprocess_jefco_menu_block(array &$variables): void {
+  // Nothing extra needed — items and level come straight from the render array.
+}

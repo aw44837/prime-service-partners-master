@@ -1,0 +1,47 @@
+_meta:
+  version: '1.0'
+  entity_type: node
+  uuid: 26a699f7-2c76-409e-91da-45b44b7931ec
+  bundle: article
+  default_langcode: en
+  depends:
+    a7f81972-c17c-4124-ac7f-ea622a715472: file
+    d76affd5-717e-44a3-82eb-9fa61aaea84f: file
+default:
+  revision_uid:
+    -
+      target_id: 1
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  title:
+    -
+      value: 'Great Lakes'
+  promote:
+    -
+      value: true
+  sticky:
+    -
+      value: false
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: /great-lakes
+  body:
+    -
+      value: '<p>The Great Lakes hold twenty percent of the world''s surface fresh water — a resource of global significance. The watersheds that feed these inland seas support forests, wetlands, and prairies that are home to hundreds of species found nowhere else. Meridian''s Great Lakes programs work to protect the land and water connections that keep this system healthy.</p><drupal-media data-entity-type="media" data-entity-uuid="a6efa458-ec21-4781-a5e2-67b7a423f08a" data-align="left" data-caption="Great Lakes coastal wetland">&nbsp;</drupal-media><p>Our focus areas include protecting coastal wetlands that filter runoff and provide critical fish spawning habitat, restoring degraded tributaries that connect inland forests to the lakes, and monitoring invasive species that threaten native ecosystems. We work with landowners along key tributaries to implement best management practices that reduce erosion and nutrient loading.</p><p>The Great Lakes region faces compounding pressures from agricultural runoff, urban development, and climate change. Warmer water temperatures, shifting precipitation patterns, and more frequent extreme storms are altering lake ecology in ways we are only beginning to understand. Our research and monitoring programs help track these changes and inform adaptive conservation strategies for the decades ahead.</p>'
+      format: full_html
+      summary: ''
+  field_image:
+    -
+      alt: 'Great Lakes shoreline with rocky beach, bare birch trees, and cold gray water, early November'
+      title: ''
+      width: 1376
+      height: 768
+      entity: d76affd5-717e-44a3-82eb-9fa61aaea84f

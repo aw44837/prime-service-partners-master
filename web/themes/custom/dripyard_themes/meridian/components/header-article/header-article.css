@@ -1,0 +1,43 @@
+/*
+ * @file
+ * Styles for the article header.
+ */
+
+.header-article[class] {
+  --header-article-spacing: var(--spacing-s);
+
+  padding-block: var(--header-article-spacing);
+
+  @media (height > 900px) {
+    --header-article-spacing: var(--spacing-xl);
+  }
+
+  .tags {
+    width: fit-content;
+    margin-inline: auto;
+  }
+}
+
+.header-article__title {
+  margin-block: 0;
+  text-align: center;
+}
+
+.header-article__meta {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.header-article__image {
+  margin-bottom: var(--spacing-component-internal);
+
+  img {
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+}
+
+.grid-area--content {
+  display: grid;
+  gap: var(--spacing-xs);
+}

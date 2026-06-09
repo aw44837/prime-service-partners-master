@@ -1,0 +1,24 @@
+_meta:
+  version: '1.0'
+  entity_type: file
+  uuid: 5a906b08-fb35-4b7a-8401-08f85e9a9806
+  default_langcode: en
+default:
+  uid:
+    -
+      target_id: 1
+  filename:
+    -
+      value: events.jpg
+  uri:
+    -
+      value: 'public://article-images/events.jpg'
+  filemime:
+    -
+      value: image/jpeg
+  filesize:
+    -
+      value: 222186
+  status:
+    -
+      value: true

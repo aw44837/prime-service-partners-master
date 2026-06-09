@@ -1,0 +1,32 @@
+_meta:
+  version: '1.0'
+  entity_type: media
+  uuid: 67e74ef6-413a-476d-9436-005115ca018e
+  bundle: image
+  default_langcode: en
+  depends:
+    b1acc1ee-6215-4116-b747-f3c242991eb5: file
+default:
+  status:
+    -
+      value: true
+  uid:
+    -
+      target_id: 1
+  name:
+    -
+      value: maine.jpg
+  revision_translation_affected:
+    -
+      value: true
+  path:
+    -
+      langcode: en
+      alias: null
+  field_media_image:
+    -
+      alt: 'Main coastline in artistic outline style'
+      title: ''
+      width: 1536
+      height: 1024
+      entity: b1acc1ee-6215-4116-b747-f3c242991eb5
