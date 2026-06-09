@@ -16,4 +16,5 @@ complete_list:
   - system.site
   - key.key.anthropic
   - key.key.openai
+  - key.key.easy_encrypted__f2758717_29d5_4576_ad8c_e7ae5affca40__private_key
 partial_list: []

@@ -1,5 +1,5 @@
 #!/bin/bash
-## Description: Fix Easy Encryption key paths after pulling DB from production.
+## Description: Fix Easy Encryption key paths and lock hash after pulling DB from production.
 ## Usage: fix-keys
 ## Example: ddev fix-keys
 
@@ -9,17 +9,25 @@ DDEV_PATH="/var/www/html/.easy_encryption"
 KEY_ID="easy_encrypted__f2758717_29d5_4576_ad8c_e7ae5affca40__private_key"
 KEY_FILE="${DDEV_PATH}/${KEY_ID}.php"
 
-echo "Updating Easy Encryption private key path to DDEV container path..."
+echo "Updating Easy Encryption private key path and resetting lock hash..."
 
 drush ev "
 \$key_id = '${KEY_ID}';
 \$correct_path = '${KEY_FILE}';
+
+// Update key path in config entity.
 \$config = \Drupal::configFactory()->getEditable('key.key.' . \$key_id);
 \$settings = \$config->get('key_provider_settings');
 \$settings['file_location'] = \$correct_path;
 \$config->set('key_provider_settings', \$settings)->save();
 echo 'Key path updated to: ' . \$correct_path . PHP_EOL;
+
+// Reset the lock file validator hash so drush commands don't fail.
+\$key_value = include \$correct_path;
+\$hash = hash('sha256', \$key_value);
+\Drupal::state()->set('easy_encryption.lock.' . \$key_id, \$hash);
+echo 'Lock hash reset.' . PHP_EOL;
 "
 
 drush cache:rebuild
-echo "Done. Canvas pages should work again."
+echo "Done. Config import and Canvas pages should work again."
