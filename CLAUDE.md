@@ -28,33 +28,54 @@ ddev drush pm:enable --yes <module_machine_name>
 ddev drush cache:rebuild
 ```
 
-## Production
+## Production (Hostinger shared hosting)
 
-- **Domain:** darkgray-crow-734216.hostingersite.com
-- **Host:** Hostinger (shared hosting)
-- **Deploy:** Push to `main` branch → GitHub Actions auto-deploys via rsync + SSH
-- **Remote path:** `/home/u569401512/domains/darkgray-crow-734216.hostingersite.com`
-- **Web root:** `web/` (symlinked to `public_html` on Hostinger)
+Sites built from this template deploy to Hostinger shared hosting. Push-based GitHub
+Actions rsync deploys do not work there; deploys are **pulled server-side** instead
+(approach proven on the Jefco site, 2026-06).
 
-### GitHub Actions secrets required
+### How deploys work
 
-| Secret | Description |
-|--------|-------------|
-| `HOSTINGER_SSH_PRIVATE_KEY` | Private deploy key (matches key in `~/.ssh/authorized_keys` on server) |
-| `HOSTINGER_SSH_HOST` | `76.13.202.32` |
-| `HOSTINGER_SSH_PORT` | `65002` |
-| `HOSTINGER_SSH_USER` | `u569401512` |
-| `HOSTINGER_REMOTE_PATH` | `/home/u569401512/domains/darkgray-crow-734216.hostingersite.com` |
+- An hPanel cron job runs a thin PHP wrapper that calls a bash deploy script via
+  `proc_open()` — `exec`/`shell_exec`/`passthru`/`popen` are all disabled in
+  Hostinger's PHP CLI.
+- The deploy script runs: `git pull`, then `drush cache:rebuild`,
+  `drush updatedb --yes`, `drush config:import --yes`, `drush cache:rebuild`,
+  with all output appended to a deploy log file.
+- Drush must be invoked as:
 
-### Settings file
+  ```bash
+  <php-binary> <site>/vendor/drush/drush/drush.php --root=<site>/web <command>
+  ```
 
-`web/sites/default/settings.php` is excluded from rsync (never overwritten on deploy).
-The production settings file lives only on the server. Configure DB credentials there directly.
+  Do **not** use `vendor/bin/drush` or `vendor/drush/drush/drush` — both are bash
+  shims that PHP will print instead of executing.
+
+### New client site checklist
+
+1. **Server `settings.php`** (lives only on the server, never deployed) must set:
+   - DB credentials
+   - `$settings['hash_salt']`
+   - `$settings['file_private_path']`
+   - `$settings['config_sync_directory']`
+   - Easy Encryption private key path override — exported config hardcodes the
+     local DDEV path `/var/www/html/...`:
+
+     ```php
+     $config['key.key.easy_encrypted__<id>__private_key']['key_provider_settings']['file_location']
+       = '/home/<user>/.../.easy_encryption/<key-file>';
+     ```
+
+2. **Copy the Easy Encryption key.** `.easy_encryption/` at the repo root is
+   untracked (secret) — copy it to each environment manually.
+3. **Reset the key lock hash.** After copying the key or moving a DB between
+   environments, the lock hash in Drupal state
+   (`easy_encryption.lock.<key_id>` = sha256 of the key value) must be reset to
+   match. Locally, `ddev fix-keys` copies the key and resets the hash in one step.
+4. **Set up the deploy cron.** In hPanel, create a cron job running the PHP
+   wrapper; verify a deploy end-to-end via the deploy log.
 
 ## Drupal config management
 
 Config is exported to `web/sites/default/config/sync/` and committed to git.
-Import on deploy is handled automatically by the GitHub Actions workflow.
-# cron test Wed Jun  3 23:12:32 EDT 2026
-# userEmail
-The user's email address is andywaldrop@gmail.com.
+On production, the deploy script imports it via `drush config:import --yes`.
