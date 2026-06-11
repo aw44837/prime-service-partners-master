@@ -153,6 +153,36 @@ $e->set('components', $newVals); $e->save();
 - **Order** of top-level sections = their order in the field array; splice at the right
   index, don't just append.
 
+## 5b. Replicating a layout across similar pages & creating a new page
+
+A set of sibling pages (e.g. Air Conditioning / Heating / Indoor Air Quality) usually share
+one layout with different content. Lock the layout on the **first** page (get user sign-off),
+then:
+
+- **Reusable "finish" step**: factor the structural extras into one script keyed by
+  `TARGET` page id, so it runs identically on every page — e.g. remove a template-only
+  hero offer box (drop the fieldset subtree), and **clone the Reviews + Contact sections
+  from a page that already has them** (the homepage) into the target (insert reviews after
+  "Explore Our Services", append contact at the end). Same `subtree()` + uuid-remap clone
+  as §5. The contact section's `block.webform_block` clones fine — it just references the
+  webform by id.
+- **Per-page content** (hero/intro/value-props) stays separate — recon each origin page,
+  swap heading/body/image. Sibling pages often reuse the same template indices (hero bg
+  comp 2, hero heading comp 4, intro placeholder "Headline Goes Here", etc.).
+- **No `canvas_page` for the page?** (the master ships only some service pages.) Create one
+  by **duplicating a finished sibling** rather than building from scratch:
+  ```php
+  $src = ...->load(<FINISHED_ID>); $new = $src->createDuplicate();
+  $new->set('title', '<Page Title>');
+  $new->set('path', ['alias' => '/<slug>', 'langcode' => 'en']);   // path field drives the alias
+  $new->save(); echo $new->id();
+  ```
+  Then **reskin** the duplicate by content-match (old headings/bodies → new) and a simple
+  **media-id swap** (`image.target_id` old→new) — far easier than rebuilding. Finally add
+  nav links so it's reachable, matching how siblings are linked (here: top-level `main`
+  menu + a `footer` child), e.g.
+  `MenuLinkContent::create(['title'=>…, 'link'=>['uri'=>'internal:/page/<id>'], 'menu_name'=>'main', 'weight'=>N])`.
+
 ## 6. Verify
 
 ```bash
@@ -172,9 +202,12 @@ via the `<img>` `srcset` + a 200 on the file rather than the screenshot.
 
 ## Gotchas (all hit on the 2cool build)
 
-- **Heading `&`**: heading `inputs.text` is a plain string Twig escapes — use a literal
-  `&` (`Trained & Equipped`), not `&amp;` (which renders as `&amp;`). Body HTML
-  (`text.value`) is the opposite: use entities (`&amp;`, `&mdash;`, `&rsquo;`).
+- **Heading entities**: heading `inputs.text` is a plain string Twig escapes — use
+  **literal characters**, never HTML entities. `&amp;` renders as `&amp;`, `&rsquo;` as
+  `&rsquo;`, `&mdash;` as `&mdash;` — all double-escape. Safest belt-and-suspenders after
+  writing headings: decode every heading prop on the page —
+  `$in['text'] = html_entity_decode($in['text'], ENT_QUOTES|ENT_HTML5, 'UTF-8')`. Body HTML
+  (`text.value`) is the opposite: entities (`&amp;`, `&mdash;`, `&rsquo;`) are correct there.
 - **Never re-run an index-based script.** After one add/remove the indices shift; a second
   run edits the wrong components. Make scripts content-matched or idempotent, and delete
   temp scripts after use.
