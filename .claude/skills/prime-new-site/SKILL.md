@@ -186,6 +186,10 @@ Also edit the same 4 values under `theme_colors.colors` in `$TCFG`.
   `@import url('https://fonts.googleapis.com/css2?family=<Heading>:ital,wght@0,100..900;1,100..900&family=<Body>:ital,wght@0,100..700;1,100..700&display=swap');`
   (URL-encode spaces as `+`.)
 - Set `--font-heading: '<Heading>', sans-serif;` and `--font-body: '<Body>', sans-serif;`
+- Also set `--title-font-family: var(--font-heading);` — the base theme points the **Title**
+  style at `--font-sans`, so without this override the Title (e.g. hero/page titles, any
+  heading with `style: title`) keeps the base font and won't match the headlines. **Title
+  should always match the heading font** unless the user explicitly asks for a different one.
 - Bump heading `font-weight` (e.g. `400`→`600`) so a geometric sans keeps presence.
 
 **Logo + favicon** — copy files into the theme, then set config. Keep the favicon's
