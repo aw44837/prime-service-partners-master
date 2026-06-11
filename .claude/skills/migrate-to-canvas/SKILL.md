@@ -232,6 +232,21 @@ via the `<img>` `srcset` + a 200 on the file rather than the screenshot.
 - **They do (fine to leave):** swapping in better per-section photos, varying icons,
   fine-tuning section background rhythm and spacing, real testimonials.
 
+### Confirm per-site (these vary by brand/imagery — ask, don't assume)
+
+These are visual calls that depend on the specific brand graphics, so **ask the user once
+per site** (defaults in parens) rather than hardcoding:
+
+- **Hero** `height` (e.g. `medium`) and vertical alignment `align_y` (e.g. `center`) — both
+  props on the `neonbyte.hero` component.
+- **The theme of the section that sits directly under / blends into the hero or header
+  graphic** — `white` vs `light` (`layout-dynamic.theme`). On 2cool the second section was
+  switched `light`→`white` so it blended with the header graphic; on another site the
+  opposite may look better.
+
+Make these the closing questions after the first page is built and approved; reuse the
+same answers across that site's sibling pages.
+
 ## What lives where
 
 Canvas page content (the whole component tree, the block content, media references) lives
