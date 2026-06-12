@@ -1,0 +1,24 @@
+uuid: b0b1ebb8-96b5-4ff5-8380-22869e95b40a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_additional_body_content
+    - filter.format.full_html
+    - node.type.services
+  module:
+    - text
+id: node.services.field_additional_body_content
+field_name: field_additional_body_content
+entity_type: node
+bundle: services
+label: 'Additional Body Content'
+description: 'Optional field for layouts that may have a split body layout. This field would be displayed beneath the body field, potentially in a different orientation.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

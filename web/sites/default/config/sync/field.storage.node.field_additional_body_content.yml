@@ -1,0 +1,19 @@
+uuid: f1195eea-2041-4b94-a527-7a1a5e66ab02
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_additional_body_content
+field_name: field_additional_body_content
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.card
     - field.field.node.services.ai_automator_status
+    - field.field.node.services.field_additional_body_content
     - field.field.node.services.field_body
     - field.field.node.services.field_featured_image
     - field.field.node.services.field_featured_image_prompt
@@ -33,6 +34,7 @@ content:
     region: content
 hidden:
   ai_automator_status: true
+  field_additional_body_content: true
   field_body: true
   field_featured_image_prompt: true
   field_intro_description: true

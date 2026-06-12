@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.services.ai_automator_status
+    - field.field.node.services.field_additional_body_content
     - field.field.node.services.field_body
     - field.field.node.services.field_featured_image
     - field.field.node.services.field_featured_image_prompt
@@ -111,6 +112,21 @@ third_party_settings:
                 third_party_settings: {  }
             weight: 4
             additional: {  }
+          bdd7d230-cea4-4941-85b3-65a75288e4a3:
+            uuid: bdd7d230-cea4-4941-85b3-65a75288e4a3
+            region: cell_1
+            configuration:
+              id: 'field_block:node:services:field_additional_body_content'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 5
+            additional: {  }
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -123,6 +139,13 @@ targetEntityType: node
 bundle: services
 mode: default
 content:
+  field_additional_body_content:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: cell_1
   field_featured_image_prompt:
     type: basic_string
     label: above
