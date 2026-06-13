@@ -86,6 +86,16 @@ print $out;
 Spot-check one page: `perl /tmp/extract_service.pl < origin.html` — the **last** blocks
 should be the final authored section, not a contact form / service nav / reviews.
 
+**Variant — no `ColumnContentExpandContent` (e.g. blog posts).** Some content types render
+the body in a single `cnt-stl` div with no `ColumnContentExpandContent` anchor; the balanced
+approach then falls back to whole-doc and grabs the **nav menu**. For those, anchor on the
+**first `<h1>`** instead: `region = substr(from first <h1>)`, cut at the footer / reviews /
+contact (`Hear From Our Happy Customers`, `Get In Touch`, `Most Recent Posts`, `<footer`),
+then run the same named-capture `clean()` loop — and **filter junk lists** (skip a `<ul>`
+with >7 items or containing nav/form text like `Main Menu`, `Please enter`, `Emergency AC
+Services`). Always eyeball the first block: if it's `Air Conditioning Emergency AC Services
+AC Installation…` you grabbed the nav — re-anchor.
+
 ## 3. Scrape + extract every page (use a **bash** script)
 
 zsh in this env breaks on `$(...)` inside a `for` loop ("command not found: curl"). Write
@@ -104,6 +114,15 @@ done
 EOF
 bash /tmp/scrape.sh
 ```
+**Before reading the files in a drush script, force the sync and verify the container.**
+Host→container (mutagen) sync can lag, so a `drush php:script` may read stale/empty/identical
+files (symptom: every node gets the *same* body). Do:
+```bash
+ddev mutagen sync
+ddev exec "wc -c /var/www/html/<dir>/*.html"   # sizes must be present + DISTINCT
+```
+and add a sanity guard in the create script — skip a file if it has no `<h1>` or looks like
+the nav (`stripos($html,'Emergency AC Services AC Installation')!==false`).
 Files land in `<SITE>/svc-import/` (mounted → container `/var/www/html/svc-import/`).
 
 ## 4. Create / update the nodes (idempotent)
