@@ -61,8 +61,8 @@ scraping cannot — column counts, which sections have images, section order):
 ```bash
 UA='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36'
 curl -sL -A "$UA" '<ORIGIN_URL>' -o /tmp/origin.html
-# heading flow in document order:
-perl -0777 -ne 'while(/<(h[1-3])[^>]*>(.*?)<\/\1>/gis){my $t=$2;$t=~s/<[^>]+>//g;$t=~s/\s+/ /g;$t=~s/^\s+|\s+$//g;print uc($1).": $t\n" if length($t)>2&&length($t)<120;}' /tmp/origin.html
+# heading flow in document order (named captures — the harness mangles bare $1/$2):
+perl -0777 -ne 'while(/<(?<g>h[1-3])[^>]*>(?<t>.*?)<\/\g{g}>/gis){my $t=$+{t};$t=~s/<[^>]+>//g;$t=~s/\s+/ /g;$t=~s/^\s+|\s+$//g;print uc($+{g}).": $t\n" if length($t)>2&&length($t)<120;}' /tmp/origin.html
 # section/content images (Scorpion uses semantic names: mainstage=hero, content-sN, services/*, values=why-choose):
 grep -oE '/assets/[a-z]+/[a-z0-9-]+\.(jpg|png|webp)[^"]*' /tmp/origin.html | sed -E 's/\.[0-9]+\././' | sort -u
 # full-page screenshot:

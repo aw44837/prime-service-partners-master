@@ -34,10 +34,14 @@ ddev drush ev '$ids=\Drupal::entityQuery("node")->condition("type","services")->
  foreach(\Drupal::entityTypeManager()->getStorage("node")->loadMultiple($ids) as $n){
    echo $n->id()." | ".$n->label()." | ".\Drupal::service("path_alias.manager")->getAliasByPath("/node/".$n->id())."\n"; }'
 ```
-- Note the **content type** machine name (`services`), its **fields**, and a **model
-  node** id. On 2cool the whole page lives in **`field_body`** as formatted HTML
-  (`<h1>` title + `<h2>` subhead + `<p>`/`<h2>`/`<h3>` sections); intro/additional/image
-  were optional. Grab the model node's text **format** (e.g. `content_format`) to reuse.
+- Note the **content type** machine name, its **fields**, and a **model node** id. The
+  whole page lives in the body field as formatted HTML (`<h1>` title + `<h2>` subhead +
+  `<p>`/`<h2>`/`<h3>` sections); intro/featured-image are optional. Grab the model node's
+  text **format** (e.g. `content_format`) to reuse.
+- **The body field name varies by content type** — `services` uses **`field_body`**, but
+  `local_service_area_page` uses the core **`body`** (text_with_summary) field. Check the
+  model node (the field list won't show `field_body` if it's really `body`), and use the
+  right field name in steps 4.
 
 ## 1. Recon the origin (list the pages)
 
@@ -58,20 +62,22 @@ semantic HTML (h1–h3, p, ul) with attributes stripped:
 
 ```perl
 #!/usr/bin/perl
+# NOTE: uses Perl *named captures* ($+{name}, \g{name}) on purpose — the skill harness
+# rewrites bare $1/$2/\1 as positional argument placeholders, which corrupts the regex.
 use strict; use warnings; local $/; my $html = <STDIN>;
 my $i = index($html, 'ColumnContentExpandContent');          # the authored-content container
 my $divstart = $i >= 0 ? rindex($html, '<div', $i) : 0;
 my $sub = substr($html, $divstart); my ($depth,$region)=(0,$sub);
-while ($sub =~ /(<div\b|<\/div\s*>)/gis){ $depth += ($1=~/^<div/i)?1:-1; if($depth==0){ $region=substr($sub,0,pos($sub)); last; } }
+while ($sub =~ /(?<tok><div\b|<\/div\s*>)/gis){ $depth += ($+{tok}=~/^<div/i)?1:-1; if($depth==0){ $region=substr($sub,0,pos($sub)); last; } }
 sub clean { my $s=shift;
-  $s=~s/<(script|style)\b.*?<\/\1>//gis;
-  $s=~s/<a\b[^>]*?href="([^"]*)"[^>]*>/<a href="$1">/gis;       # keep href only
-  $s=~s/<(\/?)(strong|em|b|i)\b[^>]*>/<$1$2>/gis;               # keep simple inline
+  $s=~s/<(?:script|style)\b.*?<\/(?:script|style)>//gis;
+  $s=~s/<a\b[^>]*?href="(?<u>[^"]*)"[^>]*>/<a href="$+{u}">/gis;     # keep href only
+  $s=~s/<(?<c>\/?)(?<g>strong|em|b|i)\b[^>]*>/<$+{c}$+{g}>/gis;      # keep simple inline
   $s=~s/<br\s*\/?>/ /gis; $s=~s/<(?!\/?(?:a|strong|em|b|i)\b)[^>]*>//gis;  # drop other tags
   $s=~s/&nbsp;/ /g; $s=~s/\s+/ /g; $s=~s/^\s+|\s+$//g; return $s; }
 my $out='';
-while ($region =~ /<(h[1-3]|p|ul|ol)\b[^>]*>(.*?)<\/\1>/gis){ my($t,$in)=(lc $1,$2);
-  if($t eq 'ul' or $t eq 'ol'){ my $it=''; while($in=~/<li\b[^>]*>(.*?)<\/li>/gis){ my $li=clean($1); $it.="<li>$li</li>" if $li=~/\S/; } $out.="<$t>$it</$t>\n" if $it; next; }
+while ($region =~ /<(?<tag>h[1-3]|p|ul|ol)\b[^>]*>(?<inn>.*?)<\/\g{tag}>/gis){ my($t,$in)=(lc $+{tag}, $+{inn});
+  if($t eq 'ul' or $t eq 'ol'){ my $it=''; while($in=~/<li\b[^>]*>(?<li>.*?)<\/li>/gis){ my $li=clean($+{li}); $it.="<li>$li</li>" if $li=~/\S/; } $out.="<$t>$it</$t>\n" if $it; next; }
   my $x=clean($in); next unless $x=~/\S/;
   next if $x=~/window\.|Process\.Page|^Call Now\b|^Schedule Your|^Apply Now\b|^Learn More\b/i;
   $out.="<$t>$x</$t>\n"; }
@@ -151,7 +157,16 @@ Our Services), and layout automatically — you only provide `field_body`.
   only for Canvas plain-string heading props).
 - **zsh `$()`-in-`for` breaks** here — put batch loops in a `.sh` and run with `bash`.
 - **Extraction**: balanced-`<div>` of the authored container beats stop-markers (which
-  catch the trailing nav/form/reviews). Strip all attributes except `<a href>`.
+  catch the trailing nav/form/reviews). Strip all attributes except `<a href>`. When a
+  page's authored content is spread across several `cnt-stl` blocks (richer layouts like
+  local-area pages), the single-container approach undershoots — extract from the first
+  `<h1>` instead, filtering junk lists/CTAs.
+- **Mid-page reviews block**: some pages embed a "Hear From Our Happy Customers" / reviews
+  section *between* authored sections, so a single stop-marker truncates everything after
+  it. Extract **two regions** (before the reviews block + from the next real `<h2>` up to
+  the contact/footer) and concatenate. (Hit on the Tampa local-area page.)
+- **Perl in this file uses named captures** (`$+{name}`, `\g{name}`) not `$1`/`$2` — the
+  skill harness rewrites bare `$N` as argument placeholders and corrupts the script.
 - **Thin origin pages** migrate faithfully (just less content) — fine.
 
 ## What's the user's final touch
