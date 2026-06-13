@@ -34,6 +34,16 @@ Sites built from this template deploy to Hostinger shared hosting. Push-based Gi
 Actions rsync deploys do not work there; deploys are **pulled server-side** instead
 (approach proven on the Jefco site, 2026-06).
 
+### Pull live → local (`ddev pull hostinger`)
+
+To refresh a local site from production, fill in `.ddev/providers/hostinger.yaml` with this
+site's SSH host/user/port + server checkout path (see the per-site **Production** section in
+its own `CLAUDE.md`), then run **`ddev pull hostinger`**. It dumps the live DB over SSH,
+imports it, runs `ddev fix-keys` (resets the Easy Encryption lock hash for local), rebuilds
+cache, and rsyncs the live files dir down (skipping regenerable derivatives). Read-only on
+production. Note: importing the live DB overwrites local active config — re-run
+`ddev drush config:import` if you have local-only config (e.g. a not-yet-deployed field).
+
 ### How deploys work
 
 - An hPanel cron job runs a thin PHP wrapper that calls a bash deploy script via

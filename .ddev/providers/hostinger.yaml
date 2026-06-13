@@ -1,0 +1,49 @@
+# Hostinger pull provider for PSP sites: pull the live DB + images down to local.
+#
+#   ddev pull hostinger
+#
+# Runs on the HOST and uses your existing SSH key (no `ddev auth ssh` needed). Does:
+#   live `drush sql:dump` over SSH -> ddev import-db -> ddev fix-keys -> cache:rebuild,
+#   then rsyncs the live files dir down (skipping regenerable derivatives).
+#
+# PER SITE: fill in the five values below from THIS site's CLAUDE.md "Production" section
+# (Hostinger SSH host/user/port + the server checkout path). prime-new-site copies this
+# template into every new site; each site sets its own values.
+
+environment_variables:
+  ssh_host: "<server-ip>"             # e.g. 76.13.202.32
+  ssh_user: "<hostinger-user>"        # e.g. u569401512
+  ssh_port: "65002"                   # Hostinger SSH port (usually 65002)
+  remote_path: "<server-checkout>"    # e.g. /home/u569401512/<site>  (the git clone on the server)
+  php_bin: "/opt/alt/php84/usr/bin/php"
+
+auth_command:
+  service: host
+  command: |
+    set -eu -o pipefail
+    ssh -p ${ssh_port} -o BatchMode=yes -o ConnectTimeout=20 ${ssh_user}@${ssh_host} 'true' \
+      || { echo "SSH to Hostinger failed — check the SSH key/details in CLAUDE.md"; exit 1; }
+
+db_import_command:
+  service: host
+  command: |
+    set -eu -o pipefail
+    mkdir -p .ddev/.downloads
+    echo "Dumping live database over SSH..."
+    ssh -p ${ssh_port} -o BatchMode=yes ${ssh_user}@${ssh_host} \
+      "${php_bin} ${remote_path}/vendor/drush/drush/drush.php --root=${remote_path}/web sql:dump --gzip --extra-dump=--no-tablespaces" \
+      2>/dev/null > .ddev/.downloads/db.sql.gz
+    ddev import-db --file=.ddev/.downloads/db.sql.gz
+    echo "Resetting Easy Encryption keys for local env..."
+    ddev fix-keys
+    ddev drush cache:rebuild
+
+files_import_command:
+  service: host
+  command: |
+    set -eu -o pipefail
+    echo "Syncing live files (excluding regenerable derivatives)..."
+    rsync -az --exclude='styles/' --exclude='css/' --exclude='js/' --exclude='php/' --exclude='.htaccess' \
+      -e "ssh -p ${ssh_port} -o BatchMode=yes" \
+      ${ssh_user}@${ssh_host}:${remote_path}/web/sites/default/files/ \
+      web/sites/default/files/
