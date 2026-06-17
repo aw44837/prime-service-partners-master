@@ -187,10 +187,17 @@ code → `config:import` breaks. Each `~/<site>-deploy.sh` needs, right after `g
 /usr/local/bin/composer install --no-dev --optimize-autoloader --no-interaction --working-dir="$REPO" &&
 ```
 (server has composer at `/usr/local/bin/composer`; also `export HOME=/home/<user>` for cron).
-Fixed for Jefco 2026-06-17; the other live scripts need the same one-line addition before
-their first code-update deploy. Verify a deploy with `tail ~/<site>-deploy.log` + live
-`drush status`. **Live sites:** action, Jefco, 2cool, clark-comfort, glenn-jones (domains
-`*.droptech.dev`); swiftbrothers is not live yet.
+**All 5 live deploy scripts were fixed 2026-06-17** (`~/<site>-deploy.sh.bak-20260617`
+backups on server). The crons are Hostinger-managed with `flock` + `timeout 1800`, so a
+push auto-deploys safely; you can also run `bash ~/<site>-deploy.sh` manually (it no-ops if
+the cron already pulled — `git diff --quiet HEAD origin/main` guard). composer install is
+slow on shared hosting (~1-2 min); `drush status` returns empty mid-install — wait for
+"Deploy complete" in the log. Verify: live `drush status` = target version, homepage 200,
+`config:get system.site name` = correct brand, no new watchdog errors.
+**Live sites + domains:** jefco→jefco.droptech.dev, action→action.droptech.dev,
+2cool→2cool.droptech.dev, clark-comfort→clark.droptech.dev,
+glenn-jones→glennjones.droptech.dev. **swiftbrothers is NOT live** (config reconciled +
+ready, but no server/cron yet).
 
 ⚠️ **`config:import` reverts to committed config.** Any child whose committed `config/sync`
 is stale vs its DB (e.g. swiftbrothers' branding, `system.site`) will have that config
