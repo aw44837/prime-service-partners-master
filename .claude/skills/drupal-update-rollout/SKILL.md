@@ -175,8 +175,22 @@ twig warning is not from the update).
 ## 5. Live deploy (only on explicit go-ahead)
 
 Deploys are **pulled server-side** on Hostinger (see master `CLAUDE.md`): push each child
-to its `origin`, then the hPanel cron runs `git pull` + `cache:rebuild` + `updatedb` +
-`config:import` + `cache:rebuild`.
+to its `origin`, then the per-site cron runs the deploy script (`~/<site>-deploy.sh` on the
+server).
+
+⚠️ **The deploy script MUST run `composer install` — the original scripts did not.**
+`vendor/`, `web/core`, and contrib are **gitignored** (Composer-managed), so a code/module
+update's new files do NOT travel through git. A deploy that only does
+`git pull → cache:rebuild → updatedb → config:import` lands new config + lock against OLD
+code → `config:import` breaks. Each `~/<site>-deploy.sh` needs, right after `git pull`:
+```bash
+/usr/local/bin/composer install --no-dev --optimize-autoloader --no-interaction --working-dir="$REPO" &&
+```
+(server has composer at `/usr/local/bin/composer`; also `export HOME=/home/<user>` for cron).
+Fixed for Jefco 2026-06-17; the other live scripts need the same one-line addition before
+their first code-update deploy. Verify a deploy with `tail ~/<site>-deploy.log` + live
+`drush status`. **Live sites:** action, Jefco, 2cool, clark-comfort, glenn-jones (domains
+`*.droptech.dev`); swiftbrothers is not live yet.
 
 ⚠️ **`config:import` reverts to committed config.** Any child whose committed `config/sync`
 is stale vs its DB (e.g. swiftbrothers' branding, `system.site`) will have that config
