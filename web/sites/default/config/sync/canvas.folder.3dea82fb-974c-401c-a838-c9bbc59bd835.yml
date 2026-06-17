@@ -1,7 +1,10 @@
 uuid: 3dea82fb-974c-401c-a838-c9bbc59bd835
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.icon-list
+    - canvas.component.sdc.dripyard_base.icon-list-item
 name: 'Dripyard Lists'
 configEntityTypeId: component
 weight: 0

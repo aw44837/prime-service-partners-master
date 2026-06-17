@@ -1,7 +1,31 @@
 uuid: 9e32aa4a-bff9-427a-8fa3-31f4c19da22c
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.block.entity_block.ai_agent_decision
+    - canvas.component.block.entity_block.ai_log
+    - canvas.component.block.entity_block.ai_log_type
+    - canvas.component.block.entity_block.automator_chain
+    - canvas.component.block.entity_block.block
+    - canvas.component.block.entity_block.block_content
+    - canvas.component.block.entity_block.canvas_page
+    - canvas.component.block.entity_block.config_split
+    - canvas.component.block.entity_block.content_moderation_state
+    - canvas.component.block.entity_block.crop
+    - canvas.component.block.entity_block.easy_email
+    - canvas.component.block.entity_block.easy_email_override
+    - canvas.component.block.entity_block.easy_email_type
+    - canvas.component.block.entity_block.file
+    - canvas.component.block.entity_block.media
+    - canvas.component.block.entity_block.menu_link_content
+    - canvas.component.block.entity_block.node
+    - canvas.component.block.entity_block.path_alias
+    - canvas.component.block.entity_block.redirect
+    - canvas.component.block.entity_block.taxonomy_term
+    - canvas.component.block.entity_block.user
+    - canvas.component.block.entity_block.webform
+    - canvas.component.block.entity_block.webform_submission
 name: 'Entity Block'
 configEntityTypeId: component
 weight: 0
@@ -13,6 +37,7 @@ items:
   - block.entity_block.block
   - block.entity_block.block_content
   - block.entity_block.canvas_page
+  - block.entity_block.config_split
   - block.entity_block.content_moderation_state
   - block.entity_block.crop
   - block.entity_block.easy_email

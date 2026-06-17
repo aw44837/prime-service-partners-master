@@ -1,7 +1,14 @@
 uuid: ced0544a-f00d-4302-9811-864ff2ba75af
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.block.project_browser_block.ai_dashboard_recommended
+    - canvas.component.block.project_browser_block.drupal_core
+    - canvas.component.block.project_browser_block.drupalorg_jsonapi
+    - canvas.component.block.project_browser_block.local_modules
+    - canvas.component.block.project_browser_block.recipes
+    - canvas.component.block.project_browser_block.recommended
 name: 'Project Browser'
 configEntityTypeId: component
 weight: 0

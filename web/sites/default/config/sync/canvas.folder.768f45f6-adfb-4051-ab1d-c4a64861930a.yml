@@ -1,7 +1,9 @@
 uuid: 768f45f6-adfb-4051-ab1d-c4a64861930a
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.field_display.field_display
 name: Content
 configEntityTypeId: component
 weight: 0

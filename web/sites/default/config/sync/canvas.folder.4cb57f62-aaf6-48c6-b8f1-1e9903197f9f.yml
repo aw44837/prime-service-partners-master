@@ -1,7 +1,13 @@
 uuid: 4cb57f62-aaf6-48c6-b8f1-1e9903197f9f
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.flex-wrapper
+    - canvas.component.sdc.dripyard_base.grid-cell
+    - canvas.component.sdc.dripyard_base.grid-wrapper
+    - canvas.component.sdc.dripyard_base.layout-dynamic
+    - canvas.component.sdc.dripyard_base.section
 name: 'Dripyard Layout'
 configEntityTypeId: component
 weight: 0

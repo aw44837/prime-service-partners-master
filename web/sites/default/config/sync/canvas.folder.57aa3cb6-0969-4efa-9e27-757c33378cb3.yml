@@ -1,7 +1,10 @@
 uuid: 57aa3cb6-0969-4efa-9e27-757c33378cb3
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.block.jefco_menu_block
+    - canvas.component.sdc.meridian.menu-display
 name: JefCo
 configEntityTypeId: component
 weight: 0

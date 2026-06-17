@@ -3,19 +3,27 @@ langcode: en
 status: true
 dependencies:
   config:
+    - canvas.component.block.jefco_menu_block
     - canvas.component.block.system_breadcrumb_block
     - canvas.component.sdc.dripyard_base.button
     - canvas.component.sdc.dripyard_base.canvas-image
     - canvas.component.sdc.dripyard_base.card-full-image-canvas
+    - canvas.component.sdc.dripyard_base.carousel
+    - canvas.component.sdc.dripyard_base.content-card
+    - canvas.component.sdc.dripyard_base.fieldset
     - canvas.component.sdc.dripyard_base.flex-wrapper
     - canvas.component.sdc.dripyard_base.grid-cell
     - canvas.component.sdc.dripyard_base.heading
+    - canvas.component.sdc.dripyard_base.horizontal-line
+    - canvas.component.sdc.dripyard_base.icon-list
+    - canvas.component.sdc.dripyard_base.icon-list-item
     - canvas.component.sdc.dripyard_base.layout-dynamic
     - canvas.component.sdc.dripyard_base.text
     - canvas.component.sdc.neonbyte.hero
     - core.entity_view_mode.node.full
     - field.field.media.image.field_media_image
     - field.field.media.svg_image.field_media_svg_image
+    - field.field.node.services.field_additional_body_content
     - field.field.node.services.field_body
     - field.field.node.services.field_featured_image
     - field.field.node.services.field_intro_description
@@ -126,10 +134,10 @@ component_tree:
       style: body_l
       color: inherit
       center: false
-  '0:cell_1:0:hero_content:0:cell_1:2:a8bda5d3-ff66-4807-aca4-969544ef7918':
+  '0:cell_1:0:hero_content:0:cell_1:2:833366b5-0535-4200-97fc-a84b359eb3a0':
     parent_uuid: 54ed6f4b-5480-43e9-a1e9-7a6da2fccbfc
     slot: cell_1
-    uuid: a8bda5d3-ff66-4807-aca4-969544ef7918
+    uuid: 833366b5-0535-4200-97fc-a84b359eb3a0
     component_id: sdc.dripyard_base.flex-wrapper
     component_version: 647154c4adbb1587
     inputs:
@@ -143,21 +151,37 @@ component_tree:
       padding_bottom: zero
       column_gutter: small
       row_gutter: small
-  '0:cell_1:0:hero_content:0:cell_1:2:content:0:baacdaea-cd01-41d1-8d3b-70bd9ec21b14':
-    parent_uuid: a8bda5d3-ff66-4807-aca4-969544ef7918
+  '0:cell_1:0:hero_content:0:cell_1:2:content:0:4292256b-8a3c-4297-87f1-a8abaadc63d9':
+    parent_uuid: 833366b5-0535-4200-97fc-a84b359eb3a0
     slot: content
-    uuid: baacdaea-cd01-41d1-8d3b-70bd9ec21b14
+    uuid: 4292256b-8a3c-4297-87f1-a8abaadc63d9
     component_id: sdc.dripyard_base.button
     component_version: 3155d0acceef4faf
     inputs:
-      text: 'Book Online'
+      text: 'Book Now'
       href:
-        uri: 'internal:/contact'
+        uri: 'https://scheduler.servicetitan.com/book/eyJicmFuZElkIjoiYnJhbmRfZHBib2ljdWZkNTdnZ3c2NjJoNHh5dDl4Iiwic2NoZWR1bGVySWQiOiJzY2hlZF91dXo0cDdvamN5OTlnZmMweXJ1bTBpZmgifQ%3D%3D'
         options: {  }
       style: secondary
-      size: medium
+      size: large
       target: false
-      suffix_icon: calendar
+      suffix_icon: arrow-right
+      additional_classes: js-open-in-panel
+  '0:cell_1:0:hero_content:0:cell_1:2:content:1:ed62205b-0bd4-4a07-812a-68da53bd70e2':
+    parent_uuid: 833366b5-0535-4200-97fc-a84b359eb3a0
+    slot: content
+    uuid: ed62205b-0bd4-4a07-812a-68da53bd70e2
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Call Us'
+      href:
+        uri: 'tel:850-616-2183'
+        options: {  }
+      style: outline
+      size: large
+      target: false
+      suffix_icon: mobile
   '0:cell_1:0:hero_content:0:cell_2:0:8727fbd2-4129-41e1-ae16-bad9562eee27':
     parent_uuid: 54ed6f4b-5480-43e9-a1e9-7a6da2fccbfc
     slot: cell_2
@@ -271,6 +295,62 @@ component_tree:
       style: outline
       size: medium
       target: false
+  '1:cell_2:2:content:0:dedadcc3-05ec-486b-b7b0-90561f5cc4d0':
+    parent_uuid: e6a586f8-71bf-4389-afce-a47af0a879bd
+    slot: content
+    uuid: dedadcc3-05ec-486b-b7b0-90561f5cc4d0
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Our Services'
+      html_element: h4
+      style: h4
+      color: primary
+      center: false
+      margin_top: zero
+      margin_bottom: zero
+  '1:cell_2:2:content:1:d083396d-f67b-4a57-8d3c-5bd1691b1329':
+    parent_uuid: e6a586f8-71bf-4389-afce-a47af0a879bd
+    slot: content
+    uuid: d083396d-f67b-4a57-8d3c-5bd1691b1329
+    component_id: sdc.dripyard_base.horizontal-line
+    component_version: 7d96d85445deacb6
+    inputs:
+      margin_top: zero
+      margin_bottom: zero
+      color: soft
+      width: full
+      alignment: start
+  '1:cell_2:2:content:2:27602bc8-469b-40c0-8550-189dc0a2b379':
+    parent_uuid: e6a586f8-71bf-4389-afce-a47af0a879bd
+    slot: content
+    uuid: 27602bc8-469b-40c0-8550-189dc0a2b379
+    component_id: block.jefco_menu_block
+    component_version: 1ef8bf232f7e3436
+    inputs:
+      label: 'Menu Block'
+      label_display: '0'
+      menu_name: main
+      level: 1
+      depth: 0
+      expand_all_items: false
+      follow_active_trail: true
+      columns: 1
+  '1:cell_2:2:e6a586f8-71bf-4389-afce-a47af0a879bd':
+    parent_uuid: fa826bf3-bc7f-4d19-929c-bdbc914c2b5a
+    slot: cell_2
+    uuid: e6a586f8-71bf-4389-afce-a47af0a879bd
+    component_id: sdc.dripyard_base.grid-cell
+    component_version: 54ebe916bdb35c0b
+    inputs:
+      theme: light
+      padding: small
+      columns_small: 12
+      columns_medium: 6
+      columns_large: 4
+      rows_small: 1
+      rows_medium: 1
+      rows_large: 1
   '1:fa826bf3-bc7f-4d19-929c-bdbc914c2b5a':
     uuid: fa826bf3-bc7f-4d19-929c-bdbc914c2b5a
     component_id: sdc.dripyard_base.layout-dynamic
@@ -300,4 +380,300 @@ component_tree:
     inputs:
       label: Breadcrumbs
       label_display: '0'
+  '2:196f2b52-2631-448e-82b5-3195ecfed62e':
+    uuid: 196f2b52-2631-448e-82b5-3195ecfed62e
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: primary
+      column_count: 1
+      row_count: 1
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: center
+      section_width: edge-to-edge
+      content_width: narrow
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: large
+      padding_bottom: large
+      column_gutter: large
+      row_gutter: default
+  '2:cell_1:0:bd6ae66d-4e83-44d7-b549-ccb1bee7fb51':
+    parent_uuid: 196f2b52-2631-448e-82b5-3195ecfed62e
+    slot: cell_1
+    uuid: bd6ae66d-4e83-44d7-b549-ccb1bee7fb51
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Our Customers Say It Best'
+      html_element: h2
+      style: h2
+      center: true
+      margin_top: zero
+      margin_bottom: zero
+  '2:cell_1:1:3c365ce7-653b-4d99-80a1-59b88a2e0225':
+    parent_uuid: 196f2b52-2631-448e-82b5-3195ecfed62e
+    slot: cell_1
+    uuid: 3c365ce7-653b-4d99-80a1-59b88a2e0225
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p><em>See why homeowners trust us with their comfort.</em></p>'
+        format: canvas_html_block
+      style: body_l
+      color: inherit
+      center: true
+  '2:cell_1:2:72327e7e-e1f2-4b55-afeb-d8c5dbe25692':
+    parent_uuid: 196f2b52-2631-448e-82b5-3195ecfed62e
+    slot: cell_1
+    uuid: 72327e7e-e1f2-4b55-afeb-d8c5dbe25692
+    component_id: sdc.dripyard_base.carousel
+    component_version: 763f3252557b58ad
+    inputs:
+      canvas_edit_mode: false
+      label: 'Customer reviews'
+      pager: true
+      navigation_position: outside
+      slides_per_view: 3
+      rows: 1
+      autoplay: false
+  '2:cell_1:2:carousel_items:0:720d7d32-aba1-4440-a275-55df882f3a55':
+    parent_uuid: 72327e7e-e1f2-4b55-afeb-d8c5dbe25692
+    slot: carousel_items
+    uuid: 720d7d32-aba1-4440-a275-55df882f3a55
+    component_id: sdc.dripyard_base.content-card
+    component_version: 7afc561cf35c01e5
+    inputs:
+      title: '"What a Great Team!"'
+      link_href:
+        uri: 'internal:/'
+        options: {  }
+      metadata: 'Jack P.'
+      body_text:
+        value: '<p>“Jessie, Dylan, and Will were great and courteous Professionals. With an Encore visit from John, my tech from the initial call out, just to check on how things were going.”</p>'
+        format: canvas_html_block
+      background: true
+  '2:cell_1:2:carousel_items:1:9caae2d7-0114-4e71-88ce-aeb04e01604e':
+    parent_uuid: 72327e7e-e1f2-4b55-afeb-d8c5dbe25692
+    slot: carousel_items
+    uuid: 9caae2d7-0114-4e71-88ce-aeb04e01604e
+    component_id: sdc.dripyard_base.content-card
+    component_version: 7afc561cf35c01e5
+    inputs:
+      title: '“HIGHLY RECOMMEND!!!”'
+      link_href:
+        uri: 'internal:/'
+        options: {  }
+      metadata: 'Peggy M.'
+      body_text:
+        value: '<p>“Every person I came in contact with from beginning to end was wonderful. I do want to do a special shout-out to Darlene (Office) and Dee (Technician). Both of them have exceptional CUSTOMER SERVICE skills.”</p>'
+        format: canvas_html_block
+      background: true
+  '2:cell_1:2:carousel_items:2:91c98fdc-df43-4ecd-b95d-a97576ef5182':
+    parent_uuid: 72327e7e-e1f2-4b55-afeb-d8c5dbe25692
+    slot: carousel_items
+    uuid: 91c98fdc-df43-4ecd-b95d-a97576ef5182
+    component_id: sdc.dripyard_base.content-card
+    component_version: 7afc561cf35c01e5
+    inputs:
+      title: '“Knowledgeable, Friendly Technicians, & Fair Pricing”'
+      link_href:
+        uri: 'internal:/'
+        options: {  }
+      metadata: 'Jason A.'
+      body_text:
+        value: '<p>“Always get great service from everyone at Jefco! They are available. Quick to respond. Great at communicating. I highly recommend them!”</p>'
+        format: canvas_html_block
+      background: true
+  '2:cell_1:3:2b6edec8-56bd-4e3b-b961-179f65d521b8':
+    parent_uuid: 196f2b52-2631-448e-82b5-3195ecfed62e
+    slot: cell_1
+    uuid: 2b6edec8-56bd-4e3b-b961-179f65d521b8
+    component_id: sdc.dripyard_base.flex-wrapper
+    component_version: 647154c4adbb1587
+    inputs:
+      theme: inherit
+      wrap: true
+      align_x: center
+      align_y: center
+      margin_top: medium
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+      column_gutter: small
+      row_gutter: small
+  '2:cell_1:3:content:0:8f416c03-cce8-4944-ae09-c2c887a3784d':
+    parent_uuid: 2b6edec8-56bd-4e3b-b961-179f65d521b8
+    slot: content
+    uuid: 8f416c03-cce8-4944-ae09-c2c887a3784d
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'See all reviews'
+      href:
+        uri: 'https://www.drupal.org'
+        options: {  }
+      style: secondary
+      size: medium
+      target: false
+      suffix_icon: thumbs-up
+  '3:cell_1:0:29036c18-29e0-458d-b823-b1c7ae006885':
+    parent_uuid: fd0ec43e-aac9-4760-bd9e-16a0b9577363
+    slot: cell_1
+    uuid: 29036c18-29e0-458d-b823-b1c7ae006885
+    component_id: sdc.dripyard_base.fieldset
+    component_version: c7b416209e637b86
+    inputs:
+      legend_title: 'Local Service Areas'
+  '3:cell_1:0:fieldset_content:0:749ac18d-691f-4121-98b1-5fdf84fae4ae':
+    parent_uuid: 29036c18-29e0-458d-b823-b1c7ae006885
+    slot: fieldset_content
+    uuid: 749ac18d-691f-4121-98b1-5fdf84fae4ae
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Proudly Serving the MARKET_AREA'
+      html_element: h4
+      style: h4
+      center: false
+      margin_top: zero
+      margin_bottom: small
+  '3:cell_1:0:fieldset_content:1:acf0f7fc-d504-412d-95b4-e6256c26c232':
+    parent_uuid: 29036c18-29e0-458d-b823-b1c7ae006885
+    slot: fieldset_content
+    uuid: acf0f7fc-d504-412d-95b4-e6256c26c232
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p>BRAND_NAME is proud to serve the greater MARKET_AREA. If you don’t see your community listed, contact us to see if we can still help! Browse our local search pages to find the fastest route to service in your area.</p>'
+        format: canvas_html_block
+      style: body_m
+      color: inherit
+      center: false
+  '3:cell_1:0:fieldset_content:2:209e85e9-0c84-4235-9c44-dab7c43254e3':
+    parent_uuid: 29036c18-29e0-458d-b823-b1c7ae006885
+    slot: fieldset_content
+    uuid: 209e85e9-0c84-4235-9c44-dab7c43254e3
+    component_id: sdc.dripyard_base.icon-list
+    component_version: 5249c68ce17cfc73
+    inputs:
+      size: medium
+      icon_color: primary
+      column_width: small
+  '3:cell_1:0:fieldset_content:2:content:0:3dc53831-1d9f-4809-9c72-c1efe904d318':
+    parent_uuid: 209e85e9-0c84-4235-9c44-dab7c43254e3
+    slot: content
+    uuid: 3dc53831-1d9f-4809-9c72-c1efe904d318
+    component_id: sdc.dripyard_base.icon-list-item
+    component_version: 22d7d3a101bbb54a
+    inputs:
+      icon: city
+      text: 'City 1'
+      href:
+        uri: 'internal:/reviews'
+        options: {  }
+  '3:cell_1:0:fieldset_content:2:content:1:7e5ee2a3-11f4-4052-8940-27463bb45116':
+    parent_uuid: 209e85e9-0c84-4235-9c44-dab7c43254e3
+    slot: content
+    uuid: 7e5ee2a3-11f4-4052-8940-27463bb45116
+    component_id: sdc.dripyard_base.icon-list-item
+    component_version: 22d7d3a101bbb54a
+    inputs:
+      icon: city
+      text: 'City 2'
+      href:
+        uri: 'internal:/area-we-serve/30a'
+        options: {  }
+  '3:cell_1:0:fieldset_content:2:content:2:f798c2ba-9b10-43f4-95c0-7986a2d41f01':
+    parent_uuid: 209e85e9-0c84-4235-9c44-dab7c43254e3
+    slot: content
+    uuid: f798c2ba-9b10-43f4-95c0-7986a2d41f01
+    component_id: sdc.dripyard_base.icon-list-item
+    component_version: 22d7d3a101bbb54a
+    inputs:
+      icon: city
+      text: 'City 3'
+      href:
+        uri: 'internal:/area-we-serve/alys-beach'
+        options: {  }
+  '3:cell_1:0:fieldset_content:2:content:3:d9ede3b1-7a8b-48f7-beee-c51231c2eee7':
+    parent_uuid: 209e85e9-0c84-4235-9c44-dab7c43254e3
+    slot: content
+    uuid: d9ede3b1-7a8b-48f7-beee-c51231c2eee7
+    component_id: sdc.dripyard_base.icon-list-item
+    component_version: 22d7d3a101bbb54a
+    inputs:
+      icon: city
+      text: 'City 4'
+      href:
+        uri: 'internal:/area-we-serve/blue-mountain-beach'
+        options: {  }
+  '3:cell_2:0:22709428-7ca4-4937-b3b1-0a88d5e72545':
+    parent_uuid: fd0ec43e-aac9-4760-bd9e-16a0b9577363
+    slot: cell_2
+    uuid: 22709428-7ca4-4937-b3b1-0a88d5e72545
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:services␝field_additional_body_content␞␟processed'
+      style: body_m
+      color: inherit
+      center: false
+  '3:cell_2:1:7f0ac8fc-30fe-460b-844a-8392884de6e9':
+    parent_uuid: fd0ec43e-aac9-4760-bd9e-16a0b9577363
+    slot: cell_2
+    uuid: 7f0ac8fc-30fe-460b-844a-8392884de6e9
+    component_id: sdc.dripyard_base.flex-wrapper
+    component_version: 647154c4adbb1587
+    inputs:
+      theme: inherit
+      wrap: true
+      align_x: start
+      align_y: center
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+      column_gutter: medium
+      row_gutter: medium
+  '3:cell_2:1:content:0:d9bbe81b-8c97-406c-bfcc-867af3a06d17':
+    parent_uuid: 7f0ac8fc-30fe-460b-844a-8392884de6e9
+    slot: content
+    uuid: d9bbe81b-8c97-406c-bfcc-867af3a06d17
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Book Online'
+      href:
+        uri: 'internal:/contact-us'
+        options: {  }
+      style: secondary
+      size: medium
+      target: false
+  '3:fd0ec43e-aac9-4760-bd9e-16a0b9577363':
+    uuid: fd0ec43e-aac9-4760-bd9e-16a0b9577363
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: white
+      column_count: 2
+      row_count: 1
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: center
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: medium
+      padding_bottom: medium
+      column_gutter: large
+      row_gutter: default
 exposed_slots: {  }

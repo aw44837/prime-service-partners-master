@@ -1,7 +1,25 @@
 uuid: 60a79880-8c7a-4d35-a271-496b26ead4b4
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.block.inline_block.basic
+    - canvas.component.block.inline_block.dripyard_accordion_item
+    - canvas.component.block.inline_block.dripyard_button
+    - canvas.component.block.inline_block.dripyard_card
+    - canvas.component.block.inline_block.dripyard_card_full_image
+    - canvas.component.block.inline_block.dripyard_event_listing_item
+    - canvas.component.block.inline_block.dripyard_hero
+    - canvas.component.block.inline_block.dripyard_icon_card
+    - canvas.component.block.inline_block.dripyard_logo_item
+    - canvas.component.block.inline_block.dripyard_media
+    - canvas.component.block.inline_block.dripyard_menu_card
+    - canvas.component.block.inline_block.dripyard_promo
+    - canvas.component.block.inline_block.dripyard_statistic
+    - canvas.component.block.inline_block.dripyard_tab_item
+    - canvas.component.block.inline_block.dripyard_testimonial
+    - canvas.component.block.inline_block.dripyard_title_cta
+    - canvas.component.block.inline_block.dripyard_wrapper
 name: 'Inline blocks'
 configEntityTypeId: component
 weight: 0

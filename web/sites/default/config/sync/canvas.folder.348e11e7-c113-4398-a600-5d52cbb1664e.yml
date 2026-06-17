@@ -1,7 +1,10 @@
 uuid: 348e11e7-c113-4398-a600-5d52cbb1664e
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.sdc.meridian.hero
+    - canvas.component.sdc.neonbyte.hero
 name: 'Dripyard Heros'
 configEntityTypeId: component
 weight: 0

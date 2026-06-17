@@ -85,10 +85,10 @@ component_tree:
       center: false
       margin_top: zero
       margin_bottom: zero
-  '0:cell_1:0:hero_content:0:cell_1:1:5c716f43-38dc-4ecb-922b-95c06963ea0e':
+  '0:cell_1:0:hero_content:0:cell_1:1:5bc1442b-4f96-4be0-9d53-d0b01de07398':
     parent_uuid: 4ebed2f9-0d2a-4023-831e-efb2482820b1
     slot: cell_1
-    uuid: 5c716f43-38dc-4ecb-922b-95c06963ea0e
+    uuid: 5bc1442b-4f96-4be0-9d53-d0b01de07398
     component_id: sdc.dripyard_base.flex-wrapper
     component_version: 647154c4adbb1587
     inputs:
@@ -102,21 +102,37 @@ component_tree:
       padding_bottom: zero
       column_gutter: small
       row_gutter: small
-  '0:cell_1:0:hero_content:0:cell_1:1:content:0:0a33e5aa-0ab3-490d-a9c7-407563cc4648':
-    parent_uuid: 5c716f43-38dc-4ecb-922b-95c06963ea0e
+  '0:cell_1:0:hero_content:0:cell_1:1:content:0:3db91dfc-9907-4aea-ab27-ab977468031e':
+    parent_uuid: 5bc1442b-4f96-4be0-9d53-d0b01de07398
     slot: content
-    uuid: 0a33e5aa-0ab3-490d-a9c7-407563cc4648
+    uuid: 3db91dfc-9907-4aea-ab27-ab977468031e
     component_id: sdc.dripyard_base.button
     component_version: 3155d0acceef4faf
     inputs:
       text: 'Book Now'
       href:
-        uri: 'internal:/book-online'
+        uri: 'https://scheduler.servicetitan.com/book/eyJicmFuZElkIjoiYnJhbmRfZHBib2ljdWZkNTdnZ3c2NjJoNHh5dDl4Iiwic2NoZWR1bGVySWQiOiJzY2hlZF91dXo0cDdvamN5OTlnZmMweXJ1bTBpZmgifQ%3D%3D'
         options: {  }
       style: secondary
       size: large
       target: false
-      suffix_icon: calendar
+      suffix_icon: arrow-right
+      additional_classes: js-open-in-panel
+  '0:cell_1:0:hero_content:0:cell_1:1:content:1:594180e8-879c-4c78-a2f6-ac297756a50a':
+    parent_uuid: 5bc1442b-4f96-4be0-9d53-d0b01de07398
+    slot: content
+    uuid: 594180e8-879c-4c78-a2f6-ac297756a50a
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Call Us'
+      href:
+        uri: 'tel:850-616-2183'
+        options: {  }
+      style: outline
+      size: large
+      target: false
+      suffix_icon: mobile
   '0:cell_1:0:hero_content:0:cell_2:0:5f82b357-797b-49b5-8259-706bb8c2d754':
     parent_uuid: 4ebed2f9-0d2a-4023-831e-efb2482820b1
     slot: cell_2

@@ -1,7 +1,23 @@
 uuid: 694ac256-4066-4d7a-9ffb-47ba9590046f
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.accordion-group
+    - canvas.component.sdc.dripyard_base.accordion-item
+    - canvas.component.sdc.dripyard_base.carousel
+    - canvas.component.sdc.dripyard_base.date-block
+    - canvas.component.sdc.dripyard_base.event-listing-item
+    - canvas.component.sdc.dripyard_base.logo-grid
+    - canvas.component.sdc.dripyard_base.logo-item-canvas
+    - canvas.component.sdc.dripyard_base.pill
+    - canvas.component.sdc.dripyard_base.statistic
+    - canvas.component.sdc.dripyard_base.tab
+    - canvas.component.sdc.dripyard_base.tab-group
+    - canvas.component.sdc.dripyard_base.teaser
+    - canvas.component.sdc.dripyard_base.testimonial-canvas
+    - canvas.component.sdc.dripyard_base.title-cta
+    - canvas.component.sdc.dripyard_base.video-youtube
 name: 'Dripyard General'
 configEntityTypeId: component
 weight: 0

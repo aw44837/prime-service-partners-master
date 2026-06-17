@@ -1,7 +1,9 @@
 uuid: f3102e50-8f05-420e-9cdc-6c40b32a9197
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.block.dashboard_placeholder
 name: Block
 configEntityTypeId: component
 weight: 0

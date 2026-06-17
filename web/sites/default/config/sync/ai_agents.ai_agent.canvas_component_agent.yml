@@ -408,4 +408,4 @@ exclude_users_role: false
 structured_output_enabled: false
 structured_output_schema: ''
 guardrail_set: null
-hostname_filter_disabled: null
+hostname_filter_disabled: true

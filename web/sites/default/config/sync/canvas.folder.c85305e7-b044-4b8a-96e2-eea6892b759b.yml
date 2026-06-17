@@ -1,7 +1,12 @@
 uuid: c85305e7-b044-4b8a-96e2-eea6892b759b
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.sdc.mercury.cta
+    - canvas.component.sdc.mercury.hero-billboard
+    - canvas.component.sdc.mercury.hero-blog
+    - canvas.component.sdc.mercury.hero-side-by-side
 name: Hero
 configEntityTypeId: component
 weight: 0

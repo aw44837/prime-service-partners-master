@@ -68,7 +68,23 @@ component_tree:
       align_x: start
       align_y: bottom
       text_color: inherit
-  '0:cell_1:0:hero_content:0:67a784d0-22b0-4a8d-89b7-e1f817fabdda':
+  '0:cell_1:0:hero_content:0:31230156-2b56-474a-bc51-39e88dae681b':
+    parent_uuid: 0dc4c3d6-c835-4ff5-a259-fa81ea0c3b37
+    slot: hero_content
+    uuid: 31230156-2b56-474a-bc51-39e88dae681b
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text:
+        sourceType: entity-field
+        expression: 'ℹ︎␜entity:node:local_service_area_page␝title␞␟value'
+      html_element: h1
+      style: h1
+      center: false
+      text_max_width: 800px
+      margin_top: zero
+      margin_bottom: zero
+  '0:cell_1:0:hero_content:1:67a784d0-22b0-4a8d-89b7-e1f817fabdda':
     parent_uuid: 0dc4c3d6-c835-4ff5-a259-fa81ea0c3b37
     slot: hero_content
     uuid: 67a784d0-22b0-4a8d-89b7-e1f817fabdda
@@ -82,10 +98,10 @@ component_tree:
       color: inherit
       center: false
       text_max_width: 600px
-  '0:cell_1:0:hero_content:1:b3e5f083-f91e-41a2-8633-118994dea7a0':
+  '0:cell_1:0:hero_content:2:b6d479e1-0dac-4ff3-84bd-84d71b8501e7':
     parent_uuid: 0dc4c3d6-c835-4ff5-a259-fa81ea0c3b37
     slot: hero_content
-    uuid: b3e5f083-f91e-41a2-8633-118994dea7a0
+    uuid: b6d479e1-0dac-4ff3-84bd-84d71b8501e7
     component_id: sdc.dripyard_base.flex-wrapper
     component_version: 647154c4adbb1587
     inputs:
@@ -99,21 +115,37 @@ component_tree:
       padding_bottom: zero
       column_gutter: small
       row_gutter: small
-  '0:cell_1:0:hero_content:1:content:0:af775a1f-203d-44d7-af05-7820a439bd7a':
-    parent_uuid: b3e5f083-f91e-41a2-8633-118994dea7a0
+  '0:cell_1:0:hero_content:2:content:0:c947f141-6582-419b-a89c-20092932bf99':
+    parent_uuid: b6d479e1-0dac-4ff3-84bd-84d71b8501e7
     slot: content
-    uuid: af775a1f-203d-44d7-af05-7820a439bd7a
+    uuid: c947f141-6582-419b-a89c-20092932bf99
     component_id: sdc.dripyard_base.button
     component_version: 3155d0acceef4faf
     inputs:
       text: 'Book Now'
       href:
-        uri: 'internal:/book-online'
+        uri: 'https://scheduler.servicetitan.com/book/eyJicmFuZElkIjoiYnJhbmRfZHBib2ljdWZkNTdnZ3c2NjJoNHh5dDl4Iiwic2NoZWR1bGVySWQiOiJzY2hlZF91dXo0cDdvamN5OTlnZmMweXJ1bTBpZmgifQ%3D%3D'
         options: {  }
       style: secondary
-      size: medium
+      size: large
       target: false
-      suffix_icon: calendar
+      suffix_icon: arrow-right
+      additional_classes: js-open-in-panel
+  '0:cell_1:0:hero_content:2:content:1:1025f7be-fa0c-4d09-8b8d-0a15258da07f':
+    parent_uuid: b6d479e1-0dac-4ff3-84bd-84d71b8501e7
+    slot: content
+    uuid: 1025f7be-fa0c-4d09-8b8d-0a15258da07f
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Call Us'
+      href:
+        uri: 'tel:850-616-2183'
+        options: {  }
+      style: outline
+      size: large
+      target: false
+      suffix_icon: mobile
   '0:cell_1:0:hero_media:0:143deceb-d210-41c0-99c7-9e530b869a70':
     parent_uuid: 0dc4c3d6-c835-4ff5-a259-fa81ea0c3b37
     slot: hero_media
@@ -193,7 +225,7 @@ component_tree:
     component_id: sdc.dripyard_base.heading
     component_version: 69804e3c5ff45a2b
     inputs:
-      text: 'Why Choose JefCo Air Conditioning & Plumbing?'
+      text: 'Why Choose BRAND_NAME Air Conditioning & Plumbing?'
       html_element: h2
       style: h2
       color: primary

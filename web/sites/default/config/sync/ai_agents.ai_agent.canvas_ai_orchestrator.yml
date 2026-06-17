@@ -1,18 +1,12 @@
-uuid: 752daced-4b63-4d39-98df-ae3a8577f0e6
 langcode: en
 status: true
 dependencies:
-  module:
-    - canvas_ai
   enforced:
     module:
       - canvas_ai
-_core:
-  default_config_hash: Bg1Y3Y01NatdBCG8IeRu3mduIT11GXdOemIdzpdC2Ms
 id: canvas_ai_orchestrator
 label: 'Drupal Canvas AI Orchestrator'
 description: 'This orchestration agent analyzes user input to determine the intent — content creation, content editing, metadata generation, component or layout addition/modification —and delegates the task to the corresponding specialized sub-agent. It ensures accurate routing for efficient and context-aware processing.'
-default_information_tools: ''
 system_prompt: |-
   You are an expert AI Orchestrator for Drupal Canvas, a low-code page builder for Drupal 11 sites. Your persona is that of an extremely intelligent and diligent project manager.
 
@@ -241,9 +235,6 @@ system_prompt: |-
   * **Orchestrator Action:** `canvas_page_builder_agent(prompt="Add a header for a university website")`
 
   ---
-
-  ## Entity Context
-  [canvas_ai:verbose_context_for_orchestrator]
 secured_system_prompt: '[ai_agent:agent_instructions]'
 tools:
   'ai_agents::ai_agent::canvas_component_agent': true
@@ -252,91 +243,107 @@ tools:
   'ai_agents::ai_agent::canvas_template_builder_agent': true
   'ai_agents::ai_agent::canvas_title_generation_agent': true
   'ai_agent:verify_task_completion': true
-tool_usage_limits:
-  'ai_agents::ai_agent::canvas_page_builder_agent':
-    prompt:
-      action: ''
-      hide_property: 0
-      values: ''
-    files:
-      action: ''
-      hide_property: 0
-      values: ''
-  'ai_agents::ai_agent::canvas_component_agent':
-    prompt:
-      action: ''
-      hide_property: 0
-      values: ''
-    files:
-      action: ''
-      hide_property: 0
-      values: ''
-  'ai_agents::ai_agent::canvas_metadata_generation_agent':
-    prompt:
-      action: ''
-      hide_property: 0
-      values: ''
-    files:
-      action: ''
-      hide_property: 0
-      values: ''
-  'ai_agents::ai_agent::canvas_template_builder_agent':
-    prompt:
-      action: ''
-      hide_property: 0
-      values: ''
-    files:
-      action: ''
-      hide_property: 0
-      values: ''
-  'ai_agents::ai_agent::canvas_title_generation_agent':
-    prompt:
-      action: ''
-      hide_property: 0
-      values: ''
-    files:
-      action: ''
-      hide_property: 0
-      values: ''
-  'ai_agent:verify_task_completion': null
 tool_settings:
-  'ai_agents::ai_agent::canvas_page_builder_agent':
-    return_directly: 0
-    description_override: ''
-    progress_message: ''
-    use_artifacts: 0
   'ai_agents::ai_agent::canvas_component_agent':
     return_directly: 0
+    require_usage: 0
     description_override: ''
     progress_message: ''
     use_artifacts: 0
   'ai_agents::ai_agent::canvas_metadata_generation_agent':
     return_directly: 0
+    require_usage: 0
+    description_override: ''
+    progress_message: ''
+    use_artifacts: 0
+  'ai_agents::ai_agent::canvas_page_builder_agent':
+    return_directly: 0
+    require_usage: 0
     description_override: ''
     progress_message: ''
     use_artifacts: 0
   'ai_agents::ai_agent::canvas_template_builder_agent':
     return_directly: 0
+    require_usage: 0
     description_override: ''
     progress_message: ''
     use_artifacts: 0
   'ai_agents::ai_agent::canvas_title_generation_agent':
     return_directly: 0
+    require_usage: 0
     description_override: ''
     progress_message: ''
     use_artifacts: 0
   'ai_agent:verify_task_completion':
     return_directly: 0
+    require_usage: 0
     description_override: ''
     progress_message: ''
     use_artifacts: 0
 orchestration_agent: true
 triage_agent: false
 max_loops: 10
-max_loops_message: null
-masquerade_roles: {  }
+max_loops_message: ''
+default_information_tools: ''
+tool_usage_limits:
+  'ai_agents::ai_agent::canvas_component_agent':
+    prompt:
+      action: ''
+      hide_property: 0
+      not_break: 0
+      values: ''
+    files:
+      action: ''
+      hide_property: 0
+      not_break: 0
+      values: ''
+  'ai_agents::ai_agent::canvas_metadata_generation_agent':
+    prompt:
+      action: ''
+      hide_property: 0
+      not_break: 0
+      values: ''
+    files:
+      action: ''
+      hide_property: 0
+      not_break: 0
+      values: ''
+  'ai_agents::ai_agent::canvas_page_builder_agent':
+    prompt:
+      action: ''
+      hide_property: 0
+      not_break: 0
+      values: ''
+    files:
+      action: ''
+      hide_property: 0
+      not_break: 0
+      values: ''
+  'ai_agents::ai_agent::canvas_template_builder_agent':
+    prompt:
+      action: ''
+      hide_property: 0
+      not_break: 0
+      values: ''
+    files:
+      action: ''
+      hide_property: 0
+      not_break: 0
+      values: ''
+  'ai_agents::ai_agent::canvas_title_generation_agent':
+    prompt:
+      action: ''
+      hide_property: 0
+      not_break: 0
+      values: ''
+    files:
+      action: ''
+      hide_property: 0
+      not_break: 0
+      values: ''
+  'ai_agent:verify_task_completion': {  }
 exclude_users_role: false
+masquerade_roles: {  }
 structured_output_enabled: false
 structured_output_schema: ''
-guardrail_set: null
-hostname_filter_disabled: null
+hostname_filter_disabled: false

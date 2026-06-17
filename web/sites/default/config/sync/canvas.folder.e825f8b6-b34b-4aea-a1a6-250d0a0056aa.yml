@@ -1,7 +1,16 @@
 uuid: e825f8b6-b34b-4aea-a1a6-250d0a0056aa
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - canvas.component.block.views_block.dripyard_article_cards-card
+    - canvas.component.block.views_block.dripyard_article_cards-card_full_image
+    - canvas.component.block.views_block.dripyard_event_listing-events_blocks
+    - canvas.component.block.views_block.dripyard_logo_grid-block_1
+    - canvas.component.block.views_block.dripyard_tabs-block_1
+    - canvas.component.block.views_block.recent_pages-block_recent_pages
+    - canvas.component.block.views_block.services_cards-card
+    - canvas.component.block.views_block.services_cards-card_full_image
 name: 'Lists (Views)'
 configEntityTypeId: component
 weight: 0
