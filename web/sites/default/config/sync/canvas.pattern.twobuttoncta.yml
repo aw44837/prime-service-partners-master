@@ -1,0 +1,59 @@
+uuid: 9f733af3-0249-47c6-bbb8-884c8a67eadd
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.button
+    - canvas.component.sdc.dripyard_base.flex-wrapper
+  module:
+    - link
+    - options
+id: twobuttoncta
+label: 'Two button CTA'
+component_tree:
+  '0:content:0:9fc9116f-34c5-4829-b051-eb859f1ebfa5':
+    parent_uuid: e61a3329-d22b-4fad-accb-14e6977c9b7b
+    slot: content
+    uuid: 9fc9116f-34c5-4829-b051-eb859f1ebfa5
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Book Now'
+      href:
+        uri: 'https://scheduler.servicetitan.com/book/eyJicmFuZElkIjoiYnJhbmRfZHBib2ljdWZkNTdnZ3c2NjJoNHh5dDl4Iiwic2NoZWR1bGVySWQiOiJzY2hlZF91dXo0cDdvamN5OTlnZmMweXJ1bTBpZmgifQ%3D%3D'
+        options: {  }
+      style: secondary
+      size: large
+      target: false
+      suffix_icon: arrow-right
+      additional_classes: js-open-in-panel
+  '0:content:1:ed56770e-e562-41e0-946c-7879c65972f0':
+    parent_uuid: e61a3329-d22b-4fad-accb-14e6977c9b7b
+    slot: content
+    uuid: ed56770e-e562-41e0-946c-7879c65972f0
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Call Us'
+      href:
+        uri: 'tel:850-616-2183'
+        options: {  }
+      style: outline
+      size: large
+      target: false
+      suffix_icon: mobile
+  '0:e61a3329-d22b-4fad-accb-14e6977c9b7b':
+    uuid: e61a3329-d22b-4fad-accb-14e6977c9b7b
+    component_id: sdc.dripyard_base.flex-wrapper
+    component_version: 647154c4adbb1587
+    inputs:
+      theme: inherit
+      wrap: true
+      align_x: start
+      align_y: center
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+      column_gutter: small
+      row_gutter: small

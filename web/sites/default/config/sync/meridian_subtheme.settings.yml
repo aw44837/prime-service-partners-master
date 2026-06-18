@@ -2,7 +2,7 @@ _core:
   default_config_hash: BcNkOc1d7S9Ie4zptPL7JaNwT9cXPDBx6li9HMHhAEM
 favicon:
   mimetype: image/png
-  path: 'public://JefCo-favicon.png'
+  path: 'public://psp-favicon_0.png'
   use_default: false
 features:
   comment_user_picture: false
@@ -10,7 +10,7 @@ features:
   favicon: true
   node_user_picture: false
 logo:
-  path: 'public://JefCo-Plumbing-Logo.png'
+  path: 'public://Prime-Service-Partners-logo_0.png'
   use_default: false
 third_party_settings:
   shortcut:
@@ -19,10 +19,10 @@ theme_colors:
   site_theme: white
   color_scheme: ''
   colors:
-    base_primary_color: '#085ca8'
+    base_primary_color: '#183d6a'
     base_primary_color_brightness: dark
-    base_secondary_color: '#ce2830'
-    base_secondary_color_brightness: dark
+    base_secondary_color: '#f19723'
+    base_secondary_color_brightness: light
 footer:
   theme: dark
 layout_settings:

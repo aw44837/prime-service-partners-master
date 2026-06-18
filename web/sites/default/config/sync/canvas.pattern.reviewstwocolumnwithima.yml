@@ -1,0 +1,183 @@
+uuid: fcad4b3f-bc64-4489-95a0-4011331b2c37
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.button
+    - canvas.component.sdc.dripyard_base.canvas-image
+    - canvas.component.sdc.dripyard_base.carousel
+    - canvas.component.sdc.dripyard_base.content-card
+    - canvas.component.sdc.dripyard_base.flex-wrapper
+    - canvas.component.sdc.dripyard_base.heading
+    - canvas.component.sdc.dripyard_base.layout-dynamic
+    - canvas.component.sdc.dripyard_base.text
+    - field.field.media.image.field_media_image
+    - field.field.media.svg_image.field_media_svg_image
+    - filter.format.canvas_html_block
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - media.type.svg_image
+  content:
+    - 'file:file:5524e271-5c79-498b-9a82-74f8435602bf'
+    - 'media:image:a9b024f1-d62a-49e7-9056-667236d7c08e'
+  module:
+    - file
+    - link
+    - media
+    - options
+    - text
+id: reviewstwocolumnwithima
+label: 'Reviews two-column with image'
+component_tree:
+  '0:2c2a4713-a381-4c91-a3cc-91676799aa74':
+    uuid: 2c2a4713-a381-4c91-a3cc-91676799aa74
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: primary
+      column_count: 2
+      row_count: 1
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: center
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: large
+      padding_bottom: large
+      column_gutter: large
+      row_gutter: default
+  '0:cell_1:0:3e2cc83e-64e1-4f4c-851e-b605b583ce6a':
+    parent_uuid: 2c2a4713-a381-4c91-a3cc-91676799aa74
+    slot: cell_1
+    uuid: 3e2cc83e-64e1-4f4c-851e-b605b583ce6a
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Our Customers Say It Best'
+      html_element: h2
+      style: h2
+      center: false
+      margin_top: zero
+      margin_bottom: zero
+  '0:cell_1:1:656a0658-66f1-4d35-9019-324f2a027d4d':
+    parent_uuid: 2c2a4713-a381-4c91-a3cc-91676799aa74
+    slot: cell_1
+    uuid: 656a0658-66f1-4d35-9019-324f2a027d4d
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p><em>See why homeowners trust us with their comfort.</em></p>'
+        format: canvas_html_block
+      style: body_l
+      color: inherit
+      center: false
+  '0:cell_1:2:58101124-7730-4f9c-a696-55ade87f5b9c':
+    parent_uuid: 2c2a4713-a381-4c91-a3cc-91676799aa74
+    slot: cell_1
+    uuid: 58101124-7730-4f9c-a696-55ade87f5b9c
+    component_id: sdc.dripyard_base.carousel
+    component_version: 763f3252557b58ad
+    inputs:
+      canvas_edit_mode: false
+      label: 'Customer reviews'
+      pager: true
+      navigation_position: hidden
+      slides_per_view: 1
+      rows: 1
+      autoplay: false
+  '0:cell_1:2:carousel_items:0:33ae1252-cc6d-4a8d-a2e6-44c69d31792c':
+    parent_uuid: 58101124-7730-4f9c-a696-55ade87f5b9c
+    slot: carousel_items
+    uuid: 33ae1252-cc6d-4a8d-a2e6-44c69d31792c
+    component_id: sdc.dripyard_base.content-card
+    component_version: 7afc561cf35c01e5
+    inputs:
+      title: '"What a Great Team!"'
+      link_href:
+        uri: 'internal:/'
+        options: {  }
+      metadata: 'Jack P.'
+      body_text:
+        value: '<p>“Jessie, Dylan, and Will were great and courteous Professionals. With an Encore visit from John, my tech from the initial call out, just to check on how things were going.”</p>'
+        format: canvas_html_block
+      background: true
+  '0:cell_1:2:carousel_items:1:3cd36a54-c74f-408b-a743-4a2c482527c5':
+    parent_uuid: 58101124-7730-4f9c-a696-55ade87f5b9c
+    slot: carousel_items
+    uuid: 3cd36a54-c74f-408b-a743-4a2c482527c5
+    component_id: sdc.dripyard_base.content-card
+    component_version: 7afc561cf35c01e5
+    inputs:
+      title: '“HIGHLY RECOMMEND!!!”'
+      link_href:
+        uri: 'internal:/'
+        options: {  }
+      metadata: 'Peggy M.'
+      body_text:
+        value: '<p>“Every person I came in contact with from beginning to end was wonderful. I do want to do a special shout-out to Darlene (Office) and Dee (Technician). Both of them have exceptional CUSTOMER SERVICE skills.”</p>'
+        format: canvas_html_block
+      background: true
+  '0:cell_1:2:carousel_items:2:ccd9a5de-e397-438a-ac13-b5ea70e109fc':
+    parent_uuid: 58101124-7730-4f9c-a696-55ade87f5b9c
+    slot: carousel_items
+    uuid: ccd9a5de-e397-438a-ac13-b5ea70e109fc
+    component_id: sdc.dripyard_base.content-card
+    component_version: 7afc561cf35c01e5
+    inputs:
+      title: '“Knowledgeable, Friendly Technicians, & Fair Pricing”'
+      link_href:
+        uri: 'internal:/'
+        options: {  }
+      metadata: 'Jason A.'
+      body_text:
+        value: '<p>“Always get great service from everyone at Jefco! They are available. Quick to respond. Great at communicating. I highly recommend them!”</p>'
+        format: canvas_html_block
+      background: true
+  '0:cell_1:3:82518764-f93c-4954-9d81-99370226b1b6':
+    parent_uuid: 2c2a4713-a381-4c91-a3cc-91676799aa74
+    slot: cell_1
+    uuid: 82518764-f93c-4954-9d81-99370226b1b6
+    component_id: sdc.dripyard_base.flex-wrapper
+    component_version: 647154c4adbb1587
+    inputs:
+      theme: inherit
+      wrap: true
+      align_x: center
+      align_y: center
+      margin_top: medium
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+      column_gutter: small
+      row_gutter: small
+  '0:cell_1:3:content:0:dd6e5ecc-d2ff-433b-b03f-4e64022bccdf':
+    parent_uuid: 82518764-f93c-4954-9d81-99370226b1b6
+    slot: content
+    uuid: dd6e5ecc-d2ff-433b-b03f-4e64022bccdf
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'See all reviews'
+      href:
+        uri: 'https://www.drupal.org'
+        options: {  }
+      style: secondary
+      size: medium
+      target: false
+      suffix_icon: thumbs-up
+  '0:cell_2:0:e153917c-70fe-4cbb-a87b-e8ec53fb8603':
+    parent_uuid: 2c2a4713-a381-4c91-a3cc-91676799aa74
+    slot: cell_2
+    uuid: e153917c-70fe-4cbb-a87b-e8ec53fb8603
+    component_id: sdc.dripyard_base.canvas-image
+    component_version: 432a6a71fe725929
+    inputs:
+      image:
+        target_id: '141'
+      border_radius: large
+      width: 800
+      loading: lazy

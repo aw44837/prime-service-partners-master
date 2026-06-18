@@ -441,10 +441,10 @@ display:
         type: normal
         title: Reviews
         description: ''
-        weight: 0
+        weight: -51
         expanded: false
         menu_name: main
-        parent: ''
+        parent: 'menu_link_content:d2b58e7c-3cd9-4f8e-9513-d0c8e56ec8d6'
         context: '0'
     cache_metadata:
       max-age: -1

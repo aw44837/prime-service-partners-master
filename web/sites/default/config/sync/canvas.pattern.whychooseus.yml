@@ -1,0 +1,361 @@
+uuid: 55a4ebad-cdee-42a3-9872-8d188e3b0ef7
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.background-image
+    - canvas.component.sdc.dripyard_base.grid-cell
+    - canvas.component.sdc.dripyard_base.heading
+    - canvas.component.sdc.dripyard_base.layout-dynamic
+    - canvas.component.sdc.dripyard_base.section
+    - canvas.component.sdc.dripyard_base.text
+    - canvas.component.sdc.meridian.icon
+    - field.field.media.image.field_media_image
+    - field.field.media.svg_image.field_media_svg_image
+    - filter.format.canvas_html_block
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - media.type.svg_image
+  content:
+    - 'file:file:a9154907-5063-41cc-9404-b5efef440c52'
+    - 'media:image:41c30ac2-2a55-4420-a1af-c30de303f1d1'
+  module:
+    - file
+    - media
+    - options
+    - text
+id: whychooseus
+label: 'Why Choose Us?'
+component_tree:
+  '0:content:0:b8bc1608-6ba1-4061-8a67-42675a24886e':
+    parent_uuid: f044a65d-f528-47ed-b7a1-6259d91b3fdf
+    slot: content
+    uuid: b8bc1608-6ba1-4061-8a67-42675a24886e
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: inherit
+      column_count: 4
+      row_count: 1
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: default
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: medium
+      padding_bottom: medium
+      column_gutter: default
+      row_gutter: default
+  '0:content:0:cell_1:0:7955a653-e39c-4c90-a8a9-4509dc454bc3':
+    parent_uuid: b8bc1608-6ba1-4061-8a67-42675a24886e
+    slot: cell_1
+    uuid: 7955a653-e39c-4c90-a8a9-4509dc454bc3
+    component_id: sdc.dripyard_base.grid-cell
+    component_version: 54ebe916bdb35c0b
+    inputs:
+      theme: inherit
+      padding: zero
+      columns_small: 12
+      columns_medium: 6
+      columns_large: 4
+      rows_small: 1
+      rows_medium: 1
+      rows_large: 1
+  '0:content:0:cell_1:0:content:0:52987fb2-7981-45c6-a66f-1f1f4ddf1174':
+    parent_uuid: 7955a653-e39c-4c90-a8a9-4509dc454bc3
+    slot: content
+    uuid: 52987fb2-7981-45c6-a66f-1f1f4ddf1174
+    component_id: sdc.dripyard_base.grid-cell
+    component_version: 54ebe916bdb35c0b
+    inputs:
+      theme: inherit
+      padding: zero
+      columns_small: 12
+      columns_medium: 6
+      columns_large: 4
+      rows_small: 1
+      rows_medium: 1
+      rows_large: 1
+      horizontal_alignment: center
+  '0:content:0:cell_1:0:content:0:content:0:5af69bc8-74e1-4a71-b957-90dbe67b209d':
+    parent_uuid: 52987fb2-7981-45c6-a66f-1f1f4ddf1174
+    slot: content
+    uuid: 5af69bc8-74e1-4a71-b957-90dbe67b209d
+    component_id: sdc.meridian.icon
+    component_version: b738ed222f9afb03
+    inputs:
+      size: 32
+      icon: house-signal
+      color: primary
+      open_new_window: false
+  '0:content:0:cell_1:0:content:1:53d6234b-12b9-4180-a728-ae0081963066':
+    parent_uuid: 7955a653-e39c-4c90-a8a9-4509dc454bc3
+    slot: content
+    uuid: 53d6234b-12b9-4180-a728-ae0081963066
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Cutting-Edge Solutions'
+      html_element: h5
+      style: h5
+      center: true
+      margin_top: zero
+      margin_bottom: zero
+  '0:content:0:cell_1:0:content:2:3e3e1d0d-c3ec-414f-86a6-2ed2d143d3c8':
+    parent_uuid: 7955a653-e39c-4c90-a8a9-4509dc454bc3
+    slot: content
+    uuid: 3e3e1d0d-c3ec-414f-86a6-2ed2d143d3c8
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p><strong>We stay current with the latest HVAC technology to bring you efficient, reliable, and smart climate control for your home or business.</strong></p>'
+        format: canvas_html_block
+      style: body_m
+      color: loud
+      center: true
+  '0:content:0:cell_2:0:925c154e-2002-4c97-9a16-7294a9fb1436':
+    parent_uuid: b8bc1608-6ba1-4061-8a67-42675a24886e
+    slot: cell_2
+    uuid: 925c154e-2002-4c97-9a16-7294a9fb1436
+    component_id: sdc.dripyard_base.grid-cell
+    component_version: 54ebe916bdb35c0b
+    inputs:
+      theme: inherit
+      padding: zero
+      columns_small: 12
+      columns_medium: 6
+      columns_large: 4
+      rows_small: 1
+      rows_medium: 1
+      rows_large: 1
+  '0:content:0:cell_2:0:content:0:362d1844-66bb-4350-bbed-b3d4d0d3cc81':
+    parent_uuid: 925c154e-2002-4c97-9a16-7294a9fb1436
+    slot: content
+    uuid: 362d1844-66bb-4350-bbed-b3d4d0d3cc81
+    component_id: sdc.dripyard_base.grid-cell
+    component_version: 54ebe916bdb35c0b
+    inputs:
+      theme: inherit
+      padding: zero
+      columns_small: 12
+      columns_medium: 6
+      columns_large: 4
+      rows_small: 1
+      rows_medium: 1
+      rows_large: 1
+      horizontal_alignment: center
+  '0:content:0:cell_2:0:content:0:content:0:2a7c707a-2e71-47a1-a520-9b4ffe677966':
+    parent_uuid: 362d1844-66bb-4350-bbed-b3d4d0d3cc81
+    slot: content
+    uuid: 2a7c707a-2e71-47a1-a520-9b4ffe677966
+    component_id: sdc.meridian.icon
+    component_version: b738ed222f9afb03
+    inputs:
+      size: 32
+      icon: house-signal
+      color: primary
+      open_new_window: false
+  '0:content:0:cell_2:0:content:1:86bca7b1-a04a-493a-b411-ec344610d0b1':
+    parent_uuid: 925c154e-2002-4c97-9a16-7294a9fb1436
+    slot: content
+    uuid: 86bca7b1-a04a-493a-b411-ec344610d0b1
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Service 7 Days a Week'
+      html_element: h5
+      style: h5
+      center: true
+      margin_top: zero
+      margin_bottom: zero
+  '0:content:0:cell_2:0:content:2:04cc12a9-8f35-4955-843d-ebe81b00101f':
+    parent_uuid: 925c154e-2002-4c97-9a16-7294a9fb1436
+    slot: content
+    uuid: 04cc12a9-8f35-4955-843d-ebe81b00101f
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p><strong>Our team is ready to answer your call and get your HVAC system back on track—fast.</strong></p>'
+        format: canvas_html_block
+      style: body_m
+      color: loud
+      center: true
+  '0:content:0:cell_3:0:aa62a1bc-93fa-4ed3-ac1c-7b3c5b117995':
+    parent_uuid: b8bc1608-6ba1-4061-8a67-42675a24886e
+    slot: cell_3
+    uuid: aa62a1bc-93fa-4ed3-ac1c-7b3c5b117995
+    component_id: sdc.dripyard_base.grid-cell
+    component_version: 54ebe916bdb35c0b
+    inputs:
+      theme: inherit
+      padding: zero
+      columns_small: 12
+      columns_medium: 6
+      columns_large: 4
+      rows_small: 1
+      rows_medium: 1
+      rows_large: 1
+  '0:content:0:cell_3:0:content:0:58acf4cc-6d01-474e-90d4-646c4b772b02':
+    parent_uuid: aa62a1bc-93fa-4ed3-ac1c-7b3c5b117995
+    slot: content
+    uuid: 58acf4cc-6d01-474e-90d4-646c4b772b02
+    component_id: sdc.dripyard_base.grid-cell
+    component_version: 54ebe916bdb35c0b
+    inputs:
+      theme: inherit
+      padding: zero
+      columns_small: 12
+      columns_medium: 6
+      columns_large: 4
+      rows_small: 1
+      rows_medium: 1
+      rows_large: 1
+      horizontal_alignment: center
+  '0:content:0:cell_3:0:content:0:content:0:9058bfca-71cf-429f-ac79-4532e6a37082':
+    parent_uuid: 58acf4cc-6d01-474e-90d4-646c4b772b02
+    slot: content
+    uuid: 9058bfca-71cf-429f-ac79-4532e6a37082
+    component_id: sdc.meridian.icon
+    component_version: b738ed222f9afb03
+    inputs:
+      size: 32
+      icon: house-signal
+      color: primary
+      open_new_window: false
+  '0:content:0:cell_3:0:content:1:f1fed7fb-d2a5-4176-8a0f-dbb2f7bd5254':
+    parent_uuid: aa62a1bc-93fa-4ed3-ac1c-7b3c5b117995
+    slot: content
+    uuid: f1fed7fb-d2a5-4176-8a0f-dbb2f7bd5254
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Customer-First Approach'
+      html_element: h5
+      style: h5
+      center: true
+      margin_top: zero
+      margin_bottom: zero
+  '0:content:0:cell_3:0:content:2:81bca80a-e430-4e68-b56f-b6bd2a2168e4':
+    parent_uuid: aa62a1bc-93fa-4ed3-ac1c-7b3c5b117995
+    slot: content
+    uuid: 81bca80a-e430-4e68-b56f-b6bd2a2168e4
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p><strong>From your first call to final check-in, your comfort &amp; satisfaction are our top priority.</strong></p>'
+        format: canvas_html_block
+      style: body_m
+      color: loud
+      center: true
+  '0:content:0:cell_4:0:0e7608b8-7dd0-400f-bbdd-013f41741bef':
+    parent_uuid: b8bc1608-6ba1-4061-8a67-42675a24886e
+    slot: cell_4
+    uuid: 0e7608b8-7dd0-400f-bbdd-013f41741bef
+    component_id: sdc.dripyard_base.grid-cell
+    component_version: 54ebe916bdb35c0b
+    inputs:
+      theme: inherit
+      padding: zero
+      columns_small: 12
+      columns_medium: 6
+      columns_large: 4
+      rows_small: 1
+      rows_medium: 1
+      rows_large: 1
+  '0:content:0:cell_4:0:content:0:79d7e7c3-7a94-4834-adf2-b015006627d2':
+    parent_uuid: 0e7608b8-7dd0-400f-bbdd-013f41741bef
+    slot: content
+    uuid: 79d7e7c3-7a94-4834-adf2-b015006627d2
+    component_id: sdc.dripyard_base.grid-cell
+    component_version: 54ebe916bdb35c0b
+    inputs:
+      theme: inherit
+      padding: zero
+      columns_small: 12
+      columns_medium: 6
+      columns_large: 4
+      rows_small: 1
+      rows_medium: 1
+      rows_large: 1
+      horizontal_alignment: center
+  '0:content:0:cell_4:0:content:0:content:0:f858b91d-f975-4c3b-9d13-388a3567a429':
+    parent_uuid: 79d7e7c3-7a94-4834-adf2-b015006627d2
+    slot: content
+    uuid: f858b91d-f975-4c3b-9d13-388a3567a429
+    component_id: sdc.meridian.icon
+    component_version: b738ed222f9afb03
+    inputs:
+      size: 32
+      icon: house-signal
+      color: primary
+      open_new_window: false
+  '0:content:0:cell_4:0:content:1:cdb4dd77-fc10-4290-97da-7690e459a51c':
+    parent_uuid: 0e7608b8-7dd0-400f-bbdd-013f41741bef
+    slot: content
+    uuid: cdb4dd77-fc10-4290-97da-7690e459a51c
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Expert Service for Every Brand'
+      html_element: h5
+      style: h5
+      center: true
+      margin_top: zero
+      margin_bottom: zero
+  '0:content:0:cell_4:0:content:2:a3e6bd0d-984a-4507-87e8-3b1797698d27':
+    parent_uuid: 0e7608b8-7dd0-400f-bbdd-013f41741bef
+    slot: content
+    uuid: a3e6bd0d-984a-4507-87e8-3b1797698d27
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p>Our highly trained technicians have the experience and know-how to repair and maintain all major AC and heating systems.</p>'
+        format: canvas_html_block
+      style: body_m
+      color: loud
+      center: true
+  '0:content:0:header:0:39087aac-79ae-47f7-9ad2-b71393d1b57b':
+    parent_uuid: b8bc1608-6ba1-4061-8a67-42675a24886e
+    slot: header
+    uuid: 39087aac-79ae-47f7-9ad2-b71393d1b57b
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Why Choose JefCo?'
+      html_element: h2
+      style: h2
+      center: true
+      margin_top: zero
+      margin_bottom: zero
+  '0:f044a65d-f528-47ed-b7a1-6259d91b3fdf':
+    uuid: f044a65d-f528-47ed-b7a1-6259d91b3fdf
+    component_id: sdc.dripyard_base.section
+    component_version: e6079b189d228dad
+    inputs:
+      theme: primary
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+  '0:header:0:298eb8ee-59c3-4ccb-9aec-8ac653a39a12':
+    parent_uuid: f044a65d-f528-47ed-b7a1-6259d91b3fdf
+    slot: header
+    uuid: 298eb8ee-59c3-4ccb-9aec-8ac653a39a12
+    component_id: sdc.dripyard_base.background-image
+    component_version: 6bc819a079af1494
+    inputs:
+      image:
+        target_id: '144'
+      background_image_opacity: 100
+      loading: lazy
+      position_x: 50
+      position_y: 50

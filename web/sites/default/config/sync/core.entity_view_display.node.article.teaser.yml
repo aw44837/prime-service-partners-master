@@ -8,12 +8,9 @@ dependencies:
     - field.field.node.article.body
     - field.field.node.article.field_featured_image
     - field.field.node.article.field_featured_image_prompt
-    - field.field.node.article.field_image
     - field.field.node.article.field_tags
-    - image.style.medium
     - node.type.article
   module:
-    - svg_image
     - text
     - user
 id: node.article.teaser
@@ -37,21 +34,6 @@ content:
       link: false
     third_party_settings: {  }
     weight: 0
-    region: content
-  field_image:
-    type: image
-    label: hidden
-    settings:
-      image_link: content
-      image_style: medium
-      image_loading:
-        attribute: lazy
-      svg_attributes:
-        width: null
-        height: null
-      svg_render_as_image: true
-    third_party_settings: {  }
-    weight: -1
     region: content
   field_tags:
     type: entity_reference_label

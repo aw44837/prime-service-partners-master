@@ -54,7 +54,7 @@ component_tree:
   '0:3e958f92-d4c5-4856-9c35-ca5a513e8f4b':
     uuid: 3e958f92-d4c5-4856-9c35-ca5a513e8f4b
     component_id: sdc.dripyard_base.layout-dynamic
-    component_version: 2ae68881b02966b5
+    component_version: 32fe1576b04d9d74
     inputs:
       column_count: 1
       row_count: 1
@@ -88,7 +88,7 @@ component_tree:
     slot: hero_content
     uuid: 54ed6f4b-5480-43e9-a1e9-7a6da2fccbfc
     component_id: sdc.dripyard_base.layout-dynamic
-    component_version: 2ae68881b02966b5
+    component_version: 32fe1576b04d9d74
     inputs:
       theme: inherit
       column_count: 2
@@ -244,7 +244,7 @@ component_tree:
     slot: cell_2
     uuid: bba5e334-92e2-448c-a38d-41616bf5ca7b
     component_id: sdc.dripyard_base.grid-cell
-    component_version: 54ebe916bdb35c0b
+    component_version: 1af7f8b0429ad607
     inputs:
       theme: secondary
       padding: small
@@ -276,11 +276,11 @@ component_tree:
     component_version: 05732cb45a35eac6
     inputs:
       text:
-        value: '<p>Get in touch with JefCo if you need service at your home or business.&nbsp;</p>'
+        value: '<p>Get in touch with JefCo if you need service at your home or business.</p>'
         format: canvas_html_block
       style: body_m
       color: inherit
-      center: false
+      center: true
   '1:cell_2:1:content:2:35c80374-6cc3-42d0-8fb0-59edd75ccd13':
     parent_uuid: bba5e334-92e2-448c-a38d-41616bf5ca7b
     slot: content
@@ -341,7 +341,7 @@ component_tree:
     slot: cell_2
     uuid: e6a586f8-71bf-4389-afce-a47af0a879bd
     component_id: sdc.dripyard_base.grid-cell
-    component_version: 54ebe916bdb35c0b
+    component_version: 1af7f8b0429ad607
     inputs:
       theme: light
       padding: small
@@ -354,7 +354,7 @@ component_tree:
   '1:fa826bf3-bc7f-4d19-929c-bdbc914c2b5a':
     uuid: fa826bf3-bc7f-4d19-929c-bdbc914c2b5a
     component_id: sdc.dripyard_base.layout-dynamic
-    component_version: 2ae68881b02966b5
+    component_version: 32fe1576b04d9d74
     inputs:
       theme: inherit
       column_count: 2
@@ -383,7 +383,7 @@ component_tree:
   '2:196f2b52-2631-448e-82b5-3195ecfed62e':
     uuid: 196f2b52-2631-448e-82b5-3195ecfed62e
     component_id: sdc.dripyard_base.layout-dynamic
-    component_version: 2ae68881b02966b5
+    component_version: 32fe1576b04d9d74
     inputs:
       theme: primary
       column_count: 1
@@ -659,7 +659,7 @@ component_tree:
   '3:fd0ec43e-aac9-4760-bd9e-16a0b9577363':
     uuid: fd0ec43e-aac9-4760-bd9e-16a0b9577363
     component_id: sdc.dripyard_base.layout-dynamic
-    component_version: 2ae68881b02966b5
+    component_version: 32fe1576b04d9d74
     inputs:
       theme: white
       column_count: 2

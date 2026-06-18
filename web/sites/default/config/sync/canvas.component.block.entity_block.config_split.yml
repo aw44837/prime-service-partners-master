@@ -1,24 +1,24 @@
-uuid: 73e8a0bb-568f-4471-b933-c13c2d5c412d
+uuid: a4bde26b-1182-439c-bd1e-3fa9ddbe910d
 langcode: en
 status: false
 dependencies:
   module:
     - entity_block
-active_version: d4d34e3dc5dc8120
+active_version: 4b364f2cb36893c2
 versioned_properties:
   active:
     settings:
       default_settings:
-        id: 'entity_block:automator_chain'
-        label: 'Automator Chain'
+        id: 'entity_block:config_split'
+        label: 'Configuration Split setting'
         label_display: '0'
         provider: entity_block
         entity: ''
         view_mode: default
     fallback_metadata:
       slot_definitions: null
-label: 'Automator Chain'
-id: block.entity_block.automator_chain
+label: 'Configuration Split setting'
+id: block.entity_block.config_split
 provider: entity_block
 source: block
-source_local_id: 'entity_block:automator_chain'
+source_local_id: 'entity_block:config_split'

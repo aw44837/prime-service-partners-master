@@ -1,0 +1,229 @@
+uuid: 41a4e52a-9802-45b9-a45e-988abbcf1803
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.sdc.dripyard_base.background-image
+    - canvas.component.sdc.dripyard_base.button
+    - canvas.component.sdc.dripyard_base.fieldset
+    - canvas.component.sdc.dripyard_base.flex-wrapper
+    - canvas.component.sdc.dripyard_base.heading
+    - canvas.component.sdc.dripyard_base.icon-list
+    - canvas.component.sdc.dripyard_base.icon-list-item
+    - canvas.component.sdc.dripyard_base.layout-dynamic
+    - canvas.component.sdc.dripyard_base.text
+    - field.field.media.image.field_media_image
+    - field.field.media.svg_image.field_media_svg_image
+    - filter.format.canvas_html_block
+    - image.style.canvas_parametrized_width
+    - media.type.image
+    - media.type.svg_image
+  content:
+    - 'file:file:33eefaa9-5d5d-408f-a7bc-733e104a3cf7'
+    - 'media:image:ff96ab07-31e3-42fd-8519-b9c9ff6f3b6c'
+  module:
+    - file
+    - link
+    - media
+    - options
+    - text
+id: localmarketareastwocolu
+label: 'Local Market Areas - Two Column'
+component_tree:
+  '0:cell_1:0:e59bc070-a72b-4985-87e7-c04f7671aaa6':
+    parent_uuid: f5e7b2c2-4f3e-4473-976e-313e2adf97a4
+    slot: cell_1
+    uuid: e59bc070-a72b-4985-87e7-c04f7671aaa6
+    component_id: sdc.dripyard_base.fieldset
+    component_version: c7b416209e637b86
+    inputs:
+      legend_title: 'Local Service Areas'
+  '0:cell_1:0:fieldset_content:0:7e9047a3-fb41-4529-99a5-8d66e8416616':
+    parent_uuid: e59bc070-a72b-4985-87e7-c04f7671aaa6
+    slot: fieldset_content
+    uuid: 7e9047a3-fb41-4529-99a5-8d66e8416616
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Proudly Serving the MARKET_AREA'
+      html_element: h4
+      style: h4
+      center: false
+      margin_top: zero
+      margin_bottom: small
+  '0:cell_1:0:fieldset_content:1:5c918370-72f6-4096-9b2c-0a73dee60615':
+    parent_uuid: e59bc070-a72b-4985-87e7-c04f7671aaa6
+    slot: fieldset_content
+    uuid: 5c918370-72f6-4096-9b2c-0a73dee60615
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p>BRAND_NAME is proud to serve the greater MARKET_AREA. If you don’t see your community listed, contact us to see if we can still help! Browse our local search pages to find the fastest route to service in your area.</p>'
+        format: canvas_html_block
+      style: body_m
+      color: inherit
+      center: false
+  '0:cell_1:0:fieldset_content:2:8011fac0-876f-4623-95a9-37062dcea2e3':
+    parent_uuid: e59bc070-a72b-4985-87e7-c04f7671aaa6
+    slot: fieldset_content
+    uuid: 8011fac0-876f-4623-95a9-37062dcea2e3
+    component_id: sdc.dripyard_base.icon-list
+    component_version: 5249c68ce17cfc73
+    inputs:
+      size: medium
+      icon_color: primary
+      column_width: small
+  '0:cell_1:0:fieldset_content:2:content:0:b4385452-1b8b-490f-b6d5-07659abec0c8':
+    parent_uuid: 8011fac0-876f-4623-95a9-37062dcea2e3
+    slot: content
+    uuid: b4385452-1b8b-490f-b6d5-07659abec0c8
+    component_id: sdc.dripyard_base.icon-list-item
+    component_version: 22d7d3a101bbb54a
+    inputs:
+      icon: city
+      text: 'City 1'
+      href:
+        uri: 'internal:/reviews'
+        options: {  }
+  '0:cell_1:0:fieldset_content:2:content:1:612b1263-0117-47cd-9aea-0809747d11a0':
+    parent_uuid: 8011fac0-876f-4623-95a9-37062dcea2e3
+    slot: content
+    uuid: 612b1263-0117-47cd-9aea-0809747d11a0
+    component_id: sdc.dripyard_base.icon-list-item
+    component_version: 22d7d3a101bbb54a
+    inputs:
+      icon: city
+      text: 'City 2'
+      href:
+        uri: 'internal:/area-we-serve/30a'
+        options: {  }
+  '0:cell_1:0:fieldset_content:2:content:2:98f88257-4b28-4b83-9c2e-2e404374f060':
+    parent_uuid: 8011fac0-876f-4623-95a9-37062dcea2e3
+    slot: content
+    uuid: 98f88257-4b28-4b83-9c2e-2e404374f060
+    component_id: sdc.dripyard_base.icon-list-item
+    component_version: 22d7d3a101bbb54a
+    inputs:
+      icon: city
+      text: 'City 3'
+      href:
+        uri: 'internal:/area-we-serve/alys-beach'
+        options: {  }
+  '0:cell_1:0:fieldset_content:2:content:3:4b8a5c39-116a-4ce0-b256-13e1e3c0bb34':
+    parent_uuid: 8011fac0-876f-4623-95a9-37062dcea2e3
+    slot: content
+    uuid: 4b8a5c39-116a-4ce0-b256-13e1e3c0bb34
+    component_id: sdc.dripyard_base.icon-list-item
+    component_version: 22d7d3a101bbb54a
+    inputs:
+      icon: city
+      text: 'City 4'
+      href:
+        uri: 'internal:/area-we-serve/blue-mountain-beach'
+        options: {  }
+  '0:cell_2:0:a0075ab9-2b32-419c-aa32-de212e097703':
+    parent_uuid: f5e7b2c2-4f3e-4473-976e-313e2adf97a4
+    slot: cell_2
+    uuid: a0075ab9-2b32-419c-aa32-de212e097703
+    component_id: sdc.dripyard_base.heading
+    component_version: 69804e3c5ff45a2b
+    inputs:
+      text: 'Additional H2 Headline specific to market areas'
+      html_element: h2
+      style: h2
+      color: loud
+      center: false
+      margin_top: zero
+      margin_bottom: zero
+  '0:cell_2:1:95d760eb-a886-40b3-bba8-192f240054a9':
+    parent_uuid: f5e7b2c2-4f3e-4473-976e-313e2adf97a4
+    slot: cell_2
+    uuid: 95d760eb-a886-40b3-bba8-192f240054a9
+    component_id: sdc.dripyard_base.text
+    component_version: 05732cb45a35eac6
+    inputs:
+      text:
+        value: '<p>We serve communities across the region with fast, reliable support tailored to local needs.</p><p>From single locations to multi-site operations, our team delivers consistent service, responsive communication, and flexible scheduling designed to keep your business running smoothly.</p>'
+        format: canvas_html_block
+      style: body_m
+      color: inherit
+      center: false
+  '0:cell_2:2:content:0:2ff2c3cd-c3e9-45bf-a67f-2cc03c02c754':
+    parent_uuid: f05e0d0e-b542-43b9-acb7-20116ea4ae71
+    slot: content
+    uuid: 2ff2c3cd-c3e9-45bf-a67f-2cc03c02c754
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'View Coverage Areas'
+      href:
+        uri: 'https://example.com'
+        options: {  }
+      style: outline
+      size: medium
+      target: false
+  '0:cell_2:2:content:1:30c71f19-fe8f-4b70-b18e-dea0838f9ed9':
+    parent_uuid: f05e0d0e-b542-43b9-acb7-20116ea4ae71
+    slot: content
+    uuid: 30c71f19-fe8f-4b70-b18e-dea0838f9ed9
+    component_id: sdc.dripyard_base.button
+    component_version: 3155d0acceef4faf
+    inputs:
+      text: 'Contact Our Team'
+      href:
+        uri: 'internal:/contact-us'
+        options: {  }
+      style: secondary
+      size: medium
+      target: false
+  '0:cell_2:2:f05e0d0e-b542-43b9-acb7-20116ea4ae71':
+    parent_uuid: f5e7b2c2-4f3e-4473-976e-313e2adf97a4
+    slot: cell_2
+    uuid: f05e0d0e-b542-43b9-acb7-20116ea4ae71
+    component_id: sdc.dripyard_base.flex-wrapper
+    component_version: 647154c4adbb1587
+    inputs:
+      theme: inherit
+      wrap: true
+      align_x: start
+      align_y: center
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: zero
+      padding_bottom: zero
+      column_gutter: medium
+      row_gutter: medium
+  '0:f5e7b2c2-4f3e-4473-976e-313e2adf97a4':
+    uuid: f5e7b2c2-4f3e-4473-976e-313e2adf97a4
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 2ae68881b02966b5
+    inputs:
+      theme: primary
+      column_count: 2
+      row_count: 1
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: center
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: medium
+      padding_bottom: medium
+      column_gutter: large
+      row_gutter: default
+  '0:header:0:e19ad667-21e6-4386-a290-d456f2035045':
+    parent_uuid: f5e7b2c2-4f3e-4473-976e-313e2adf97a4
+    slot: header
+    uuid: e19ad667-21e6-4386-a290-d456f2035045
+    component_id: sdc.dripyard_base.background-image
+    component_version: 6bc819a079af1494
+    inputs:
+      image:
+        target_id: '87'
+      background_image_opacity: 100
+      loading: lazy
+      position_x: 50
+      position_y: 50

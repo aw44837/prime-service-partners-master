@@ -1,7 +1,7 @@
 uuid: 22222222-2222-2222-2222-222222222222
 langcode: en
 status: false
-dependencies: {}
+dependencies: {  }
 id: site
 label: 'Site (Client-Specific)'
 description: 'Per-site configuration: theme settings, site name, credentials, and anything unique to this client. Inactive on the upstream master repo; activate in each client site.'
@@ -10,11 +10,11 @@ stackable: false
 no_patching: false
 storage: folder
 folder: sites/default/config/site
-module: {}
-theme: {}
+module: {  }
+theme: {  }
 complete_list:
   - system.site
   - key.key.anthropic
   - key.key.openai
   - key.key.easy_encrypted__f2758717_29d5_4576_ad8c_e7ae5affca40__private_key
-partial_list: []
+partial_list: {  }
