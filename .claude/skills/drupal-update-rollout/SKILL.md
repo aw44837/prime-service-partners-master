@@ -223,9 +223,14 @@ caching glitches (`cache:rebuild` again before judging).
 - **`drupal/tagify` is pinned to 1.x** by `drupal_cms_admin_ui` (`^1.2`, via
   `drupal_cms_starter`). `require tagify:^2.0` fails with a real conflict — hold at 1.x
   until the Drupal CMS admin recipe allows `^2`.
-- **Jefco diverges**: its `composer.json` lacks `drupal/config_split` (predates the
-  template). Never overwrite it — update in place. Its config_split entity is inactive
-  (`status: false`), harmless, but a template inconsistency to reconcile separately.
+- **config_split is dormant scaffolding** across the estate: the module is enabled but the
+  `site` split is **`status: false` (inactive)** with an empty `config/site` folder — so
+  `system.site` + keys stay in the MAIN `config/sync` on every site. Adopting it on a site
+  is therefore low-risk (no identity/key relocation). All sites share the same easy_encryption
+  key UUID (`f2758717…`). **Jefco** previously lacked config_split entirely (predates the
+  template); reconciled 2026-06-17 (added module + inactive split, deployed live, branding
+  intact). If a child's `composer.json` still diverges, update it in place (`composer update -W`)
+  rather than overwriting the manifest.
 - **Children carry stale committed config** (master, Jefco, swiftbrothers seen). This is
   pre-existing drift, not from the update — the drift gate keeps it out of the update
   commit, but it's a live-deploy landmine (§5).
