@@ -134,8 +134,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: ★★★★★
+            alter_text: false
+            text: ''
             external: false
             replace_spaces: false
             path_case: none
@@ -203,10 +203,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: datetime_default
+          type: datetime_custom
           settings:
             timezone_override: ''
-            format_type: html_date
+            date_format: 'F j, Y'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -401,8 +401,8 @@ display:
           row_class: review-card
           default_row_class: true
           type: ul
-          wrapper_class: review-cards
-          class: ''
+          wrapper_class: ''
+          class: review-cards
       row:
         type: fields
         options:

@@ -1,0 +1,17 @@
+{#
+/**
+ * @file
+ * Renders the review rating as filled/empty stars (0–5) from the integer
+ * value of field_rating_score, instead of a hardcoded five-star string.
+ */
+#}
+{%- set rating = output|render|striptags|trim -%}
+{%- set rating = rating is empty ? 0 : rating|round -%}
+{%- set rating = max(0, min(5, rating)) -%}
+{%- apply spaceless -%}
+  <span class="review-card__stars-inner" aria-label="{{ rating }} out of 5 stars">
+    {%- for i in 1..5 -%}
+      <span aria-hidden="true">{{ i <= rating ? '★' : '☆' }}</span>
+    {%- endfor -%}
+  </span>
+{%- endapply -%}
