@@ -1,0 +1,5 @@
+name: 'PSP Link Schemes'
+type: module
+description: 'Permits tel: and mailto: links in Link fields by widening the clientside_validation HTML5 pattern. Server-side allowed protocols (filter_protocols) are unchanged and remain the security boundary.'
+core_version_requirement: ^11
+package: 'PSP'

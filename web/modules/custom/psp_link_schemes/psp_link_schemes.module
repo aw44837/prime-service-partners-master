@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * @file
+ * Allows tel: and mailto: links in Link fields.
+ *
+ * The clientside_validation module adds an HTML5 `pattern` attribute to Link
+ * field URI inputs (via a form-level #after_build). For external-capable link
+ * fields (LINK_GENERIC) the pattern permits internal paths, http(s) URLs and
+ * entity-autocomplete references, but NOT tel: or mailto: — so the browser
+ * blocks phone/email links with "Please match the requested format", even
+ * though Drupal accepts them server-side.
+ *
+ * This module appends tel:/mailto: alternatives to that pattern via a later
+ * #after_build, so those schemes validate on the client too. Server-side
+ * validation (UrlHelper allowed protocols / filter_protocols) is untouched and
+ * remains the real security boundary.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_form_alter().
+ */
+function psp_link_schemes_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  // Queue our pattern-widening after clientside_validation's #after_build
+  // (which is what sets the pattern). Ordering is guaranteed by
+  // psp_link_schemes_module_implements_alter().
+  $form['#after_build'][] = 'psp_link_schemes_widen_link_patterns';
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * Run this module's form_alter last so its #after_build is queued after
+ * clientside_validation's and therefore observes the pattern it sets.
+ */
+function psp_link_schemes_module_implements_alter(&$implementations, $hook) {
+  if ($hook === 'form_alter' && isset($implementations['psp_link_schemes'])) {
+    $group = $implementations['psp_link_schemes'];
+    unset($implementations['psp_link_schemes']);
+    $implementations['psp_link_schemes'] = $group;
+  }
+}
+
+/**
+ * Form #after_build callback: widen clientside_validation link patterns.
+ */
+function psp_link_schemes_widen_link_patterns(array $form, FormStateInterface $form_state) {
+  _psp_link_schemes_walk($form);
+  return $form;
+}
+
+/**
+ * Recursively append tel:/mailto: to external-capable link patterns.
+ */
+function _psp_link_schemes_walk(array &$element) {
+  if (isset($element['#attributes']['pattern']) && is_string($element['#attributes']['pattern'])) {
+    $pattern = $element['#attributes']['pattern'];
+    // Only widen the external-capable (LINK_GENERIC) pattern — it contains the
+    // case-insensitive http alternative — and only once.
+    if (str_contains($pattern, '[hH][tT]') && !str_contains($pattern, 'tel:')) {
+      $element['#attributes']['pattern'] = $pattern . '|tel:.+|mailto:.+';
+    }
+  }
+  foreach (Element::children($element) as $key) {
+    if (is_array($element[$key])) {
+      _psp_link_schemes_walk($element[$key]);
+    }
+  }
+}
