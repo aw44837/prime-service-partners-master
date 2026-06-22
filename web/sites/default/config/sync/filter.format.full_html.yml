@@ -5,6 +5,7 @@ dependencies:
   module:
     - editor
     - media
+    - token_filter
 _core:
   default_config_hash: H9eVV5rpNoL_UXnrdUIaSEHy7LeZXQd9OtDMcR4Ag0A
 name: 'Full HTML'
@@ -59,3 +60,9 @@ filters:
       default_view_mode: default
       allowed_view_modes: {  }
       allowed_media_types: {  }
+  token_filter:
+    id: token_filter
+    provider: token_filter
+    status: true
+    weight: 101
+    settings: {  }

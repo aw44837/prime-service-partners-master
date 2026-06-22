@@ -119,6 +119,7 @@ module:
   taxonomy: 0
   text: 0
   token: 0
+  token_filter: 0
   trash: 0
   update: 0
   user: 0
