@@ -1,0 +1,25 @@
+uuid: 68c898d5-cc69-4767-a864-daf1dd15d9e0
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:51d04719-6c71-4119-924a-e02740c41fe9'
+  module:
+    - block_content
+active_version: 66e81c1c40db90ef
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'block_content:51d04719-6c71-4119-924a-e02740c41fe9'
+        label: 'License # and Privacy Policy'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+label: 'License # and Privacy Policy'
+id: block.block_content.51d04719-6c71-4119-924a-e02740c41fe9
+provider: block_content
+source: block
+source_local_id: 'block_content:51d04719-6c71-4119-924a-e02740c41fe9'

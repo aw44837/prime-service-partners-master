@@ -9,6 +9,7 @@ dependencies:
     - canvas.component.block.block_content.2bad27be-c17c-4034-9645-58056e6c5833
     - canvas.component.block.block_content.405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c
     - canvas.component.block.block_content.4b11f2dc-65a0-4cf8-a6db-914ccab3610c
+    - canvas.component.block.block_content.51d04719-6c71-4119-924a-e02740c41fe9
     - canvas.component.block.block_content.5cf974a3-7817-44f9-afc3-8963d2cec05e
     - canvas.component.block.block_content.748f9532-62e9-4656-b187-3c7de76fbf4e
     - canvas.component.block.block_content.7d0f606a-e73b-459f-a69e-4cdd4c6f1eaa
@@ -24,6 +25,7 @@ items:
   - block.block_content.2bad27be-c17c-4034-9645-58056e6c5833
   - block.block_content.405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c
   - block.block_content.4b11f2dc-65a0-4cf8-a6db-914ccab3610c
+  - block.block_content.51d04719-6c71-4119-924a-e02740c41fe9
   - block.block_content.5cf974a3-7817-44f9-afc3-8963d2cec05e
   - block.block_content.748f9532-62e9-4656-b187-3c7de76fbf4e
   - block.block_content.7d0f606a-e73b-459f-a69e-4cdd4c6f1eaa
