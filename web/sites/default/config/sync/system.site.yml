@@ -3,7 +3,7 @@ _core:
 langcode: en
 uuid: 4c1eab28-a845-429b-9b42-21546b398bf6
 name: BRAND_NAME
-mail: andywaldrop@gmail.com
+mail: andy@droptech.dev
 slogan: ''
 page:
   403: ''
