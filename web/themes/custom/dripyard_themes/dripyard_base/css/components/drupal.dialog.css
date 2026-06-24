@@ -6,16 +6,62 @@
 .ui-dialog {
   container-type: inline-size;
   padding: 0;
+  /* Ensure a solid panel even if core/jQuery UI base CSS is absent (e.g. when
+     aggregated on production). */
+  background-color: var(--theme-surface);
 
   .ui-widget-header {
+    position: relative; /* Anchor the absolutely-positioned close button. */
     margin-bottom: 1rem;
-    padding: 1rem 1.5rem;
+    padding: 1rem 3.5rem 1rem 1.5rem;
     background-color: var(--theme-text-color-soft);
     color: var(--theme-surface);
 
     h1 {
       color: inherit;
       font-size: 1.5rem;
+    }
+  }
+
+  /* Close (×) button — align to the top-right of the title bar and render a
+     clean glyph instead of relying on the jQuery UI icon sprite. */
+  .ui-dialog-titlebar-close {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: 1rem;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    color: var(--theme-surface);
+    border: 0;
+    border-radius: var(--radius-sm, 4px);
+    background: transparent;
+    font-size: 0; /* Hide the default "Close" text label. */
+    text-indent: 0; /* jQuery UI hides button text with text-indent: -9999px. */
+
+    .ui-icon,
+    .ui-button-icon-space {
+      display: none;
+    }
+
+    &::before {
+      content: "×";
+      text-indent: 0; /* Override the inherited -9999px so the glyph shows. */
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.75rem;
+      line-height: 1;
+      color: inherit;
+    }
+
+    &:hover,
+    &:focus {
+      background: rgba(255, 255, 255, 0.15);
     }
   }
 }
@@ -33,6 +79,8 @@
 }
 
 .ui-widget-overlay {
+  position: fixed;
+  inset: 0;
   opacity: 0.5;
   background-color: var(--black);
 }
