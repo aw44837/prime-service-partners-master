@@ -167,10 +167,10 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: url
+  confirmation_type: inline
   confirmation_url: /thanks
-  confirmation_title: ''
-  confirmation_message: ''
+  confirmation_title: 'Thank you'
+  confirmation_message: "Success! We've received your form submission. Someone will be in touch with you soon regarding your inquiry. If this is an emergency, please call us."
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
