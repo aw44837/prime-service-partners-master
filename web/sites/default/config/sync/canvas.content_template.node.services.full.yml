@@ -514,7 +514,7 @@ component_tree:
     inputs:
       text: 'See all reviews'
       href:
-        uri: 'https://www.drupal.org'
+        uri: 'internal:/reviews'
         options: {  }
       style: secondary
       size: medium
