@@ -243,3 +243,12 @@
   top: 0.5rem;
   inset-inline-start: 0.5rem;
 }
+
+/* Keep the modal overlay dark for logged-in users: the Gin admin theme also styles
+ * .ui-widget-overlay (lighter, var(--gin-bg-layer2)) and is aggregated last, so it wins
+ * by source order over the front-end dark overlay. Doubling the class (specificity 0,2,0)
+ * makes the dark overlay win regardless of load order, so it can't silently regress. */
+.ui-widget-overlay.ui-widget-overlay {
+  background: var(--black);
+  opacity: 0.5;
+}
