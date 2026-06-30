@@ -347,3 +347,6 @@ masquerade_roles: {  }
 structured_output_enabled: false
 structured_output_schema: ''
 hostname_filter_disabled: false
+uuid: 859e9b8b-e36d-4441-809a-7ff9f7ff547b
+_core:
+  default_config_hash: jqQ8LvCyNHhimyB8nEHDlNeirUjQR9uxAjKCKjhXX3I
