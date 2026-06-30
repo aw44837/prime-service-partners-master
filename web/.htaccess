@@ -106,6 +106,13 @@ AddType image/webp .webp
   # RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   # RewriteRule ^ http%{ENV:protossl}://%1%{REQUEST_URI} [L,R=301]
 
+  # PSP: canonical redirect non-www -> www (skips droptech.dev preview, ddev, localhost).
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteCond %{HTTP_HOST} !\.droptech\.dev$ [NC]
+  RewriteCond %{HTTP_HOST} !\.ddev\.site$ [NC]
+  RewriteCond %{HTTP_HOST} !^localhost [NC]
+  RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
   # Modify the RewriteBase if you are using Drupal in a subdirectory or in a
   # VirtualDocumentRoot and the rewrite rules are not working properly.
   # For example if your site is at http://example.com/drupal uncomment and
