@@ -3,6 +3,7 @@ base:
   css:
     theme:
       css/base.css: {}
+      css/cta-box.css: {}
 
 # Example library definition (used in testtheme.info.yml). Note the CSS file
 # will need to be created.

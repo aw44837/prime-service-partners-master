@@ -1,0 +1,42 @@
+/**
+ * @file
+ * CTA callout boxes for body content.
+ *
+ * Apply via the CKEditor "Style" dropdown ("CTA Box - Primary" / "- Secondary").
+ * Frontend colors come from the theme tokens --primary/--secondary; the hex
+ * fallbacks match this site's brand so the box also renders inside the editor
+ * (which does not load the theme color variables).
+ */
+.cta-box {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+/* Solid brand background with white text. The theme's --color-primary-text-color
+ * token only resolves to white inside a primary-color-is-dark wrapper (which body
+ * content is not), so white is set explicitly here. */
+.cta-box--primary {
+  background-color: var(--primary, #183d6a);
+  color: var(--white, #fff);
+}
+
+.cta-box--secondary {
+  background-color: var(--secondary, #f19723);
+  color: var(--white, #fff);
+}
+
+/* Links inside a CTA box inherit the box's text color. */
+.cta-box a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Tidy spacing so the box hugs its content. */
+.cta-box > :first-child {
+  margin-top: 0;
+}
+
+.cta-box > :last-child {
+  margin-bottom: 0;
+}

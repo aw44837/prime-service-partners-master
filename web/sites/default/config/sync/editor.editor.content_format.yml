@@ -30,6 +30,7 @@ settings:
       - undo
       - redo
       - removeFormat
+      - style
       - sourceEditing
   plugins:
     ai_ckeditor_ai:
@@ -95,7 +96,16 @@ settings:
         styles: false
       multiBlock: true
     ckeditor5_sourceEditing:
-      allowed_tags: {  }
+      allowed_tags:
+        - '<p class="cta-box cta-box--primary cta-box--secondary">'
+    ckeditor5_style:
+      styles:
+        -
+          label: 'CTA Box - Primary'
+          element: '<p class="cta-box cta-box--primary">'
+        -
+          label: 'CTA Box - Secondary'
+          element: '<p class="cta-box cta-box--secondary">'
     linkit_extension:
       linkit_enabled: true
       linkit_profile: default
