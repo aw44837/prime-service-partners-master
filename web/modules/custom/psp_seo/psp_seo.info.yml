@@ -1,0 +1,5 @@
+name: 'PSP SEO'
+type: module
+description: 'SEO fixes for PSP sites: rewrites the relative rel=canonical that Canvas (Experience Builder) pages emit into an absolute URL, and points the front page canonical at the site root.'
+core_version_requirement: ^11
+package: 'PSP'

@@ -1,0 +1,10 @@
+<?php
+
+/**
+ * @file
+ * SEO fixes for Prime Service Partners sites.
+ *
+ * The canonical-URL fix lives in
+ * \Drupal\psp_seo\EventSubscriber\CanonicalAbsoluteSubscriber, which rewrites
+ * the relative rel=canonical that Canvas pages emit into an absolute URL.
+ */

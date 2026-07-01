@@ -89,7 +89,8 @@
             },
             "file-mapping": {
                 "[web-root]/example.gitignore": false,
-                "[web-root]/.htaccess": false
+                "[web-root]/.htaccess": false,
+                "[web-root]/robots.txt": false
             },
             "allowed-packages": [
                 "drupal/drupal_cms_seo_tools"

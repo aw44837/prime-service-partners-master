@@ -1,0 +1,6 @@
+services:
+  psp_seo.canonical_absolute_subscriber:
+    class: Drupal\psp_seo\EventSubscriber\CanonicalAbsoluteSubscriber
+    arguments: ['@path.matcher']
+    tags:
+      - { name: event_subscriber }

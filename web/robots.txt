@@ -71,4 +71,4 @@ Disallow: /index.php/user/logout
 Disallow: /index.php/media/oembed
 Disallow: /index.php/*/media/oembed
 
-Sitemap: /sitemap.xml
+# Sitemap: set the absolute URL per site, e.g. https://www.example.com/sitemap.xml

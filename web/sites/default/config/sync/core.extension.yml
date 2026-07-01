@@ -105,6 +105,7 @@ module:
   path_alias: 0
   project_browser: 0
   psp_link_schemes: 0
+  psp_seo: 0
   redirect: 0
   redirect_404: 0
   responsive_image: 0
