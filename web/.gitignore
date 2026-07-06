@@ -16,3 +16,6 @@
 
 # PHP scripts scaffolded into the web root by Drupal core.
 /*.php
+
+# Not scaffolded by core — required by Drupal 11.4 index.php (Symfony Runtime).
+!/autoload_runtime.php
