@@ -6,9 +6,20 @@ dependencies:
     - views.view.dripyard_tabs
   module:
     - views
-active_version: 5348849434f557a6
+active_version: 2c5a72c8e1de4b6f
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'views_block:dripyard_tabs-block_1'
+        label: 'Tabs: Dripyard Tabs'
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: null
+    fallback_metadata:
+      slot_definitions: null
+  5348849434f557a6:
     settings:
       default_settings:
         id: 'views_block:dripyard_tabs-block_1'

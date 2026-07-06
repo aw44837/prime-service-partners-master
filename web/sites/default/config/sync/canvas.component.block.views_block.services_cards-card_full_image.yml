@@ -6,9 +6,20 @@ dependencies:
     - views.view.services_cards
   module:
     - views
-active_version: 4a5b130ffb3ab306
+active_version: f4040602773ab67f
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'views_block:services_cards-card_full_image'
+        label: 'Services Cards: Dripyard Card Full Image'
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: null
+    fallback_metadata:
+      slot_definitions: null
+  4a5b130ffb3ab306:
     settings:
       default_settings:
         id: 'views_block:services_cards-card_full_image'

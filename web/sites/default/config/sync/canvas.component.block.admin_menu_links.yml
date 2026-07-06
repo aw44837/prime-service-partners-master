@@ -4,9 +4,18 @@ status: true
 dependencies:
   module:
     - ai_dashboard
-active_version: 5f98ac8d0e4c2e21
+active_version: e1f12230838ca099
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: admin_menu_links
+        label: 'Admin Menu Links'
+        label_display: '0'
+        provider: ai_dashboard
+    fallback_metadata:
+      slot_definitions: null
+  5f98ac8d0e4c2e21:
     settings:
       default_settings:
         id: admin_menu_links

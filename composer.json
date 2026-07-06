@@ -59,6 +59,7 @@
         "drupal/token_filter": "^2.2",
         "drupal/trash": "^3.0",
         "drupal/webform": "^6.3@beta",
+        "drupal/webform_spam_words": "^3.0",
         "drupal/webform_validation": "^2.0"
     },
     "require-dev": {
@@ -76,7 +77,8 @@
             "drupal/core-project-message": true,
             "drupal/core-recipe-unpack": true,
             "drupal/core-vendor-hardening": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "symfony/runtime": true
         },
         "bin-dir": "vendor/bin",
         "sort-packages": true,

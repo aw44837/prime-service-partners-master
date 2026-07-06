@@ -5,6 +5,7 @@ dependencies:
   config:
     - canvas.component.sdc.dripyard_base.theme-test
     - canvas.component.sdc.meridian.language-switcher
+    - canvas.component.sdc.navigation.message
     - canvas.component.sdc.navigation.title
 name: Other
 configEntityTypeId: component
@@ -12,4 +13,5 @@ weight: 0
 items:
   - sdc.dripyard_base.theme-test
   - sdc.meridian.language-switcher
+  - sdc.navigation.message
   - sdc.navigation.title

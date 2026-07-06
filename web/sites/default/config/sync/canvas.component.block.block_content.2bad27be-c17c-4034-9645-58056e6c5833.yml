@@ -6,9 +6,19 @@ dependencies:
     - 'block_content:basic:2bad27be-c17c-4034-9645-58056e6c5833'
   module:
     - block_content
-active_version: 1b9edd01550b2e38
+active_version: a1474d927923e011
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'block_content:2bad27be-c17c-4034-9645-58056e6c5833'
+        label: 'Burlington, NC Office'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+  1b9edd01550b2e38:
     settings:
       default_settings:
         id: 'block_content:2bad27be-c17c-4034-9645-58056e6c5833'

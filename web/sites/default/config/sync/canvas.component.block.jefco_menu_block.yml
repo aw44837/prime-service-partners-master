@@ -4,9 +4,24 @@ status: true
 dependencies:
   module:
     - jefco_menu_block
-active_version: 051c956caf246d7b
+active_version: 86975a35d6f2e4ab
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: jefco_menu_block
+        label: 'Menu Block'
+        label_display: '0'
+        provider: jefco_menu_block
+        menu_name: main
+        level: 1
+        depth: 0
+        expand_all_items: false
+        follow_active_trail: false
+        columns: 1
+    fallback_metadata:
+      slot_definitions: null
+  051c956caf246d7b:
     settings:
       default_settings:
         id: jefco_menu_block

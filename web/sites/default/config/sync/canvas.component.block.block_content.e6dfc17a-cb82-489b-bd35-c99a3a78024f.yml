@@ -6,9 +6,19 @@ dependencies:
     - 'block_content:basic:e6dfc17a-cb82-489b-bd35-c99a3a78024f'
   module:
     - block_content
-active_version: e6bfcf50788c15c9
+active_version: 713a1cc6af3de7de
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'block_content:e6dfc17a-cb82-489b-bd35-c99a3a78024f'
+        label: 'Footer Address'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+  e6bfcf50788c15c9:
     settings:
       default_settings:
         id: 'block_content:e6dfc17a-cb82-489b-bd35-c99a3a78024f'

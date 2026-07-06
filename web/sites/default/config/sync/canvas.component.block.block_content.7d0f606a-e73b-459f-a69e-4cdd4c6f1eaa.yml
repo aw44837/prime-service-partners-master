@@ -6,9 +6,19 @@ dependencies:
     - 'block_content:dripyard_button:7d0f606a-e73b-459f-a69e-4cdd4c6f1eaa'
   module:
     - block_content
-active_version: d61a5e3b8d368dae
+active_version: a3516766be7d671a
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'block_content:7d0f606a-e73b-459f-a69e-4cdd4c6f1eaa'
+        label: 'Contact Us'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+  d61a5e3b8d368dae:
     settings:
       default_settings:
         id: 'block_content:7d0f606a-e73b-459f-a69e-4cdd4c6f1eaa'

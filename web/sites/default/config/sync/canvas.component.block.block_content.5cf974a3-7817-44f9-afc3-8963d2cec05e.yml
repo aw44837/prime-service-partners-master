@@ -6,9 +6,19 @@ dependencies:
     - 'block_content:dripyard_menu_card:5cf974a3-7817-44f9-afc3-8963d2cec05e'
   module:
     - block_content
-active_version: dba3678476c5fe9e
+active_version: 63206cd670660005
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'block_content:5cf974a3-7817-44f9-afc3-8963d2cec05e'
+        label: 'Data Security'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+  dba3678476c5fe9e:
     settings:
       default_settings:
         id: 'block_content:5cf974a3-7817-44f9-afc3-8963d2cec05e'

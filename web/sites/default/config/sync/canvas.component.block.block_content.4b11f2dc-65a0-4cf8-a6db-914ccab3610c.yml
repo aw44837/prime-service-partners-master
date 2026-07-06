@@ -6,9 +6,19 @@ dependencies:
     - 'block_content:dripyard_menu_card:4b11f2dc-65a0-4cf8-a6db-914ccab3610c'
   module:
     - block_content
-active_version: ed0fddd609508389
+active_version: 5d735ca4fc4eed31
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'block_content:4b11f2dc-65a0-4cf8-a6db-914ccab3610c'
+        label: Neony
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+  ed0fddd609508389:
     settings:
       default_settings:
         id: 'block_content:4b11f2dc-65a0-4cf8-a6db-914ccab3610c'

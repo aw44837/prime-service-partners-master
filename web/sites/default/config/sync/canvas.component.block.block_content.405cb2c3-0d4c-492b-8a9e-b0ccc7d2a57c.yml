@@ -6,9 +6,19 @@ dependencies:
     - 'block_content:dripyard_button:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'
   module:
     - block_content
-active_version: 8a4b8ffe2593581b
+active_version: 5d63ac5d464108b3
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'block_content:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'
+        label: 'Call Button'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+  8a4b8ffe2593581b:
     settings:
       default_settings:
         id: 'block_content:405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c'

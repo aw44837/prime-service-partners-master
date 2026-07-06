@@ -4,9 +4,23 @@ status: true
 dependencies:
   module:
     - project_browser
-active_version: 016f5e9e845b293d
+active_version: 24eba84f14e5cc9e
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'project_browser_block:ai_dashboard_recommended'
+        label: 'Recommended AI Recipes'
+        label_display: '0'
+        provider: project_browser
+        paginate: true
+        page_sizes: '12, 24, 36, 48'
+        sort_options: null
+        default_sort: null
+        filters: null
+    fallback_metadata:
+      slot_definitions: null
+  016f5e9e845b293d:
     settings:
       default_settings:
         id: 'project_browser_block:ai_dashboard_recommended'

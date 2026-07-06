@@ -6,9 +6,19 @@ dependencies:
     - 'block_content:dripyard_menu_card:bd48f72e-dea6-40dc-9a3c-0083ca039f18'
   module:
     - block_content
-active_version: 75ead788c9de5e90
+active_version: b5d7c4ca27431555
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'block_content:bd48f72e-dea6-40dc-9a3c-0083ca039f18'
+        label: 'New Roof Guarantee'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+  75ead788c9de5e90:
     settings:
       default_settings:
         id: 'block_content:bd48f72e-dea6-40dc-9a3c-0083ca039f18'

@@ -6,9 +6,19 @@ dependencies:
     - 'block_content:dripyard_button:0a885524-3461-46a7-af04-a13b08f08d6a'
   module:
     - block_content
-active_version: baf05a4bcdd22e06
+active_version: fcfb73780fcec5db
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'block_content:0a885524-3461-46a7-af04-a13b08f08d6a'
+        label: 'Book Online Button'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+  baf05a4bcdd22e06:
     settings:
       default_settings:
         id: 'block_content:0a885524-3461-46a7-af04-a13b08f08d6a'

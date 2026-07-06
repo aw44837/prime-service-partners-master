@@ -6,9 +6,19 @@ dependencies:
     - 'block_content:basic:748f9532-62e9-4656-b187-3c7de76fbf4e'
   module:
     - block_content
-active_version: 67e622fbffc9289d
+active_version: 001b516b56bac339
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'block_content:748f9532-62e9-4656-b187-3c7de76fbf4e'
+        label: 'Footer Logo'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+  67e622fbffc9289d:
     settings:
       default_settings:
         id: 'block_content:748f9532-62e9-4656-b187-3c7de76fbf4e'

@@ -4,9 +4,18 @@ status: true
 dependencies:
   module:
     - ai_dashboard
-active_version: 8981e0d371c71875
+active_version: a81463ce500a02b3
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: ai_setup_ai_provider
+        label: 'Setup AI Provider'
+        label_display: '0'
+        provider: ai_dashboard
+    fallback_metadata:
+      slot_definitions: null
+  8981e0d371c71875:
     settings:
       default_settings:
         id: ai_setup_ai_provider

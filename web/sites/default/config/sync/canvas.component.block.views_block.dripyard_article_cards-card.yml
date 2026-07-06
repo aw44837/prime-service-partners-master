@@ -6,9 +6,20 @@ dependencies:
     - views.view.dripyard_article_cards
   module:
     - views
-active_version: bb71575bc671d6cc
+active_version: 3890bb1e75088423
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: 'views_block:dripyard_article_cards-card'
+        label: 'Article Cards: Dripyard Card'
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: null
+    fallback_metadata:
+      slot_definitions: null
+  bb71575bc671d6cc:
     settings:
       default_settings:
         id: 'views_block:dripyard_article_cards-card'
