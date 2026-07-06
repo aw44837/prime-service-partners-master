@@ -24,6 +24,7 @@
         "drupal/ai_provider_anthropic": "^1.2",
         "drupal/ai_provider_openai": "^1.2",
         "drupal/ai_recipe_guardrails_prompt_safety": "^1.0",
+        "drupal/antibot": "^2.0",
         "drupal/bpmn_io": "^3.0",
         "drupal/byte": "^1",
         "drupal/canvas": "^1.2",
@@ -59,7 +60,6 @@
         "drupal/token_filter": "^2.2",
         "drupal/trash": "^3.0",
         "drupal/webform": "^6.3@beta",
-        "drupal/webform_spam_words": "^3.0",
         "drupal/webform_validation": "^2.0"
     },
     "require-dev": {
