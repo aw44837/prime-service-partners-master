@@ -1,7 +1,15 @@
 uuid: 167a696d-8631-4813-b78d-0c1b1d474d66
 langcode: en
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - antibot
+    - honeypot
+third_party_settings:
+  antibot:
+    antibot: true
+  honeypot:
+    honeypot: true
 weight: 0
 open: null
 close: null
@@ -170,7 +178,7 @@ settings:
   confirmation_type: modal
   confirmation_url: /thanks
   confirmation_title: 'Thank you'
-  confirmation_message: "Success! We've received your form submission. Someone will be in touch with you soon regarding your inquiry. If this is an emergency, please call us."
+  confirmation_message: "<p>Success! We've received your form submission. Someone will be in touch with you soon regarding your inquiry. If this is an emergency, please call us.</p>"
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -254,7 +262,7 @@ handlers:
     notes: ''
     status: true
     conditions: {  }
-    weight: 0
+    weight: -49
     settings:
       states:
         - completed
