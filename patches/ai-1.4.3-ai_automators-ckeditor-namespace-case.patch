@@ -1,0 +1,17 @@
+Fix namespace case mismatch in ai_automators AiCKEditor plugin (drupal/ai 1.4.3).
+
+Directory is src/Plugin/AiCKEditor/ but the file declares Plugin\AICKEditor.
+On case-insensitive filesystems Symfony DebugClassLoader throws
+"Case mismatch between loaded and declared class names"; on case-sensitive
+production the class silently fails to load. Re-check on next drupal/ai update.
+
+--- a/modules/ai_automators/src/Plugin/AiCKEditor/AiAutomatorsCKEditor.php
++++ b/modules/ai_automators/src/Plugin/AiCKEditor/AiAutomatorsCKEditor.php
+@@ -1,6 +1,6 @@
+ <?php
+
+-namespace Drupal\ai_automators\Plugin\AICKEditor;
++namespace Drupal\ai_automators\Plugin\AiCKEditor;
+
+ use Drupal\Core\Ajax\AjaxResponse;
+ use Drupal\Core\Ajax\InvokeCommand;
