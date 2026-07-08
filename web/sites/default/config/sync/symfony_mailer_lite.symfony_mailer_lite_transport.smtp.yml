@@ -3,14 +3,14 @@ langcode: en
 status: true
 dependencies: {  }
 id: smtp
-label: 'SendGrid SMTP'
+label: 'Brevo SMTP'
 plugin: smtp
 configuration:
-  user: apikey
+  user: b153de001@smtp-brevo.com
   pass: ''
-  pass_key: sendgrid_api_key
+  pass_key: brevo_smtp_key
   use_key_module: true
-  host: smtp.sendgrid.net
+  host: smtp-relay.brevo.com
   port: 587
   query:
     verify_peer: true
