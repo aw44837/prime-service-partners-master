@@ -140,7 +140,7 @@ component_tree:
     inputs:
       text: 'Call Us'
       href:
-        uri: 'tel:850-616-2183'
+        uri: 'tel:PHONE_NUMBER'
         options: {  }
       style: outline
       size: large
@@ -178,7 +178,7 @@ component_tree:
     component_version: 05732cb45a35eac6
     inputs:
       text:
-        value: '<p><strong>Santa Rosa Beach Office:</strong><br>316 S. County Hwy 83<br>Building 4 Unit A<br>Santa Rosa Beach, FL 32459</p><p><a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;z=15&amp;q=316%20S.%20County%20Hwy%2083,Santa%20Rosa%20Beach,FL,32459"><strong>Map &amp; Directions</strong></a></p>'
+        value: '<p><strong>Office:</strong><br>STREET_ADDRESS<br>CITY_STATE_ZIP</p><p><a href="https://www.google.com/maps/search/?api=1&amp;query=STREET_ADDRESS"><strong>Map &amp; Directions</strong></a></p>'
         format: canvas_html_block
       style: body_l
       color: inherit
@@ -225,7 +225,7 @@ component_tree:
     component_id: sdc.dripyard_base.heading
     component_version: 69804e3c5ff45a2b
     inputs:
-      text: 'Why Choose BRAND_NAME Air Conditioning & Plumbing?'
+      text: 'Why Choose BRAND_NAME?'
       html_element: h2
       style: h2
       color: primary

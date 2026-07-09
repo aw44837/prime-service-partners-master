@@ -127,7 +127,7 @@ component_tree:
     inputs:
       text: 'Call Us'
       href:
-        uri: 'tel:850-616-2183'
+        uri: 'tel:PHONE_NUMBER'
         options: {  }
       style: outline
       size: large
