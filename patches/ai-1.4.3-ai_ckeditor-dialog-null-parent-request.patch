@@ -1,0 +1,66 @@
+Fix fatal "Call to a member function get() on null" opening AI CKEditor dialogs (drupal/ai 1.4.3).
+
+AiCKEditorPluginBase::buildCkEditorModalForm() read editor_id from
+getParentRequest(), which is NULL on the direct /api/ai-ckeditor/dialog
+AJAX request. Backport of the 1.4.x-dev fix (settings -> current request
+-> parent request, all guarded) + pass $settings through in the four
+plugins that dropped it. Remove when drupal/ai > 1.4.3 lands.
+
+--- a/modules/ai_ckeditor/src/AiCKEditorPluginBase.php
++++ b/modules/ai_ckeditor/src/AiCKEditorPluginBase.php
+@@ -211,7 +211,13 @@
+    * {@inheritdoc}
+    */
+   public function buildCkEditorModalForm(array $form, FormStateInterface $form_state, array $settings = []) {
+-    $editor_id = $this->requestStack->getParentRequest()->get('editor_id');
++    $editor_id = $settings['editor_id'] ?? NULL;
++    if (!$editor_id && ($request = $this->requestStack->getCurrentRequest())) {
++      $editor_id = $request->query->get('editor_id') ?? $request->request->get('editor_id') ?? $request->attributes->get('editor_id');
++    }
++    if (!$editor_id && ($parent_request = $this->requestStack->getParentRequest())) {
++      $editor_id = $parent_request->query->get('editor_id') ?? $parent_request->request->get('editor_id') ?? $parent_request->attributes->get('editor_id');
++    }
+     $storage = $form_state->getStorage();
+     if ($this->needsSelectedText()) {
+       if (empty($storage['selected_text'])) {
+--- a/modules/ai_ckeditor/src/Plugin/AiCKEditor/ModifyPrompt.php
++++ b/modules/ai_ckeditor/src/Plugin/AiCKEditor/ModifyPrompt.php
+@@ -83,6 +83,6 @@
+    * {@inheritdoc}
+    */
+   public function buildCkEditorModalForm(array $form, FormStateInterface $form_state, array $settings = []): array {
+-    $form = parent::buildCkEditorModalForm($form, $form_state);
++    $form = parent::buildCkEditorModalForm($form, $form_state, $settings);
+ 
+     // Only add 'Your instructions' if selected text is available.
+--- a/modules/ai_ckeditor/src/Plugin/AiCKEditor/Completion.php
++++ b/modules/ai_ckeditor/src/Plugin/AiCKEditor/Completion.php
+@@ -85,6 +85,6 @@
+    * {@inheritdoc}
+    */
+   public function buildCkEditorModalForm(array $form, FormStateInterface $form_state, array $settings = []): array {
+-    $form = parent::buildCkEditorModalForm($form, $form_state);
++    $form = parent::buildCkEditorModalForm($form, $form_state, $settings);
+ 
+     $form['text_to_submit'] = [
+--- a/modules/ai_ckeditor/src/Plugin/AiCKEditor/Translate.php
++++ b/modules/ai_ckeditor/src/Plugin/AiCKEditor/Translate.php
+@@ -173,6 +173,6 @@
+    * {@inheritdoc}
+    */
+   public function buildCkEditorModalForm(array $form, FormStateInterface $form_state, array $settings = []) {
+-    $form = parent::buildCkEditorModalForm($form, $form_state);
++    $form = parent::buildCkEditorModalForm($form, $form_state, $settings);
+ 
+     $autocreate = $this->configuration['autocreate'] && $this->configuration['language_source'] == 'tax';
+--- a/modules/ai_ckeditor/src/Plugin/AiCKEditor/Tone.php
++++ b/modules/ai_ckeditor/src/Plugin/AiCKEditor/Tone.php
+@@ -146,6 +146,6 @@
+    * {@inheritdoc}
+    */
+   public function buildCkEditorModalForm(array $form, FormStateInterface $form_state, array $settings = []) {
+-    $form = parent::buildCkEditorModalForm($form, $form_state);
++    $form = parent::buildCkEditorModalForm($form, $form_state, $settings);
+ 
+     $form['tone'] = [
+ 
