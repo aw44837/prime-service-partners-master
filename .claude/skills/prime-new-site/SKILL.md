@@ -52,6 +52,7 @@ file paths) directly. Echo a summary back before executing.
 | 9 | **Header logo** | absolute path to PNG/SVG (transparent). |
 | 10 | **Footer logo (white)** | absolute path, optional. For the dark footer. |
 | 11 | **Favicon** | absolute path to square PNG/ICO. |
+| 12 | **Market (City, State)** | e.g. `Newport, New Hampshire` — localizes the AI prompts (§9b). Accept "none / multiple markets" → strip location phrasing instead. Spell the state out, don't abbreviate. |
 
 **Branding shortcut:** if the client already has a live website, offer to **scrape
 inputs 5–11 from its URL** instead of asking for each — see §1b. Confirm the extracted
@@ -166,6 +167,29 @@ TCFG="$TDIR/config/install/$THEME.settings.yml"   # source settings to keep in s
 ```bash
 cd "$WS/$SLUG" && ddev drush config:set system.site name '<Site display name>' --yes
 ```
+
+## 9b. Localize the AI prompts (market + company name)
+
+The master template's AI prompts reference **JefCo's** company name and market
+(`Santa Rosa Beach, Florida`) in three configs — every child inherits them via the
+DB seed (found the hard way 2026-07-09: five live sites generated content for the
+wrong city). Replace them right after setting the site name:
+
+- `ai_ckeditor.settings` (prompts.complete)
+- `ai_automators.ai_automator.node.article.body.default`
+- `ai_automators.ai_automator.node.services.field_featured_image_prompt.default`
+
+With a market (input 12): replace `Santa Rosa Beach, Florida` → `<City, State>` and
+`JefCo Air Conditioning & Plumbing` → `<Site display name>` in all string values of
+those configs (recursive walk + `str_replace` via `drush php:script`, then
+`cache:rebuild`).
+
+Without a market ("none/multiple" — Swift Brothers pattern), instead replace:
+- `Location: based in Santa Rosa Beach, Florida and will be used` → `The content will be used`
+- `If generating images of outside, make them realistic to Santa Rosa Beach, Florida region.` → `If generating images of outside, make them realistic.`
+- company name as above.
+
+Verify: `grep -h 'company called\|Location: based\|realistic' <sync>/ai_ckeditor.settings.yml <sync>/ai_automators.*.yml` after the final config:export shows the new market/name and no `Santa Rosa`.
 
 ## 10. Rebrand the theme
 
