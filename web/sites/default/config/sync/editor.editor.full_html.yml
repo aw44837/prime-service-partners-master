@@ -61,22 +61,22 @@ settings:
           provider: ''
         ai_ckeditor_reformat_html:
           enabled: true
-          provider: openai__gpt-5.4-mini
+          provider: openai__gpt-5.6-luna
         ai_ckeditor_spellfix:
           enabled: true
-          provider: openai__gpt-5.4-mini
+          provider: openai__gpt-5.6-luna
         ai_ckeditor_summarize:
           enabled: false
-          provider: openai__gpt-5.4-mini
+          provider: openai__gpt-5.6-luna
         ai_ckeditor_tone:
           enabled: false
-          provider: openai__gpt-5.4-mini
+          provider: openai__gpt-5.6-luna
           autocreate: false
           tone_vocabulary: roof_types
           use_description: false
         ai_ckeditor_translate:
           enabled: false
-          provider: openai__gpt-5.4-mini
+          provider: openai__gpt-5.6-luna
           language_source: tax
           autocreate: false
           translate_vocabulary: roof_types
