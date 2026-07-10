@@ -21,6 +21,8 @@ versioned_properties:
             -
               value: 'https://www.youtube.com/watch?v=nGWdpVd8Bz8'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         title:
           required: false
           field_type: string
@@ -29,6 +31,8 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         border_radius:
           required: false
           field_type: list_string
@@ -38,6 +42,7 @@ versioned_properties:
           field_widget: options_select
           default_value: null
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
 label: 'Youtube video'

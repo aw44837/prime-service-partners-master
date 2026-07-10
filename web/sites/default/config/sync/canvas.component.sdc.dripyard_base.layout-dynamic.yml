@@ -6,11 +6,6 @@ dependencies:
     - options
   theme:
     - dripyard_base
-label: 'Dynamic Section'
-id: sdc.dripyard_base.layout-dynamic
-source: sdc
-source_local_id: 'dripyard_base:layout-dynamic'
-provider: dripyard_base
 active_version: 32fe1576b04d9d74
 versioned_properties:
   active:
@@ -27,6 +22,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         additional_classes:
           required: false
           field_type: string
@@ -35,6 +31,8 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         column_count:
           required: true
           field_type: list_float
@@ -46,6 +44,7 @@ versioned_properties:
             -
               value: '1'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         row_count:
           required: true
           field_type: list_float
@@ -57,6 +56,7 @@ versioned_properties:
             -
               value: '1'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         two_column_layout:
           required: false
           field_type: list_string
@@ -68,6 +68,7 @@ versioned_properties:
             -
               value: '50% / 50%'
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         three_column_layout:
           required: false
           field_type: list_string
@@ -79,6 +80,7 @@ versioned_properties:
             -
               value: '33% / 33% / 33%'
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         cell_align_x:
           required: true
           field_type: list_string
@@ -90,6 +92,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         cell_align_y:
           required: true
           field_type: list_string
@@ -101,6 +104,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         section_width:
           required: true
           field_type: list_string
@@ -112,6 +116,7 @@ versioned_properties:
             -
               value: edge-to-edge
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         content_width:
           required: true
           field_type: list_string
@@ -123,6 +128,7 @@ versioned_properties:
             -
               value: max-width
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_top:
           required: true
           field_type: list_string
@@ -134,6 +140,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_bottom:
           required: true
           field_type: list_string
@@ -145,6 +152,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         padding_top:
           required: true
           field_type: list_string
@@ -156,6 +164,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         padding_bottom:
           required: true
           field_type: list_string
@@ -167,6 +176,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         column_gutter:
           required: true
           field_type: list_string
@@ -178,6 +188,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         row_gutter:
           required: true
           field_type: list_string
@@ -189,6 +200,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         header:
@@ -239,6 +251,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         additional_classes:
           required: false
           field_type: string
@@ -247,6 +260,7 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         column_count:
           required: true
           field_type: list_float
@@ -258,6 +272,7 @@ versioned_properties:
             -
               value: '1'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         row_count:
           required: true
           field_type: list_float
@@ -269,6 +284,7 @@ versioned_properties:
             -
               value: '1'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         two_column_layout:
           required: false
           field_type: list_string
@@ -280,6 +296,7 @@ versioned_properties:
             -
               value: '50% / 50%'
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         three_column_layout:
           required: false
           field_type: list_string
@@ -291,6 +308,7 @@ versioned_properties:
             -
               value: '33% / 33% / 33%'
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         cell_align_x:
           required: true
           field_type: list_string
@@ -302,6 +320,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         cell_align_y:
           required: true
           field_type: list_string
@@ -313,6 +332,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         section_width:
           required: true
           field_type: list_string
@@ -324,6 +344,7 @@ versioned_properties:
             -
               value: edge-to-edge
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         content_width:
           required: true
           field_type: list_string
@@ -335,6 +356,7 @@ versioned_properties:
             -
               value: max-width
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_top:
           required: true
           field_type: list_string
@@ -346,6 +368,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_bottom:
           required: true
           field_type: list_string
@@ -357,6 +380,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         padding_top:
           required: true
           field_type: list_string
@@ -368,6 +392,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         padding_bottom:
           required: true
           field_type: list_string
@@ -379,6 +404,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         column_gutter:
           required: true
           field_type: list_string
@@ -390,6 +416,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         row_gutter:
           required: true
           field_type: list_string
@@ -401,6 +428,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         header:
@@ -451,6 +479,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         additional_classes:
           required: false
           field_type: string
@@ -459,6 +488,7 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         column_count:
           required: true
           field_type: list_float
@@ -470,6 +500,7 @@ versioned_properties:
             -
               value: '1'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         row_count:
           required: true
           field_type: list_float
@@ -481,6 +512,7 @@ versioned_properties:
             -
               value: '1'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         two_column_layout:
           required: false
           field_type: list_string
@@ -492,6 +524,7 @@ versioned_properties:
             -
               value: '50% / 50%'
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         three_column_layout:
           required: false
           field_type: list_string
@@ -503,6 +536,7 @@ versioned_properties:
             -
               value: '33% / 33% / 33%'
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         cell_align_x:
           required: true
           field_type: list_string
@@ -514,6 +548,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         cell_align_y:
           required: true
           field_type: list_string
@@ -525,6 +560,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         section_width:
           required: true
           field_type: list_string
@@ -536,6 +572,7 @@ versioned_properties:
             -
               value: edge-to-edge
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         content_width:
           required: true
           field_type: list_string
@@ -547,6 +584,7 @@ versioned_properties:
             -
               value: max-width
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_top:
           required: true
           field_type: list_string
@@ -558,6 +596,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_bottom:
           required: true
           field_type: list_string
@@ -569,6 +608,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         padding_top:
           required: true
           field_type: list_string
@@ -580,6 +620,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         padding_bottom:
           required: true
           field_type: list_string
@@ -591,6 +632,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         column_gutter:
           required: true
           field_type: list_string
@@ -602,6 +644,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         row_gutter:
           required: true
           field_type: list_string
@@ -613,6 +656,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         header:
@@ -649,3 +693,8 @@ versioned_properties:
           title: 'Cell 15'
         cell_16:
           title: 'Cell 16'
+label: 'Dynamic Section'
+id: sdc.dripyard_base.layout-dynamic
+provider: dripyard_base
+source: sdc
+source_local_id: 'dripyard_base:layout-dynamic'

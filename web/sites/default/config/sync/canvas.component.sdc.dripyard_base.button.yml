@@ -22,6 +22,8 @@ versioned_properties:
             -
               value: 'Learn more'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         href:
           required: false
           field_type: link
@@ -35,6 +37,9 @@ versioned_properties:
               uri: 'https://www.drupal.org'
               options: {  }
           expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
         style:
           required: false
           field_type: list_string
@@ -46,6 +51,7 @@ versioned_properties:
             -
               value: primary
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         size:
           required: false
           field_type: list_string
@@ -57,6 +63,7 @@ versioned_properties:
             -
               value: medium
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         target:
           required: false
           field_type: boolean
@@ -65,6 +72,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         prefix_icon:
           required: false
           field_type: string
@@ -73,6 +81,8 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         suffix_icon:
           required: false
           field_type: string
@@ -81,6 +91,8 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         additional_classes:
           required: false
           field_type: string
@@ -89,6 +101,8 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
     fallback_metadata:
       slot_definitions: {  }
   f0368947665f0cbf:
@@ -104,6 +118,7 @@ versioned_properties:
             -
               value: 'Learn more'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         href:
           required: false
           field_type: link
@@ -117,6 +132,7 @@ versioned_properties:
               uri: 'https://www.drupal.org'
               options: {  }
           expression: ℹ︎link␟url
+          derived_schema_metadata: {  }
         style:
           required: false
           field_type: list_string
@@ -128,6 +144,7 @@ versioned_properties:
             -
               value: primary
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         size:
           required: false
           field_type: list_string
@@ -139,6 +156,7 @@ versioned_properties:
             -
               value: medium
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         target:
           required: false
           field_type: boolean
@@ -147,6 +165,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         prefix_icon:
           required: false
           field_type: string
@@ -155,6 +174,7 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         suffix_icon:
           required: false
           field_type: string
@@ -163,6 +183,7 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   3155d0acceef4faf:

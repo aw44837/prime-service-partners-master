@@ -21,6 +21,8 @@ versioned_properties:
             -
               value: check
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         text:
           required: true
           field_type: string
@@ -31,6 +33,8 @@ versioned_properties:
             -
               value: 'All of our themes are built to WCAG 2.2 AA standards.'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         href:
           required: false
           field_type: link
@@ -41,6 +45,9 @@ versioned_properties:
           field_widget: link_default
           default_value: null
           expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
     fallback_metadata:
       slot_definitions: {  }
 label: 'Icon list item'

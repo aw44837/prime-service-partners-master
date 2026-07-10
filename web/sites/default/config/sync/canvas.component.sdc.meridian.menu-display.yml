@@ -22,6 +22,7 @@ versioned_properties:
             -
               value: main
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         depth:
           required: false
           field_type: list_integer
@@ -33,6 +34,7 @@ versioned_properties:
             -
               value: 1
           expression: ℹ︎list_integer␟value
+          derived_schema_metadata: {  }
         style:
           required: false
           field_type: list_string
@@ -44,6 +46,7 @@ versioned_properties:
             -
               value: body_m
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         color:
           required: false
           field_type: list_string
@@ -55,6 +58,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         modifier_classes:
           required: false
           field_type: string
@@ -63,6 +67,8 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
     fallback_metadata:
       slot_definitions: {  }
 label: 'Menu Display'

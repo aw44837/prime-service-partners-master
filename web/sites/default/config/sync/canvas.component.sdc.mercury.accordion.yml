@@ -8,11 +8,6 @@ dependencies:
     - mercury
 _core:
   default_config_hash: OM5Tm9JhhePiCUT_V-XgWhuVSc6GlIRqzDsnwFeeoI8
-label: Accordion
-id: sdc.mercury.accordion
-source: sdc
-source_local_id: 'mercury:accordion'
-provider: mercury
 active_version: 9ef1c4769558babd
 versioned_properties:
   active:
@@ -28,6 +23,8 @@ versioned_properties:
             -
               value: 'Section title'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         heading_level:
           required: true
           field_type: list_float
@@ -39,6 +36,7 @@ versioned_properties:
             -
               value: '3'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         open_by_default:
           required: false
           field_type: boolean
@@ -49,6 +47,7 @@ versioned_properties:
             -
               value: false
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         accordion_content:
@@ -67,6 +66,7 @@ versioned_properties:
             -
               value: 'Section title'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         heading_level:
           required: true
           field_type: list_float
@@ -78,6 +78,7 @@ versioned_properties:
             -
               value: '3'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         open_by_default:
           required: false
           field_type: boolean
@@ -88,6 +89,7 @@ versioned_properties:
             -
               value: false
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         accordion_content:
@@ -132,3 +134,8 @@ versioned_properties:
         accordion_content:
           title: 'Accordion content'
           description: 'Content in this slot will be hidden when the accordion is collapsed.'
+label: Accordion
+id: sdc.mercury.accordion
+provider: mercury
+source: sdc
+source_local_id: 'mercury:accordion'

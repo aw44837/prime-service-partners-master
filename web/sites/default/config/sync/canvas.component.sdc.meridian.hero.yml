@@ -22,6 +22,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         height:
           required: true
           field_type: list_string
@@ -33,6 +34,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         align_x:
           required: false
           field_type: list_string
@@ -44,6 +46,7 @@ versioned_properties:
             -
               value: start
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         align_y:
           required: false
           field_type: list_string
@@ -55,6 +58,7 @@ versioned_properties:
             -
               value: bottom
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         text_color:
           required: false
           field_type: list_string
@@ -66,6 +70,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         position_behind_header:
           required: false
           field_type: boolean
@@ -76,6 +81,7 @@ versioned_properties:
             -
               value: true
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         hero_media:
@@ -98,6 +104,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         height:
           required: true
           field_type: list_string
@@ -109,6 +116,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         align_x:
           required: false
           field_type: list_string
@@ -120,6 +128,7 @@ versioned_properties:
             -
               value: start
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         align_y:
           required: false
           field_type: list_string
@@ -131,6 +140,7 @@ versioned_properties:
             -
               value: bottom
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         text_color:
           required: false
           field_type: list_string
@@ -142,6 +152,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         position_behind_header:
           required: false
           field_type: boolean
@@ -152,6 +163,7 @@ versioned_properties:
             -
               value: true
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         hero_media:

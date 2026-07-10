@@ -25,6 +25,8 @@ versioned_properties:
             -
               value: 'Icon card title'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         body:
           required: false
           field_type: text_long
@@ -38,6 +40,10 @@ versioned_properties:
               value: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'
               format: canvas_html_block
           expression: ℹ︎text_long␟processed
+          derived_schema_metadata:
+            string_shape:
+              contentMediaType: text/html
+              x-formatting-context: block
         icon:
           required: true
           field_type: string
@@ -48,6 +54,8 @@ versioned_properties:
             -
               value: cloud
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         href:
           required: false
           field_type: link
@@ -61,6 +69,9 @@ versioned_properties:
               uri: 'http://www.example.com'
               options: {  }
           expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
         no_background:
           required: false
           field_type: boolean
@@ -69,6 +80,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         layout:
           required: false
           field_type: list_string
@@ -80,6 +92,7 @@ versioned_properties:
             -
               value: portrait
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         icon_size:
           required: false
           field_type: list_string
@@ -91,6 +104,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   0eeb0932e0c0186e:
@@ -106,6 +120,7 @@ versioned_properties:
             -
               value: 'Icon card title'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         body:
           required: false
           field_type: text_long
@@ -119,6 +134,7 @@ versioned_properties:
               value: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'
               format: canvas_html_block
           expression: ℹ︎text_long␟processed
+          derived_schema_metadata: {  }
         icon:
           required: true
           field_type: string
@@ -129,6 +145,7 @@ versioned_properties:
             -
               value: cloud
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         href:
           required: false
           field_type: link
@@ -142,6 +159,7 @@ versioned_properties:
               uri: 'http://www.example.com'
               options: {  }
           expression: ℹ︎link␟url
+          derived_schema_metadata: {  }
         no_background:
           required: false
           field_type: boolean
@@ -150,6 +168,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         layout:
           required: false
           field_type: list_string
@@ -161,6 +180,7 @@ versioned_properties:
             -
               value: portrait
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         icon_size:
           required: false
           field_type: list_string
@@ -172,6 +192,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   597b9c2e1dc0b6af:
@@ -187,6 +208,7 @@ versioned_properties:
             -
               value: 'Icon card title'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         body:
           required: false
           field_type: string
@@ -197,6 +219,7 @@ versioned_properties:
             -
               value: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         icon:
           required: true
           field_type: string
@@ -207,6 +230,7 @@ versioned_properties:
             -
               value: cloud
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         href:
           required: false
           field_type: link
@@ -220,6 +244,7 @@ versioned_properties:
               uri: 'http://www.example.com'
               options: {  }
           expression: ℹ︎link␟url
+          derived_schema_metadata: {  }
         no_background:
           required: false
           field_type: boolean
@@ -228,6 +253,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         layout:
           required: false
           field_type: list_string
@@ -239,6 +265,7 @@ versioned_properties:
             -
               value: portrait
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         icon_size:
           required: false
           field_type: list_string
@@ -250,6 +277,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
 label: 'Icon card'

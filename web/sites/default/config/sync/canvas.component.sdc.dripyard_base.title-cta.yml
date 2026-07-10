@@ -23,6 +23,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         title:
           required: true
           field_type: string
@@ -33,6 +34,8 @@ versioned_properties:
             -
               value: 'This is title text that is paired with a CTA'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         heading_style:
           required: false
           field_type: list_string
@@ -44,6 +47,7 @@ versioned_properties:
             -
               value: h2
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         button_text:
           required: false
           field_type: string
@@ -54,6 +58,8 @@ versioned_properties:
             -
               value: 'Learn more'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         button_href:
           required: false
           field_type: link
@@ -67,6 +73,9 @@ versioned_properties:
               uri: 'https://www.drupal.org'
               options: {  }
           expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
         button_style:
           required: false
           field_type: list_string
@@ -78,6 +87,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         button_size:
           required: false
           field_type: list_string
@@ -87,6 +97,7 @@ versioned_properties:
           field_widget: options_select
           default_value: null
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         button_target:
           required: false
           field_type: boolean
@@ -95,6 +106,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         button_prefix_icon:
           required: false
           field_type: string
@@ -103,6 +115,8 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         button_suffix_icon:
           required: false
           field_type: string
@@ -111,6 +125,8 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
     fallback_metadata:
       slot_definitions: {  }
   fd6bbffa9b05aa5a:

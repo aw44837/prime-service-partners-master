@@ -22,6 +22,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         additional_classes:
           required: false
           field_type: string
@@ -30,6 +31,8 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         section_width:
           required: true
           field_type: list_string
@@ -41,6 +44,7 @@ versioned_properties:
             -
               value: edge-to-edge
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         content_width:
           required: true
           field_type: list_string
@@ -52,6 +56,7 @@ versioned_properties:
             -
               value: max-width
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_top:
           required: true
           field_type: list_string
@@ -63,6 +68,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_bottom:
           required: true
           field_type: list_string
@@ -74,6 +80,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         padding_top:
           required: true
           field_type: list_string
@@ -85,6 +92,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         padding_bottom:
           required: true
           field_type: list_string
@@ -96,6 +104,7 @@ versioned_properties:
             -
               value: large
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         header:

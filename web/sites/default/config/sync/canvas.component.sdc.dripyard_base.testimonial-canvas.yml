@@ -34,6 +34,7 @@ versioned_properties:
           field_widget: media_library_widget
           default_value: {  }
           expression: 'ℹ︎entity_reference␟entity␜[␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}][␜entity:media:svg_image␝field_media_svg_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}]'
+          derived_schema_metadata: {  }
         quote:
           required: false
           field_type: string_long
@@ -44,6 +45,9 @@ versioned_properties:
             -
               value: 'I have made lifelong friendships that I would have never imagined before coming to Great Lake Institute. The university and the people here have helped shape me into the person I am now.'
           expression: ℹ︎string_long␟value
+          derived_schema_metadata:
+            string_shape:
+              pattern: '(.|\r?\n)*'
         citation:
           required: false
           field_type: string
@@ -54,6 +58,8 @@ versioned_properties:
             -
               value: 'Sophie, 19'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         reversed:
           required: false
           field_type: boolean
@@ -62,6 +68,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         theme:
           required: false
           field_type: list_string
@@ -73,6 +80,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   a37097d9cbc6a10a:
@@ -92,6 +100,7 @@ versioned_properties:
           field_widget: media_library_widget
           default_value: {  }
           expression: 'ℹ︎entity_reference␟entity␜[␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}][␜entity:media:svg_image␝field_media_svg_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}]'
+          derived_schema_metadata: {  }
         quote:
           required: false
           field_type: string_long
@@ -102,6 +111,7 @@ versioned_properties:
             -
               value: 'I have made lifelong friendships that I would have never imagined before coming to Great Lake Institute. The university and the people here have helped shape me into the person I am now.'
           expression: ℹ︎string_long␟value
+          derived_schema_metadata: {  }
         citation:
           required: false
           field_type: string
@@ -112,6 +122,7 @@ versioned_properties:
             -
               value: 'Sophie, 19'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         reversed:
           required: false
           field_type: boolean
@@ -120,6 +131,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         theme:
           required: false
           field_type: list_string
@@ -131,6 +143,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   652c3c6260df2cf3:
@@ -150,6 +163,7 @@ versioned_properties:
           field_widget: media_library_widget
           default_value: {  }
           expression: 'ℹ︎entity_reference␟entity␜[␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}][␜entity:media:svg_image␝field_media_svg_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}]'
+          derived_schema_metadata: {  }
         quote:
           required: false
           field_type: string_long
@@ -160,6 +174,7 @@ versioned_properties:
             -
               value: 'I have made lifelong friendships that I would have never imagined before coming to Great Lake Institute. The university and the people here have helped shape me into the person I am now.'
           expression: ℹ︎string_long␟value
+          derived_schema_metadata: {  }
         citation:
           required: false
           field_type: string
@@ -170,6 +185,7 @@ versioned_properties:
             -
               value: 'Sophie, 19'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         reversed:
           required: false
           field_type: boolean
@@ -178,6 +194,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         theme:
           required: false
           field_type: list_string
@@ -189,6 +206,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
 label: Testimonial

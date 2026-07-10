@@ -22,6 +22,7 @@ versioned_properties:
             -
               value: medium
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         layout:
           required: true
           field_type: list_string
@@ -33,6 +34,7 @@ versioned_properties:
             -
               value: start
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         logo_background:
           required: true
           field_type: list_string
@@ -44,6 +46,7 @@ versioned_properties:
             -
               value: auto
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         logo_border_radius:
           required: false
           field_type: list_string
@@ -55,6 +58,7 @@ versioned_properties:
             -
               value: 'extra large'
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         logo_grid_content:

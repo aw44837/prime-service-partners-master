@@ -8,11 +8,6 @@ dependencies:
     - mercury
 _core:
   default_config_hash: XGYT2I0gKw5WkZHzWtxHnXLiXBTIHuevif1xgxgt_-0
-label: Navbar
-id: sdc.mercury.navbar
-source: sdc
-source_local_id: 'mercury:navbar'
-provider: mercury
 active_version: 3149f199d66bbc29
 versioned_properties:
   active:
@@ -29,6 +24,7 @@ versioned_properties:
             -
               value: center
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         logo:
@@ -37,3 +33,8 @@ versioned_properties:
           title: 'Navigation menu'
         links:
           title: CTAs
+label: Navbar
+id: sdc.mercury.navbar
+provider: mercury
+source: sdc
+source_local_id: 'mercury:navbar'

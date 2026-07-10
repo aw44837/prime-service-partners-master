@@ -22,6 +22,7 @@ versioned_properties:
             -
               value: medium
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_bottom:
           required: true
           field_type: list_string
@@ -33,6 +34,7 @@ versioned_properties:
             -
               value: medium
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         color:
           required: true
           field_type: list_string
@@ -44,6 +46,7 @@ versioned_properties:
             -
               value: primary
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         width:
           required: true
           field_type: list_string
@@ -55,6 +58,7 @@ versioned_properties:
             -
               value: full
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         alignment:
           required: true
           field_type: list_string
@@ -66,6 +70,7 @@ versioned_properties:
             -
               value: start
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         modifier_classes:
           required: false
           field_type: string
@@ -74,6 +79,8 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
     fallback_metadata:
       slot_definitions: {  }
   cd700a065dfabdab:
@@ -90,6 +97,7 @@ versioned_properties:
             -
               value: medium
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_bottom:
           required: true
           field_type: list_string
@@ -101,6 +109,7 @@ versioned_properties:
             -
               value: medium
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         color:
           required: true
           field_type: list_string
@@ -112,6 +121,7 @@ versioned_properties:
             -
               value: primary
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         width:
           required: true
           field_type: list_string
@@ -123,6 +133,7 @@ versioned_properties:
             -
               value: full
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         alignment:
           required: true
           field_type: list_string
@@ -134,6 +145,7 @@ versioned_properties:
             -
               value: start
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         modifier_classes:
           required: false
           field_type: string
@@ -142,6 +154,7 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
 label: 'Horizontal line'

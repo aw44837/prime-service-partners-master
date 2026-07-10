@@ -22,6 +22,7 @@ versioned_properties:
             -
               value: '2024-07-15T14:30:00Z'
           expression: ℹ︎datetime␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
 label: 'Date Block'

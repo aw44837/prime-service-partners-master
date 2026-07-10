@@ -6,11 +6,6 @@ dependencies:
     - mercury
 _core:
   default_config_hash: K9O7_fh4A3gKPx_UU2qn0vosz3ckrpdOlruhW5ZfLI8
-label: Footer
-id: sdc.mercury.footer
-source: sdc
-source_local_id: 'mercury:footer'
-provider: mercury
 active_version: d696cea1796b650e
 versioned_properties:
   active:
@@ -26,6 +21,7 @@ versioned_properties:
             -
               value: true
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         footer_first:
@@ -36,3 +32,8 @@ versioned_properties:
           title: 'Utility links'
         footer_utility_last:
           title: 'Copyright text'
+label: Footer
+id: sdc.mercury.footer
+provider: mercury
+source: sdc
+source_local_id: 'mercury:footer'

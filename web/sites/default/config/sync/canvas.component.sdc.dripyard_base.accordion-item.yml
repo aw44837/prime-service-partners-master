@@ -19,6 +19,8 @@ versioned_properties:
             -
               value: 'Accordion item title'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         open:
           required: false
           field_type: boolean
@@ -27,6 +29,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         accordion_item_content:

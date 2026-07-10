@@ -18,11 +18,6 @@ dependencies:
     - mercury
 _core:
   default_config_hash: pk_xWsGbO3BBIc1DxG00ld5ca6-TkHQ98FkSQVxRRbU
-label: 'Image card'
-id: sdc.mercury.card
-source: sdc
-source_local_id: 'mercury:card'
-provider: mercury
 active_version: c313844ff80fde7d
 versioned_properties:
   active:
@@ -39,6 +34,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         style:
           required: true
           field_type: list_string
@@ -50,6 +46,7 @@ versioned_properties:
             -
               value: framed
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         orientation:
           required: true
           field_type: list_string
@@ -61,6 +58,7 @@ versioned_properties:
             -
               value: vertical
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         heading_text:
           required: true
           field_type: string
@@ -71,6 +69,8 @@ versioned_properties:
             -
               value: 'This is your card title'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         level:
           required: false
           field_type: list_float
@@ -82,6 +82,7 @@ versioned_properties:
             -
               value: '3'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         url:
           required: false
           field_type: link
@@ -92,6 +93,9 @@ versioned_properties:
           field_widget: link_default
           default_value: null
           expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
         media:
           required: false
           field_type: entity_reference
@@ -106,6 +110,7 @@ versioned_properties:
           field_widget: media_library_widget
           default_value: {  }
           expression: 'ℹ︎entity_reference␟entity␜[␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}][␜entity:media:svg_image␝field_media_svg_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}]'
+          derived_schema_metadata: {  }
         text:
           required: false
           field_type: string_long
@@ -116,6 +121,9 @@ versioned_properties:
             -
               value: 'Quaerat laborum rerum dolores dolores dolor qui.'
           expression: ℹ︎string_long␟value
+          derived_schema_metadata:
+            string_shape:
+              pattern: '(.|\r?\n)*'
         is_text_centered:
           required: false
           field_type: boolean
@@ -126,6 +134,7 @@ versioned_properties:
             -
               value: false
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   eaa9b4230bb57cb4:
@@ -142,6 +151,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         style:
           required: true
           field_type: list_string
@@ -153,6 +163,7 @@ versioned_properties:
             -
               value: framed
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         orientation:
           required: true
           field_type: list_string
@@ -164,6 +175,7 @@ versioned_properties:
             -
               value: vertical
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         heading_text:
           required: true
           field_type: string
@@ -174,6 +186,7 @@ versioned_properties:
             -
               value: 'This is your card title'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         level:
           required: false
           field_type: list_float
@@ -185,6 +198,7 @@ versioned_properties:
             -
               value: '3'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         url:
           required: false
           field_type: link
@@ -195,6 +209,7 @@ versioned_properties:
           field_widget: link_default
           default_value: null
           expression: ℹ︎link␟url
+          derived_schema_metadata: {  }
         media:
           required: false
           field_type: entity_reference
@@ -209,6 +224,7 @@ versioned_properties:
           field_widget: media_library_widget
           default_value: {  }
           expression: 'ℹ︎entity_reference␟entity␜[␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}][␜entity:media:svg_image␝field_media_svg_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}]'
+          derived_schema_metadata: {  }
         text:
           required: false
           field_type: string_long
@@ -219,6 +235,7 @@ versioned_properties:
             -
               value: 'Quaerat laborum rerum dolores dolores dolor qui.'
           expression: ℹ︎string_long␟value
+          derived_schema_metadata: {  }
         is_text_centered:
           required: false
           field_type: boolean
@@ -229,6 +246,7 @@ versioned_properties:
             -
               value: false
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   376670f788b8044f:
@@ -245,6 +263,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         style:
           required: true
           field_type: list_string
@@ -256,6 +275,7 @@ versioned_properties:
             -
               value: framed
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         orientation:
           required: true
           field_type: list_string
@@ -267,6 +287,7 @@ versioned_properties:
             -
               value: vertical
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         heading_text:
           required: true
           field_type: string
@@ -277,6 +298,7 @@ versioned_properties:
             -
               value: 'This is your card title'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         level:
           required: false
           field_type: list_float
@@ -288,6 +310,7 @@ versioned_properties:
             -
               value: '3'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         url:
           required: false
           field_type: link
@@ -298,6 +321,7 @@ versioned_properties:
           field_widget: link_default
           default_value: null
           expression: ℹ︎link␟url
+          derived_schema_metadata: {  }
         media:
           required: false
           field_type: entity_reference
@@ -312,6 +336,7 @@ versioned_properties:
           field_widget: media_library_widget
           default_value: {  }
           expression: 'ℹ︎entity_reference␟entity␜[␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}][␜entity:media:svg_image␝field_media_svg_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}]'
+          derived_schema_metadata: {  }
         text:
           required: false
           field_type: string_long
@@ -322,6 +347,7 @@ versioned_properties:
             -
               value: 'Quaerat laborum rerum dolores dolores dolor qui.'
           expression: ℹ︎string_long␟value
+          derived_schema_metadata: {  }
         is_text_centered:
           required: false
           field_type: boolean
@@ -332,6 +358,7 @@ versioned_properties:
             -
               value: false
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   a8c96c629f8e368e:
@@ -348,6 +375,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         style:
           required: true
           field_type: list_string
@@ -359,6 +387,7 @@ versioned_properties:
             -
               value: framed
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         orientation:
           required: true
           field_type: list_string
@@ -370,6 +399,7 @@ versioned_properties:
             -
               value: vertical
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         heading_text:
           required: true
           field_type: string
@@ -380,6 +410,7 @@ versioned_properties:
             -
               value: 'This is your card title'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         level:
           required: false
           field_type: list_float
@@ -391,6 +422,7 @@ versioned_properties:
             -
               value: '3'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         url:
           required: false
           field_type: string
@@ -399,6 +431,7 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         media:
           required: false
           field_type: entity_reference
@@ -413,6 +446,7 @@ versioned_properties:
           field_widget: media_library_widget
           default_value: {  }
           expression: 'ℹ︎entity_reference␟entity␜[␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}][␜entity:media:svg_image␝field_media_svg_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}]'
+          derived_schema_metadata: {  }
         text:
           required: false
           field_type: string_long
@@ -423,6 +457,7 @@ versioned_properties:
             -
               value: 'Quaerat laborum rerum dolores dolores dolor qui.'
           expression: ℹ︎string_long␟value
+          derived_schema_metadata: {  }
         is_text_centered:
           required: false
           field_type: boolean
@@ -433,6 +468,7 @@ versioned_properties:
             -
               value: false
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   c8502b3eb667656d:
@@ -449,6 +485,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         style:
           required: true
           field_type: list_string
@@ -460,6 +497,7 @@ versioned_properties:
             -
               value: framed
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         orientation:
           required: true
           field_type: list_string
@@ -471,6 +509,7 @@ versioned_properties:
             -
               value: vertical
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         heading_text:
           required: true
           field_type: string
@@ -481,6 +520,7 @@ versioned_properties:
             -
               value: 'This is your card title'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         level:
           required: false
           field_type: list_float
@@ -492,6 +532,7 @@ versioned_properties:
             -
               value: '3'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         url:
           required: false
           field_type: string
@@ -500,6 +541,7 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         media:
           required: false
           field_type: entity_reference
@@ -514,6 +556,7 @@ versioned_properties:
           field_widget: media_library_widget
           default_value: {  }
           expression: 'ℹ︎entity_reference␟entity␜[␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}][␜entity:media:svg_image␝field_media_svg_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}]'
+          derived_schema_metadata: {  }
         text:
           required: false
           field_type: string_long
@@ -524,6 +567,7 @@ versioned_properties:
             -
               value: 'Quaerat laborum rerum dolores dolores dolor qui.'
           expression: ℹ︎string_long␟value
+          derived_schema_metadata: {  }
         is_text_centered:
           required: false
           field_type: boolean
@@ -534,6 +578,7 @@ versioned_properties:
             -
               value: false
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   c2df9c05dfd64ddf:
@@ -550,6 +595,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         style:
           required: true
           field_type: list_string
@@ -561,6 +607,7 @@ versioned_properties:
             -
               value: framed
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         orientation:
           required: true
           field_type: list_string
@@ -572,6 +619,7 @@ versioned_properties:
             -
               value: vertical
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         heading_text:
           required: true
           field_type: string
@@ -582,6 +630,7 @@ versioned_properties:
             -
               value: 'This is your card title'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         level:
           required: false
           field_type: list_float
@@ -593,6 +642,7 @@ versioned_properties:
             -
               value: '3'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         url:
           required: false
           field_type: string
@@ -601,6 +651,7 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         media:
           required: false
           field_type: entity_reference
@@ -615,6 +666,7 @@ versioned_properties:
           field_widget: media_library_widget
           default_value: {  }
           expression: 'ℹ︎entity_reference␟entity␜[␜entity:media:image␝field_media_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}][␜entity:media:svg_image␝field_media_svg_image␞␟{src↠src_with_alternate_widths,alt↠alt,width↠width,height↠height}]'
+          derived_schema_metadata: {  }
         text:
           required: false
           field_type: string_long
@@ -625,6 +677,7 @@ versioned_properties:
             -
               value: 'Quaerat laborum rerum dolores dolores dolor qui.'
           expression: ℹ︎string_long␟value
+          derived_schema_metadata: {  }
         is_text_centered:
           required: false
           field_type: boolean
@@ -635,5 +688,11 @@ versioned_properties:
             -
               value: false
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
+label: 'Image card'
+id: sdc.mercury.card
+provider: mercury
+source: sdc
+source_local_id: 'mercury:card'

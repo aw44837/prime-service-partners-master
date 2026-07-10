@@ -154,12 +154,6 @@
         "drupal-core-vendor-hardening": {
             "composer/composer": false
         },
-        "patches": {
-            "drupal/ai": {
-                "ai_automators AiCKEditor namespace case mismatch (1.4.3)": "patches/ai-1.4.3-ai_automators-ckeditor-namespace-case.patch",
-                "ai_ckeditor dialog fatal: null getParentRequest (1.4.3, backport of 1.4.x-dev fix)": "patches/ai-1.4.3-ai_ckeditor-dialog-null-parent-request.patch"
-            }
-        },
         "composer-exit-on-patch-failure": true
     },
     "scripts": {

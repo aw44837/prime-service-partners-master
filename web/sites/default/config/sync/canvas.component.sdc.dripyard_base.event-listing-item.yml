@@ -25,6 +25,8 @@ versioned_properties:
             -
               value: 'Summer Music Festival'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         url:
           required: true
           field_type: link
@@ -38,6 +40,9 @@ versioned_properties:
               uri: /events/summer-festival
               options: {  }
           expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
         date_time_stamp_begin:
           required: true
           field_type: datetime
@@ -49,6 +54,7 @@ versioned_properties:
             -
               value: '2024-07-15T14:30:00Z'
           expression: ℹ︎datetime␟value
+          derived_schema_metadata: {  }
         description:
           required: false
           field_type: text_long
@@ -62,6 +68,10 @@ versioned_properties:
               value: 'Join us for an amazing outdoor music experience'
               format: canvas_html_block
           expression: ℹ︎text_long␟processed
+          derived_schema_metadata:
+            string_shape:
+              contentMediaType: text/html
+              x-formatting-context: block
         formatted_time:
           required: false
           field_type: string
@@ -72,6 +82,8 @@ versioned_properties:
             -
               value: '2:30 PM - 5:00 PM'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         location:
           required: false
           field_type: string
@@ -82,6 +94,8 @@ versioned_properties:
             -
               value: 'Central Park Amphitheater'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
     fallback_metadata:
       slot_definitions: {  }
   77b03e919277a74d:
@@ -97,6 +111,7 @@ versioned_properties:
             -
               value: 'Summer Music Festival'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         url:
           required: true
           field_type: link
@@ -110,6 +125,7 @@ versioned_properties:
               uri: /events/summer-festival
               options: {  }
           expression: ℹ︎link␟url
+          derived_schema_metadata: {  }
         date_time_stamp_begin:
           required: true
           field_type: datetime
@@ -121,6 +137,7 @@ versioned_properties:
             -
               value: '2024-07-15T14:30:00Z'
           expression: ℹ︎datetime␟value
+          derived_schema_metadata: {  }
         description:
           required: false
           field_type: string
@@ -131,6 +148,7 @@ versioned_properties:
             -
               value: 'Join us for an amazing outdoor music experience'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         formatted_time:
           required: false
           field_type: string
@@ -141,6 +159,7 @@ versioned_properties:
             -
               value: '2:30 PM - 5:00 PM'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         location:
           required: false
           field_type: string
@@ -151,6 +170,7 @@ versioned_properties:
             -
               value: 'Central Park Amphitheater'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
 label: 'Event Listing Item'

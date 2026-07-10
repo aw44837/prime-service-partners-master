@@ -19,6 +19,8 @@ versioned_properties:
             -
               value: '$2,400'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         first_line:
           required: false
           field_type: string
@@ -29,6 +31,8 @@ versioned_properties:
             -
               value: Students
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         second_line:
           required: false
           field_type: string
@@ -39,6 +43,8 @@ versioned_properties:
             -
               value: 'Enrolled students from 45 countries'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         href:
           required: false
           field_type: string
@@ -49,6 +55,8 @@ versioned_properties:
             -
               value: 'http://www.drupal.org'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
     fallback_metadata:
       slot_definitions: {  }
 label: Statistic

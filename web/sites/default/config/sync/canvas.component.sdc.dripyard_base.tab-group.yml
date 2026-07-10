@@ -19,6 +19,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         centered:
           required: false
           field_type: boolean
@@ -27,6 +28,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         placement:
           required: false
           field_type: list_string
@@ -38,6 +40,7 @@ versioned_properties:
             -
               value: top
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         icon_size:
           required: false
           field_type: list_string
@@ -49,6 +52,7 @@ versioned_properties:
             -
               value: small
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         icon_placement:
           required: false
           field_type: list_string
@@ -60,6 +64,7 @@ versioned_properties:
             -
               value: vertical
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         tabs:

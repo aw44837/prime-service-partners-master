@@ -24,6 +24,8 @@ versioned_properties:
             -
               value: 'Content Card Title'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         link_href:
           required: true
           field_type: link
@@ -37,6 +39,9 @@ versioned_properties:
               uri: /
               options: {  }
           expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
         metadata:
           required: false
           field_type: string
@@ -47,6 +52,8 @@ versioned_properties:
             -
               value: '20 March 2027'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         body_text:
           required: true
           field_type: text_long
@@ -60,6 +67,10 @@ versioned_properties:
               value: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quae amet harum placeat voluptates nobis.'
               format: canvas_html_block
           expression: ℹ︎text_long␟processed
+          derived_schema_metadata:
+            string_shape:
+              contentMediaType: text/html
+              x-formatting-context: block
         background:
           required: false
           field_type: boolean
@@ -68,6 +79,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
 label: 'Content Card'

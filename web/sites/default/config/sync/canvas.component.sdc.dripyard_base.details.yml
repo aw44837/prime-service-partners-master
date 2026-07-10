@@ -19,6 +19,8 @@ versioned_properties:
             -
               value: 'Details title'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
     fallback_metadata:
       slot_definitions:
         details_content:

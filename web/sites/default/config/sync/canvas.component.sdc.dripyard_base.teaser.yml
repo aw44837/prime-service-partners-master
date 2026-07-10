@@ -21,6 +21,8 @@ versioned_properties:
             -
               value: 'This is the teaser title'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         href:
           required: true
           field_type: link
@@ -34,6 +36,9 @@ versioned_properties:
               uri: 'http://www.example.com'
               options: {  }
           expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
     fallback_metadata:
       slot_definitions:
         teaser_content:

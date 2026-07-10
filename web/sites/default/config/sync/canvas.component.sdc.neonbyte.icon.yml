@@ -22,6 +22,7 @@ versioned_properties:
             -
               value: 32
           expression: ℹ︎integer␟value
+          derived_schema_metadata: {  }
         icon:
           required: true
           field_type: string
@@ -32,6 +33,8 @@ versioned_properties:
             -
               value: drupal
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         color:
           required: false
           field_type: list_string
@@ -41,6 +44,7 @@ versioned_properties:
           field_widget: options_select
           default_value: null
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         link_href:
           required: false
           field_type: link
@@ -51,6 +55,9 @@ versioned_properties:
           field_widget: link_default
           default_value: null
           expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
         link_text:
           required: false
           field_type: string
@@ -59,6 +66,8 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         open_new_window:
           required: false
           field_type: boolean
@@ -67,6 +76,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   28833826e549dc7f:
@@ -82,6 +92,7 @@ versioned_properties:
             -
               value: 32
           expression: ℹ︎integer␟value
+          derived_schema_metadata: {  }
         icon:
           required: true
           field_type: string
@@ -92,6 +103,7 @@ versioned_properties:
             -
               value: drupal
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
 label: Icon

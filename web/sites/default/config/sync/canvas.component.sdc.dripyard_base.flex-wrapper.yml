@@ -22,6 +22,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         additional_classes:
           required: false
           field_type: string
@@ -30,6 +31,8 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         wrap:
           required: false
           field_type: boolean
@@ -40,6 +43,7 @@ versioned_properties:
             -
               value: true
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         align_x:
           required: true
           field_type: list_string
@@ -51,6 +55,7 @@ versioned_properties:
             -
               value: start
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         align_y:
           required: true
           field_type: list_string
@@ -62,6 +67,7 @@ versioned_properties:
             -
               value: center
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_top:
           required: true
           field_type: list_string
@@ -73,6 +79,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_bottom:
           required: true
           field_type: list_string
@@ -84,6 +91,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         padding_top:
           required: true
           field_type: list_string
@@ -95,6 +103,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         padding_bottom:
           required: true
           field_type: list_string
@@ -106,6 +115,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         column_gutter:
           required: true
           field_type: list_string
@@ -117,6 +127,7 @@ versioned_properties:
             -
               value: small
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         row_gutter:
           required: true
           field_type: list_string
@@ -128,6 +139,7 @@ versioned_properties:
             -
               value: small
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         content:
@@ -146,6 +158,7 @@ versioned_properties:
             -
               value: inherit
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         additional_classes:
           required: false
           field_type: string
@@ -154,6 +167,7 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         wrap:
           required: false
           field_type: boolean
@@ -164,6 +178,7 @@ versioned_properties:
             -
               value: true
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         align_x:
           required: true
           field_type: list_string
@@ -175,6 +190,7 @@ versioned_properties:
             -
               value: start
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         align_y:
           required: true
           field_type: list_string
@@ -186,6 +202,7 @@ versioned_properties:
             -
               value: center
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_top:
           required: true
           field_type: list_string
@@ -197,6 +214,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         margin_bottom:
           required: true
           field_type: list_string
@@ -208,6 +226,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         padding_top:
           required: true
           field_type: list_string
@@ -219,6 +238,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         padding_bottom:
           required: true
           field_type: list_string
@@ -230,6 +250,7 @@ versioned_properties:
             -
               value: zero
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         column_gutter:
           required: true
           field_type: list_string
@@ -241,6 +262,7 @@ versioned_properties:
             -
               value: small
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         row_gutter:
           required: true
           field_type: list_string
@@ -252,6 +274,7 @@ versioned_properties:
             -
               value: small
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         content:

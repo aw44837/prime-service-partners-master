@@ -9,11 +9,6 @@ dependencies:
     - mercury
 _core:
   default_config_hash: VHTPr9hAmj4I7LyL39sXZpnlOXKxQ6MJEqsONw9umgs
-label: Heading
-id: sdc.mercury.heading
-source: sdc
-source_local_id: 'mercury:heading'
-provider: mercury
 active_version: 9ba4baa1476e5856
 versioned_properties:
   active:
@@ -29,6 +24,8 @@ versioned_properties:
             -
               value: 'Your heading goes here'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         level:
           required: false
           field_type: list_float
@@ -40,6 +37,7 @@ versioned_properties:
             -
               value: '2'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         text_size:
           required: true
           field_type: list_string
@@ -51,6 +49,7 @@ versioned_properties:
             -
               value: heading-responsive-4xl
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         text_color:
           required: true
           field_type: list_string
@@ -62,6 +61,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         align:
           required: true
           field_type: list_string
@@ -73,6 +73,7 @@ versioned_properties:
             -
               value: left
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         url:
           required: false
           field_type: link
@@ -83,6 +84,9 @@ versioned_properties:
           field_widget: link_default
           default_value: null
           expression: ℹ︎link␟url
+          derived_schema_metadata:
+            string_shape:
+              format: uri-reference
     fallback_metadata:
       slot_definitions: {  }
   ffda3448819379a1:
@@ -98,6 +102,7 @@ versioned_properties:
             -
               value: 'Your heading goes here'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         level:
           required: false
           field_type: list_float
@@ -109,6 +114,7 @@ versioned_properties:
             -
               value: '2'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         text_size:
           required: true
           field_type: list_string
@@ -120,6 +126,7 @@ versioned_properties:
             -
               value: heading-responsive-4xl
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         text_color:
           required: true
           field_type: list_string
@@ -131,6 +138,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         align:
           required: true
           field_type: list_string
@@ -142,6 +150,7 @@ versioned_properties:
             -
               value: left
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         url:
           required: false
           field_type: link
@@ -152,6 +161,7 @@ versioned_properties:
           field_widget: link_default
           default_value: null
           expression: ℹ︎link␟url
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   fee1c60088ebfe2f:
@@ -167,6 +177,7 @@ versioned_properties:
             -
               value: 'Your heading goes here'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         level:
           required: true
           field_type: list_float
@@ -178,6 +189,7 @@ versioned_properties:
             -
               value: '2'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         text_size:
           required: true
           field_type: list_string
@@ -189,6 +201,7 @@ versioned_properties:
             -
               value: heading-responsive-4xl
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         text_color:
           required: true
           field_type: list_string
@@ -200,6 +213,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         align:
           required: true
           field_type: list_string
@@ -211,6 +225,7 @@ versioned_properties:
             -
               value: left
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         url:
           required: false
           field_type: link
@@ -221,6 +236,7 @@ versioned_properties:
           field_widget: link_default
           default_value: null
           expression: ℹ︎link␟url
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   d7c6acbc91a60ac1:
@@ -236,6 +252,7 @@ versioned_properties:
             -
               value: 'Your heading goes here'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         level:
           required: true
           field_type: list_float
@@ -247,6 +264,7 @@ versioned_properties:
             -
               value: '2'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         text_size:
           required: true
           field_type: list_string
@@ -258,6 +276,7 @@ versioned_properties:
             -
               value: heading-responsive-4xl
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         text_color:
           required: true
           field_type: list_string
@@ -269,6 +288,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         align:
           required: true
           field_type: list_string
@@ -280,6 +300,7 @@ versioned_properties:
             -
               value: left
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         url:
           required: false
           field_type: string
@@ -288,6 +309,7 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   ac2434a43cc31431:
@@ -303,6 +325,7 @@ versioned_properties:
             -
               value: 'Your heading goes here'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         level:
           required: true
           field_type: list_float
@@ -314,6 +337,7 @@ versioned_properties:
             -
               value: '2'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         text_size:
           required: true
           field_type: list_string
@@ -325,6 +349,7 @@ versioned_properties:
             -
               value: heading-responsive-4xl
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         text_color:
           required: true
           field_type: list_string
@@ -336,6 +361,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         align:
           required: true
           field_type: list_string
@@ -347,6 +373,7 @@ versioned_properties:
             -
               value: left
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         url:
           required: false
           field_type: string
@@ -355,6 +382,7 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
   80684659bfb1ef65:
@@ -370,6 +398,7 @@ versioned_properties:
             -
               value: 'Your heading goes here'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         level:
           required: true
           field_type: list_float
@@ -381,6 +410,7 @@ versioned_properties:
             -
               value: '2'
           expression: ℹ︎list_float␟value
+          derived_schema_metadata: {  }
         text_size:
           required: true
           field_type: list_string
@@ -392,6 +422,7 @@ versioned_properties:
             -
               value: heading-responsive-4xl
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         text_color:
           required: true
           field_type: list_string
@@ -403,6 +434,7 @@ versioned_properties:
             -
               value: default
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         align:
           required: true
           field_type: list_string
@@ -414,6 +446,7 @@ versioned_properties:
             -
               value: left
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         url:
           required: false
           field_type: string
@@ -422,5 +455,11 @@ versioned_properties:
           field_widget: string_textfield
           default_value: null
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions: {  }
+label: Heading
+id: sdc.mercury.heading
+provider: mercury
+source: sdc
+source_local_id: 'mercury:heading'

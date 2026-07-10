@@ -19,6 +19,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         label:
           required: false
           field_type: string
@@ -29,6 +30,8 @@ versioned_properties:
             -
               value: 'Product features'
           expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
         pager:
           required: false
           field_type: boolean
@@ -39,6 +42,7 @@ versioned_properties:
             -
               value: true
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         navigation_position:
           required: false
           field_type: list_string
@@ -50,6 +54,7 @@ versioned_properties:
             -
               value: hidden
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         slides_per_view:
           required: false
           field_type: integer
@@ -62,6 +67,7 @@ versioned_properties:
             -
               value: 1
           expression: ℹ︎integer␟value
+          derived_schema_metadata: {  }
         rows:
           required: false
           field_type: integer
@@ -74,6 +80,7 @@ versioned_properties:
             -
               value: 1
           expression: ℹ︎integer␟value
+          derived_schema_metadata: {  }
         autoplay:
           required: false
           field_type: boolean
@@ -82,6 +89,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         carousel_items:
@@ -97,6 +105,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         label:
           required: false
           field_type: string
@@ -107,6 +116,7 @@ versioned_properties:
             -
               value: 'Product features'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         pager:
           required: false
           field_type: boolean
@@ -117,6 +127,7 @@ versioned_properties:
             -
               value: true
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         navigation_position:
           required: false
           field_type: list_string
@@ -128,6 +139,7 @@ versioned_properties:
             -
               value: hidden
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         slides_per_view:
           required: false
           field_type: float
@@ -140,6 +152,7 @@ versioned_properties:
             -
               value: 1.0
           expression: ℹ︎float␟value
+          derived_schema_metadata: {  }
         rows:
           required: false
           field_type: float
@@ -152,6 +165,7 @@ versioned_properties:
             -
               value: 1.0
           expression: ℹ︎float␟value
+          derived_schema_metadata: {  }
         autoplay:
           required: false
           field_type: boolean
@@ -160,6 +174,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         carousel_items:
@@ -175,6 +190,7 @@ versioned_properties:
           field_widget: boolean_checkbox
           default_value: null
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         label:
           required: false
           field_type: string
@@ -185,6 +201,7 @@ versioned_properties:
             -
               value: 'Product features'
           expression: ℹ︎string␟value
+          derived_schema_metadata: {  }
         pager:
           required: false
           field_type: boolean
@@ -195,6 +212,7 @@ versioned_properties:
             -
               value: true
           expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
         navigation_position:
           required: false
           field_type: list_string
@@ -206,6 +224,7 @@ versioned_properties:
             -
               value: hidden
           expression: ℹ︎list_string␟value
+          derived_schema_metadata: {  }
         slides_per_view:
           required: false
           field_type: float
@@ -218,6 +237,7 @@ versioned_properties:
             -
               value: 1.0
           expression: ℹ︎float␟value
+          derived_schema_metadata: {  }
         rows:
           required: false
           field_type: float
@@ -230,6 +250,7 @@ versioned_properties:
             -
               value: 1.0
           expression: ℹ︎float␟value
+          derived_schema_metadata: {  }
     fallback_metadata:
       slot_definitions:
         carousel_items:
