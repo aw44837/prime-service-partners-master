@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - block_content.type.dripyard_button
+    - field.field.block_content.dripyard_button.dripyard_additional_classes
     - field.field.block_content.dripyard_button.dripyard_button_size
     - field.field.block_content.dripyard_button.dripyard_button_style
     - field.field.block_content.dripyard_button.dripyard_icon
@@ -59,4 +60,5 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
-hidden: {  }
+hidden:
+  dripyard_additional_classes: true

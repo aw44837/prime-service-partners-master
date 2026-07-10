@@ -19,6 +19,21 @@ settings:
     -
       value: primary
       label: Primary
+    -
+      value: secondary
+      label: Secondary
+    -
+      value: light
+      label: Light
+    -
+      value: dark
+      label: Dark
+    -
+      value: outline
+      label: Outline
+    -
+      value: bare
+      label: Bare
   allowed_values_function: ''
 module: options
 locked: false

@@ -14,7 +14,7 @@ entity_type: node
 bundle: services
 label: Body
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

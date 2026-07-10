@@ -14,6 +14,9 @@ type: list_string
 settings:
   allowed_values:
     -
+      value: xs
+      label: XS
+    -
       value: small
       label: Small
     -

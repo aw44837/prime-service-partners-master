@@ -1,0 +1,19 @@
+uuid: 11590cfa-0792-410b-93dd-9b792968f629
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.dripyard_button
+    - field.storage.block_content.dripyard_additional_classes
+id: block_content.dripyard_button.dripyard_additional_classes
+field_name: dripyard_additional_classes
+entity_type: block_content
+bundle: dripyard_button
+label: 'Additional CSS classes'
+description: 'Optional. Space-separated CSS classes added to the button element.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

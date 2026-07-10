@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - block_content.type.dripyard_button
+    - field.field.block_content.dripyard_button.dripyard_additional_classes
     - field.field.block_content.dripyard_button.dripyard_button_size
     - field.field.block_content.dripyard_button.dripyard_button_style
     - field.field.block_content.dripyard_button.dripyard_icon
@@ -18,6 +19,14 @@ targetEntityType: block_content
 bundle: dripyard_button
 mode: default
 content:
+  dripyard_additional_classes:
+    type: string_textfield
+    weight: 29
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   dripyard_button_size:
     type: options_select
     weight: 27
