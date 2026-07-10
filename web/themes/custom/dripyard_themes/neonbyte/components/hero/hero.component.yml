@@ -80,11 +80,13 @@ props:
         - black
         - white
         - primary
+        - secondary
       meta:enum:
         inherit: Inherit
         black: Black
         white: White
         primary: Primary
+        secondary: Secondary
       default: inherit
       examples: [ 'inherit' ]
 slots:

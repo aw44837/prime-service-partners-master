@@ -105,6 +105,15 @@
   }
 }
 
+.hero--text-color-secondary {
+  --hero-text-color-light: var(--theme-text-color-secondary, var(--secondary-700));
+  --hero-text-color: var(--theme-text-color-secondary, var(--secondary-700));
+
+  * {
+    color: inherit;
+  }
+}
+
 .hero__container {
   display: flex;
   height: 100%;

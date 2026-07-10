@@ -6,7 +6,7 @@ dependencies:
     - options
   theme:
     - neonbyte
-active_version: fd16917fc8f81fbc
+active_version: d7d12a494153aabb
 versioned_properties:
   active:
     settings:

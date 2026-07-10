@@ -31,6 +31,9 @@ settings:
     -
       value: primary
       label: Primary
+    -
+      value: secondary
+      label: Secondary
   allowed_values_function: ''
 module: options
 locked: false

@@ -15,6 +15,7 @@
   --theme-text-color-medium: var(--color-secondary-text-color);
   --theme-text-color-loud: var(--color-secondary-text-color);
   --theme-text-color-primary: var(--color-secondary-text-color);
+  --theme-text-color-secondary: var(--color-secondary-text-color);
 
   /* Borders and icon colors. Always minimum 3:1 contrast ratio against surface colors. */
   --theme-border-color: var(--secondary-200);
