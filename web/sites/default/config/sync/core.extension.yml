@@ -16,7 +16,6 @@ module:
   ai_image_bulk_alt_text: 0
   ai_logging: 0
   ai_observability: 0
-  ai_provider_amazeeio: 0
   ai_provider_openai: 0
   announcements_feed: 0
   antibot: 0
