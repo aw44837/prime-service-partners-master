@@ -65,6 +65,30 @@ props:
         small: Small
         medium: Medium
         large: Large
+    overlay_color:
+      title: Overlay color
+      type: string
+      enum:
+        - primary
+        - secondary
+        - black
+        - white
+      meta:enum:
+        primary: Primary
+        secondary: Secondary
+        black: Black
+        white: White
+    overlay_strength:
+      title: Overlay strength
+      type: string
+      enum:
+        - light
+        - medium
+        - strong
+      meta:enum:
+        light: 'Light (25%)'
+        medium: 'Medium (45%)'
+        strong: 'Strong (65%)'
 libraryOverrides:
   dependencies:
     - core/components.dripyard_base--video-player
