@@ -69,6 +69,9 @@
     "conflict": {
         "drupal/drupal": "*"
     },
+    "replace": {
+        "drupal/ai_provider_amazeeio": "*"
+    },
     "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
@@ -84,10 +87,7 @@
         },
         "bin-dir": "vendor/bin",
         "sort-packages": true,
-        "optimize-autoloader": true,
-        "platform": {
-            "ext-pgsql": "8.4"
-        }
+        "optimize-autoloader": true
     },
     "extra": {
         "drupal-scaffold": {
