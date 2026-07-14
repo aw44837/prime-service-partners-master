@@ -47,7 +47,7 @@ class AreaBrandingBlock extends BlockBase implements ContainerFactoryPluginInter
 
     $logo = theme_get_setting('logo.url');
 
-    return [
+    $build = [
       '#type' => 'inline_template',
       '#template' => '<div class="header-logo"><a class="header-logo__link" href="{{ href }}" rel="home">{% if logo %}<img class="header-logo__image" src="{{ logo }}" alt="{{ "Home"|t }}" fetchpriority="high" />{% endif %}</a></div>',
       '#context' => [
@@ -55,6 +55,20 @@ class AreaBrandingBlock extends BlockBase implements ContainerFactoryPluginInter
         'logo' => $logo,
       ],
     ];
+
+    // The markup replicates the header-logo SDC, whose CSS (logo max-height,
+    // hero/sticky brightness rules) ships as a component library that only
+    // attaches when the SDC renders — attach it explicitly or the logo
+    // renders uncapped and stretches the header bar.
+    $discovery = \Drupal::service('library.discovery');
+    foreach (['components.meridian--header-logo', 'components.dripyard_base--header-logo'] as $library) {
+      if ($discovery->getLibraryByName('core', $library)) {
+        $build['#attached']['library'][] = 'core/' . $library;
+        break;
+      }
+    }
+
+    return $build;
   }
 
   /**
