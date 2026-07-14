@@ -1,0 +1,111 @@
+uuid: 206cf192-1baf-4283-8f74-c9d53959ed9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.service_area.field_address
+    - field.field.taxonomy_term.service_area.field_area_menu
+    - field.field.taxonomy_term.service_area.field_booking_url
+    - field.field.taxonomy_term.service_area.field_landing_page
+    - field.field.taxonomy_term.service_area.field_license_numbers
+    - field.field.taxonomy_term.service_area.field_map_link
+    - field.field.taxonomy_term.service_area.field_path_prefix
+    - field.field.taxonomy_term.service_area.field_phone
+    - taxonomy.vocabulary.service_area
+  module:
+    - path
+    - text
+id: taxonomy_term.service_area.default
+targetEntityType: taxonomy_term
+bundle: service_area
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_address:
+    type: string_textarea
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_area_menu:
+    type: options_select
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_booking_url:
+    type: link_default
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_landing_page:
+    type: link_default
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_license_numbers:
+    type: string_textfield
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_map_link:
+    type: link_default
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_path_prefix:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_phone:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 100
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  publish_on: true
+  publish_state: true
+  unpublish_on: true
+  unpublish_state: true

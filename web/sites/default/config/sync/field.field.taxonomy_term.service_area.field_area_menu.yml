@@ -1,0 +1,21 @@
+uuid: 7018a5eb-4777-4111-bfe9-dd81356ecae1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_area_menu
+    - taxonomy.vocabulary.service_area
+id: taxonomy_term.service_area.field_area_menu
+field_name: field_area_menu
+entity_type: taxonomy_term
+bundle: service_area
+label: 'Area menu'
+description: "This area's navigation menu, used for the header and sidebar inside the area."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:menu'
+  handler_settings: {  }
+field_type: entity_reference

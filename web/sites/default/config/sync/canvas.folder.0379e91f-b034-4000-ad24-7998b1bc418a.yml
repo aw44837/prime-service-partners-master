@@ -1,0 +1,13 @@
+uuid: 0379e91f-b034-4000-ad24-7998b1bc418a
+langcode: en
+status: true
+dependencies:
+  config:
+    - canvas.component.block.psp_area_branding
+    - canvas.component.block.psp_area_footer_info
+name: 'Prime Service Partners'
+configEntityTypeId: component
+weight: 0
+items:
+  - block.psp_area_branding
+  - block.psp_area_footer_info

@@ -1,0 +1,9 @@
+# Site-wide fallbacks used when content has no service area (or the area
+# term leaves a field empty). Seeded with the values previously hardcoded
+# in the Canvas content templates and header/footer blocks.
+default_phone_display: '984-201-0061'
+default_phone_uri: 'tel:984-201-0061'
+default_booking_url: 'https://scheduler.servicetitan.com/book/eyJicmFuZElkIjoiYnJhbmRfZHBib2ljdWZkNTdnZ3c2NjJoNHh5dDl4Iiwic2NoZWR1bGVySWQiOiJzY2hlZF91dXo0cDdvamN5OTlnZmMweXJ1bTBpZmgifQ%3D%3D'
+default_company_name: 'Swift Brothers Plumbing, Heating & Air'
+default_address: "821 Purser Drive, Suite C\nRaleigh, NC 27603"
+default_map_url: 'https://www.google.com/maps/search/?api=1&query=821+Purser+Drive+Suite+C+Raleigh+NC+27603'

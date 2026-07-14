@@ -1,0 +1,25 @@
+uuid: 52e40760-d740-41fc-803e-6f6ee751d70d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_service_area
+    - node.type.local_service_area_page
+    - taxonomy.vocabulary.service_area
+id: node.local_service_area_page.field_service_area
+field_name: field_service_area
+entity_type: node
+bundle: local_service_area_page
+label: 'Service area'
+description: 'Which local service area this page belongs to. Leave empty for global/top-level content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      service_area: service_area
+    auto_create: false
+field_type: entity_reference

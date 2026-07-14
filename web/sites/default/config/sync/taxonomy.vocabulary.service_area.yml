@@ -1,0 +1,9 @@
+uuid: caebcb69-5969-4263-9d98-9fa98a0d689e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Service Areas'
+vid: service_area
+description: 'Local service areas ("site within a site" sections): per-area phone, address, booking link, licenses, menu and landing page.'
+weight: 0
+new_revision: false

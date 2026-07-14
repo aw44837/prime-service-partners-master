@@ -1,0 +1,19 @@
+uuid: 9781a2b4-f6f7-40c4-9259-861d16a24e5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_license_numbers
+    - taxonomy.vocabulary.service_area
+id: taxonomy_term.service_area.field_license_numbers
+field_name: field_license_numbers
+entity_type: taxonomy_term
+bundle: service_area
+label: 'License numbers'
+description: 'One per value; shown in the footer when present.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

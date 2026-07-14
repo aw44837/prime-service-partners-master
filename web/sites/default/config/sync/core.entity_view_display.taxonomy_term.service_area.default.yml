@@ -1,0 +1,37 @@
+uuid: 6fb3ae1c-885b-47bd-9aff-ad9acf340aa5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.service_area.field_address
+    - field.field.taxonomy_term.service_area.field_area_menu
+    - field.field.taxonomy_term.service_area.field_booking_url
+    - field.field.taxonomy_term.service_area.field_landing_page
+    - field.field.taxonomy_term.service_area.field_license_numbers
+    - field.field.taxonomy_term.service_area.field_map_link
+    - field.field.taxonomy_term.service_area.field_path_prefix
+    - field.field.taxonomy_term.service_area.field_phone
+    - taxonomy.vocabulary.service_area
+  module:
+    - text
+id: taxonomy_term.service_area.default
+targetEntityType: taxonomy_term
+bundle: service_area
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_address: true
+  field_area_menu: true
+  field_booking_url: true
+  field_landing_page: true
+  field_license_numbers: true
+  field_map_link: true
+  field_path_prefix: true
+  field_phone: true

@@ -1,0 +1,23 @@
+uuid: 783fe90b-60c7-4267-b551-cc2df6e2c5c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_landing_page
+    - taxonomy.vocabulary.service_area
+  module:
+    - link
+id: taxonomy_term.service_area.field_landing_page
+field_name: field_landing_page
+entity_type: taxonomy_term
+bundle: service_area
+label: 'Landing page'
+description: "The area's Canvas landing page (e.g. internal:/raleigh-nc). The header logo links here inside the area."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 1
+field_type: link

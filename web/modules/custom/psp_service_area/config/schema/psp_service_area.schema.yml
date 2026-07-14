@@ -1,0 +1,61 @@
+psp_service_area.settings:
+  type: config_object
+  label: 'PSP Service Area settings'
+  mapping:
+    default_phone_display:
+      type: string
+      label: 'Default phone (display)'
+    default_phone_uri:
+      type: string
+      label: 'Default phone (tel: URI)'
+    default_booking_url:
+      type: string
+      label: 'Default booking URL'
+    default_company_name:
+      type: string
+      label: 'Default company name'
+    default_address:
+      type: string
+      label: 'Default address'
+    default_map_url:
+      type: string
+      label: 'Default map URL'
+
+block.settings.psp_area_menu:
+  type: block_settings
+  label: 'Service area menu block'
+  mapping:
+    fallback_menu:
+      type: string
+      label: 'Menu used outside any service area'
+    expand_all_items:
+      type: boolean
+      label: 'Expand all items'
+    depth:
+      type: integer
+      label: 'Maximum depth'
+    region_suggestion:
+      type: string
+      label: 'Region template suggestion'
+
+block.settings.psp_area_branding:
+  type: block_settings
+  label: 'Service area branding block'
+
+block.settings.psp_area_call_button:
+  type: block_settings
+  label: 'Service area call button block'
+  mapping:
+    style:
+      type: string
+      label: 'Button style'
+    size:
+      type: string
+      label: 'Button size'
+    suffix_icon:
+      type: string
+      label: 'Suffix icon'
+
+block.settings.psp_area_footer_info:
+  type: block_settings
+  label: 'Service area footer info block'

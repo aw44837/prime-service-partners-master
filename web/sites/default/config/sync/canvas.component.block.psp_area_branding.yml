@@ -1,0 +1,22 @@
+uuid: cd49f4d8-b279-49c0-ac0b-c1ff1848224c
+langcode: en
+status: true
+dependencies:
+  module:
+    - psp_service_area
+active_version: d8c06c55655990b3
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: psp_area_branding
+        label: 'Service area site branding'
+        label_display: '0'
+        provider: psp_service_area
+    fallback_metadata:
+      slot_definitions: null
+label: 'Service area site branding'
+id: block.psp_area_branding
+provider: psp_service_area
+source: block
+source_local_id: psp_area_branding

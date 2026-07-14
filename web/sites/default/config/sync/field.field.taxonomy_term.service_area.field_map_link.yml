@@ -1,0 +1,23 @@
+uuid: 396065a3-514b-4be6-89be-6f91f11bb72a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_map_link
+    - taxonomy.vocabulary.service_area
+  module:
+    - link
+id: taxonomy_term.service_area.field_map_link
+field_name: field_map_link
+entity_type: taxonomy_term
+bundle: service_area
+label: 'Map link'
+description: 'Google Maps (or similar) directions URL for the footer.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

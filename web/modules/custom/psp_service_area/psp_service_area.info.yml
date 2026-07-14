@@ -1,0 +1,9 @@
+name: 'PSP Service Area'
+type: module
+description: 'Site-within-a-site service areas: per-area navigation, phone, booking link, branding, and footer info driven by the service_area vocabulary.'
+package: 'Prime Service Partners'
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:menu_link_content

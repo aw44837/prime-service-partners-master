@@ -6,6 +6,8 @@ dependencies:
     - field.field.node.local_service_area_page.ai_automator_status
     - field.field.node.local_service_area_page.body
     - field.field.node.local_service_area_page.field_featured_image
+    - field.field.node.local_service_area_page.field_meta_tags
+    - field.field.node.local_service_area_page.field_service_area
     - node.type.local_service_area_page
   module:
     - text
@@ -38,3 +40,5 @@ content:
     region: content
 hidden:
   ai_automator_status: true
+  field_meta_tags: true
+  field_service_area: true

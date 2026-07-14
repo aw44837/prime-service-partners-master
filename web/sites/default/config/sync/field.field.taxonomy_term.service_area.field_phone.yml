@@ -1,0 +1,19 @@
+uuid: 17fb64db-467f-4732-b8b7-13b0ce61a51a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_phone
+    - taxonomy.vocabulary.service_area
+id: taxonomy_term.service_area.field_phone
+field_name: field_phone
+entity_type: taxonomy_term
+bundle: service_area
+label: 'Phone number'
+description: 'Display format, e.g. 984-310-2853. Used for the header call button, hero CTAs and footer.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

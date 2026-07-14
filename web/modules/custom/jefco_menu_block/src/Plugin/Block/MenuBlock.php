@@ -27,6 +27,14 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class MenuBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
+   * menu_name sentinel: resolve the active service area's menu at runtime.
+   *
+   * Requires the psp_service_area module; falls back to 'main' when the
+   * visitor is outside any service area (or the area has no menu).
+   */
+  public const ACTIVE_AREA = '_active_area';
+
+  /**
    * The menu link tree service.
    *
    * @var \Drupal\Core\Menu\MenuLinkTreeInterface
@@ -105,6 +113,11 @@ class MenuBlock extends BlockBase implements ContainerFactoryPluginInterface {
       $menu_options[$menu->id()] = $menu->label();
     }
     asort($menu_options);
+
+    // When psp_service_area is installed, offer dynamic area-menu selection.
+    if (\Drupal::hasService('psp_service_area.area_resolver')) {
+      $menu_options = [self::ACTIVE_AREA => $this->t("- Active service area's menu -")] + $menu_options;
+    }
 
     $form['menu_name'] = [
       '#type'          => 'select',
@@ -194,10 +207,30 @@ class MenuBlock extends BlockBase implements ContainerFactoryPluginInterface {
   }
 
   /**
+   * Resolves the configured menu name, honouring the active-area sentinel.
+   */
+  protected function resolveMenuName(): string {
+    $menu_name = $this->configuration['menu_name'];
+    if ($menu_name !== self::ACTIVE_AREA) {
+      return $menu_name;
+    }
+    if (\Drupal::hasService('psp_service_area.area_resolver')) {
+      $term = \Drupal::service('psp_service_area.area_resolver')->resolve();
+      if ($term && $term->hasField('field_area_menu') && !$term->get('field_area_menu')->isEmpty()) {
+        $menu_id = $term->get('field_area_menu')->target_id;
+        if ($menu_id && $this->menuStorage->load($menu_id)) {
+          return $menu_id;
+        }
+      }
+    }
+    return 'main';
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function build(): array {
-    $menu_name   = $this->configuration['menu_name'];
+    $menu_name   = $this->resolveMenuName();
     $level       = $this->configuration['level'];
     $depth       = $this->configuration['depth'];
     $expand_all  = $this->configuration['expand_all_items'];
@@ -281,20 +314,22 @@ class MenuBlock extends BlockBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public function getCacheTags(): array {
-    return Cache::mergeTags(
-      parent::getCacheTags(),
-      ['config:system.menu.' . $this->configuration['menu_name']]
-    );
+    $tags = ['config:system.menu.' . $this->resolveMenuName()];
+    if ($this->configuration['menu_name'] === self::ACTIVE_AREA) {
+      $tags[] = 'taxonomy_term_list:service_area';
+    }
+    return Cache::mergeTags(parent::getCacheTags(), $tags);
   }
 
   /**
    * {@inheritdoc}
    */
   public function getCacheContexts(): array {
-    return Cache::mergeContexts(
-      parent::getCacheContexts(),
-      ['route.menu_active_trails:' . $this->configuration['menu_name']]
-    );
+    $contexts = ['route.menu_active_trails:' . $this->resolveMenuName()];
+    if ($this->configuration['menu_name'] === self::ACTIVE_AREA) {
+      $contexts[] = 'service_area';
+    }
+    return Cache::mergeContexts(parent::getCacheContexts(), $contexts);
   }
 
 }

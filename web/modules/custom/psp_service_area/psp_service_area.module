@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Per-service-area context: computed node fields + cache invalidation.
+ */
+
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\psp_service_area\AreaResolver;
+use Drupal\psp_service_area\Field\AreaValueItemList;
+use Drupal\taxonomy\TermInterface;
+
+/**
+ * Implements hook_entity_base_field_info().
+ *
+ * Computed, area-derived values on every node so Canvas content templates
+ * can bind CTA buttons to them (with global fallbacks) instead of
+ * hardcoding phone numbers and booking URLs per template.
+ */
+function psp_service_area_entity_base_field_info(EntityTypeInterface $entity_type): array {
+  $fields = [];
+  if ($entity_type->id() === 'node') {
+    $definitions = [
+      'psp_area_phone_uri' => t('Service area phone (tel: URI)'),
+      'psp_area_phone_display' => t('Service area phone (display)'),
+      'psp_area_booking_url' => t('Service area booking URL'),
+    ];
+    foreach ($definitions as $name => $label) {
+      $fields[$name] = BaseFieldDefinition::create('string')
+        ->setLabel($label)
+        ->setDescription(t("Derived from the node's Service area term, falling back to the site-wide default."))
+        ->setComputed(TRUE)
+        ->setClass(AreaValueItemList::class)
+        ->setReadOnly(TRUE)
+        ->setTranslatable(FALSE)
+        ->setDisplayConfigurable('view', FALSE)
+        ->setDisplayConfigurable('form', FALSE);
+    }
+  }
+  return $fields;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave() for taxonomy_term.
+ *
+ * Area data (phone, booking URL, address, menu) is baked into render-cached
+ * nodes, blocks and pages that carry no term-specific cache tags. Terms in
+ * this vocabulary change rarely, so a blunt render-cache invalidation on
+ * save is the simple, correct trade-off.
+ */
+function psp_service_area_taxonomy_term_presave(TermInterface $term): void {
+  if ($term->bundle() === AreaResolver::VOCABULARY && !$term->isNew()) {
+    Cache::invalidateTags(['rendered']);
+  }
+}

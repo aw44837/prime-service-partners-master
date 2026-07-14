@@ -1,0 +1,10 @@
+_core:
+  default_config_hash: _l1S_xO84IV2bNla5D57Kk5jZAlg_E_v1sjRAPVaYEs
+default_phone_display: 984-201-0061
+default_phone_uri: 'tel:984-201-0061'
+default_booking_url: 'https://scheduler.servicetitan.com/book/eyJicmFuZElkIjoiYnJhbmRfZHBib2ljdWZkNTdnZ3c2NjJoNHh5dDl4Iiwic2NoZWR1bGVySWQiOiJzY2hlZF91dXo0cDdvamN5OTlnZmMweXJ1bTBpZmgifQ%3D%3D'
+default_company_name: 'Swift Brothers Plumbing, Heating & Air'
+default_address: |-
+  821 Purser Drive, Suite C
+  Raleigh, NC 27603
+default_map_url: 'https://www.google.com/maps/search/?api=1&query=821+Purser+Drive+Suite+C+Raleigh+NC+27603'

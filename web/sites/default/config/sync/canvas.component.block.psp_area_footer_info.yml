@@ -1,0 +1,22 @@
+uuid: a0f9d38c-4686-4ee1-98c2-8da1435a61a2
+langcode: en
+status: true
+dependencies:
+  module:
+    - psp_service_area
+active_version: 04d4fb4e700a8adf
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: psp_area_footer_info
+        label: 'Service area footer info'
+        label_display: '0'
+        provider: psp_service_area
+    fallback_metadata:
+      slot_definitions: null
+label: 'Service area footer info'
+id: block.psp_area_footer_info
+provider: psp_service_area
+source: block
+source_local_id: psp_area_footer_info

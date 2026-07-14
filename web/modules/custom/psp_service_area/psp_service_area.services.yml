@@ -1,0 +1,14 @@
+services:
+  psp_service_area.area_resolver:
+    class: Drupal\psp_service_area\AreaResolver
+    arguments:
+      - '@current_route_match'
+      - '@path.current'
+      - '@path_alias.manager'
+      - '@entity_type.manager'
+
+  cache_context.service_area:
+    class: Drupal\psp_service_area\Cache\ServiceAreaCacheContext
+    arguments: ['@psp_service_area.area_resolver']
+    tags:
+      - { name: cache.context }

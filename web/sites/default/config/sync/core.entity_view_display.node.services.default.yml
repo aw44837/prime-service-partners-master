@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.services.field_featured_image
     - field.field.node.services.field_featured_image_prompt
     - field.field.node.services.field_intro_description
+    - field.field.node.services.field_meta_tags
+    - field.field.node.services.field_service_area
     - node.type.services
   module:
     - layout_builder
@@ -164,4 +166,6 @@ hidden:
   ai_automator_status: true
   field_body: true
   field_featured_image: true
+  field_meta_tags: true
+  field_service_area: true
   links: true
