@@ -33,7 +33,10 @@ block.settings.psp_area_menu:
       label: 'Expand all items'
     depth:
       type: integer
-      label: 'Maximum depth'
+      label: 'Maximum depth (service area menus)'
+    fallback_depth:
+      type: integer
+      label: 'Maximum depth (fallback menu)'
     region_suggestion:
       type: string
       label: 'Region template suggestion'

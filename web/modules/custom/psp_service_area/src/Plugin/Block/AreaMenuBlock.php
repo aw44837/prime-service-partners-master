@@ -49,7 +49,8 @@ class AreaMenuBlock extends BlockBase implements ContainerFactoryPluginInterface
     return [
       'fallback_menu' => 'main',
       'expand_all_items' => TRUE,
-      'depth' => 3,
+      'depth' => 2,
+      'fallback_depth' => 3,
       'region_suggestion' => 'header_second',
     ];
   }
@@ -80,9 +81,16 @@ class AreaMenuBlock extends BlockBase implements ContainerFactoryPluginInterface
     ];
     $form['depth'] = [
       '#type' => 'select',
-      '#title' => $this->t('Maximum depth'),
+      '#title' => $this->t('Maximum depth (service area menus)'),
       '#options' => [0 => $this->t('Unlimited')] + array_combine(range(1, 9), range(1, 9)),
       '#default_value' => $this->configuration['depth'],
+    ];
+    $form['fallback_depth'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Maximum depth (fallback menu)'),
+      '#description' => $this->t('Depth used when the fallback menu renders (outside any service area) — lets the main menu go deeper than the area menus.'),
+      '#options' => [0 => $this->t('Unlimited')] + array_combine(range(1, 9), range(1, 9)),
+      '#default_value' => $this->configuration['fallback_depth'],
     ];
     $form['region_suggestion'] = [
       '#type' => 'textfield',
@@ -100,6 +108,7 @@ class AreaMenuBlock extends BlockBase implements ContainerFactoryPluginInterface
     $this->configuration['fallback_menu'] = $form_state->getValue('fallback_menu');
     $this->configuration['expand_all_items'] = (bool) $form_state->getValue('expand_all_items');
     $this->configuration['depth'] = (int) $form_state->getValue('depth');
+    $this->configuration['fallback_depth'] = (int) $form_state->getValue('fallback_depth');
     $this->configuration['region_suggestion'] = $form_state->getValue('region_suggestion');
   }
 
@@ -122,11 +131,16 @@ class AreaMenuBlock extends BlockBase implements ContainerFactoryPluginInterface
    */
   public function build(): array {
     $menu_name = $this->resolveMenuName();
+    // Area menus and the fallback (main) menu can have different depths —
+    // e.g. a 3-level main mega-menu while area dropdowns stay 2 levels.
+    $depth = $menu_name === $this->configuration['fallback_menu']
+      ? (int) ($this->configuration['fallback_depth'] ?? $this->configuration['depth'])
+      : (int) $this->configuration['depth'];
 
     $parameters = new MenuTreeParameters();
     $parameters->onlyEnabledLinks()->setMinDepth(1);
-    if ($this->configuration['depth'] > 0) {
-      $parameters->setMaxDepth($this->configuration['depth']);
+    if ($depth > 0) {
+      $parameters->setMaxDepth($depth);
     }
     if ($this->configuration['expand_all_items']) {
       $parameters->expandedParents = [];
