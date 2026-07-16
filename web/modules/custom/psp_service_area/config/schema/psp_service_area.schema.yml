@@ -73,6 +73,12 @@ psp_service_area.zip_map:
       sequence:
         type: string
         label: 'Area path prefix'
+    cities:
+      type: sequence
+      label: 'ZIP -> city display name (future per-city display)'
+      sequence:
+        type: string
+        label: 'City name'
 
 block.settings.psp_area_location_bar:
   type: block_settings
