@@ -1,0 +1,9 @@
+location_bar:
+  css:
+    component:
+      css/location-bar.css: {}
+  js:
+    js/location-bar.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

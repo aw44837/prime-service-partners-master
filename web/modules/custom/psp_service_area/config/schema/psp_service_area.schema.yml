@@ -62,3 +62,18 @@ block.settings.psp_area_call_button:
 block.settings.psp_area_footer_info:
   type: block_settings
   label: 'Service area footer info block'
+
+psp_service_area.zip_map:
+  type: config_object
+  label: 'Service area ZIP code map'
+  mapping:
+    map:
+      type: sequence
+      label: 'ZIP -> area path prefix'
+      sequence:
+        type: string
+        label: 'Area path prefix'
+
+block.settings.psp_area_location_bar:
+  type: block_settings
+  label: 'Service area location bar block'

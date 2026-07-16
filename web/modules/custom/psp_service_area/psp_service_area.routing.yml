@@ -1,0 +1,7 @@
+psp_service_area.zip_lookup:
+  path: '/psp-area/zip/{zip}'
+  defaults:
+    _controller: '\Drupal\psp_service_area\Controller\ZipLookupController::lookup'
+  requirements:
+    _access: 'TRUE'
+    zip: '\d{5}'

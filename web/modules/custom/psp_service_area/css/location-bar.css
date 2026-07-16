@@ -1,0 +1,124 @@
+/*
+ * Skinny dark blue location bar (header_above) + chooser panel.
+ */
+.psp-location-bar {
+  background: var(--color-primary-dark, #002a38);
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.psp-location-bar__inner {
+  max-width: var(--layout-max-width, 1440px);
+  margin: 0 auto;
+  padding: 6px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.psp-location-bar__pin {
+  display: inline-flex;
+  color: var(--color-secondary, #f6901d);
+}
+
+.psp-location-bar__label {
+  font-weight: 600;
+}
+
+.psp-location-bar__change {
+  background: none;
+  border: 0;
+  padding: 0 2px;
+  color: inherit;
+  font: inherit;
+  font-style: italic;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.psp-location-chooser {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--color-primary, #003f52);
+  padding: 16px 20px 18px;
+  text-align: center;
+}
+
+.psp-location-chooser__form label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.psp-location-chooser__row {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.psp-location-chooser__row input {
+  padding: 8px 10px;
+  border: 0;
+  border-radius: var(--radius-sm, 4px);
+  width: 9em;
+  color: #111;
+}
+
+.psp-location-chooser__submit {
+  padding: 8px 16px;
+  border: 0;
+  border-radius: var(--radius-sm, 4px);
+  background: var(--color-secondary, #f6901d);
+  color: #111;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.psp-location-chooser__error {
+  margin: 10px auto 0;
+  max-width: 60ch;
+}
+
+.psp-location-chooser__error a {
+  color: #fff;
+}
+
+.psp-location-chooser__list {
+  margin-top: 14px;
+}
+
+.psp-location-chooser__list-label {
+  display: block;
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+
+.psp-location-chooser__list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 16px;
+}
+
+.psp-location-chooser__list a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/*
+ * Break the bar's region out of the .container constraints so the strip
+ * runs edge-to-edge and sits flush with the viewport top (cancels the
+ * theme's 20px .layout-container padding-top).
+ */
+.region-header-above:has(.psp-location-bar) {
+  width: 100vw;
+  max-width: none;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  margin-top: -20px;
+  margin-bottom: 0;
+  padding: 0;
+  z-index: 6; /* Above superimposed heros and the header dropdown layer. */
+}

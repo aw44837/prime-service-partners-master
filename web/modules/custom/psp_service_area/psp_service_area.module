@@ -43,6 +43,22 @@ function psp_service_area_entity_base_field_info(EntityTypeInterface $entity_typ
 }
 
 /**
+ * Implements hook_theme().
+ */
+function psp_service_area_theme(): array {
+  return [
+    'psp_location_bar' => [
+      'variables' => [
+        'current' => NULL,
+        'locations' => [],
+        'fallback_phone' => NULL,
+        'fallback_phone_uri' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
  * Implements hook_ENTITY_TYPE_presave() for taxonomy_term.
  *
  * Area data (phone, booking URL, address, menu) is baked into render-cached

@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Skinny header location bar + collapsible location chooser.
+ *
+ * - current: ['label', 'prefix']|null — the area of the CURRENT PAGE
+ *   (server-side). On global pages JS fills the display from the cookie.
+ * - locations: list of ['label', 'prefix', 'url'].
+ */
+#}
+<div class="psp-location-bar{{ current ? ' psp-location-bar--in-area' }}" data-current-area="{{ current ? current.prefix }}">
+  <div class="psp-location-bar__inner">
+    <span class="psp-location-bar__pin" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+    </span>
+    <span class="psp-location-bar__label js-psp-location-label">
+      {% if current %}
+        {{ current.label }}
+      {% else %}
+        {{ 'Choose your location'|t }}
+      {% endif %}
+    </span>
+    <button type="button" class="psp-location-bar__change js-psp-location-toggle" aria-expanded="false" aria-controls="psp-location-chooser">
+      {% if current %}({{ 'change'|t }}){% else %}({{ 'select'|t }}){% endif %}
+    </button>
+  </div>
+
+  <div class="psp-location-chooser" id="psp-location-chooser" hidden>
+    <form class="psp-location-chooser__form js-psp-zip-form">
+      <label for="psp-zip-input">{{ 'Enter your ZIP code to see which location serves you:'|t }}</label>
+      <div class="psp-location-chooser__row">
+        <input type="text" id="psp-zip-input" class="js-psp-zip-input" inputmode="numeric" pattern="[0-9]{5}" minlength="5" maxlength="5" placeholder="{{ 'ZIP code'|t }}" required>
+        <button type="submit" class="psp-location-chooser__submit">{{ 'Go'|t }}</button>
+      </div>
+      <p class="psp-location-chooser__error js-psp-zip-error" hidden>
+        {{ 'Sorry — that ZIP code is outside our current service area.'|t }}
+        <a href="/areas-we-serve">{{ 'See all the areas we serve'|t }}</a>
+        {{ 'or call us at'|t }} <a href="{{ fallback_phone_uri }}">{{ fallback_phone }}</a>.
+      </p>
+    </form>
+    <div class="psp-location-chooser__list">
+      <span class="psp-location-chooser__list-label">{{ 'Or choose a location:'|t }}</span>
+      <ul>
+        {% for location in locations %}
+          <li><a href="{{ location.url }}" data-area-prefix="{{ location.prefix }}" class="js-psp-location-link">{{ location.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
