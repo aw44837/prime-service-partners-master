@@ -58,7 +58,7 @@
   padding: 8px 10px;
   border: 0;
   border-radius: var(--radius-sm, 4px);
-  width: 9em;
+  width: 230px; /* was 9em (~130px); +100px per review */
   color: #111;
 }
 
