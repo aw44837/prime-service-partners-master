@@ -91,7 +91,7 @@
   opacity: 0.85;
 }
 
-.psp-location-chooser__grid {
+.psp-location-chooser__locations {
   list-style: none;
   margin: 0 auto;
   padding: 0;
@@ -102,18 +102,18 @@
 }
 
 @media (max-width: 900px) {
-  .psp-location-chooser__grid {
+  .psp-location-chooser__locations {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
-  .psp-location-chooser__grid {
+  .psp-location-chooser__locations {
     grid-template-columns: 1fr;
   }
 }
 
-.psp-location-chooser__grid .button {
+.psp-location-chooser__locations .button {
   width: 100%;
   justify-content: center;
   text-align: center;
@@ -137,14 +137,14 @@
 }
 
 /* On the navy panel the outline buttons need their dark-context look. */
-.psp-location-chooser__grid .button--outline {
+.psp-location-chooser__locations .button--outline {
   color: #fff;
   border-color: rgba(255, 255, 255, 0.7);
   background: transparent;
 }
 
-.psp-location-chooser__grid .button--outline:hover,
-.psp-location-chooser__grid .button--outline:focus {
+.psp-location-chooser__locations .button--outline:hover,
+.psp-location-chooser__locations .button--outline:focus {
   background: rgba(255, 255, 255, 0.14);
   color: #fff;
 }
