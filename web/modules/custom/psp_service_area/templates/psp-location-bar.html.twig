@@ -40,9 +40,9 @@
     </form>
     <div class="psp-location-chooser__list">
       <span class="psp-location-chooser__list-label">{{ 'Or choose a location:'|t }}</span>
-      <ul>
+      <ul class="psp-location-chooser__grid">
         {% for location in locations %}
-          <li><a href="{{ location.url }}" data-area-prefix="{{ location.prefix }}" class="js-psp-location-link">{{ location.label }}</a></li>
+          <li><a href="{{ location.url }}" data-area-prefix="{{ location.prefix }}" class="button button--outline button--small js-psp-location-link">{{ location.label }}</a></li>
         {% endfor %}
       </ul>
     </div>
