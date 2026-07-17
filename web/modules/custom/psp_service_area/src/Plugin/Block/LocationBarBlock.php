@@ -51,6 +51,7 @@ class LocationBarBlock extends BlockBase implements ContainerFactoryPluginInterf
     $tids = $storage->getQuery()
       ->accessCheck(FALSE)
       ->condition('vid', AreaResolver::VOCABULARY)
+      ->sort('weight')
       ->sort('name')
       ->execute();
     foreach ($storage->loadMultiple($tids) as $location) {
