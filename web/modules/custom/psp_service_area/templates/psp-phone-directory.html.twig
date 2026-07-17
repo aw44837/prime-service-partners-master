@@ -6,7 +6,7 @@
 #}
 {% set panel_id = 'psp-phone-directory'|clean_unique_id %}
 <div class="psp-phone-directory">
-  <button type="button" class="button button--secondary psp-phone-directory__toggle js-psp-phone-toggle" aria-expanded="false" aria-controls="{{ panel_id }}">
+  <button type="button" class="button button--secondary{{ compact ? ' button--small' }} psp-phone-directory__toggle js-psp-phone-toggle" aria-expanded="false" aria-controls="{{ panel_id }}">
     {{ 'Call Today!'|t }}
     <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" class="psp-phone-directory__caret"><path d="M7 10l5 5 5-5z"/></svg>
   </button>

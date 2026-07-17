@@ -93,13 +93,42 @@ class AreaCallButtonBlock extends BlockBase implements ContainerFactoryPluginInt
    */
   public function build(): array {
     $term = $this->areaResolver->resolve();
+
+    // Outside any market, a single number would misleadingly show
+    // Raleigh's line — render the all-markets "Call Today!" directory
+    // dropdown instead.
+    if (!$term) {
+      $markets = [];
+      $storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
+      $tids = $storage->getQuery()
+        ->accessCheck(FALSE)
+        ->condition('vid', \Drupal\psp_service_area\AreaResolver::VOCABULARY)
+        ->sort('weight')
+        ->sort('name')
+        ->execute();
+      foreach ($storage->loadMultiple($tids) as $market_term) {
+        $phone = $market_term->get('field_phone')->value;
+        if ($phone) {
+          $markets[] = [
+            'label' => $market_term->getName(),
+            'phone' => $phone,
+            'tel' => 'tel:' . preg_replace('/[^0-9+\-]/', '', $phone),
+          ];
+        }
+      }
+      return [
+        '#theme' => 'psp_phone_directory',
+        '#markets' => $markets,
+        '#compact' => TRUE,
+        '#attached' => ['library' => ['psp_service_area/phone_directory']],
+      ];
+    }
+
     $display = $this->areaResolver->areaValue($term, 'field_phone', 'default_phone_display');
     if ($display === NULL) {
       return [];
     }
-    $href = $term && !$term->get('field_phone')->isEmpty()
-      ? 'tel:' . preg_replace('/[^0-9+\-]/', '', $display)
-      : \Drupal::config('psp_service_area.settings')->get('default_phone_uri');
+    $href = 'tel:' . preg_replace('/[^0-9+\-]/', '', $display);
 
     return [
       '#type' => 'inline_template',
