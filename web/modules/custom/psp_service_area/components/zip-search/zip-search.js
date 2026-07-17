@@ -17,6 +17,15 @@
         const error = form.querySelector('.js-psp-zip-search-error');
         const geo = form.querySelector('.js-psp-zip-search-geo');
 
+        // Short placeholder on narrow screens so it never clips.
+        const fullPlaceholder = input.placeholder;
+        const narrow = window.matchMedia('(max-width: 480px)');
+        const setPlaceholder = function () {
+          input.placeholder = narrow.matches ? Drupal.t('ZIP code') : fullPlaceholder;
+        };
+        setPlaceholder();
+        narrow.addEventListener('change', setPlaceholder);
+
         // "Use my current location": browser geolocation -> keyless
         // reverse geocode (BigDataCloud) -> fill + auto-search. The
         // third-party call happens only after the visitor clicks and
