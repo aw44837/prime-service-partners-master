@@ -15,7 +15,13 @@
         form.dataset.pspProcessed = '1';
         const input = form.querySelector('.js-psp-zip-search-input');
         const error = form.querySelector('.js-psp-zip-search-error');
+        const errorText = form.querySelector('.js-psp-zip-search-error-text');
+        const defaultError = errorText.textContent;
         const geo = form.querySelector('.js-psp-zip-search-geo');
+
+        form.querySelector('.js-psp-zip-search-error-close').addEventListener('click', function () {
+          error.hidden = true;
+        });
 
         // Short placeholder on narrow screens so it never clips.
         const fullPlaceholder = input.placeholder;
@@ -37,7 +43,7 @@
           const geoFail = function () {
             geo.disabled = false;
             geoLabel.textContent = originalLabel;
-            error.textContent = Drupal.t("We couldn't detect your location — please enter your ZIP code instead.");
+            errorText.textContent = Drupal.t("We couldn't detect your location — please enter your ZIP code instead.");
             error.hidden = false;
           };
           geo.addEventListener('click', function () {
@@ -81,10 +87,11 @@
                 window.location.href = data.url;
               }
               else {
+                errorText.textContent = defaultError;
                 error.hidden = false;
               }
             })
-            .catch(function () { error.hidden = false; });
+            .catch(function () { errorText.textContent = defaultError; error.hidden = false; });
         });
       });
     }

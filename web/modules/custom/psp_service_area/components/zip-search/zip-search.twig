@@ -17,9 +17,10 @@
         placeholder="{{ placeholder|default('Enter your ZIP code'|t) }}" required>
       <button type="submit" class="psp-zip-search__button">{{ button_label|default('Find My Location'|t) }}</button>
     </div>
-    <p class="psp-zip-search__error js-psp-zip-search-error" hidden>
-      {{ 'Sorry — that ZIP code is outside our current service area.'|t }}
-      <a href="/areas-we-serve">{{ 'See all the areas we serve'|t }}</a>
-    </p>
+    <div class="psp-zip-search__error js-psp-zip-search-error" role="alert" hidden>
+      <button type="button" class="psp-zip-search__error-close js-psp-zip-search-error-close" aria-label="{{ 'Dismiss'|t }}">&times;</button>
+      <p class="psp-zip-search__error-text js-psp-zip-search-error-text">{{ 'Sorry — that ZIP code is outside our current service area.'|t }}</p>
+      <a href="/areas-we-serve" class="psp-zip-search__error-link">{{ 'See all the areas we serve'|t }}</a>
+    </div>
   </form>
 </div>

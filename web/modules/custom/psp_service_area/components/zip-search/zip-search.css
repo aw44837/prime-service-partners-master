@@ -58,13 +58,45 @@ input.psp-zip-search__input:focus {
 }
 
 .psp-zip-search__error {
-  margin: 10px 4px 0;
-  font-size: 0.92rem;
+  position: relative;
+  margin: 16px auto 0;
+  padding: 14px 42px 14px 42px;
+  background: rgba(0, 20, 28, 0.55);
+  border-radius: 12px;
+  text-align: center;
+  color: #fff;
+  font-size: 0.95rem;
 }
 
-.psp-zip-search__error a {
-  color: inherit;
+.psp-zip-search__error-text {
+  margin: 0;
+}
+
+.psp-zip-search__error-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: var(--color-secondary, #f6901d);
+  font-weight: 700;
   text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.psp-zip-search__error-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: none;
+  border: 0;
+  padding: 4px;
+  color: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.psp-zip-search__error-close:hover {
+  opacity: 1;
 }
 
 .psp-zip-search__geo {
