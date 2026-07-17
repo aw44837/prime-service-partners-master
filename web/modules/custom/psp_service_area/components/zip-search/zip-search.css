@@ -70,11 +70,12 @@ input.psp-zip-search__input:focus {
 
 .psp-zip-search__error-text {
   margin: 0;
+  line-height: 1.35;
 }
 
 .psp-zip-search__error-link {
   display: inline-block;
-  margin-top: 6px;
+  margin-top: 12px;
   color: var(--color-secondary, #f6901d);
   font-weight: 700;
   text-decoration: underline;
