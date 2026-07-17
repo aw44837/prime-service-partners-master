@@ -75,7 +75,9 @@ input.psp-zip-search__input:focus {
 
 .psp-zip-search__error-link {
   display: inline-block;
-  margin-top: 20px;
+  /* Font-relative so the gap scales with context: ~19px beside the
+   * location bar's small text, ~27px beside the hero's large text. */
+  margin-top: 1.25em;
   color: var(--color-secondary, #f6901d);
   font-weight: 700;
   text-decoration: underline;
