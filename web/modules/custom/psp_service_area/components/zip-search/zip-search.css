@@ -18,15 +18,20 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
 }
 
-.psp-zip-search__input {
+/* Type-qualified to out-specify the theme's global input[type] styling
+ * (border/background/radius), which otherwise shows the field's own
+ * corners inside the pill. */
+input.psp-zip-search__input,
+input.psp-zip-search__input:focus {
   flex: 1;
   min-width: 0;
   border: 0;
   background: transparent;
-  padding: 12px 10px 12px 22px;
+  box-shadow: none;
+  padding: 12px 10px 12px 28px;
   font-size: 1.05rem;
   color: #111;
-  outline-offset: -2px;
+  outline-offset: -4px;
   border-radius: 999px 0 0 999px;
 }
 
@@ -69,13 +74,12 @@
   background: none;
   border: 0;
   padding: 0;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: inherit;
   font: inherit;
   font-size: 0.95rem;
   cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
 }
 
 .psp-zip-search__geo svg {
