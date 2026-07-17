@@ -4,6 +4,10 @@
 ] %}
 <div{{ attributes.addClass(classes) }}>
   <form class="psp-zip-search__form js-psp-zip-search-form" novalidate>
+    <button type="button" class="psp-zip-search__geo js-psp-zip-search-geo" hidden>
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+      <span class="js-psp-zip-search-geo-label">{{ 'Use my current location'|t }}</span>
+    </button>
     <label class="visually-hidden" for="{{ 'psp-zip-search-input'|clean_unique_id }}">{{ 'ZIP code'|t }}</label>
     <div class="psp-zip-search__pill">
       <input

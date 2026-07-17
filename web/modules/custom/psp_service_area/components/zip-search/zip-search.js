@@ -15,6 +15,45 @@
         form.dataset.pspProcessed = '1';
         const input = form.querySelector('.js-psp-zip-search-input');
         const error = form.querySelector('.js-psp-zip-search-error');
+        const geo = form.querySelector('.js-psp-zip-search-geo');
+
+        // "Use my current location": browser geolocation -> keyless
+        // reverse geocode (BigDataCloud) -> fill + auto-search. The
+        // third-party call happens only after the visitor clicks and
+        // grants the browser permission.
+        if (geo && navigator.geolocation) {
+          geo.hidden = false;
+          const geoLabel = geo.querySelector('.js-psp-zip-search-geo-label');
+          const originalLabel = geoLabel.textContent;
+          const geoFail = function () {
+            geo.disabled = false;
+            geoLabel.textContent = originalLabel;
+            error.textContent = Drupal.t("We couldn't detect your location — please enter your ZIP code instead.");
+            error.hidden = false;
+          };
+          geo.addEventListener('click', function () {
+            error.hidden = true;
+            geo.disabled = true;
+            geoLabel.textContent = Drupal.t('Locating…');
+            navigator.geolocation.getCurrentPosition(function (position) {
+              const url = 'https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=' +
+                position.coords.latitude + '&longitude=' + position.coords.longitude + '&localityLanguage=en';
+              fetch(url)
+                .then(function (response) { return response.json(); })
+                .then(function (data) {
+                  const zip = (data.postcode || '').slice(0, 5);
+                  if (/^\d{5}$/.test(zip)) {
+                    geo.disabled = false;
+                    geoLabel.textContent = originalLabel;
+                    input.value = zip;
+                    form.dispatchEvent(new Event('submit', {cancelable: true}));
+                  }
+                  else { geoFail(); }
+                })
+                .catch(geoFail);
+            }, geoFail, {timeout: 10000, maximumAge: 300000});
+          });
+        }
 
         form.addEventListener('submit', function (event) {
           event.preventDefault();
