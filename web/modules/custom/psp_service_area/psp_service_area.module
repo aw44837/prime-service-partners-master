@@ -47,6 +47,9 @@ function psp_service_area_entity_base_field_info(EntityTypeInterface $entity_typ
  */
 function psp_service_area_theme(): array {
   return [
+    'psp_phone_directory' => [
+      'variables' => ['markets' => []],
+    ],
     'psp_location_bar' => [
       'variables' => [
         'current' => NULL,

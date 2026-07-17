@@ -7,3 +7,12 @@ location_bar:
   dependencies:
     - core/drupal
     - core/drupalSettings
+
+phone_directory:
+  css:
+    component:
+      css/phone-directory.css: {}
+  js:
+    js/phone-directory.js: {}
+  dependencies:
+    - core/drupal
