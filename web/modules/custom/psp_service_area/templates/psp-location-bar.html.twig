@@ -26,18 +26,12 @@
   </div>
 
   <div class="psp-location-chooser" id="psp-location-chooser" hidden>
-    <form class="psp-location-chooser__form js-psp-zip-form">
-      <label for="psp-zip-input">{{ 'Enter your ZIP code to see which location serves you:'|t }}</label>
-      <div class="psp-location-chooser__row">
-        <input type="text" id="psp-zip-input" class="js-psp-zip-input" inputmode="numeric" pattern="[0-9]{5}" minlength="5" maxlength="5" placeholder="{{ 'ZIP code'|t }}" required>
-        <button type="submit" class="psp-location-chooser__submit">{{ 'Go'|t }}</button>
-      </div>
-      <p class="psp-location-chooser__error js-psp-zip-error" hidden>
-        {{ 'Sorry — that ZIP code is outside our current service area.'|t }}
-        <a href="/areas-we-serve">{{ 'See all the areas we serve'|t }}</a>
-        {{ 'or call us at'|t }} <a href="{{ fallback_phone_uri }}">{{ fallback_phone }}</a>.
-      </p>
-    </form>
+    <p class="psp-location-chooser__label">{{ 'Enter your ZIP code to see which location serves you:'|t }}</p>
+    {{ include('psp_service_area:zip-search', {
+      placeholder: 'Enter your ZIP code'|t,
+      button_label: 'Find My Location'|t,
+      center: true,
+    }, with_context = false) }}
     <div class="psp-location-chooser__list">
       <span class="psp-location-chooser__list-label">{{ 'Or choose a location:'|t }}</span>
       <ul class="psp-location-chooser__locations">

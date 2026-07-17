@@ -33,9 +33,7 @@
       const label = bar.querySelector('.js-psp-location-label');
       const toggle = bar.querySelector('.js-psp-location-toggle');
       const chooser = bar.querySelector('.psp-location-chooser');
-      const form = bar.querySelector('.js-psp-zip-form');
-      const input = bar.querySelector('.js-psp-zip-input');
-      const error = bar.querySelector('.js-psp-zip-error');
+      const input = bar.querySelector('.js-psp-zip-search-input');
 
       // Visiting an area section remembers it.
       if (settings.currentArea && settings.currentLabel) {
@@ -63,30 +61,6 @@
         link.addEventListener('click', function () {
           writeCookie(link.dataset.areaPrefix, link.textContent.trim());
         });
-      });
-
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        error.hidden = true;
-        const zip = input.value.trim();
-        if (!/^\d{5}$/.test(zip)) {
-          input.focus();
-          return;
-        }
-        fetch(Drupal.url('psp-area/zip/' + zip))
-          .then(function (response) { return response.json(); })
-          .then(function (data) {
-            if (data.found) {
-              writeCookie(data.area, data.label);
-              window.location.href = data.url;
-            }
-            else {
-              error.hidden = false;
-            }
-          })
-          .catch(function () {
-            error.hidden = false;
-          });
       });
     }
   };

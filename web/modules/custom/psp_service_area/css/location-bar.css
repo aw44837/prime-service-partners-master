@@ -44,40 +44,15 @@
   text-align: center;
 }
 
-.psp-location-chooser__form label {
-  display: block;
-  margin-bottom: 8px;
+.psp-location-chooser__label {
+  margin: 0 0 10px;
 }
 
-.psp-location-chooser__row {
-  display: inline-flex;
-  gap: 8px;
+.psp-location-chooser .psp-zip-search {
+  margin-inline: auto;
 }
 
-.psp-location-chooser__row input {
-  padding: 8px 10px;
-  border: 0;
-  border-radius: var(--radius-sm, 4px);
-  width: 230px; /* was 9em (~130px); +100px per review */
-  color: #111;
-}
-
-.psp-location-chooser__submit {
-  padding: 8px 16px;
-  border: 0;
-  border-radius: var(--radius-sm, 4px);
-  background: var(--color-secondary, #f6901d);
-  color: #111;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.psp-location-chooser__error {
-  margin: 10px auto 0;
-  max-width: 60ch;
-}
-
-.psp-location-chooser__error a {
+.psp-location-chooser .psp-zip-search__error {
   color: #fff;
 }
 
