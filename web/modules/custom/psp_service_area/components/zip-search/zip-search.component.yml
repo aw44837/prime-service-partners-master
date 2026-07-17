@@ -1,0 +1,22 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: ZIP Code Search
+status: stable
+group: Prime Service Partners
+description: 'Pill-shaped ZIP search with an integrated button. Looks up the visitor''s service area and redirects to that market''s section; shows an out-of-area message for unknown ZIPs.'
+props:
+  type: object
+  properties:
+    placeholder:
+      title: 'Input placeholder'
+      type: string
+      examples:
+        - 'Enter your ZIP code'
+    button_label:
+      title: 'Button label'
+      type: string
+      examples:
+        - 'Find My Location'
+    center:
+      title: 'Center align'
+      type: boolean
+      examples: [ false ]

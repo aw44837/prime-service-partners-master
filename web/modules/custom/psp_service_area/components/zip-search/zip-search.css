@@ -1,0 +1,63 @@
+/*
+ * Pill ZIP search with integrated button (hero-scale).
+ */
+.psp-zip-search {
+  max-width: 480px;
+}
+
+.psp-zip-search--center {
+  margin-inline: auto;
+}
+
+.psp-zip-search__pill {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 999px;
+  padding: 5px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+.psp-zip-search__input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  padding: 12px 10px 12px 22px;
+  font-size: 1.05rem;
+  color: #111;
+  outline-offset: -2px;
+  border-radius: 999px 0 0 999px;
+}
+
+.psp-zip-search__input::placeholder {
+  color: #777;
+}
+
+.psp-zip-search__button {
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-secondary, #f6901d);
+  color: #111;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 26px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: filter 0.15s ease;
+}
+
+.psp-zip-search__button:hover,
+.psp-zip-search__button:focus {
+  filter: brightness(1.08);
+}
+
+.psp-zip-search__error {
+  margin: 10px 4px 0;
+  font-size: 0.92rem;
+}
+
+.psp-zip-search__error a {
+  color: inherit;
+  text-decoration: underline;
+}

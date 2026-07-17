@@ -1,0 +1,21 @@
+{% set classes = [
+  'psp-zip-search',
+  center ? 'psp-zip-search--center',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  <form class="psp-zip-search__form js-psp-zip-search-form" novalidate>
+    <label class="visually-hidden" for="{{ 'psp-zip-search-input'|clean_unique_id }}">{{ 'ZIP code'|t }}</label>
+    <div class="psp-zip-search__pill">
+      <input
+        id="{{ 'psp-zip-search-input'|clean_unique_id }}"
+        class="psp-zip-search__input js-psp-zip-search-input"
+        type="text" inputmode="numeric" pattern="[0-9]{5}" minlength="5" maxlength="5"
+        placeholder="{{ placeholder|default('Enter your ZIP code'|t) }}" required>
+      <button type="submit" class="psp-zip-search__button">{{ button_label|default('Find My Location'|t) }}</button>
+    </div>
+    <p class="psp-zip-search__error js-psp-zip-search-error" hidden>
+      {{ 'Sorry — that ZIP code is outside our current service area.'|t }}
+      <a href="/areas-we-serve">{{ 'See all the areas we serve'|t }}</a>
+    </p>
+  </form>
+</div>
