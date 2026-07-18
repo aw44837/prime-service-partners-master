@@ -76,3 +76,21 @@
   left: auto;
   right: 0;
 }
+
+/* In the mobile flyout the CTA sits top-LEFT, so the header's
+ * right-anchored panel would overflow the flyout's left edge — anchor
+ * left there instead. Same container breakpoint as the flyout itself. */
+@container (width <= 1180px) {
+  .header-navigation-wrapper .psp-phone-directory__panel {
+    left: 0;
+    right: auto;
+    /* Fit within the flyout: 20px flyout inset + ~21px scrollable
+     * padding on each side leaves 100vw - 82px of room. */
+    min-width: 0;
+    max-width: calc(100vw - 82px);
+  }
+
+  .header-navigation-wrapper .psp-phone-directory__link {
+    gap: 12px;
+  }
+}

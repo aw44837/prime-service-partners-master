@@ -62,3 +62,14 @@
   left: auto;
   right: 0;
 }
+
+/* Mobile flyout: anchor left and fit within the flyout (matches the
+ * phone directory's flyout rules). */
+@container (width <= 1180px) {
+  .header-navigation-wrapper .psp-location-selector__panel {
+    left: 0;
+    right: auto;
+    min-width: 0;
+    max-width: calc(100vw - 82px);
+  }
+}

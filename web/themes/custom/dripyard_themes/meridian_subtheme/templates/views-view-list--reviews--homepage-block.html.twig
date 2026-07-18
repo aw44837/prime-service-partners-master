@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Homepage reviews block: render view rows through the accessible
+ * dripyard_base carousel component (3-up, pager, autoplay, hidden arrows).
+ * The view's rows are passed as view_rows — the carousel's own `rows`
+ * prop means rows-per-view. Review text is line-clamped in CSS; each card
+ * links to the full listing.
+ */
+#}
+{% embed 'dripyard_base:carousel' with {
+  label: 'Customer reviews'|t,
+  slides_per_view: 3,
+  rows: 1,
+  pager: true,
+  autoplay: true,
+  navigation_position: 'hidden',
+  view_rows: rows,
+} only %}
+  {% block carousel_items %}
+    {% for row in view_rows %}
+      <div class="review-card">
+        {{ row.content }}
+        <a class="review-card__more" href="/reviews">{{ 'Read more'|t }}</a>
+      </div>
+    {% endfor %}
+  {% endblock %}
+{% endembed %}

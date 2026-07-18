@@ -4,9 +4,11 @@
  */
 
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Nunito:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
-/* Two-column dropdown for "Areas we Serve" menu item (desktop only) */
+/* Multi-column dropdowns (desktop only). Applied per menu link via the
+ * container_attributes class: two columns for medium dropdowns, three
+ * columns for large ones (15+ items). */
 @container (width > 1000px) {
   .has-two-col-dropdown > .primary-menu__list--level-2 {
     display: grid;
@@ -15,17 +17,52 @@
     width: max-content;
     min-width: 300px;
   }
+
+  .has-three-col-dropdown > .primary-menu__list--level-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 24px;
+    width: max-content;
+    min-width: 450px;
+  }
 }
 
-/* Logo size */
+/* Logo size — enlarged (was 66px; 132px first pass, reduced 10% to 119px on review), overflowing the header bar.
+ * The negative block margins cancel the extra height out of the layout, so
+ * the header bar stays the height it had with the 66px logo and the logo
+ * breaks past its top and bottom borders instead. */
 .header-logo__link {
-  --header-logo-max-height: 66px;
+  --header-logo-max-height: 119px;
+  /* Total overhang = new height - old 66px, split unevenly: a slight overlap
+   * past the bar's top edge, the rest hanging below. Keep the top value
+   * under ~25px — that's all the headroom the header has at page top
+   * (20px layout-container padding + 5px bar padding) before the logo gets
+   * cut off by the top of the screen. */
+  --header-logo-overhang-top: 15px;
+  --header-logo-overhang-bottom: calc(var(--header-logo-max-height) - 66px - var(--header-logo-overhang-top));
+}
+
+.header-logo__image {
+  display: block;
+  position: relative;
+  z-index: 1; /* Paint above the sticky bar's border/background. */
+  margin-top: calc(-1 * var(--header-logo-overhang-top));
+  margin-bottom: calc(-1 * var(--header-logo-overhang-bottom));
+}
+
+/* Slightly smaller on narrow screens so it doesn't crowd the mobile header. */
+@container (width <= 600px) {
+  .header-logo__link {
+    --header-logo-max-height: 90px;
+  }
 }
 
 /* Font overrides */
 :root {
-  --font-heading: 'Caprasimo', serif;
-  --font-body: 'Nunito', sans-serif;
+  --font-heading: 'Paytone One', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+  /* Title style should match headlines (base theme points it at --font-sans). */
+  --title-font-family: var(--font-heading);
 }
 
 body,
@@ -66,5 +103,75 @@ h1, h2, h3, h4, h5, h6,
 @media (min-width: 992px) {
   .review-cards {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Review cards are always white — force dark text regardless of the
+ * surrounding section theme. The visible review paragraphs are plain <p>
+ * siblings of the classed field wrapper (the field value's own <p> tags
+ * break out of it), so inherited `color` is what matters — pin it directly
+ * along with the theme tokens the classed elements use. */
+.review-card {
+  --theme-text-color-loud: #111;
+  --theme-text-color-medium: #444;
+  color: #444;
+}
+
+/* Carousel slides: uniform, mobile-friendly card height. The review text
+ * is clamped to 5 lines; the per-card Read more link covers the rest. */
+.carousel .review-card {
+  height: 100%;
+  margin-bottom: 8px;
+}
+
+.carousel .review-card .views-field-field-review {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.review-card__more {
+  margin-top: auto;
+  font-weight: 600;
+  text-decoration: underline;
+  color: var(--primary, #003f52);
+}
+
+/* Corner-rounding utilities for Canvas "Additional CSS classes" fields.
+ * Map to the Dripyard radius tokens (sm 4px / md 10px / lg 40px by
+ * default). overflow:hidden clips child backgrounds and images to the
+ * rounded shape — note it will also clip anything intentionally
+ * overflowing the container (e.g. dropdowns, offset images). */
+.rounded-sm {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.rounded-md {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Mobile flyout: the CTA (header_third) rides at the top-left of the
+ * expanded menu, vertically centered with the fixed close X, instead of
+ * sitting at the bottom. Also gives the Call Today! dropdown room to
+ * open downward over the menu. Extra ancestor class outweighs the
+ * parent theme's sp8/sp10 padding-top rules. */
+@container (width <= 1180px) {
+  .header-navigation-wrapper .header-navigation-wrapper__scrollable {
+    padding-top: 25px; /* Centers the CTA row on the fixed close X. */
+  }
+
+  .header-navigation-wrapper .header-navigation-wrapper__third {
+    order: -1;
+    align-self: flex-start;
+    margin-top: 0;
+    margin-bottom: 24px;
   }
 }
