@@ -1,0 +1,20 @@
+uuid: 2f3289b2-a0ed-4933-984a-d47fbc69c9bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - psp_service_area
+  theme:
+    - meridian_subtheme
+id: meridian_pspfooterlocations
+theme: meridian_subtheme
+region: footer_top
+weight: 0
+provider: null
+plugin: psp_area_footer_locations
+settings:
+  id: psp_area_footer_locations
+  label: 'Footer all-markets directory'
+  label_display: '0'
+  provider: psp_service_area
+visibility: {  }

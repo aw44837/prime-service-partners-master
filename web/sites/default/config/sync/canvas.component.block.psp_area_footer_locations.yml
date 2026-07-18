@@ -1,0 +1,22 @@
+uuid: 63e44909-a806-4495-b8e5-f1816d1e6a05
+langcode: en
+status: true
+dependencies:
+  module:
+    - psp_service_area
+active_version: 43f9746e9d46eb23
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: psp_area_footer_locations
+        label: 'Footer all-markets directory'
+        label_display: '0'
+        provider: psp_service_area
+    fallback_metadata:
+      slot_definitions: null
+label: 'Footer all-markets directory'
+id: block.psp_area_footer_locations
+provider: psp_service_area
+source: block
+source_local_id: psp_area_footer_locations

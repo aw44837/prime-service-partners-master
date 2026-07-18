@@ -41,36 +41,10 @@ class AreaFooterInfoBlock extends BlockBase implements ContainerFactoryPluginInt
     $settings = \Drupal::config('psp_service_area.settings');
 
     // Outside any market, a single address would misleadingly show the
-    // default (Raleigh) location — render a directory of every market
-    // instead: name linking to its landing page, address, and its
-    // Google Business profile (the term's Map link).
+    // default (Raleigh) location — render nothing; the footer_top
+    // all-markets directory block covers core pages.
     if (!$term) {
-      $locations = [];
-      $storage = \Drupal::entityTypeManager()->getStorage('taxonomy_term');
-      $tids = $storage->getQuery()
-        ->accessCheck(FALSE)
-        ->condition('vid', AreaResolver::VOCABULARY)
-        ->sort('weight')
-        ->sort('name')
-        ->execute();
-      foreach ($storage->loadMultiple($tids) as $market) {
-        $prefix = trim((string) $market->get('field_path_prefix')->value, "/ \t\n");
-        if ($prefix === '') {
-          continue;
-        }
-        $address = $market->get('field_address')->value;
-        $locations[] = [
-          'label' => $market->getName(),
-          'url' => '/' . $prefix,
-          'address_lines' => $address ? preg_split('/\r\n|\r|\n/', $address) : [],
-          'profile_url' => $market->get('field_map_link')->uri,
-        ];
-      }
-      return [
-        '#theme' => 'psp_footer_locations',
-        '#locations' => $locations,
-        '#attached' => ['library' => ['psp_service_area/footer_locations']],
-      ];
+      return [];
     }
 
     $company = $settings->get('default_company_name');
