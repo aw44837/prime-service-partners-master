@@ -43,7 +43,16 @@
   padding: 9px 12px;
   border-radius: var(--radius-sm, 4px);
   text-decoration: none;
-  color: #142630;
+}
+
+/* The panel is always a white card. The header's theme states (light
+ * text superimposed on heros, variable flips when stuck) cascade into
+ * it, turning text white-on-white — pin literal dark colors with enough
+ * weight that no header state can override them. */
+.psp-phone-directory .psp-phone-directory__panel,
+.psp-phone-directory .psp-phone-directory__panel a.psp-phone-directory__link,
+.psp-phone-directory .psp-phone-directory__panel .psp-phone-directory__market {
+  color: #142630 !important;
 }
 
 .psp-phone-directory__link:hover,
@@ -55,8 +64,8 @@
   font-weight: 600;
 }
 
-.psp-phone-directory__phone {
-  color: var(--color-primary, #003f52);
+.psp-phone-directory .psp-phone-directory__panel .psp-phone-directory__phone {
+  color: #003f52 !important; /* fixed brand navy; theme vars flip in header states */
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
