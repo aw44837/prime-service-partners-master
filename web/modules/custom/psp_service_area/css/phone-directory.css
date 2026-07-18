@@ -22,7 +22,9 @@
   z-index: 30;
   top: calc(100% + 8px);
   left: 0;
-  min-width: 280px;
+  min-width: 320px;
+  width: max-content;
+  max-width: min(420px, 92vw);
   margin: 0;
   padding: 8px;
   list-style: none;
@@ -33,8 +35,11 @@
 
 .psp-phone-directory__link {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  gap: 18px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: 24px;
   padding: 9px 12px;
   border-radius: var(--radius-sm, 4px);
   text-decoration: none;
