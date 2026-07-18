@@ -57,6 +57,36 @@
   }
 }
 
+/* Hamburger range: the pill's other content is the 48px nav button, but
+ * the logo's effective height (66px) was what set the stuck pill's
+ * height — hamburger 6px from the top, 24px from the bottom. Cancel the
+ * logo down to 48px so the pill hugs the hamburger with equal padding
+ * and the logo visibly overlaps the pill's bottom edge (~21px), matching
+ * the overhang look of the resting header. */
+@container (width <= 1180px) {
+  .header-logo__link {
+    /* 60px effective: pill 72px -> hamburger centered 12px/12px, logo
+     * overlaps the pill bottom ~38px (matches the desktop-rest look). */
+    --header-logo-overhang-bottom: calc(var(--header-logo-max-height) - 60px - var(--header-logo-overhang-top));
+  }
+
+  /* Parent theme nudges the burger down 10px above 600px width, which
+   * unbalances the pill padding — the pill centers it fine on its own. */
+  .mobile-nav-button {
+    margin-top: 0;
+    align-self: center;
+  }
+}
+
+/* Phones: 48px effective = the burger's own height, so the pill hugs it
+ * with 6px above and below and the 90px logo overlaps the bottom ~21px.
+ * Must follow the <=1180 block so this narrower value wins here. */
+@container (width <= 600px) {
+  .header-logo__link {
+    --header-logo-overhang-bottom: calc(var(--header-logo-max-height) - 48px - var(--header-logo-overhang-top));
+  }
+}
+
 /* Font overrides */
 :root {
   --font-heading: 'Paytone One', sans-serif;
