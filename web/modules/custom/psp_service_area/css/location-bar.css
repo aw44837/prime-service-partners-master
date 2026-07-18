@@ -120,3 +120,17 @@
   background: rgba(255, 255, 255, 0.14);
   color: #fff;
 }
+
+/* The oversized logo overhangs the header pill by ~10px on top and was
+ * colliding with the location bar. Lower the header's RESTING position
+ * when the bar is present; the stuck position is untouched because a
+ * sticky element takes its stuck offset from `top`, not from flow. */
+.region-header-above:has(.psp-location-bar) ~ .site-header {
+  margin-top: 20px;
+}
+
+@media (max-width: 800px) {
+  .region-header-above:has(.psp-location-bar) ~ .site-header {
+    margin-top: 24px;
+  }
+}
