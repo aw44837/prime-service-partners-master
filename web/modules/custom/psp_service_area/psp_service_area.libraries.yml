@@ -17,6 +17,11 @@ phone_directory:
   dependencies:
     - core/drupal
 
+footer_locations:
+  css:
+    component:
+      css/footer-locations.css: {}
+
 location_selector:
   css:
     component:

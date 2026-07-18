@@ -1,0 +1,19 @@
+{#
+/**
+ * @file
+ * Footer directory of every market: linked name, address, GBP link.
+ */
+#}
+<ul class="psp-footer-locations">
+  {% for location in locations %}
+    <li class="psp-footer-locations__item">
+      <a href="{{ location.url }}" class="psp-footer-locations__name">{{ location.label }}</a>
+      {% for line in location.address_lines %}
+        <span class="psp-footer-locations__line">{{ line }}</span>
+      {% endfor %}
+      {% if location.profile_url %}
+        <a href="{{ location.profile_url }}" target="_blank" rel="noopener" class="psp-footer-locations__profile">{{ 'Google Business Profile'|t }}</a>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

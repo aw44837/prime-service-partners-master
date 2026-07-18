@@ -1,0 +1,39 @@
+/*
+ * Footer all-markets directory (core pages).
+ */
+.psp-footer-locations {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 24px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.psp-footer-locations__item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+a.psp-footer-locations__name {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: none;
+}
+
+a.psp-footer-locations__name:hover,
+a.psp-footer-locations__name:focus {
+  text-decoration: underline;
+}
+
+.psp-footer-locations__line {
+  display: block;
+}
+
+a.psp-footer-locations__profile {
+  margin-top: 2px;
+  font-size: 0.85em;
+  color: inherit;
+  text-decoration: underline;
+}

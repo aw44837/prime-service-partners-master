@@ -53,6 +53,9 @@ function psp_service_area_theme(): array {
     'psp_location_selector' => [
       'variables' => ['locations' => [], 'compact' => FALSE],
     ],
+    'psp_footer_locations' => [
+      'variables' => ['locations' => []],
+    ],
     'psp_location_bar' => [
       'variables' => [
         'current' => NULL,
