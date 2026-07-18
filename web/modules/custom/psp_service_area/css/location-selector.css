@@ -1,0 +1,64 @@
+/*
+ * "Choose Your Location" market dropdown.
+ */
+.psp-location-selector {
+  position: relative;
+  display: inline-block;
+}
+
+.psp-location-selector__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.psp-location-selector__toggle[aria-expanded="true"] .psp-location-selector__caret {
+  transform: rotate(180deg);
+}
+
+.psp-location-selector__panel {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 240px;
+  width: max-content;
+  max-width: min(420px, 92vw);
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: #fff;
+  border-radius: var(--radius-md, 10px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+}
+
+.psp-location-selector__link {
+  display: block;
+  white-space: nowrap;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm, 4px);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* The panel is always a white card. The header's theme states (light
+ * text superimposed on heros, variable flips when stuck) cascade into
+ * it, turning text white-on-white — pin literal dark colors with enough
+ * weight that no header state can override them. */
+.psp-location-selector .psp-location-selector__panel,
+.psp-location-selector .psp-location-selector__panel a.psp-location-selector__link {
+  color: #142630 !important;
+}
+
+.psp-location-selector__link:hover,
+.psp-location-selector__link:focus {
+  background: rgba(0, 63, 82, 0.08);
+}
+
+/* In the header (right edge), anchor the panel to the right so it stays
+ * on-screen. */
+.region-header-third .psp-location-selector__panel {
+  left: auto;
+  right: 0;
+}

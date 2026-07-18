@@ -50,6 +50,9 @@ function psp_service_area_theme(): array {
     'psp_phone_directory' => [
       'variables' => ['markets' => [], 'compact' => FALSE],
     ],
+    'psp_location_selector' => [
+      'variables' => ['locations' => [], 'compact' => FALSE],
+    ],
     'psp_location_bar' => [
       'variables' => [
         'current' => NULL,

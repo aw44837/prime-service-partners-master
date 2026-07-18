@@ -16,3 +16,12 @@ phone_directory:
     js/phone-directory.js: {}
   dependencies:
     - core/drupal
+
+location_selector:
+  css:
+    component:
+      css/location-selector.css: {}
+  js:
+    js/location-selector.js: {}
+  dependencies:
+    - core/drupal

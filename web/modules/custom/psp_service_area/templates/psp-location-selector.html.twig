@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * "Choose Your Location" button + market landing-page dropdown.
+ */
+#}
+{% set panel_id = 'psp-location-selector'|clean_unique_id %}
+<div class="psp-location-selector">
+  <button type="button" class="button button--secondary{{ compact ? ' button--small' }} psp-location-selector__toggle js-psp-location-toggle" aria-expanded="false" aria-controls="{{ panel_id }}">
+    {{ 'Choose Your Location'|t }}
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" class="psp-location-selector__caret"><path d="M7 10l5 5 5-5z"/></svg>
+  </button>
+  <ul class="psp-location-selector__panel" id="{{ panel_id }}" hidden>
+    {% for location in locations %}
+      <li class="psp-location-selector__item">
+        <a href="{{ location.url }}" class="psp-location-selector__link">{{ location.label }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
