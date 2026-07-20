@@ -17,12 +17,12 @@
  * token only resolves to white inside a primary-color-is-dark wrapper (which body
  * content is not), so white is set explicitly here. */
 .cta-box--primary {
-  background-color: var(--primary, #003F52);
+  background-color: var(--primary, #183d6a);
   color: var(--white, #fff);
 }
 
 .cta-box--secondary {
-  background-color: var(--secondary, #4ABAC7);
+  background-color: var(--secondary, #f19723);
   color: var(--white, #fff);
 }
 
