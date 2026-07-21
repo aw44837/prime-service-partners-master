@@ -68,6 +68,79 @@ function psp_service_area_theme(): array {
 }
 
 /**
+ * Implements hook_page_attachments().
+ *
+ * Emits schema.org LocalBusiness JSON-LD on any page inside a service
+ * area, built from the area term (address, phone, landing URL, Google
+ * Business profile via the Map link field).
+ */
+function psp_service_area_page_attachments(array &$attachments): void {
+  $term = \Drupal::service('psp_service_area.area_resolver')->resolve();
+  $attachments['#cache']['contexts'][] = 'service_area';
+  $attachments['#cache']['tags'][] = 'taxonomy_term_list:' . AreaResolver::VOCABULARY;
+  if (!$term) {
+    return;
+  }
+
+  $settings = \Drupal::config('psp_service_area.settings');
+  $company = $settings->get('default_company_name');
+  $base = \Drupal::request()->getSchemeAndHttpHost();
+  $prefix = trim((string) $term->get('field_path_prefix')->value, "/ \t\n");
+  $url = $base . '/' . $prefix;
+
+  $data = [
+    '@context' => 'https://schema.org',
+    '@type' => ['Plumber', 'HVACBusiness'],
+    '@id' => $url . '#business',
+    'name' => $company . ' - ' . $term->getName(),
+    'url' => $url,
+  ];
+  if ($phone = $term->get('field_phone')->value) {
+    $data['telephone'] = '+1-' . preg_replace('/[^0-9\-]/', '', $phone);
+  }
+  if ($address = $term->get('field_address')->value) {
+    $lines = preg_split('/\r\n|\r|\n/', trim($address));
+    $last = array_pop($lines);
+    $postal = [];
+    if (preg_match('/^(.*?),\s*([A-Z]{2})\s+(\d{5})/', $last, $m)) {
+      $postal = [
+        'addressLocality' => $m[1],
+        'addressRegion' => $m[2],
+        'postalCode' => $m[3],
+      ];
+    }
+    else {
+      $lines[] = $last;
+    }
+    $data['address'] = [
+      '@type' => 'PostalAddress',
+      'streetAddress' => implode(', ', $lines),
+      'addressCountry' => 'US',
+    ] + $postal;
+  }
+  if ($map = $term->get('field_map_link')->uri) {
+    $data['hasMap'] = $map;
+  }
+  if ($booking = $term->get('field_booking_url')->uri) {
+    $data['potentialAction'] = [
+      '@type' => 'ReserveAction',
+      'target' => $booking,
+    ];
+  }
+
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#tag' => 'script',
+      '#attributes' => ['type' => 'application/ld+json'],
+      // Markup + JSON_HEX_* : keeps entities out of the raw script text
+      // (parsers do not HTML-decode) while blocking </script> breakout.
+      '#value' => \Drupal\Core\Render\Markup::create(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT)),
+    ],
+    'psp_service_area_local_business',
+  ];
+}
+
+/**
  * Implements hook_ENTITY_TYPE_presave() for taxonomy_term.
  *
  * Area data (phone, booking URL, address, menu) is baked into render-cached
