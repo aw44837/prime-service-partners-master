@@ -335,4 +335,7 @@ requirements:
 third_party_settings:
   captcha:
     replace_administration_mode: true
-  honeypot: {  }
+  honeypot:
+    honeypot: true
+  antibot:
+    antibot: true
