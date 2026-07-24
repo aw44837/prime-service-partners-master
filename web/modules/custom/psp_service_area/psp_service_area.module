@@ -88,13 +88,23 @@ function psp_service_area_page_attachments(array &$attachments): void {
   $prefix = trim((string) $term->get('field_path_prefix')->value, "/ \t\n");
   $url = $base . '/' . $prefix;
 
+  // The site's trades come from psp_seo.settings so market blocks and the
+  // sitewide entity emitted by psp_seo always advertise the same types.
+  $seo = \Drupal::config('psp_seo.settings');
+  $attachments['#cache']['tags'] = Cache::mergeTags($attachments['#cache']['tags'] ?? [], $seo->getCacheTags());
+  $types = array_values(array_filter((array) $seo->get('business_types')));
+
   $data = [
     '@context' => 'https://schema.org',
-    '@type' => ['Plumber', 'HVACBusiness'],
+    '@type' => $types ?: ['Plumber', 'HVACBusiness'],
     '@id' => $url . '#business',
     'name' => $company . ' - ' . $term->getName(),
     'url' => $url,
   ];
+  if ($seo->get('company_name')) {
+    // psp_seo emits the umbrella Organization with this @id on every page.
+    $data['parentOrganization'] = ['@id' => $base . '/#organization'];
+  }
   if ($phone = $term->get('field_phone')->value) {
     $data['telephone'] = '+1-' . preg_replace('/[^0-9\-]/', '', $phone);
   }

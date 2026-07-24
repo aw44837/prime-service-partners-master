@@ -8,3 +8,154 @@
  * \Drupal\psp_seo\EventSubscriber\CanonicalAbsoluteSubscriber, which rewrites
  * the relative rel=canonical that Canvas pages emit into an absolute URL.
  */
+
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Render\Markup;
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Emits the site-level schema.org business entity as JSON-LD on every page,
+ * from psp_seo.settings. Nothing is emitted until company_name is set.
+ *
+ * - Single-market sites: a LocalBusiness carrying the site's trades as a
+ *   multi-type @type array (e.g. ["Plumber", "HVACBusiness"]) plus full
+ *   NAP, hours and booking data.
+ * - Multi-market sites (psp_service_area enabled and markets defined): an
+ *   Organization umbrella entity only — the per-market LocalBusiness blocks
+ *   emitted by psp_service_area link back to it via parentOrganization, so
+ *   the market blocks stay the entities that carry NAP data.
+ */
+function psp_seo_page_attachments(array &$attachments): void {
+  $settings = \Drupal::config('psp_seo.settings');
+  $attachments['#cache']['tags'] = Cache::mergeTags($attachments['#cache']['tags'] ?? [], $settings->getCacheTags());
+  $name = $settings->get('company_name');
+  if (!$name) {
+    return;
+  }
+
+  $base = \Drupal::request()->getSchemeAndHttpHost();
+  $multi_market = FALSE;
+  if (\Drupal::moduleHandler()->moduleExists('psp_service_area')) {
+    $attachments['#cache']['tags'][] = 'taxonomy_term_list:' . \Drupal\psp_service_area\AreaResolver::VOCABULARY;
+    $multi_market = (bool) \Drupal::entityQuery('taxonomy_term')
+      ->condition('vid', \Drupal\psp_service_area\AreaResolver::VOCABULARY)
+      ->accessCheck(FALSE)
+      ->count()
+      ->execute();
+  }
+
+  if ($multi_market) {
+    $data = [
+      '@context' => 'https://schema.org',
+      '@type' => 'Organization',
+      '@id' => $base . '/#organization',
+      'name' => $name,
+      'url' => $base . '/',
+    ];
+  }
+  else {
+    $types = array_values(array_filter((array) $settings->get('business_types')));
+    $data = [
+      '@context' => 'https://schema.org',
+      '@type' => $types ?: ['LocalBusiness'],
+      '@id' => $base . '/#business',
+      'name' => $name,
+      'url' => $base . '/',
+    ];
+    if ($address = $settings->get('address')) {
+      $data['address'] = _psp_seo_postal_address($address);
+    }
+    if ($map = $settings->get('map_url')) {
+      $data['hasMap'] = $map;
+    }
+    if ($price_range = $settings->get('price_range')) {
+      $data['priceRange'] = $price_range;
+    }
+    if ($hours = array_values(array_filter((array) $settings->get('opening_hours')))) {
+      $data['openingHours'] = $hours;
+    }
+    if ($booking = $settings->get('booking_url')) {
+      $data['potentialAction'] = [
+        '@type' => 'ReserveAction',
+        'target' => $booking,
+      ];
+    }
+  }
+
+  if ($phone = _psp_seo_telephone($settings->get('phone'))) {
+    $data['telephone'] = $phone;
+  }
+  if ($logo = _psp_seo_logo_url($settings->get('logo_url'), $base)) {
+    $data['logo'] = $logo;
+    $data['image'] = $logo;
+  }
+  if ($same_as = array_values(array_filter((array) $settings->get('same_as')))) {
+    $data['sameAs'] = $same_as;
+  }
+
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#tag' => 'script',
+      '#attributes' => ['type' => 'application/ld+json'],
+      // Markup + JSON_HEX_* : keeps entities out of the raw script text
+      // (parsers do not HTML-decode) while blocking </script> breakout.
+      '#value' => Markup::create(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT)),
+    ],
+    'psp_seo_site_entity',
+  ];
+}
+
+/**
+ * Builds a schema.org PostalAddress from a multiline address string.
+ *
+ * Expects street lines first and "City, ST 12345" as the last line (the
+ * same convention as psp_service_area's term address field).
+ */
+function _psp_seo_postal_address(string $address): array {
+  $lines = preg_split('/\r\n|\r|\n/', trim($address));
+  $last = array_pop($lines);
+  $postal = [];
+  if (preg_match('/^(.*?),\s*([A-Z]{2})\s+(\d{5})/', $last, $m)) {
+    $postal = [
+      'addressLocality' => $m[1],
+      'addressRegion' => $m[2],
+      'postalCode' => $m[3],
+    ];
+  }
+  else {
+    $lines[] = $last;
+  }
+  return [
+    '@type' => 'PostalAddress',
+    'streetAddress' => implode(', ', $lines),
+    'addressCountry' => 'US',
+  ] + $postal;
+}
+
+/**
+ * Normalizes a US phone number to schema.org's +1-XXX-XXX-XXXX form.
+ */
+function _psp_seo_telephone(?string $phone): ?string {
+  if (!$phone) {
+    return NULL;
+  }
+  $digits = preg_replace('/\D/', '', $phone);
+  if (strlen($digits) === 11 && str_starts_with($digits, '1')) {
+    $digits = substr($digits, 1);
+  }
+  return strlen($digits) === 10
+    ? sprintf('+1-%s-%s-%s', substr($digits, 0, 3), substr($digits, 3, 3), substr($digits, 6))
+    : $phone;
+}
+
+/**
+ * Resolves the logo: configured URL/path, else the active theme's logo.
+ */
+function _psp_seo_logo_url(?string $configured, string $base): ?string {
+  if ($configured) {
+    return preg_match('@^https?://@', $configured) ? $configured : $base . '/' . ltrim($configured, '/');
+  }
+  $logo = theme_get_setting('logo.url');
+  return $logo ? $base . $logo : NULL;
+}

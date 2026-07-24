@@ -1,0 +1,43 @@
+psp_seo.settings:
+  type: config_object
+  label: 'PSP SEO settings'
+  mapping:
+    company_name:
+      type: string
+      label: 'Company name (schema markup is emitted only when set)'
+    business_types:
+      type: sequence
+      label: 'schema.org LocalBusiness subtypes, primary trade first'
+      sequence:
+        type: string
+        label: 'Business type'
+    phone:
+      type: string
+      label: 'Primary phone number'
+    address:
+      type: string
+      label: 'Postal address (street lines, then "City, ST 12345" last)'
+    map_url:
+      type: string
+      label: 'Google Maps / Business Profile link'
+    booking_url:
+      type: string
+      label: 'Online booking URL (ReserveAction)'
+    logo_url:
+      type: string
+      label: 'Logo URL or site-relative path (falls back to the theme logo)'
+    same_as:
+      type: sequence
+      label: 'sameAs profile URLs (social, GBP, directories)'
+      sequence:
+        type: string
+        label: 'Profile URL'
+    price_range:
+      type: string
+      label: 'Price range (e.g. $$)'
+    opening_hours:
+      type: sequence
+      label: 'Opening hours in schema.org shorthand (e.g. "Mo-Fr 08:00-17:00")'
+      sequence:
+        type: string
+        label: 'Opening hours entry'

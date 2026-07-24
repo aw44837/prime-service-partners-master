@@ -1,0 +1,15 @@
+# Site-level schema.org business entity, emitted as JSON-LD on every page.
+# Left empty on the master build: a site starts emitting markup only once
+# company_name is set. business_types lists the schema.org LocalBusiness
+# subtypes that truthfully describe the site's trades, most important
+# first (e.g. Plumber, HVACBusiness, Electrician).
+company_name: ''
+business_types: {  }
+phone: ''
+address: ''
+map_url: ''
+booking_url: ''
+logo_url: ''
+same_as: {  }
+price_range: ''
+opening_hours: {  }
