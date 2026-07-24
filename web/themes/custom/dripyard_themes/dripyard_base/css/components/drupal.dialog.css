@@ -3,12 +3,25 @@
  * Styling for UI Dialog and media library.
  */
 
-.ui-dialog {
+/* Class tripled (specificity 0,3,0): two other stylesheets fight this file on
+   every page — core's redesigned dialog CSS (--jui-* rules) sets
+   `.ui-dialog { background: transparent }`, and gin_toolbar globally injects
+   gin/dialog (weight 101, loads last, selectors up to 0,2,0 like
+   `.ui-dialog:not(.ui-dialog-off-canvas)`) whose --gin-* variables are
+   undefined on the frontend, computing to transparent panels and a hardcoded
+   #1b1b1d titlebar. The tripled root keeps this file's rules (and everything
+   nested in it) winning regardless of aggregation order or weight. */
+.ui-dialog.ui-dialog.ui-dialog {
   container-type: inline-size;
   padding: 0;
   /* Ensure a solid panel even if core/jQuery UI base CSS is absent (e.g. when
      aggregated on production). */
   background-color: var(--theme-surface);
+
+  /* gin/dialog pads the content with undefined --gin-* vars (computes to 0). */
+  .ui-dialog-content {
+    padding: 0 1.5rem 1.5rem;
+  }
 
   .ui-widget-header {
     position: relative; /* Anchor the absolutely-positioned close button. */
@@ -66,7 +79,9 @@
   }
 }
 
-.ui-dialog-buttonpane {
+/* Parent classes doubled to beat gin/dialog's `.ui-dialog .ui-dialog-buttonpane`
+   (see the note on the tripled .ui-dialog root above). */
+.ui-dialog.ui-dialog .ui-dialog-buttonpane {
   display: flex;
   align-items: center;
   justify-content: space-between;
