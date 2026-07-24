@@ -31,6 +31,8 @@ module:
   canvas_ai: 0
   canvas_field_component: 0
   captcha: 0
+  charts: 0
+  charts_chartjs: 0
   ckeditor5: 0
   clientside_validation: 0
   clientside_validation_jquery: 0
@@ -131,6 +133,7 @@ module:
   user: 0
   view_password: 0
   views_ui: 0
+  visitors: 0
   webform: 0
   webform_cards: 0
   webform_node: 0

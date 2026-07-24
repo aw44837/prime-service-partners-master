@@ -60,6 +60,7 @@
         "drupal/tagify": "^1.2",
         "drupal/token_filter": "^2.2",
         "drupal/trash": "^3.0",
+        "drupal/visitors": "^2.33",
         "drupal/webform": "^6.3@beta",
         "drupal/webform_validation": "^2.0"
     },
