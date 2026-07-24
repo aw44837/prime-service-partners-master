@@ -1,0 +1,7 @@
+psp_seo.llms_txt:
+  path: '/llms.txt'
+  defaults:
+    _controller: 'Drupal\psp_seo\Controller\LlmsTxtController::build'
+    _title: 'llms.txt'
+  requirements:
+    _access: 'TRUE'

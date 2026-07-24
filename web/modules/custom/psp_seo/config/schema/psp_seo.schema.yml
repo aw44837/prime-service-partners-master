@@ -41,3 +41,6 @@ psp_seo.settings:
       sequence:
         type: string
         label: 'Opening hours entry'
+    llms_description:
+      type: string
+      label: 'One-line site summary for llms.txt (falls back to the site slogan)'

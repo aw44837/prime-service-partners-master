@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "143b53ad49f5cc38c8aead71f74b9004",
+    "content-hash": "e220096a00749420cd21f744fb287f30",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6494,6 +6494,80 @@
             "homepage": "https://www.drupal.org/project/mailsystem",
             "support": {
                 "source": "https://git.drupalcode.org/project/mailsystem"
+            }
+        },
+        {
+            "name": "drupal/markdownify",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/markdownify.git",
+                "reference": "1.1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/markdownify-1.1.4.zip",
+                "reference": "1.1.4",
+                "shasum": "aa9c67c3cd94967ece6ad70da41a0d8890ecd3dd"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11",
+                "league/html-to-markdown": "^5.1"
+            },
+            "suggest": {
+                "league/commonmark": "For extended Markdown formatting capabilities."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.1.4",
+                    "datestamp": "1774200986",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Drupal\\markdownify\\": "src/"
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Adrian Morelos",
+                    "homepage": "https://www.drupal.org/user/3235287",
+                    "email": "adrian.tech.enthusiast@gmail.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Christoph Weber",
+                    "homepage": "https://www.drupal.org/user/135619",
+                    "email": "webersd@gmail.com",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "christophweber",
+                    "homepage": "https://www.drupal.org/user/281751"
+                },
+                {
+                    "name": "imbatman",
+                    "homepage": "https://www.drupal.org/user/2966261"
+                },
+                {
+                    "name": "pronovix",
+                    "homepage": "https://www.drupal.org/user/3834019"
+                }
+            ],
+            "description": "Markdownify module for Drupal - Provides Markdown versions of content.",
+            "homepage": "https://www.drupal.org/project/markdownify",
+            "support": {
+                "source": "https://www.drupal.org/project/markdownify",
+                "issues": "https://www.drupal.org/project/issues/markdownify"
             }
         },
         {
