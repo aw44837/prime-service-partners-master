@@ -64,6 +64,7 @@ module:
   eca_user: 0
   editor: 0
   entity_block: 0
+  exif_orientation: 0
   field: 0
   field_group: 0
   field_ui: 0
