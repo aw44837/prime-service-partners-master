@@ -1,0 +1,4 @@
+administer psp lead guard:
+  title: 'Administer AI Lead Guard'
+  description: 'Configure AI spam screening of webform submissions.'
+  restrict access: true

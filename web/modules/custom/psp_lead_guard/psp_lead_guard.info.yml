@@ -1,0 +1,9 @@
+name: 'PSP Lead Guard'
+type: module
+description: 'AI screening of webform submissions: classifies real service leads vs spam and gates the notification email. Fails open — anything uncertain is emailed.'
+package: 'Prime Service Partners'
+core_version_requirement: ^11
+configure: psp_lead_guard.settings
+dependencies:
+  - webform:webform
+  - ai:ai

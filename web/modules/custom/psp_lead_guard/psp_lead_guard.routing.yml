@@ -1,0 +1,7 @@
+psp_lead_guard.settings:
+  path: '/admin/config/services/lead-guard'
+  defaults:
+    _form: '\Drupal\psp_lead_guard\Form\LeadGuardSettingsForm'
+    _title: 'AI Lead Guard'
+  requirements:
+    _permission: 'administer psp lead guard'

@@ -1,0 +1,12 @@
+services:
+  psp_lead_guard.screener:
+    class: Drupal\psp_lead_guard\LeadScreener
+    arguments:
+      - '@config.factory'
+      - '@ai.provider'
+      - '@ai.prompt_json_decode'
+      - '@logger.channel.psp_lead_guard'
+
+  logger.channel.psp_lead_guard:
+    parent: logger.channel_base
+    arguments: ['psp_lead_guard']

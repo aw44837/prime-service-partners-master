@@ -1,76 +1,73 @@
-uuid: 167a696d-8631-4813-b78d-0c1b1d474d66
+uuid: 60a75af2-7459-419d-bb4d-01527094d6c2
 langcode: en
 status: open
 dependencies:
   module:
-    - antibot
-    - honeypot
     - psp_lead_guard
-third_party_settings:
-  antibot:
-    antibot: true
-  honeypot:
-    honeypot: true
 weight: 0
 open: null
 close: null
 uid: 1
 template: false
 archive: false
-id: contact_jefco
-title: 'Contact JefCo'
+id: request_service
+title: 'Request Service'
 description: ''
 categories: {  }
 elements: |-
-  name:
-    '#type': webform_name
-    '#title': Name
-    '#title__access': false
-    '#first__title': 'First Name'
-    '#middle__access': false
-    '#last__title': 'Last Name'
-    '#suffix__access': false
-    '#degree__access': false
-  fieldset:
-    '#type': fieldset
-    '#title': fieldset
-    '#title_display': invisible
-    flexbox:
-      '#type': webform_flexbox
-      email:
-        '#title': 'Your Email'
-        '#type': email
-        '#required': true
-        '#default_value': '[current-user:mail]'
-      your_phone_number:
-        '#type': tel
-        '#title': 'Your Phone Number'
-        '#required': true
-  address:
-    '#type': webform_address
-    '#title': Address
-    '#required': true
-    '#address_2__access': false
-    '#country__access': false
-  are_you_an_existing_jefco_customer:
-    '#type': select
-    '#title': 'Are you an existing JefCo customer?'
-    '#options':
-      'Yes, I am': 'Yes, I am'
-      'No, I am a new customer': 'No, I am a new customer'
-    '#empty_option': 'Yes, I am'
-    '#empty_value': 'Yes, I am'
-  how_can_we_help_you:
-    '#type': textarea
-    '#title': 'How can we help you?'
-  disclaimer:
-    '#type': processed_text
-    '#text': '<p style="font-size:12px;">By submitting, you agree to receive text messages from JefCo Air Conditioning &amp; Refrigeration at the number provided, including those related to your inquiry, follow-ups, and review requests, via automated technology. Consent is not a condition of purchase. Msg &amp; data rates may apply. Msg frequency may vary. Reply STOP to cancel or HELP for assistance. <a href="https://www.scorpion.co/acceptable-use-policy/">Acceptable Use Policy</a></p>'
-    '#format': content_format
-  actions:
-    '#type': webform_actions
-    '#title': 'Submit button(s)'
-    '#submit__label': 'Send message'
+  service_area:
+    '#type': webform_card
+    '#title': 'Service Area'
+    zip_code:
+      '#type': webform_address
+      '#title': 'What is the zip code of the service address?'
+      '#required': true
+      '#address__access': false
+      '#address_2__access': false
+      '#city__access': false
+      '#state_province__access': false
+      '#postal_code__required': true
+      '#country__access': false
+  how_should_we_reach_you:
+    '#type': webform_card
+    '#title': 'How should we reach you?'
+    your_name:
+      '#type': webform_name
+      '#title': 'Your Name'
+      '#required': true
+      '#title__access': false
+      '#first__title': 'First Name'
+      '#first__required': true
+      '#middle__access': false
+      '#last__title': 'Last Name'
+      '#last__required': true
+      '#suffix__access': false
+      '#degree__access': false
+    phone_and_email:
+      '#type': fieldset
+      '#title': 'Phone and Email'
+      '#title_display': invisible
+      phone_email:
+        '#type': webform_flexbox
+        phone:
+          '#type': tel
+          '#title': Phone
+          '#required': true
+        email:
+          '#type': email
+          '#title': Email
+          '#required': true
+    receive_text_messages_about_appointment:
+      '#type': checkbox
+      '#title': 'Receive text messages about appointment'
+    receive_text_messages_about_marketing_promotions:
+      '#type': checkbox
+      '#title': 'Receive text messages about marketing promotions'
+    where_do_you_need_service:
+      '#type': webform_address
+      '#title': 'Where do you need service?'
+      '#title_display': before
+      '#country__access': false
   ai_verdict:
     '#type': value
     '#title': 'AI verdict'
@@ -96,7 +93,7 @@ settings:
   form_open_message: ''
   form_close_message: ''
   form_exception_message: ''
-  form_previous_submissions: false
+  form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
   form_disable_remote_addr: false
@@ -184,10 +181,10 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: modal
-  confirmation_url: /thanks
-  confirmation_title: 'Thank you'
-  confirmation_message: "<p>Success! We've received your form submission. Someone will be in touch with you soon regarding your inquiry. If this is an emergency, please call us.</p>"
+  confirmation_type: page
+  confirmation_url: ''
+  confirmation_title: ''
+  confirmation_message: ''
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -264,47 +261,6 @@ access:
     users: {  }
     permissions: {  }
 handlers:
-  email:
-    id: email
-    handler_id: email
-    label: Email
-    notes: ''
-    status: true
-    conditions:
-      enabled:
-        ':input[name="ai_action"]':
-          '!value': suppress
-    weight: -49
-    settings:
-      states:
-        - completed
-      to_mail: andy@droptech.dev
-      to_options: {  }
-      bcc_mail: ''
-      bcc_options: {  }
-      cc_mail: ''
-      cc_options: {  }
-      from_mail: noreply@droptech.dev
-      from_options: {  }
-      from_name: 'JefCo Website'
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
-      subject: 'New JefCo Website Lead!'
-      body: '<p>Submitted values are:</p><p>[webform_submission:values]</p><p>Submitted on [webform_submission:created]</p><p>Submitted by: [webform_submission:user]</p>'
-      excluded_elements: {  }
-      ignore_access: false
-      exclude_empty: true
-      exclude_empty_checkbox: false
-      exclude_attachments: false
-      html: true
-      attachments: false
-      twig: false
-      theme_name: ''
-      langcode: ''
-      parameters: {  }
-      debug: false
   ai_lead_screening:
     id: psp_lead_guard
     handler_id: ai_lead_screening

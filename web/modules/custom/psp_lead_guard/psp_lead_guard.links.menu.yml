@@ -1,0 +1,5 @@
+psp_lead_guard.settings:
+  title: 'AI Lead Guard'
+  description: 'AI spam screening of webform submissions.'
+  route_name: psp_lead_guard.settings
+  parent: system.admin_config_services

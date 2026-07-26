@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * @file
+ * AI Lead Guard: digest of suppressed webform submissions.
+ */
+
+use Drupal\webform\Entity\WebformSubmission;
+
+/**
+ * Implements hook_cron().
+ */
+function psp_lead_guard_cron(): void {
+  $config = \Drupal::config('psp_lead_guard.settings');
+  if (!$config->get('digest_enabled')) {
+    return;
+  }
+
+  $state = \Drupal::state();
+  $interval = $config->get('digest_frequency') === 'daily' ? 86400 : 604800;
+  $last = $state->get('psp_lead_guard.digest_last', 0);
+  $now = \Drupal::time()->getRequestTime();
+  if ($now - $last < $interval) {
+    return;
+  }
+  // First cron after install: start the window now instead of digging through
+  // history that predates the module.
+  if (!$last) {
+    $state->set('psp_lead_guard.digest_last', $now);
+    return;
+  }
+
+  $sids = \Drupal::database()->select('webform_submission_data', 'd')
+    ->fields('d', ['sid'])
+    ->condition('d.name', 'ai_action')
+    ->condition('d.value', 'suppress')
+    ->condition('s.created', $last, '>')
+    ->distinct();
+  $sids->join('webform_submission', 's', 'd.sid = s.sid');
+  $sids = $sids->execute()->fetchCol();
+
+  $state->set('psp_lead_guard.digest_last', $now);
+  if (!$sids) {
+    return;
+  }
+
+  $lines = [];
+  foreach (WebformSubmission::loadMultiple($sids) as $submission) {
+    $data = $submission->getData();
+    unset($data['ai_verdict'], $data['ai_action']);
+    $flat = [];
+    foreach ($data as $key => $value) {
+      $value = is_array($value) ? implode(', ', array_filter(array_map('strval', $value), 'strlen')) : (string) $value;
+      if (trim($value) !== '') {
+        $flat[] = "$key: " . mb_substr($value, 0, 200);
+      }
+    }
+    $lines[] = implode("\n", [
+      '#' . $submission->serial() . ' — ' . $submission->getWebform()->label() . ' — ' . date('Y-m-d H:i', (int) $submission->getCreatedTime()),
+      implode("\n", $flat),
+      'Reason: ' . ($submission->getNotes() ?: '(no notes)'),
+      'Review: ' . $submission->toUrl('canonical', ['absolute' => TRUE])->toString(),
+    ]);
+  }
+
+  $site_config = \Drupal::config('system.site');
+  $recipients = $config->get('digest_recipients') ?: [$site_config->get('mail')];
+  $params = [
+    'subject' => t('@site: @count contact form submission(s) held as spam', [
+      '@site' => $site_config->get('name'),
+      '@count' => count($lines),
+    ]),
+    'body' => t("These submissions were classified as spam and NOT emailed to the team. They are stored on the site — review and reclassify if any look like real leads.\n\n") . implode("\n\n----------------\n\n", $lines),
+  ];
+  $mail_manager = \Drupal::service('plugin.manager.mail');
+  $langcode = \Drupal::languageManager()->getDefaultLanguage()->getId();
+  foreach ($recipients as $to) {
+    $mail_manager->mail('psp_lead_guard', 'digest', $to, $langcode, $params);
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function psp_lead_guard_mail(string $key, array &$message, array $params): void {
+  if ($key === 'digest') {
+    $message['subject'] = $params['subject'];
+    $message['body'][] = $params['body'];
+  }
+}

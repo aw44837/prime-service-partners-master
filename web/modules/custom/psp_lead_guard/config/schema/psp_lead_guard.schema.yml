@@ -1,0 +1,66 @@
+psp_lead_guard.settings:
+  type: config_object
+  label: 'AI Lead Guard settings'
+  mapping:
+    mode:
+      type: string
+      label: 'Mode (off | log_only | enforce)'
+    provider_model:
+      type: string
+      label: 'AI provider__model override (empty = site default chat model)'
+    business_description:
+      type: text
+      label: 'What this business does'
+    lead_definition:
+      type: text
+      label: 'What counts as a real lead'
+    spam_definition:
+      type: text
+      label: 'What counts as spam'
+    service_area:
+      type: text
+      label: 'Service area description'
+    allowed_phone_prefixes:
+      type: sequence
+      label: 'Allowed international phone prefixes'
+      sequence:
+        type: string
+        label: 'Prefix'
+    blocklist_keywords:
+      type: sequence
+      label: 'Keyword blocklist (instant spam)'
+      sequence:
+        type: string
+        label: 'Keyword'
+    allowlist_keywords:
+      type: sequence
+      label: 'Keyword allowlist (instant lead, skips AI)'
+      sequence:
+        type: string
+        label: 'Keyword'
+    max_links:
+      type: integer
+      label: 'Maximum URLs allowed in a message'
+    confidence_threshold:
+      type: float
+      label: 'Minimum confidence to suppress email'
+    digest_enabled:
+      type: boolean
+      label: 'Send digest of suppressed submissions'
+    digest_recipients:
+      type: sequence
+      label: 'Digest recipients (empty = site email)'
+      sequence:
+        type: email
+        label: 'Email'
+    digest_frequency:
+      type: string
+      label: 'Digest frequency (daily | weekly)'
+    prompt_template:
+      type: text
+      label: 'Classification prompt template'
+
+webform.handler.psp_lead_guard:
+  type: mapping
+  label: 'AI Lead Screening handler settings'
+  mapping: {  }
