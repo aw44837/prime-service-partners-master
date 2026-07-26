@@ -68,6 +68,10 @@ production. Note: importing the live DB overwrites local active config — re-ru
    - `$settings['hash_salt']`
    - `$settings['file_private_path']`
    - `$settings['config_sync_directory']`
+   - `$settings['trusted_host_patterns']` — dev link at setup; **at domain launch, add
+     the production domain** (`'^(www\\.)?<domain>\\.com$'`) or Drupal rejects it with
+     400 "The provided host name is not valid for this server" (looks like a webserver
+     error; it is Drupal). Verify with the FULL file, not a truncated grep.
    - Easy Encryption private key path override — exported config hardcodes the
      local DDEV path `/var/www/html/...`:
 
