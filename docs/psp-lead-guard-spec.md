@@ -1,6 +1,6 @@
 # PSP Lead Guard — AI webform spam screening
 
-**Status:** Spec (not yet built)
+**Status:** Built and deployed fleet-wide in **log-only** mode (2026-07-26)
 **Module:** `psp_lead_guard` (custom, lives in `web/modules/custom/` alongside `psp_seo`, `psp_service_area`)
 **Depends on:** `webform`, `ai` (already installed: `drupal/ai ^1.3` with Anthropic, OpenAI, and amazee.io providers)
 
