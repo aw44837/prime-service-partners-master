@@ -9,3 +9,6 @@ label: 'Front page'
 tags:
   canonical_url: '[site:url]'
   shortlink: '[site:url]'
+  og_image: /modules/custom/psp_seo/images/psp-og-default.jpg
+  og_image_width: '1200'
+  og_image_height: '900'
