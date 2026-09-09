@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - canvas.component.marker.page_content
     - canvas.component.sdc.dripyard_base.theme-test
     - canvas.component.sdc.meridian.language-switcher
     - canvas.component.sdc.navigation.message
@@ -11,6 +12,7 @@ name: Other
 configEntityTypeId: component
 weight: 0
 items:
+  - marker.page_content
   - sdc.dripyard_base.theme-test
   - sdc.meridian.language-switcher
   - sdc.navigation.message

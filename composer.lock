@@ -2648,17 +2648,17 @@
         },
         {
             "name": "drupal/canvas",
-            "version": "1.10.1",
+            "version": "1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/canvas.git",
-                "reference": "1.10.1"
+                "reference": "1.11.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/canvas-1.10.1.zip",
-                "reference": "1.10.1",
-                "shasum": "388140b9d0c9628ff4f1322202aca632ec5801a6"
+                "url": "https://ftp.drupal.org/files/projects/canvas-1.11.0.zip",
+                "reference": "1.11.0",
+                "shasum": "dea4a0245ceb6ef770ffe86ae0baaf9316ad8849"
             },
             "require": {
                 "drupal/core": "^11.3",
@@ -2691,8 +2691,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.10.1",
-                    "datestamp": "1786575902",
+                    "version": "1.11.0",
+                    "datestamp": "1788891018",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5442,6 +5442,10 @@
                 "GPL-2.0-or-later"
             ],
             "authors": [
+                {
+                    "name": "dieterholvoet",
+                    "homepage": "https://www.drupal.org/user/3567222"
+                },
                 {
                     "name": "heddn",
                     "homepage": "https://www.drupal.org/user/1463982"
@@ -8793,16 +8797,16 @@
         },
         {
             "name": "drush/drush",
-            "version": "13.7.7",
+            "version": "13.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "1166ab05f297d73e24741f8f5fdcc421e77365b8"
+                "reference": "a5529118232c722c052ad6ae3be587df43c7d6fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/1166ab05f297d73e24741f8f5fdcc421e77365b8",
-                "reference": "1166ab05f297d73e24741f8f5fdcc421e77365b8",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/a5529118232c722c052ad6ae3be587df43c7d6fa",
+                "reference": "a5529118232c722c052ad6ae3be587df43c7d6fa",
                 "shasum": ""
             },
             "require": {
@@ -8930,7 +8934,7 @@
                 "issues": "https://github.com/drush-ops/drush/issues",
                 "security": "https://github.com/drush-ops/drush/security/advisories",
                 "slack": "https://drupal.slack.com/messages/C62H9CWQM",
-                "source": "https://github.com/drush-ops/drush/tree/13.7.7"
+                "source": "https://github.com/drush-ops/drush/tree/13.8.0"
             },
             "funding": [
                 {
@@ -8938,7 +8942,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-09-04T03:42:35+00:00"
+            "time": "2026-09-08T18:24:55+00:00"
         },
         {
             "name": "egulias/email-validator",
