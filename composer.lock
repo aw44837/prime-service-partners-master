@@ -4335,22 +4335,22 @@
         },
         {
             "name": "drupal/drupal_cms_content_type_base",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/drupal_cms_content_type_base.git",
-                "reference": "8c3de55a9bebd0d8ab08450c7ee0a859f0931614"
+                "reference": "8a5cbf10af277f9dfdf05c4c88f96c644e947cbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.drupalcode.org/api/v4/projects/project%2Fdrupal_cms_content_type_base/repository/archive.zip?sha=8c3de55a9bebd0d8ab08450c7ee0a859f0931614",
-                "reference": "8c3de55a9bebd0d8ab08450c7ee0a859f0931614",
+                "url": "https://git.drupalcode.org/api/v4/projects/project%2Fdrupal_cms_content_type_base/repository/archive.zip?sha=8a5cbf10af277f9dfdf05c4c88f96c644e947cbb",
+                "reference": "8a5cbf10af277f9dfdf05c4c88f96c644e947cbb",
                 "shasum": ""
             },
             "require": {
                 "drupal/autosave_form": "^1.10",
                 "drupal/bpmn_io": "^3",
-                "drupal/canvas": "^1.2",
+                "drupal/canvas": "^1.11",
                 "drupal/core": "^11.3.10",
                 "drupal/drupal_cms_helper": "^2",
                 "drupal/eca": "^3.0.8",
@@ -4370,9 +4370,9 @@
             ],
             "description": "Provides basic tools for creating content.",
             "support": {
-                "source": "https://git.drupalcode.org/project/drupal_cms_content_type_base/-/tree/2.1.4"
+                "source": "https://git.drupalcode.org/project/drupal_cms_content_type_base/-/tree/2.1.5"
             },
-            "time": "2026-09-01T15:10:59+00:00"
+            "time": "2026-09-10T08:55:07+00:00"
         },
         {
             "name": "drupal/drupal_cms_forms",
@@ -4679,16 +4679,16 @@
         },
         {
             "name": "drupal/drupal_cms_starter",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/drupal_cms_starter.git",
-                "reference": "d763ddbaaeca6dd969345d9a9a9abaee33311d26"
+                "reference": "a0c92efa28024c6990ee5a22bc4155c68ed69d0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://git.drupalcode.org/api/v4/projects/project%2Fdrupal_cms_starter/repository/archive.zip?sha=d763ddbaaeca6dd969345d9a9a9abaee33311d26",
-                "reference": "d763ddbaaeca6dd969345d9a9a9abaee33311d26",
+                "url": "https://git.drupalcode.org/api/v4/projects/project%2Fdrupal_cms_starter/repository/archive.zip?sha=a0c92efa28024c6990ee5a22bc4155c68ed69d0a",
+                "reference": "a0c92efa28024c6990ee5a22bc4155c68ed69d0a",
                 "shasum": ""
             },
             "require": {
@@ -4711,9 +4711,9 @@
             ],
             "description": "A basic site template to get started with Drupal CMS. Bring your own design, and build what you need.",
             "support": {
-                "source": "https://git.drupalcode.org/project/drupal_cms_starter/-/tree/2.1.4"
+                "source": "https://git.drupalcode.org/project/drupal_cms_starter/-/tree/2.1.5"
             },
-            "time": "2026-09-01T15:10:59+00:00"
+            "time": "2026-09-10T08:55:07+00:00"
         },
         {
             "name": "drupal/drupical",
@@ -10336,29 +10336,30 @@
         },
         {
             "name": "maxmind-db/reader",
-            "version": "v1.13.1",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maxmind/MaxMind-DB-Reader-php.git",
-                "reference": "2194f58d0f024ce923e685cdf92af3daf9951908"
+                "reference": "f3c92f68b3bec42a9aa780368399e03dc6b91e89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/2194f58d0f024ce923e685cdf92af3daf9951908",
-                "reference": "2194f58d0f024ce923e685cdf92af3daf9951908",
+                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/f3c92f68b3bec42a9aa780368399e03dc6b91e89",
+                "reference": "f3c92f68b3bec42a9aa780368399e03dc6b91e89",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2"
             },
             "conflict": {
-                "ext-maxminddb": "<1.11.1 || >=2.0.0"
+                "ext-maxminddb": "<1.14.0 || >=2.0.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "3.*",
                 "phpstan/phpstan": "*",
                 "phpunit/phpunit": ">=8.0.0,<10.0.0",
-                "squizlabs/php_codesniffer": "4.*"
+                "squizlabs/php_codesniffer": "4.*",
+                "symfony/polyfill-php80": "^1.33"
             },
             "suggest": {
                 "ext-bcmath": "bcmath or gmp is required for decoding larger integers with the pure PHP decoder",
@@ -10380,7 +10381,7 @@
                 {
                     "name": "Gregory J. Oschwald",
                     "email": "goschwald@maxmind.com",
-                    "homepage": "https://www.maxmind.com/"
+                    "homepage": "https://www.maxmind.com/en/home"
                 }
             ],
             "description": "MaxMind DB Reader API",
@@ -10394,9 +10395,9 @@
             ],
             "support": {
                 "issues": "https://github.com/maxmind/MaxMind-DB-Reader-php/issues",
-                "source": "https://github.com/maxmind/MaxMind-DB-Reader-php/tree/v1.13.1"
+                "source": "https://github.com/maxmind/MaxMind-DB-Reader-php/tree/v1.14.0"
             },
-            "time": "2025-11-21T22:24:26+00:00"
+            "time": "2026-09-10T22:02:38+00:00"
         },
         {
             "name": "maxmind/web-service-common",
