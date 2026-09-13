@@ -1,0 +1,110 @@
+/**
+ * @file
+ * Support styles for the NeonByte header style on the Meridian subtheme.
+ *
+ * NeonByte's header components are self-contained SDCs, but two pieces live
+ * in NeonByte's theme-level layout CSS, which does not load under Meridian.
+ * These rules apply only when the NeonByte header style is active (the
+ * .header-style-neonbyte class is added in meridian_subtheme_preprocess_html()).
+ */
+
+/* NeonByte offsets page content below its fixed header via the layout
+   container (Meridian's own layout.css only pads 20px). Heroes flagged
+   "against screen top" pull themselves back up under the frosted header
+   with a matching negative margin, exactly as on native NeonByte sites. */
+.header-style-neonbyte .layout-container {
+  padding-top: var(--space-for-fixed-header);
+}
+
+/* Mobile flyout CTA placement, matching the estate enhancement in base.css.
+   Gated at 1180px to match the re-gated NeonByte breakpoint (see
+   css/neonbyte-1180/) — above it the header is still in desktop layout,
+   where reordering would move the CTA left of the logo. */
+@media (width <= 1180px) {
+  .header-style-neonbyte .header-navigation-wrapper .header-navigation-wrapper__scrollable {
+    padding-top: 25px;
+  }
+
+  .header-style-neonbyte .header-navigation-wrapper .header-navigation-wrapper__third {
+    order: -1;
+    align-self: flex-start;
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+
+  .header-style-neonbyte .mobile-nav-button {
+    margin-top: 0;
+    align-self: center;
+  }
+}
+
+/* Mega-menu cards in a 3-level dropdown: match the demo (neonbyte.dripyard.com
+   "Insights") — cards sit top-RIGHT of the link columns in a single 250px
+   column. Stock NeonByte assumes one card and a has-children item directly
+   before the cards; with two cards (500px+ grid) or a childless last column
+   the cards wrapped below the links instead. */
+.header-style-neonbyte .primary-menu__list--level-2:has(.primary-menu__list--level-3) .primary-menu__megamenu-content {
+  margin-inline-start: auto;
+}
+
+.header-style-neonbyte .primary-menu__list--level-2:has(.primary-menu__list--level-3) .primary-menu__megamenu-content-list {
+  grid-template-columns: minmax(0, 250px);
+}
+
+/* Menu cards must never be cropped by the header's `overflow: clip`: let the
+   card columns shrink instead of overflowing when the dropdown is narrower
+   than the cards' natural width. (js/neonbyte-header-offset.js keeps the
+   dropdown itself sized to the header on resize.) */
+.header-style-neonbyte .primary-menu__megamenu-content,
+.header-style-neonbyte .primary-menu__megamenu-content-list {
+  max-width: 100%;
+}
+
+/* Grid items default to a min-width of auto, which refuses to shrink below the
+   card's natural width; zero it so the vendor's column counts (two-across in
+   2-level menus, one in 3-level) are kept but can narrow. */
+.header-style-neonbyte .primary-menu__megamenu-content-list > * {
+  min-width: 0;
+}
+
+.header-style-neonbyte .menu-card {
+  max-width: 100%;
+}
+
+.header-style-neonbyte .menu-card img {
+  width: 100%;
+  height: auto;
+}
+
+/* Mobile flyout as a full-screen white takeover (Meridian-style) instead of
+   NeonByte's translucent dark panel beneath the header. The header is not
+   sticky on this site, so the close X is pinned to the viewport while the
+   menu is open; it and the flyout share the header's stacking context
+   (header z-index 10, X z-index 11 > flyout 10). The dark `theme--black`
+   class NeonByte's header.js applies to the flyout is swapped for
+   `theme--white` in js/neonbyte-header-offset.js. */
+@media (width <= 1180px) {
+  .header-style-neonbyte .header-navigation-wrapper {
+    --mobile-menu-offset: 0px;
+
+    inset: 0;
+    width: 100%;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .header-style-neonbyte .header-navigation-wrapper .header-navigation-wrapper__scrollable {
+    padding-top: 88px;
+    padding-inline: 24px;
+    padding-bottom: 32px;
+  }
+
+  .header-style-neonbyte.is-active-mobile-menu .mobile-nav-button {
+    position: fixed;
+    top: 16px;
+    inset-inline-end: 16px;
+  }
+}

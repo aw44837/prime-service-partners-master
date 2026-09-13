@@ -9,3 +9,185 @@
 if (file_exists(__DIR__ . '/../dripyard-classloader.php')) {
   require_once __DIR__ . '/../dripyard-classloader.php';
 }
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+
+
+/**
+ * Returns the configured header style: 'meridian' (default) or 'neonbyte'.
+ */
+function _meridian_subtheme_header_style(): string {
+  return theme_get_setting('header_style') ?: 'meridian';
+}
+
+/**
+ * Returns the NeonByte header settings with defaults applied.
+ *
+ * Stored under the dedicated 'neonbyte_header_settings' key so they never
+ * collide with Meridian's own 'header_settings' config.
+ */
+function _meridian_subtheme_neonbyte_header_settings(): array {
+  $settings = theme_get_setting('neonbyte_header_settings') ?? [];
+  return $settings + [
+    'full_width' => FALSE,
+    'remove_sticky' => FALSE,
+    'remove_transparency' => FALSE,
+    'theme' => 'inherit',
+  ];
+}
+
+/**
+ * Implements hook_preprocess_html().
+ *
+ * NeonByte's header CSS keys its width ("pill" vs full width) and sticky
+ * behavior off <html>-level classes that NeonByte's own preprocessor would
+ * add. Mirror them here (plus a header-style marker class for our support
+ * CSS) when the NeonByte header is active.
+ */
+function meridian_subtheme_preprocess_html(&$variables): void {
+  if (_meridian_subtheme_header_style() !== 'neonbyte') {
+    return;
+  }
+  $settings = _meridian_subtheme_neonbyte_header_settings();
+  $variables['attributes']['class'][] = 'header-style-neonbyte';
+  $variables['attributes']['class'][] = $settings['remove_sticky'] ? 'site-header-no-sticky' : 'site-header-sticky';
+  $variables['attributes']['class'][] = $settings['full_width'] ? 'site-header-full-width' : 'site-header-no-full-width';
+}
+
+/**
+ * Implements hook_preprocess_page().
+ *
+ * Exposes the header_style setting to page.html.twig and, for the NeonByte
+ * header, builds the header_attributes the NeonByte header component expects
+ * (mirrors neonbyte's HeaderSettingsPreprocessor).
+ */
+function meridian_subtheme_preprocess_page(&$variables): void {
+  $style = _meridian_subtheme_header_style();
+  $variables['header_style'] = $style;
+
+  if ($style !== 'neonbyte') {
+    return;
+  }
+
+  $variables['#attached']['library'][] = 'meridian_subtheme/neonbyte-header-support';
+
+  $header_settings = _meridian_subtheme_neonbyte_header_settings();
+
+  if (!isset($variables['header_attributes'])) {
+    $variables['header_attributes'] = new Attribute();
+  }
+
+  $header_classes = [];
+  if ($header_settings['full_width']) {
+    $header_classes[] = 'header--full-width';
+  }
+  if ($header_settings['remove_sticky']) {
+    $header_classes[] = 'header--no-fixed';
+  }
+  if ($header_settings['remove_transparency']) {
+    $header_classes[] = 'header--no-transparency';
+  }
+  if ($header_settings['theme'] !== 'inherit') {
+    $header_classes[] = 'theme--' . $header_settings['theme'];
+  }
+  if ($header_classes) {
+    $variables['header_attributes']->addClass($header_classes);
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu().
+ *
+ * The menu templates (menu--main and the region-based header suggestions)
+ * need header_style to pick the matching primary-menu component.
+ */
+function meridian_subtheme_preprocess_menu(&$variables): void {
+  $variables['header_style'] = _meridian_subtheme_header_style();
+}
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function meridian_subtheme_form_system_theme_settings_alter(&$form, FormStateInterface $form_state): void {
+  $form['header_style'] = [
+    '#type' => 'select',
+    '#title' => t('Header style'),
+    '#description' => t('Render the site header and main-menu dropdowns using the Meridian style or the NeonByte style. The NeonByte base theme must remain installed for the NeonByte option.'),
+    '#options' => [
+      'meridian' => t('Meridian (default)'),
+      'neonbyte' => t('NeonByte'),
+    ],
+    '#default_value' => _meridian_subtheme_header_style(),
+    '#weight' => -11,
+  ];
+
+  // NeonByte's Header Settings panel, ported for the NeonByte header style.
+  // Meridian's own Header Settings panel continues to drive the Meridian
+  // style; this one is only shown (and only applies) for NeonByte.
+  $config = _meridian_subtheme_neonbyte_header_settings();
+  $form['neonbyte_header_settings'] = [
+    '#type' => 'details',
+    '#title' => t('NeonByte Header Settings'),
+    '#tree' => TRUE,
+    '#weight' => -10,
+    '#states' => [
+      'visible' => [
+        ':input[name="header_style"]' => ['value' => 'neonbyte'],
+      ],
+    ],
+  ];
+  $form['neonbyte_header_settings']['description'] = [
+    '#type' => 'html_tag',
+    '#tag' => 'p',
+    '#value' => t('These settings control the appearance and behavior of the NeonByte-style site header.'),
+  ];
+  $form['neonbyte_header_settings']['full_width'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Full width header'),
+    '#description' => t('Makes the header full width.'),
+    '#default_value' => $config['full_width'],
+  ];
+  $form['neonbyte_header_settings']['remove_sticky'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Remove stickyness'),
+    '#description' => t('Removes the "Stickyness" (<code>position: fixed</code>) from the header, and puts it at the top of the page.'),
+    '#default_value' => $config['remove_sticky'],
+  ];
+  $form['neonbyte_header_settings']['remove_transparency'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Remove transparency'),
+    '#description' => t('Removes the transparent "frosted" effect from the header.'),
+    '#default_value' => $config['remove_transparency'],
+  ];
+  $form['neonbyte_header_settings']['theme'] = [
+    '#type' => 'select',
+    '#title' => t('Theme'),
+    '#description' => t('Color theme of the header.'),
+    '#default_value' => $config['theme'],
+    '#options' => [
+      'inherit' => t('Inherit'),
+      'white' => t('White'),
+      'light' => t('Light'),
+      'dark' => t('Dark'),
+      'black' => t('Black'),
+      'primary' => t('Primary'),
+      'secondary' => t('Secondary'),
+    ],
+  ];
+
+  $form['#submit'][] = '_meridian_subtheme_submit_header_settings';
+}
+
+/**
+ * Saves the header_style + NeonByte header settings.
+ */
+function _meridian_subtheme_submit_header_settings(array &$form, FormStateInterface $form_state): void {
+  \Drupal::configFactory()->getEditable('meridian_subtheme.settings')
+    ->set('header_style', $form_state->getValue('header_style'))
+    ->set('neonbyte_header_settings', array_diff_key(
+      $form_state->getValue('neonbyte_header_settings') ?? [],
+      ['description' => TRUE],
+    ))
+    ->save();
+}

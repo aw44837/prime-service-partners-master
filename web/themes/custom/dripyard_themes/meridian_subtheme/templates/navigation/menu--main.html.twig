@@ -1,0 +1,10 @@
+{#
+  Main menu with a configurable style, matching the header_style theme
+  setting: NeonByte's primary-menu (dropdown styles included in its SDC
+  library) or Meridian's stock primary-menu.
+#}
+{% if header_style == 'neonbyte' %}
+  {{ include('neonbyte:primary-menu', { items }, with_context = false) }}
+{% else %}
+  {{ include('meridian:primary-menu', { items, theme: header_theme }, with_context = false) }}
+{% endif %}

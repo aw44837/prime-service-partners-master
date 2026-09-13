@@ -1,0 +1,22 @@
+{#
+  Header (second region) menu with a configurable style, matching the
+  header_style theme setting. This region-based suggestion is what actually
+  renders the main menu inside the site header — menu--main.html.twig only
+  covers Canvas-rendered menus.
+
+  The utility menu block placed in this region (shown at the bottom of the
+  mobile flyout) must NOT render as a second NeonByte primary menu: NeonByte's
+  primary-menu.js initialises once per .primary-menu inside the same
+  navigation wrapper, and a second instance double-binds every submenu toggle
+  so a tap opens and closes it in one go.
+#}
+{% if menu_name == 'utility' %}
+  {{ include('dripyard_base:side-menu', { items }, with_context = false) }}
+{% elseif header_style == 'neonbyte' %}
+  {{ include('neonbyte:primary-menu', { items }, with_context = false) }}
+{% else %}
+  {{ include('meridian:primary-menu', {
+    items,
+    theme: header_theme,
+     }, with_context = false) }}
+{% endif %}

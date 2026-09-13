@@ -74,11 +74,11 @@ h1, h2, h3, h4, h5, h6,
  * sitting at the bottom. Generic estate enhancement (no logo styling —
  * per-site subthemes own logo size/overhang). */
 @container (width <= 1180px) {
-  .header-navigation-wrapper .header-navigation-wrapper__scrollable {
+  body:not(.header-style-neonbyte) .header-navigation-wrapper .header-navigation-wrapper__scrollable {
     padding-top: 25px; /* Centers the CTA row on the fixed close X. */
   }
 
-  .header-navigation-wrapper .header-navigation-wrapper__third {
+  body:not(.header-style-neonbyte) .header-navigation-wrapper .header-navigation-wrapper__third {
     order: -1;
     align-self: flex-start;
     margin-top: 0;

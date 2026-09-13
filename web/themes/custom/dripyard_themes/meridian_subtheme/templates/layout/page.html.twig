@@ -1,0 +1,67 @@
+{#
+/**
+ * @file
+ * Page template with a configurable header style.
+ *
+ * Renders the NeonByte header (and its dropdown menu styling, via the
+ * menu--main.html.twig override) when the subtheme's "header_style" setting
+ * is "neonbyte"; otherwise falls back to the stock Meridian header.
+ * NeonByte's header/primary-menu/mobile-nav-button SDCs are self-contained
+ * (their CSS/JS attach as component libraries), so no extra libraries are
+ * required here — but the NeonByte base theme must stay installed.
+ */
+#}
+<div class="layout-container">
+  {{ page.header_above }}
+
+  {% if header_style == 'neonbyte' %}
+    {{ include('neonbyte:header', {
+        header_first: page.header_first,
+        header_second: page.header_second,
+        header_third: page.header_third,
+        attributes: header_attributes,
+      }, with_context = false) }}
+  {% else %}
+    {{ include('meridian:header', {
+        header_first: page.header_first,
+        header_second: page.header_second,
+        header_third: page.header_third,
+        header_settings,
+      }, with_context = false) }}
+  {% endif %}
+
+  {{ page.fixed_middle_right }}
+  {{ page.fixed_bottom_right }}
+  {{ page.highlighted }}
+
+  <main class="site-main">
+    <a id="main-content" tabindex="-1"></a>
+
+    {{ include('@meridian/component-dev.html.twig', ignore_missing: true) }}
+
+    {{ page.content }}
+  </main>
+  {% embed 'meridian:footer' with {
+    footer_top: page.footer_top,
+    footer_left: page.footer_left,
+    footer_right: page.footer_right,
+    footer_bottom: page.footer_bottom,
+    theme: footer_theme,
+  } only %}
+    {% block footer_top_content %}
+      {{- footer_top -}}
+    {% endblock %}
+
+    {% block footer_left_content %}
+      {{- footer_left -}}
+    {% endblock %}
+
+    {% block footer_right_content %}
+      {{- footer_right -}}
+    {% endblock %}
+
+    {% block footer_bottom_content %}
+      {{- footer_bottom -}}
+    {% endblock %}
+  {% endembed %}
+</div>

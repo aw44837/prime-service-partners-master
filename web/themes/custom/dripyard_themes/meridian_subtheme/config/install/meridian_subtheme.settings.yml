@@ -50,3 +50,9 @@ social_media_links:
 
 license_uuid: '71052a2f-7b84-48b3-a11b-b7156082ffeb'
 dripyard_uid: 78
+header_style: meridian
+neonbyte_header_settings:
+  full_width: false
+  remove_sticky: false
+  remove_transparency: false
+  theme: inherit

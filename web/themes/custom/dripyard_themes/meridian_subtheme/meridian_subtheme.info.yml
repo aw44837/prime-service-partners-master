@@ -43,3 +43,24 @@ regions:
   footer_left: Footer left
   footer_right: Footer right
   footer_bottom: Footer bottom
+
+# The NeonByte header collapses to its mobile flyout at 1000px; this estate
+# wants it at 1180px (matching Meridian's own breakpoint). Every NeonByte
+# breakpoint lives in these six files, so we serve re-gated copies rather
+# than fighting them with overrides — see css/neonbyte-1180/README.md.
+libraries-override:
+  core/components.neonbyte--header:
+    css:
+      component:
+        ../themes/custom/dripyard_themes/neonbyte/components/header/header/header.css: css/neonbyte-1180/header.css
+  core/components.neonbyte--primary-menu:
+    css:
+      component:
+        ../themes/custom/dripyard_themes/neonbyte/components/header/primary-menu/primary-menu-wide.css: css/neonbyte-1180/primary-menu-wide.css
+        ../themes/custom/dripyard_themes/neonbyte/components/header/primary-menu/primary-menu-narrow.css: css/neonbyte-1180/primary-menu-narrow.css
+        ../themes/custom/dripyard_themes/neonbyte/components/header/primary-menu/primary-menu-wide.theme.css: css/neonbyte-1180/primary-menu-wide.theme.css
+        ../themes/custom/dripyard_themes/neonbyte/components/header/primary-menu/primary-menu-narrow.theme.css: css/neonbyte-1180/primary-menu-narrow.theme.css
+  core/components.neonbyte--mobile-nav-button:
+    css:
+      component:
+        ../themes/custom/dripyard_themes/neonbyte/components/header/mobile-nav-button/mobile-nav-button.css: css/neonbyte-1180/mobile-nav-button.css

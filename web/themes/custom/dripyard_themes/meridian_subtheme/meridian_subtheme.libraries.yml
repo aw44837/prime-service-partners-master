@@ -23,3 +23,12 @@ base:
 #       css/status-messages.css: {}
 #   js:
 #     js/status-messages.js: {}
+
+# Attached from meridian_subtheme_preprocess_page() when the NeonByte
+# header style is active (header_style theme setting).
+neonbyte-header-support:
+  css:
+    theme:
+      css/neonbyte-header-support.css: {}
+  js:
+    js/neonbyte-header-offset.js: {}
