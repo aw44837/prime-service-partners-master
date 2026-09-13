@@ -1,0 +1,28 @@
+--- a/Request.php
++++ b/Request.php
+@@ -303,11 +303,20 @@
+             return self::createRequestFromFactory($_GET, $post, [], $_COOKIE, $_FILES, $_SERVER, $content);
+         }
+ 
+-        try {
+-            [$post, $files] = request_parse_body();
+-        } catch (\RequestParseBodyException) {
+-            $post = $_POST;
+-            $files = $_FILES;
++        if (!isset($_SERVER['CONTENT_TYPE']) || str_starts_with($_SERVER['CONTENT_TYPE'], 'application/x-www-form-urlencoded')) {
++            // On some SAPIs (LiteSpeed/lsphp 8.4) request_parse_body() returns an
++            // empty result for non-POST urlencoded bodies even though php://input
++            // holds them. Read and parse php://input directly instead (this also
++            // matches the pre-8.4 code path). Only urlencoded PUT/PATCH/QUERY.
++            parse_str(file_get_contents('php://input'), $post);
++            $files = [];
++        } else {
++            try {
++                [$post, $files] = request_parse_body();
++            } catch (\RequestParseBodyException) {
++                $post = $_POST;
++                $files = $_FILES;
++            }
+         }
+ 
+         return self::createRequestFromFactory($_GET, $post, [], $_COOKIE, $files, $_SERVER);
