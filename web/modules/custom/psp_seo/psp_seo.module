@@ -21,6 +21,8 @@ use Drupal\Core\Render\Markup;
  * - Single-market sites: a LocalBusiness carrying the site's trades as a
  *   multi-type @type array (e.g. ["Plumber", "HVACBusiness"]) plus full
  *   NAP, hours and booking data.
+ * - Single-market sites with extra offices (`locations` set): an Organization
+ *   umbrella plus one LocalBusiness per office, linked by parentOrganization.
  * - Multi-market sites (psp_service_area enabled and markets defined): an
  *   Organization umbrella entity only — the per-market LocalBusiness blocks
  *   emitted by psp_service_area link back to it via parentOrganization, so
@@ -45,6 +47,11 @@ function psp_seo_page_attachments(array &$attachments): void {
       ->execute();
   }
 
+  $types = array_values(array_filter((array) $settings->get('business_types')));
+  $locations = array_values(array_filter((array) $settings->get('locations'), fn($l) => is_array($l) && !empty($l['address'])));
+  $logo = _psp_seo_logo_url($settings->get('logo_url'), $base);
+  $same_as = array_values(array_filter((array) $settings->get('same_as')));
+
   if ($multi_market) {
     $data = [
       '@context' => 'https://schema.org',
@@ -53,9 +60,56 @@ function psp_seo_page_attachments(array &$attachments): void {
       'name' => $name,
       'url' => $base . '/',
     ];
+    if ($phone = _psp_seo_telephone($settings->get('phone'))) {
+      $data['telephone'] = $phone;
+    }
+    if ($logo) {
+      $data['logo'] = $logo;
+      $data['image'] = $logo;
+    }
+    if ($same_as) {
+      $data['sameAs'] = $same_as;
+    }
+  }
+  elseif ($locations) {
+    // Multi-location single-market site: an Organization umbrella plus one
+    // LocalBusiness per office (the primary NAP first, then `locations`).
+    $org_id = $base . '/#organization';
+    $org = [
+      '@type' => 'Organization',
+      '@id' => $org_id,
+      'name' => $name,
+      'url' => $base . '/',
+    ];
+    if ($phone = _psp_seo_telephone($settings->get('phone'))) {
+      $org['telephone'] = $phone;
+    }
+    if ($logo) {
+      $org['logo'] = $logo;
+      $org['image'] = $logo;
+    }
+    if ($same_as) {
+      $org['sameAs'] = $same_as;
+    }
+    $primary = [
+      'name' => $name,
+      'address' => $settings->get('address'),
+      'phone' => $settings->get('phone'),
+      'map_url' => $settings->get('map_url'),
+      'opening_hours' => $settings->get('opening_hours'),
+      'booking_url' => $settings->get('booking_url'),
+      'price_range' => $settings->get('price_range'),
+    ];
+    $graph = [$org];
+    $graph[] = _psp_seo_local_business($primary, $types, $base . '/#business', $base, $org_id, $logo);
+    foreach ($locations as $i => $loc) {
+      $loc += ['name' => $name . ' – ' . (_psp_seo_postal_address($loc['address'])['addressLocality'] ?? 'Location ' . ($i + 2)), 'opening_hours' => $settings->get('opening_hours'), 'booking_url' => $settings->get('booking_url'), 'price_range' => $settings->get('price_range')];
+      $slug = strtolower(preg_replace('/[^a-z0-9]+/i', '-', $loc['name']));
+      $graph[] = _psp_seo_local_business($loc, $types, $base . '/#location-' . trim($slug, '-'), $base, $org_id, $logo);
+    }
+    $data = ['@context' => 'https://schema.org', '@graph' => $graph];
   }
   else {
-    $types = array_values(array_filter((array) $settings->get('business_types')));
     $data = [
       '@context' => 'https://schema.org',
       '@type' => $types ?: ['LocalBusiness'],
@@ -81,17 +135,16 @@ function psp_seo_page_attachments(array &$attachments): void {
         'target' => $booking,
       ];
     }
-  }
-
-  if ($phone = _psp_seo_telephone($settings->get('phone'))) {
-    $data['telephone'] = $phone;
-  }
-  if ($logo = _psp_seo_logo_url($settings->get('logo_url'), $base)) {
-    $data['logo'] = $logo;
-    $data['image'] = $logo;
-  }
-  if ($same_as = array_values(array_filter((array) $settings->get('same_as')))) {
-    $data['sameAs'] = $same_as;
+    if ($phone = _psp_seo_telephone($settings->get('phone'))) {
+      $data['telephone'] = $phone;
+    }
+    if ($logo) {
+      $data['logo'] = $logo;
+      $data['image'] = $logo;
+    }
+    if ($same_as) {
+      $data['sameAs'] = $same_as;
+    }
   }
 
   $attachments['#attached']['html_head'][] = [
@@ -104,6 +157,45 @@ function psp_seo_page_attachments(array &$attachments): void {
     ],
     'psp_seo_site_entity',
   ];
+}
+
+/**
+ * Builds one LocalBusiness entity for a physical office.
+ *
+ * $loc keys: name, address (multiline), phone, map_url, opening_hours (array),
+ * booking_url, price_range. The entity links to the Organization via
+ * parentOrganization so search engines read the offices as one company.
+ */
+function _psp_seo_local_business(array $loc, array $types, string $id, string $base, string $org_id, ?string $logo): array {
+  $entity = [
+    '@type' => $types ?: ['LocalBusiness'],
+    '@id' => $id,
+    'name' => $loc['name'],
+    'url' => $base . '/',
+    'parentOrganization' => ['@id' => $org_id],
+  ];
+  if (!empty($loc['address'])) {
+    $entity['address'] = _psp_seo_postal_address($loc['address']);
+  }
+  if ($phone = _psp_seo_telephone($loc['phone'] ?? NULL)) {
+    $entity['telephone'] = $phone;
+  }
+  if (!empty($loc['map_url'])) {
+    $entity['hasMap'] = $loc['map_url'];
+  }
+  if (!empty($loc['price_range'])) {
+    $entity['priceRange'] = $loc['price_range'];
+  }
+  if ($hours = array_values(array_filter((array) ($loc['opening_hours'] ?? [])))) {
+    $entity['openingHours'] = $hours;
+  }
+  if (!empty($loc['booking_url'])) {
+    $entity['potentialAction'] = ['@type' => 'ReserveAction', 'target' => $loc['booking_url']];
+  }
+  if ($logo) {
+    $entity['image'] = $logo;
+  }
+  return $entity;
 }
 
 /**

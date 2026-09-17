@@ -41,6 +41,31 @@ psp_seo.settings:
       sequence:
         type: string
         label: 'Opening hours entry'
+    locations:
+      type: sequence
+      label: 'Additional offices (each a LocalBusiness under the Organization)'
+      sequence:
+        type: mapping
+        label: 'Office'
+        mapping:
+          name:
+            type: string
+            label: 'Office name (defaults to "<company> – <City>")'
+          address:
+            type: string
+            label: 'Postal address (street lines, then "City, ST 12345" last)'
+          phone:
+            type: string
+            label: 'Office phone'
+          map_url:
+            type: string
+            label: 'Google Maps / Business Profile link'
+          opening_hours:
+            type: sequence
+            label: 'Opening hours (defaults to the primary hours)'
+            sequence:
+              type: string
+              label: 'Opening hours entry'
     llms_description:
       type: string
       label: 'One-line site summary for llms.txt (falls back to the site slogan)'
