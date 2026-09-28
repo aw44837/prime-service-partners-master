@@ -1,0 +1,93 @@
+<?php
+
+/**
+ * @file
+ * Droptech Tracking: persist landing-page URL parameters (UTMs) in a
+ * first-party cookie and hand them to webform hidden fields.
+ *
+ * Capture and field filling happen client-side (js/droptech-tracking.js) so
+ * they work behind the page cache and Cloudflare. As a backup, any tracked
+ * field still empty when a submission is first saved is filled server-side
+ * from the same cookie.
+ */
+
+use Drupal\webform\WebformSubmissionInterface;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function droptech_tracking_page_attachments(array &$attachments): void {
+  if (\Drupal::service('router.admin_context')->isAdminRoute()) {
+    return;
+  }
+  $config = \Drupal::config('droptech_tracking.settings');
+  $attachments['#attached']['library'][] = 'droptech_tracking/tracking';
+  $attachments['#attached']['drupalSettings']['droptechTracking'] = [
+    'parameters' => droptech_tracking_parameters(),
+    'cookieName' => $config->get('cookie_name') ?: 'dt_utm',
+    'lifetimeDays' => (int) ($config->get('lifetime_days') ?: 90),
+  ];
+  $attachments['#cache']['tags'][] = 'config:droptech_tracking.settings';
+}
+
+/**
+ * Implements hook_webform_submission_presave().
+ */
+function droptech_tracking_webform_submission_presave(WebformSubmissionInterface $submission): void {
+  if (!$submission->isNew()) {
+    return;
+  }
+  $stored = droptech_tracking_cookie_values();
+  if (!$stored) {
+    return;
+  }
+  // Match element keys case-insensitively, like the URL parameters.
+  $keys = [];
+  foreach (array_keys($submission->getWebform()->getElementsDecodedAndFlattened()) as $key) {
+    $keys[strtolower($key)] = $key;
+  }
+  foreach ($stored as $param => $value) {
+    if (isset($keys[$param]) && (string) $submission->getElementData($keys[$param]) === '') {
+      $submission->setElementData($keys[$param], $value);
+    }
+  }
+}
+
+/**
+ * Returns the configured parameter names, lowercased.
+ *
+ * @return string[]
+ *   Parameter names.
+ */
+function droptech_tracking_parameters(): array {
+  $parameters = \Drupal::config('droptech_tracking.settings')->get('parameters') ?: [];
+  return array_values(array_unique(array_filter(array_map(
+    fn($p) => strtolower(trim((string) $p)),
+    $parameters
+  ))));
+}
+
+/**
+ * Reads the tracking cookie, limited to configured parameters.
+ *
+ * @return array<string, string>
+ *   Stored values keyed by lowercase parameter name.
+ */
+function droptech_tracking_cookie_values(): array {
+  $name = \Drupal::config('droptech_tracking.settings')->get('cookie_name') ?: 'dt_utm';
+  $raw = \Drupal::request()->cookies->get($name);
+  $data = is_string($raw) ? json_decode($raw, TRUE) : NULL;
+  if (!is_array($data)) {
+    return [];
+  }
+  $values = [];
+  foreach (droptech_tracking_parameters() as $param) {
+    if (isset($data[$param]) && is_scalar($data[$param])) {
+      $value = trim(strip_tags((string) $data[$param]));
+      if ($value !== '') {
+        $values[$param] = mb_substr($value, 0, 255);
+      }
+    }
+  }
+  return $values;
+}

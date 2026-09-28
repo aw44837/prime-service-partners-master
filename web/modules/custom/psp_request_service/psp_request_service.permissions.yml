@@ -1,0 +1,4 @@
+administer psp request service:
+  title: 'Administer the Request Service form'
+  description: 'Edit the company name, lead source and service-area zip codes.'
+  restrict access: true

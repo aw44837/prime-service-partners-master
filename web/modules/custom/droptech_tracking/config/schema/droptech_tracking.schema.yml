@@ -1,0 +1,16 @@
+droptech_tracking.settings:
+  type: config_object
+  label: 'Droptech Tracking settings'
+  mapping:
+    parameters:
+      type: sequence
+      label: 'Captured URL parameters (lowercase)'
+      sequence:
+        type: string
+        label: 'Parameter'
+    cookie_name:
+      type: string
+      label: 'Cookie name'
+    lifetime_days:
+      type: integer
+      label: 'Cookie lifetime in days'

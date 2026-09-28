@@ -46,6 +46,7 @@ module:
   dashboard: 0
   datetime: 0
   dblog: 0
+  droptech_tracking: 0
   drupal_cms_helper: 0
   drupical: 0
   dynamic_page_cache: 0
@@ -114,6 +115,7 @@ module:
   project_browser: 0
   psp_lead_guard: 0
   psp_link_schemes: 0
+  psp_request_service: 0
   psp_seo: 0
   psp_service_area: 0
   redirect: 0

@@ -1,0 +1,16 @@
+psp_request_service.settings:
+  type: config_object
+  label: 'Request Service form settings'
+  mapping:
+    company_name:
+      type: string
+      label: 'Company name used in SMS consent and the booking email'
+    lead_source:
+      type: string
+      label: 'Lead source value'
+    zips:
+      type: sequence
+      label: 'Service-area zip codes (empty = accept any 5-digit zip)'
+      sequence:
+        type: string
+        label: 'Zip code'

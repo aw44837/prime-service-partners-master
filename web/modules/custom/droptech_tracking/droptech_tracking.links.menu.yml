@@ -1,0 +1,5 @@
+droptech_tracking.settings:
+  title: 'Droptech Tracking'
+  description: 'Capture UTM parameters from landing URLs and pass them into webform hidden fields.'
+  route_name: droptech_tracking.settings
+  parent: system.admin_config_services

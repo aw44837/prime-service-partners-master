@@ -11,3 +11,7 @@ modules:
     none:
       sender: symfony_mailer_lite
       formatter: symfony_mailer_lite
+  webform:
+    none:
+      sender: symfony_mailer_lite
+      formatter: psp_plain_text

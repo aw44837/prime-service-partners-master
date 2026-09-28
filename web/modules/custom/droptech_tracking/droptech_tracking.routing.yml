@@ -1,0 +1,7 @@
+droptech_tracking.settings:
+  path: '/admin/config/services/droptech-tracking'
+  defaults:
+    _form: '\Drupal\droptech_tracking\Form\SettingsForm'
+    _title: 'Droptech Tracking'
+  requirements:
+    _permission: 'administer droptech tracking'

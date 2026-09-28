@@ -1,0 +1,283 @@
+/**
+ * @file
+ * Request Service (Book Online) form styling.
+ *
+ * Scoped to the request_service webform (and its share page), so a site's
+ * theme and other forms are untouched. Colours follow the site's primary
+ * brand colour via --theme-setting-base-primary-color.
+ */
+
+
+/* Form chrome: one
+ * soft well instead of white fieldset cards, 16px gaps, white fields with a
+ * 1px border and 10px radius, navy bold labels, full-width navy submit.
+ * [class] on the inner selectors outranks the Dripyard defaults. */
+form.webform-submission-request-service-form.webform-submission-form {
+  --psp-form-well: #f3f4f9;
+  --psp-form-border: #c9ccd8;
+  --psp-form-field-border: #b9bccc;
+  --psp-form-navy: var(--theme-setting-base-primary-color, #01266e);
+  --psp-form-navy-dark: #00174a;
+  --psp-form-text: #1c1b33;
+  --psp-form-muted: #6b6f85;
+
+  padding: 32px;
+  border: 1px solid var(--psp-form-border);
+  border-radius: 12px;
+  background: var(--psp-form-well);
+}
+/* Inside an already-light cell (contact page "Reach Out" panel) go white. */
+.theme--light form.webform-submission-request-service-form.webform-submission-form,
+.layout-dynamic--theme-light form.webform-submission-request-service-form.webform-submission-form {
+  background: #fff;
+}
+form.webform-submission-request-service-form.webform-submission-form .fieldset[class],
+form.webform-submission-request-service-form.webform-submission-form fieldset[class] {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+form.webform-submission-request-service-form.webform-submission-form .fieldset__wrapper[class],
+form.webform-submission-request-service-form.webform-submission-form .fieldset__legend[class] {
+  padding: 0;
+}
+form.webform-submission-request-service-form.webform-submission-form .webform-flexbox[class] {
+  gap: 16px;
+  margin: 0 0 16px;
+}
+form.webform-submission-request-service-form.webform-submission-form .webform-flex--container[class] {
+  margin: 0;
+}
+form.webform-submission-request-service-form.webform-submission-form .form-item[class] {
+  margin: 0 0 16px;
+}
+form.webform-submission-request-service-form.webform-submission-form .webform-flexbox .form-item[class] {
+  margin: 0;
+}
+form.webform-submission-request-service-form.webform-submission-form .form-item__label[class] {
+  display: block;
+  margin: 0 0 6px;
+  color: var(--psp-form-navy);
+  font-family: var(--font-body, sans-serif);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+form.webform-submission-request-service-form.webform-submission-form .form-item__label.form-required::after {
+  color: #c48a00;
+}
+form.webform-submission-request-service-form.webform-submission-form .form-element[class] {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
+  padding: 14px 16px;
+  color: var(--psp-form-text);
+  border: 1px solid var(--psp-form-field-border);
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: none;
+  font-family: var(--font-body, sans-serif);
+  font-size: 16px;
+  line-height: 1.4;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+form.webform-submission-request-service-form.webform-submission-form .form-element[class]:focus {
+  outline: none;
+  border-color: var(--psp-form-navy);
+  box-shadow: 0 0 0 3px rgba(1, 38, 110, 0.15);
+}
+form.webform-submission-request-service-form.webform-submission-form .form-element[class]::placeholder {
+  color: var(--psp-form-muted);
+}
+form.webform-submission-request-service-form.webform-submission-form select.form-element[class] {
+  padding-right: 44px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234a4766' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 16px;
+}
+form.webform-submission-request-service-form.webform-submission-form textarea.form-element[class] {
+  min-height: 112px;
+  resize: vertical;
+}
+form.webform-submission-request-service-form.webform-submission-form .form-item--checkbox .form-element[class],
+form.webform-submission-request-service-form.webform-submission-form input[type="checkbox"].form-element[class],
+form.webform-submission-request-service-form.webform-submission-form input[type="radio"].form-element[class] {
+  width: auto;
+  min-height: auto;
+  padding: 0;
+  border-radius: 4px;
+}
+form.webform-submission-request-service-form.webform-submission-form .form-actions[class] {
+  margin: 8px 0 0;
+}
+form.webform-submission-request-service-form.webform-submission-form .webform-button--submit[class] {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 16px;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  background: var(--psp-form-navy);
+  box-shadow: none;
+  font-family: var(--font-body, sans-serif);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+form.webform-submission-request-service-form.webform-submission-form .webform-button--submit[class]:hover,
+form.webform-submission-request-service-form.webform-submission-form .webform-button--submit[class]:focus-visible {
+  color: #fff;
+  background: var(--psp-form-navy-dark);
+}
+form.webform-submission-request-service-form.webform-submission-form .description[class],
+form.webform-submission-request-service-form.webform-submission-form .form-item__description[class],
+form.webform-submission-request-service-form.webform-submission-form .webform-element-description[class],
+form.webform-submission-request-service-form.webform-submission-form .webform-element-help[class],
+form.webform-submission-request-service-form.webform-submission-form .form-item--markup[class],
+form.webform-submission-request-service-form.webform-submission-form .webform-markup[class] {
+  color: var(--psp-form-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+/* The well is light regardless of the section theme, so pin all text in it
+ * (dark sections otherwise cascade white text into the consent copy). */
+form.webform-submission-request-service-form.webform-submission-form[class] :is(p, div, span, small, li, legend) {
+  color: var(--psp-form-text);
+}
+form.webform-submission-request-service-form.webform-submission-form[class] :is(.description, .form-item__description, .webform-element-description, .form-item--markup, .webform-markup, .form-item--markup p) {
+  color: var(--psp-form-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+form.webform-submission-request-service-form.webform-submission-form[class] a {
+  color: var(--psp-form-navy);
+}
+form.webform-submission-request-service-form.webform-submission-form[class] .form-item__label {
+  color: var(--psp-form-navy);
+}
+@media (width <= 600px) {
+  form.webform-submission-request-service-form.webform-submission-form {
+    padding: 20px;
+  }
+}
+
+/* SMS consent checkboxes: checkbox on the left, consent text in its own
+ * column to the right, so long copy never wraps underneath the box. */
+form.webform-submission-request-service-form.webform-submission-form .psp-consent-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+form.webform-submission-request-service-form.webform-submission-form .psp-consent-checkbox .form-item__label.option {
+  flex: 1;
+  margin: 0;
+  line-height: 1.45;
+}
+form.webform-submission-request-service-form.webform-submission-form .psp-consent-checkbox [type="checkbox"] {
+  flex: none;
+  margin: 0;
+}
+form.webform-submission-request-service-form.webform-submission-form[class] .form-item-sms-rates-notice p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+form.webform-submission-request-service-form.webform-submission-form[class] .psp-zip-error:not([hidden]),
+form.webform-submission-request-service-form.webform-submission-form[class] .form-item--error-message {
+  margin-top: 6px;
+  color: #b3261e;
+  font-size: 14px;
+  line-height: 1.4;
+}
+form.webform-submission-request-service-form.webform-submission-form .form-element.error[class] {
+  border-color: #b3261e;
+}
+/* Dripyard adds an arrow icon to any button labelled exactly "Submit"; the
+ * webform submit is full-width text-only everywhere, so drop it. */
+form.webform-submission-request-service-form.webform-submission-form .webform-button--submit .button__suffix {
+  display: none;
+}
+
+/* Sections: centered section headlines with
+ * breathing room between sections. */
+form.webform-submission-request-service-form.webform-submission-form .webform-section[class] {
+  margin: 0 0 8px;
+}
+form.webform-submission-request-service-form.webform-submission-form .webform-section + .webform-section[class] {
+  margin-top: 32px;
+}
+/* Auto-scroll target after a valid zip: clear the sticky header. */
+form.webform-submission-request-service-form.webform-submission-form .psp-zip-reveal {
+  scroll-margin-top: calc(var(--psp-header-logo-height, 90px) + 60px);
+}
+form.webform-submission-request-service-form.webform-submission-form .webform-section-title[class] {
+  margin: 0 0 16px;
+  color: var(--psp-form-navy);
+  font-size: 24px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+/* Request Service zip: out-of-area error only when shown; green check inside
+ * the field once a service-area zip is entered. */
+form.webform-submission-request-service-form.webform-submission-form .psp-zip-error[hidden] {
+  display: none;
+}
+form.webform-submission-request-service-form.webform-submission-form .psp-zip-valid .form-element[class] {
+  padding-right: 48px;
+  border-color: #2e7d32;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%232e7d32'/%3E%3Cpath d='m6.5 12.5 3.5 3.5 7.5-8' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 22px;
+}
+
+/* Webform confirmation modal on the share page (Book Online panel): the
+ * share page skips the theme's dialog wrapper, leaving a white title on a
+ * transparent bar. */
+.webform-share-page-body .ui-dialog.ui-dialog.ui-dialog .ui-dialog-titlebar {
+  background-color: var(--theme-setting-base-primary-color, #01266e);
+  color: #fff;
+}
+/* The zip script shows its own out-of-area message the moment 5 digits are
+ * typed; hide the validator's duplicate (added on blur/submit) while it shows. */
+form.webform-submission-request-service-form.webform-submission-form .form-item-zip:has(.psp-zip-error:not([hidden])) .form-item--error-message {
+  display: none !important; /* jQuery Validate sets an inline display. */
+}
+/* Request Service zip: confirmation under the field for a service-area zip. */
+form.webform-submission-request-service-form.webform-submission-form[class] .psp-zip-success {
+  margin-top: 6px;
+  color: #2e7d32;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+form.webform-submission-request-service-form.webform-submission-form .psp-zip-success[hidden] {
+  display: none;
+}
+/* Drupal messages on the webform share page (Book Online panel): the page
+ * lacks the theme's message toast wrapper, so the white text and icon sat on
+ * a transparent background. Give them their own dark panel. */
+.webform-share-page-body .messages[class] {
+  margin: 0 0 16px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background-color: #16161a;
+  color: #fff;
+}
+.webform-share-page-body .messages[class] a {
+  color: inherit;
+}
+/* A field placed directly after the buttons (Request Service consent
+ * checkboxes under "Proceed") gets a little breathing room. */
+form.webform-submission-request-service-form.webform-submission-form .form-actions[class] + .form-item[class] {
+  margin-top: 10px;
+}

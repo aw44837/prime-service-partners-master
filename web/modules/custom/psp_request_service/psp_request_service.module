@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * PSP Request Service: styling for the Request Service webform.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_webform_submission_form_alter().
+ */
+function psp_request_service_webform_submission_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  if (str_starts_with($form_id, 'webform_submission_request_service_')) {
+    $form['#attached']['library'][] = 'psp_request_service/form';
+  }
+}

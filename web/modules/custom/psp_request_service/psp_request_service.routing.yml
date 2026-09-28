@@ -1,0 +1,7 @@
+psp_request_service.settings:
+  path: '/admin/config/services/request-service'
+  defaults:
+    _form: '\Drupal\psp_request_service\Form\SettingsForm'
+    _title: 'Request Service form'
+  requirements:
+    _permission: 'administer psp request service'

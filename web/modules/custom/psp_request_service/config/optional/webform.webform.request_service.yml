@@ -1,4 +1,3 @@
-uuid: 60a75af2-7459-419d-bb4d-01527094d6c2
 langcode: en
 status: open
 dependencies:
@@ -14,7 +13,7 @@ id: request_service
 title: 'Request Service'
 description: ''
 categories: {  }
-elements: |-
+elements: |
   service_area:
     '#type': webform_section
     '#title': 'Where do you need service?'
@@ -37,7 +36,7 @@ elements: |-
       visible:
         ':input[name="zip"]':
           value:
-            pattern: '^([0-9]{5})$'
+            pattern: '^[0-9]{5}$'
     '#attributes':
       class:
         - psp-zip-reveal
@@ -54,7 +53,7 @@ elements: |-
       visible:
         ':input[name="zip"]':
           value:
-            pattern: '^([0-9]{5})$'
+            pattern: '^[0-9]{5}$'
     '#attributes':
       class:
         - psp-zip-reveal
@@ -90,18 +89,18 @@ elements: |-
         visible:
           ':input[name="zip"]':
             value:
-              pattern: '^([0-9]{5})$'
+              pattern: '^[0-9]{5}$'
       '#submit__label': Proceed
     receive_text_messages_about_appointment:
       '#type': checkbox
-      '#title': 'I agree to receive recurring automated texts from BRAND_NAME for appointment reminders and service updates at the number provided. Message frequency varies. Reply STOP to opt out, HELP for help. Consent is not required for purchase.'
+      '#title': 'I agree to receive recurring automated texts from [company] for appointment reminders and service updates at the number provided. Message frequency varies. Reply STOP to opt out, HELP for help. Consent is not required for purchase.'
       '#default_value': 1
       '#wrapper_attributes':
         class:
           - psp-consent-checkbox
     receive_text_messages_about_marketing_promotions:
       '#type': checkbox
-      '#title': 'I agree to receive recurring automated texts from BRAND_NAME for offers, discounts, seasonal and membership promotions at the number provided. Message frequency varies. Reply STOP to opt out, HELP for help. Consent is not required for purchase.'
+      '#title': 'I agree to receive recurring automated texts from [company] for offers, discounts, seasonal and membership promotions at the number provided. Message frequency varies. Reply STOP to opt out, HELP for help. Consent is not required for purchase.'
       '#default_value': 1
       '#wrapper_attributes':
         class:
@@ -112,7 +111,7 @@ elements: |-
   lead_source:
     '#type': hidden
     '#title': 'lead source'
-    '#default_value': BRAND_NAME
+    '#default_value': ''
   ai_verdict:
     '#type': value
     '#title': 'AI verdict'
@@ -463,12 +462,12 @@ handlers:
       cc_options: {  }
       from_mail: noreply@droptech.dev
       from_options: {  }
-      from_name: 'BRAND_NAME Website'
+      from_name: '[company] Website'
       reply_to: ''
       return_path: ''
       sender_mail: ''
       sender_name: ''
-      subject: 'New BRAND_NAME Booking Request'
+      subject: 'New [company] Booking Request'
       body: |-
         Name: [webform_submission:values:customer_name]
         Phone: [webform_submission:values:phone_number]

@@ -88,3 +88,17 @@ function psp_lead_guard_mail(string $key, array &$message, array $params): void 
     $message['body'][] = $params['body'];
   }
 }
+
+/**
+ * Implements hook_mail_alter().
+ *
+ * Symfony Mailer Lite is configured to override every message to text/html,
+ * which ignores a webform email handler's "Send email as HTML" = off. Honor
+ * that setting: a per-message content_type outranks the override, so plain
+ * text lead notifications go out as text/plain only.
+ */
+function psp_lead_guard_mail_alter(array &$message): void {
+  if (($message['module'] ?? '') === 'webform' && array_key_exists('html', $message['params']) && empty($message['params']['html'])) {
+    $message['params']['content_type'] = 'text/plain';
+  }
+}

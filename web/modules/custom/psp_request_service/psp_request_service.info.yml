@@ -1,0 +1,10 @@
+name: 'PSP Request Service'
+type: module
+description: 'Book Online / Request Service webform: service-area zip check with instant reveal, US phone formatting, SMS consent, page URL + UTM hidden fields, plain-text booking email gated by Lead Guard, and a header/footer-free share page for the js-open-in-panel slide-up.'
+package: 'Prime Service Partners'
+core_version_requirement: ^11
+configure: psp_request_service.settings
+dependencies:
+  - webform:webform
+  - webform:webform_share
+  - psp_lead_guard:psp_lead_guard

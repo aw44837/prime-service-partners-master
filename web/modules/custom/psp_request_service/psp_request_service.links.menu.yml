@@ -1,0 +1,5 @@
+psp_request_service.settings:
+  title: 'Request Service form'
+  description: 'Company name, lead source and service-area zip codes for the Book Online form.'
+  route_name: psp_request_service.settings
+  parent: system.admin_config_services

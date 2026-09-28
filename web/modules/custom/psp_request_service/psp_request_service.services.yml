@@ -1,0 +1,4 @@
+services:
+  psp_request_service.configurator:
+    class: Drupal\psp_request_service\FormConfigurator
+    arguments: ['@config.factory', '@entity_type.manager']

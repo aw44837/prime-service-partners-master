@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Install hooks for PSP Request Service.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function psp_request_service_install(bool $is_syncing): void {
+  if ($is_syncing) {
+    return;
+  }
+  // Empty company/lead source mean "use the site name", so a site cloned
+  // from master picks up its own name. Write it into the form now if this
+  // module's copy of the form was just installed.
+  \Drupal::service('psp_request_service.configurator')->apply();
+}

@@ -1,0 +1,6 @@
+name: 'Droptech Tracking'
+type: module
+description: 'Captures UTM (and other) URL parameters into a first-party cookie, case-insensitively, and passes them into matching hidden webform fields.'
+package: Droptech
+core_version_requirement: ^11
+configure: droptech_tracking.settings

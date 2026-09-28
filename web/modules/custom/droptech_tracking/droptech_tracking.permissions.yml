@@ -1,0 +1,4 @@
+administer droptech tracking:
+  title: 'Administer Droptech Tracking'
+  description: 'Configure which URL parameters are captured and how long they are kept.'
+  restrict access: true

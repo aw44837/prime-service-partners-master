@@ -10,3 +10,14 @@ services:
   logger.channel.psp_lead_guard:
     parent: logger.channel_base
     arguments: ['psp_lead_guard']
+
+  # Sends plain-text webform emails straight to the mail system, around the
+  # Easy Email Override catch-all (which always adds an HTML template). Wraps
+  # the Easy Email decorator (priority 1), so it sits outermost.
+  psp_lead_guard.plain_text_mail_router:
+    class: Drupal\psp_lead_guard\PlainTextMailRouter
+    decorates: plugin.manager.mail
+    decoration_priority: 0
+    arguments:
+      - '@psp_lead_guard.plain_text_mail_router.inner'
+      - '@?easy_email_override.mail_manager_decorator.inner'
