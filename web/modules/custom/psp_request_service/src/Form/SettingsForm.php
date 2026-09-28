@@ -44,6 +44,12 @@ class SettingsForm extends ConfigFormBase {
       '#description' => $this->t('Sent with every submission (hidden field). Defaults to the company name.'),
       '#default_value' => $config->get('lead_source'),
     ];
+    $form['email_subject'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Booking email subject'),
+      '#description' => $this->t('Leave empty for "New [company] Booking Request".'),
+      '#default_value' => $config->get('email_subject'),
+    ];
     $form['zips'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Service-area zip codes'),
@@ -75,6 +81,7 @@ class SettingsForm extends ConfigFormBase {
     $this->config('psp_request_service.settings')
       ->set('company_name', trim($form_state->getValue('company_name')))
       ->set('lead_source', trim($form_state->getValue('lead_source')))
+      ->set('email_subject', trim($form_state->getValue('email_subject')))
       ->set('zips', $this->parseZips($form_state->getValue('zips')))
       ->save();
     if (\Drupal::service('psp_request_service.configurator')->apply()) {

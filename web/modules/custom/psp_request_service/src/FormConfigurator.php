@@ -76,7 +76,8 @@ class FormConfigurator {
 
     if ($webform->getHandlers()->has('email_booking')) {
       $handler = $webform->getHandler('email_booking');
-      $handler->setSetting('subject', 'New ' . $company . ' Booking Request');
+      $subject = trim((string) $settings->get('email_subject')) ?: 'New ' . $company . ' Booking Request';
+      $handler->setSetting('subject', $subject);
       $handler->setSetting('from_name', $company . ' Website');
       $webform->updateWebformHandler($handler);
     }

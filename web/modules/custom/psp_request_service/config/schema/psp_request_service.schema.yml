@@ -8,6 +8,9 @@ psp_request_service.settings:
     lead_source:
       type: string
       label: 'Lead source value'
+    email_subject:
+      type: string
+      label: 'Booking email subject (empty = "New <company> Booking Request")'
     zips:
       type: sequence
       label: 'Service-area zip codes (empty = accept any 5-digit zip)'
