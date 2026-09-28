@@ -2,3 +2,8 @@ form:
   css:
     theme:
       css/request-service.css: {}
+  js:
+    js/enter-guard.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

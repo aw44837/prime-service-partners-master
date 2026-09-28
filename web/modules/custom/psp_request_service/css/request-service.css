@@ -281,3 +281,42 @@ form.webform-submission-request-service-form.webform-submission-form .psp-zip-su
 form.webform-submission-request-service-form.webform-submission-form .form-actions[class] + .form-item[class] {
   margin-top: 10px;
 }
+
+/* Inline Form Errors summary ("N errors have been found") inside the form:
+ * Dripyard paints it as a black card, and the well's text colour rule above
+ * turns its text navy-on-black. Render it as a light alert instead. */
+form.webform-submission-request-service-form.webform-submission-form[class] .messages-list {
+  margin: 0 0 16px;
+}
+form.webform-submission-request-service-form.webform-submission-form[class] .messages {
+  padding: 14px 16px;
+  border: 1px solid #e3b5b5;
+  border-left: 4px solid #c62828;
+  border-radius: 10px;
+  background: #fff5f5;
+  box-shadow: none;
+}
+form.webform-submission-request-service-form.webform-submission-form[class] .messages,
+form.webform-submission-request-service-form.webform-submission-form[class] .messages :is(div, span, p, li, h2) {
+  color: #7a1c1c;
+}
+form.webform-submission-request-service-form.webform-submission-form[class] .messages a {
+  color: #7a1c1c;
+  text-decoration: underline;
+}
+form.webform-submission-request-service-form.webform-submission-form[class] .messages .messages__icon,
+form.webform-submission-request-service-form.webform-submission-form[class] .messages .messages__icon svg {
+  color: #c62828;
+  fill: #c62828;
+  width: 22px;
+  height: 22px;
+}
+form.webform-submission-request-service-form.webform-submission-form[class] .messages--status {
+  border-color: #b9d9c1;
+  border-left-color: #2e7d32;
+  background: #f2faf4;
+}
+form.webform-submission-request-service-form.webform-submission-form[class] .messages--status,
+form.webform-submission-request-service-form.webform-submission-form[class] .messages--status :is(div, span, p, li, h2, a) {
+  color: #1b4d21;
+}
