@@ -469,18 +469,18 @@ handlers:
       sender_name: ''
       subject: 'New [company] Booking Request'
       body: |-
-        Name: [webform_submission:values:customer_name]
-        Phone: [webform_submission:values:phone_number]
-        Email: [webform_submission:values:email]
-        Zip: [webform_submission:values:zip]
-        Lead source: [webform_submission:values:lead_source]
-        Service: [webform_submission:values:comments]
-        Page URL: [webform_submission:values:page_url]
-        UTM Source: [webform_submission:values:utm_source]
-        UTM Medium: [webform_submission:values:utm_medium]
-        UTM Campaign: [webform_submission:values:utm_campaign]
-        UTM Term: [webform_submission:values:utm_term]
-        UTM Content: [webform_submission:values:utm_content]
+        Name: [webform_submission:values:customer_name:clear]
+        Phone: [webform_submission:values:phone_number:clear]
+        Email: [webform_submission:values:email:clear]
+        Zip: [webform_submission:values:zip:clear]
+        Lead source: [webform_submission:values:lead_source:clear]
+        Service: [webform_submission:values:comments:clear]
+        Page URL: [webform_submission:values:page_url:clear]
+        UTM Source: [webform_submission:values:utm_source:clear]
+        UTM Medium: [webform_submission:values:utm_medium:clear]
+        UTM Campaign: [webform_submission:values:utm_campaign:clear]
+        UTM Term: [webform_submission:values:utm_term:clear]
+        UTM Content: [webform_submission:values:utm_content:clear]
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: false

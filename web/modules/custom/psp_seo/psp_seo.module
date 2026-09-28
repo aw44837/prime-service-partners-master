@@ -129,7 +129,7 @@ function psp_seo_page_attachments(array &$attachments): void {
     if ($hours = array_values(array_filter((array) $settings->get('opening_hours')))) {
       $data['openingHours'] = $hours;
     }
-    if ($booking = $settings->get('booking_url')) {
+    if ($booking = _psp_seo_absolute_url($settings->get('booking_url'))) {
       $data['potentialAction'] = [
         '@type' => 'ReserveAction',
         'target' => $booking,
@@ -190,7 +190,7 @@ function _psp_seo_local_business(array $loc, array $types, string $id, string $b
     $entity['openingHours'] = $hours;
   }
   if (!empty($loc['booking_url'])) {
-    $entity['potentialAction'] = ['@type' => 'ReserveAction', 'target' => $loc['booking_url']];
+    $entity['potentialAction'] = ['@type' => 'ReserveAction', 'target' => _psp_seo_absolute_url($loc['booking_url'])];
   }
   if ($logo) {
     $entity['image'] = $logo;
@@ -250,4 +250,18 @@ function _psp_seo_logo_url(?string $configured, string $base): ?string {
   }
   $logo = theme_get_setting('logo.url');
   return $logo ? $base . $logo : NULL;
+}
+
+/**
+ * Makes a site-relative path (e.g. /webform/request_service/share) absolute.
+ *
+ * Schema.org URLs must be absolute; relative booking URLs keep working
+ * across a domain cutover. Absolute URLs pass through unchanged.
+ */
+function _psp_seo_absolute_url(?string $url): ?string {
+  $url = trim((string) $url);
+  if ($url === '' || !str_starts_with($url, '/') || str_starts_with($url, '//')) {
+    return $url === '' ? NULL : $url;
+  }
+  return \Drupal\Core\Url::fromUserInput($url, ['absolute' => TRUE])->toString();
 }
