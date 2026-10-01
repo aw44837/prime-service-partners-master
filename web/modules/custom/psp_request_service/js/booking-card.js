@@ -38,11 +38,14 @@
    *   - monthsAhead: how many months past this one the calendar reaches.
    *   - value: initial date (YYYY-MM-DD) or empty for no selection.
    *   - onChange: called with the new YYYY-MM-DD value.
+   *   - popover: show the month calendar as a floating popover (browser top
+   *     layer, so no parent's overflow clips it) instead of expanding the
+   *     picker; the page around it doesn't move.
    *
    * @return {object}
    *   { value() } returning the selected YYYY-MM-DD, or '' when none.
    */
-  Drupal.pspBookingDatePicker = (container, { monthsAhead = 5, value = '', onChange = () => {} } = {}) => {
+  Drupal.pspBookingDatePicker = (container, { monthsAhead = 5, value = '', onChange = () => {}, popover = false } = {}) => {
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     const quick = [0, 1, 2].map((i) => new Date(today.getFullYear(), today.getMonth(), today.getDate() + i));
@@ -58,11 +61,14 @@
       state.monthOffset = Math.max(0, Math.min(monthsAhead, (initial.getFullYear() - today.getFullYear()) * 12 + initial.getMonth() - today.getMonth()));
     }
 
+    const calendarId = `psp-booking-cal-${Math.random().toString(36).slice(2, 9)}`;
+    // Popover needs browser support (all current browsers); otherwise expand.
+    const usePopover = popover && typeof HTMLElement.prototype.showPopover === 'function';
     container.classList.add('psp-booking-picker');
     container.innerHTML = `
       <div class="psp-booking-card__days" role="group" aria-label="${Drupal.t('Day')}"></div>
       <button type="button" class="psp-booking-card__link" aria-expanded="false">${icons.calendar}<span></span></button>
-      <div class="psp-booking-card__cal" hidden>
+      <div class="psp-booking-card__cal" id="${calendarId}" role="dialog" aria-label="${Drupal.t('Choose a date')}" hidden>
         <div class="psp-booking-card__calhead">
           <button type="button" class="psp-booking-card__nav" data-dir="-1" aria-label="${Drupal.t('Previous month')}">${icons.prev}</button>
           <span class="psp-booking-card__month" aria-live="polite"></span>
@@ -72,6 +78,65 @@
         <div class="psp-booking-card__dates"></div>
       </div>`;
     const $ = (s) => container.querySelector(s);
+    const link = $('.psp-booking-card__link');
+    const cal = $('.psp-booking-card__cal');
+    link.setAttribute('aria-controls', calendarId);
+
+    // Popover: float the calendar under the link (or above it when there's
+    // no room below), within the viewport, as wide as the picker (max 360px).
+    function position() {
+      const anchor = link.getBoundingClientRect();
+      const box = container.getBoundingClientRect();
+      const gap = 6;
+      const edge = 8;
+      const width = Math.min(box.width, 360, window.innerWidth - edge * 2);
+      cal.style.width = `${width}px`;
+      const height = cal.offsetHeight;
+      let top = anchor.bottom + gap;
+      if (top + height > window.innerHeight - edge && anchor.top - gap - height >= edge) {
+        top = anchor.top - gap - height;
+      }
+      top = Math.max(edge, Math.min(top, window.innerHeight - height - edge));
+      const left = Math.max(edge, Math.min(box.left, window.innerWidth - width - edge));
+      cal.style.top = `${top}px`;
+      cal.style.left = `${left}px`;
+    }
+    if (usePopover) {
+      cal.hidden = false;
+      cal.setAttribute('popover', 'auto');
+      // The link is the popover's native invoker, so clicking it while open
+      // closes it (rather than light-dismiss closing and the click reopening).
+      link.setAttribute('popovertarget', calendarId);
+      cal.classList.add('psp-booking-card__cal--popover');
+      const follow = () => position();
+      cal.addEventListener('toggle', (e) => {
+        state.showCal = e.newState === 'open';
+        if (state.showCal) {
+          position();
+          window.addEventListener('scroll', follow, true);
+          window.addEventListener('resize', follow);
+          (cal.querySelector('.psp-booking-card__cell[aria-pressed="true"]') || cal.querySelector('.psp-booking-card__cell:not(:disabled)')).focus();
+        }
+        else {
+          window.removeEventListener('scroll', follow, true);
+          window.removeEventListener('resize', follow);
+          // Esc / outside click: give focus back to the link.
+          if (cal.contains(document.activeElement) || document.activeElement === document.body) {
+            link.focus();
+          }
+        }
+        renderLink();
+      });
+    }
+
+    function renderLink() {
+      link.querySelector('span').textContent = state.showCal
+        ? Drupal.t('Hide calendar')
+        : state.fromCalendar
+          ? Drupal.t('@date selected · Change date', { '@date': short(state.selected) })
+          : Drupal.t('Select a different date');
+      link.setAttribute('aria-expanded', String(state.showCal));
+    }
 
     function render() {
       $('.psp-booking-card__days').innerHTML = quick.map((d, i) => `
@@ -80,14 +145,10 @@
           <span class="psp-booking-card__date">${short(d)}</span>
         </button>`).join('');
 
-      const link = $('.psp-booking-card__link');
-      link.querySelector('span').textContent = state.showCal
-        ? Drupal.t('Hide calendar')
-        : state.fromCalendar
-          ? Drupal.t('@date selected · Change date', { '@date': short(state.selected) })
-          : Drupal.t('Select a different date');
-      link.setAttribute('aria-expanded', String(state.showCal));
-      $('.psp-booking-card__cal').hidden = !state.showCal;
+      renderLink();
+      if (!usePopover) {
+        cal.hidden = !state.showCal;
+      }
 
       const month = new Date(today.getFullYear(), today.getMonth() + state.monthOffset, 1);
       $('.psp-booking-card__month').textContent = month.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
@@ -104,6 +165,13 @@
       $('.psp-booking-card__dates').innerHTML = cells;
     }
 
+    function closeCalendar() {
+      if (usePopover && cal.matches(':popover-open')) {
+        cal.hidePopover();
+      }
+      state.showCal = false;
+    }
+
     function select(date, fromCalendar) {
       state.selected = date;
       state.fromCalendar = fromCalendar;
@@ -117,9 +185,13 @@
       }
       if (button.matches('.psp-booking-card__day')) {
         select(quick[Number(button.dataset.i)], false);
-        state.showCal = false;
+        closeCalendar();
       }
       else if (button.matches('.psp-booking-card__link')) {
+        if (usePopover) {
+          // popovertarget toggles it; the toggle event updates the state.
+          return;
+        }
         state.showCal = !state.showCal;
       }
       else if (button.matches('.psp-booking-card__nav')) {
@@ -127,12 +199,18 @@
       }
       else if (button.matches('.psp-booking-card__cell')) {
         select(parse(button.dataset.date), true);
-        state.showCal = false;
+        closeCalendar();
+        if (usePopover) {
+          link.focus();
+        }
       }
       else {
         return;
       }
       render();
+      if (usePopover && state.showCal) {
+        position();
+      }
     });
 
     render();
@@ -260,61 +338,53 @@
   function init(root) {
     const $ = (s) => root.querySelector(s);
     const chips = [...root.querySelectorAll('.psp-booking-card__chip')];
-    const error = $('.psp-booking-card__error');
-    // Same-day follow-up ("Do you need emergency service?"), when the
-    // webform has one: shown only while today is the picked day.
-    const sameDay = $('.psp-booking-card__sameday');
-    const answers = sameDay ? [...sameDay.querySelectorAll('.psp-booking-card__answer')] : [];
-    const now = new Date();
-    const todayValue = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+    const cta = $('.psp-booking-card__cta');
+    const ctaLabel = cta.innerHTML;
+    const status = $('.psp-booking-card__status');
     // Nothing is selected until the visitor picks.
     let choice = -1;
-    let answer = -1;
-
-    function setAnswer(index) {
-      answer = index;
-      answers.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
-    }
+    let resetTimer;
 
     const picker = Drupal.pspBookingDatePicker($('.psp-booking-card__picker'), {
       monthsAhead: parseInt(root.dataset.monthsAhead, 10) || 0,
-      onChange: (value) => {
-        if (sameDay) {
-          sameDay.hidden = value !== todayValue;
-          if (sameDay.hidden) {
-            setAnswer(-1);
-          }
-        }
-        validate(false);
-      },
+      popover: true,
+      onChange: () => validate(false),
     });
 
-    // Shows what's still missing once the visitor has tried to continue.
+    // What's still missing, shown without changing the card's height: the
+    // missing group gets an outline and Continue briefly says what to pick
+    // (announced to screen readers through the status region).
     let tried = false;
     function validate(show) {
       tried = tried || show;
-      const missing = [];
-      if (choice < 0) {
-        missing.push(Drupal.t('a service'));
+      const needService = choice < 0;
+      const needDay = !picker.value();
+      root.querySelector('.psp-booking-card__chips').classList.toggle('is-missing', tried && needService);
+      root.querySelector('.psp-booking-card__days').classList.toggle('is-missing', tried && needDay);
+      const message = needService && needDay
+        ? Drupal.t('Pick a service and day')
+        : needService ? Drupal.t('Pick a service') : needDay ? Drupal.t('Pick a day') : '';
+      clearTimeout(resetTimer);
+      if (show && message) {
+        cta.textContent = message;
+        cta.classList.add('is-missing');
+        status.textContent = message;
+        resetTimer = setTimeout(restoreCta, 2500);
       }
-      if (!picker.value()) {
-        missing.push(Drupal.t('a day'));
+      else if (!message) {
+        restoreCta();
       }
-      else if (sameDay && !sameDay.hidden && answer < 0) {
-        missing.push(Drupal.t('whether you need emergency service'));
-      }
-      error.hidden = !tried || !missing.length;
-      error.textContent = missing.length ? Drupal.t('Choose @missing to continue.', { '@missing': missing.join(Drupal.t(' and ')) }) : '';
-      return !missing.length;
+      return !message;
+    }
+    function restoreCta() {
+      cta.innerHTML = ctaLabel;
+      cta.classList.remove('is-missing');
     }
 
     function formUrl() {
       const params = new URLSearchParams();
       params.set(root.dataset.choiceName, chips[choice].dataset.value);
       params.set(root.dataset.dateName, picker.value());
-      if (sameDay && !sameDay.hidden && answer >= 0) {
-        params.set(sameDay.dataset.name, answers[answer].dataset.value);
-      }
       params.set('psp_card', '1');
       if (root.dataset.theme && root.dataset.theme !== 'inherit') {
         params.set('psp_theme', root.dataset.theme);
@@ -349,10 +419,6 @@
         chips.forEach((chip, i) => chip.setAttribute('aria-pressed', String(i === choice)));
         validate(false);
       }
-      else if (button.matches('.psp-booking-card__answer')) {
-        setAnswer(answers.indexOf(button));
-        validate(false);
-      }
       else if (button.matches('.psp-booking-card__cta')) {
         if (validate(true)) {
           openForm(button);
@@ -361,7 +427,7 @@
       else if (button.matches('.psp-booking-card__back')) {
         $('[data-step="form"]').hidden = true;
         $('[data-step="pick"]').hidden = false;
-        $('.psp-booking-card__cta').focus();
+        cta.focus();
       }
     });
   }

@@ -327,61 +327,29 @@
   font-weight: 800;
 }
 
-/* Same-day follow-up: answers as stacked tiles, styled like the day cards. */
-.psp-booking-card__sameday {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.psp-booking-card__sameday[hidden] {
-  display: none;
-}
-.psp-booking-card .psp-booking-card__question {
+/* Calendar as a popover (card): floats in the browser's top layer, placed
+ * by booking-card.js under (or above) the link, so the card never grows and
+ * no parent's overflow clips it. */
+.psp-booking-card__cal.psp-booking-card__cal--popover {
+  position: fixed;
+  inset: auto;
+  max-width: calc(100vw - 16px);
   margin: 0;
-  color: var(--bc-text);
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.4;
-}
-.psp-booking-card__answers {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.psp-booking-card .psp-booking-card__answer {
-  padding: 10px 12px;
-  border: 1px solid var(--bc-border);
-  border-radius: 4px;
+  border-color: var(--bc-border);
   background: var(--bc-surface);
-  color: var(--bc-accent);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.3;
-  text-align: left;
-  cursor: pointer;
-  transition: background .2s ease, border-color .2s ease;
+  color: var(--bc-text);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .28);
 }
-.psp-booking-card .psp-booking-card__answer:hover:not([aria-pressed="true"]) {
-  border-color: var(--bc-accent);
-  background: var(--bc-hover);
-}
-.psp-booking-card .psp-booking-card__answer[aria-pressed="true"] {
-  padding: 9px 11px;
-  border: 2px solid var(--bc-selected-border);
-  background: var(--bc-selected-bg);
-  color: var(--bc-selected-text);
+.psp-booking-card__cal.psp-booking-card__cal--popover:not(:popover-open) {
+  display: none;
 }
 
-/* "Choose a service and a day to continue." */
-.psp-booking-card .psp-booking-card__error {
-  margin: -4px 0 -4px;
-  color: var(--bc-error);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-.psp-booking-card__error[hidden] {
-  display: none;
+/* Missing answers on Continue: outline the group (outlines take no space,
+ * so nothing moves) and Continue says what to pick for a moment. */
+:is(.psp-booking-card__chips, .psp-booking-card__days).is-missing {
+  border-radius: 6px;
+  outline: 2px dashed var(--bc-error);
+  outline-offset: 4px;
 }
 
 /* Continue. */
@@ -404,6 +372,14 @@
 }
 :is(.psp-booking-card, .psp-booking-picker) .psp-booking-card__cta:hover {
   background: var(--bc-cta-hover);
+}
+:is(.psp-booking-card, .psp-booking-picker) .psp-booking-card__cta.is-missing {
+  white-space: nowrap;
+  animation: psp-booking-nudge .3s ease;
+}
+@keyframes psp-booking-nudge {
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
 }
 
 :is(.psp-booking-card, .psp-booking-picker) :is(button, iframe):focus-visible {
@@ -541,12 +517,6 @@
   .psp-booking-card__cal {
     max-width: 400px;
   }
-  .psp-booking-card__answers {
-    flex-direction: row;
-  }
-  .psp-booking-card .psp-booking-card__answer {
-    flex: 1;
-  }
 }
 @container psp-booking-card (min-width: 720px) {
   .psp-booking-card .psp-booking-card__title {
@@ -558,12 +528,12 @@
     min-width: 240px;
     padding: 14px 32px;
   }
-  .psp-booking-card__answers {
-    max-width: 720px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .psp-booking-card__cta.is-missing {
+    animation: none;
+  }
   .psp-booking-panel,
   .psp-booking-panel.is-open,
   .psp-booking-panel-backdrop,

@@ -25,7 +25,6 @@ function psp_request_service_theme(): array {
         'date_name' => '',
         'months_ahead' => 5,
         'form_url' => '',
-        'same_day' => NULL,
         'theme_name' => 'white',
       ],
     ],
