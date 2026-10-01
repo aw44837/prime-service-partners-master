@@ -7,3 +7,18 @@ form:
   dependencies:
     - core/drupal
     - core/once
+
+booking_card:
+  css:
+    component:
+      css/booking-card.css: {}
+  js:
+    js/booking-card.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+
+booking_embed:
+  css:
+    theme:
+      css/booking-embed.css: {}

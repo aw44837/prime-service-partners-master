@@ -1,0 +1,152 @@
+/**
+ * @file
+ * The full webform opened from the booking card (psp_card=1).
+ *
+ * Restyles the form's fields to the booking card design: 4px radii, grey
+ * 1px borders, pill chips for option buttons and the card's primary CTA.
+ * Overrides the standalone Request Service well (request-service.css) one
+ * class deeper, so neither stylesheet's load order matters.
+ */
+
+form.psp-booking-embed.webform-submission-form {
+  --bc-primary: var(--theme-setting-base-primary-color, #133564);
+  --bc-primary-dark: color-mix(in srgb, var(--bc-primary) 78%, #000);
+  --bc-tint: color-mix(in srgb, var(--bc-primary) 12%, #fff);
+  --bc-text: #262626;
+  --bc-text-2: #535556;
+  --bc-border: #cdcdcd;
+  --bc-title-font: var(--title-font-family, inherit);
+  /* The standalone form's tokens, remapped. */
+  --psp-form-navy: var(--bc-primary);
+  --psp-form-navy-dark: var(--bc-primary-dark);
+  --psp-form-text: var(--bc-text);
+  --psp-form-muted: var(--bc-text-2);
+  --psp-form-field-border: var(--bc-border);
+}
+
+/* The page is the card/panel surface: drop the well and the share page's
+ * own gutters (body padding, region margins, bottom spacing). */
+html body.webform-share-page-body:has(form.psp-booking-embed) {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+html body.webform-share-page-body:has(form.psp-booking-embed) :is(.region-content, .region-container) {
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form,
+.theme--light form.psp-request-service-form.psp-booking-embed.webform-submission-form {
+  margin: 0;
+  padding: 24px;
+  border: 0;
+  border-radius: 0;
+  background: #fff;
+}
+/* Inside the card the card already has its padding. */
+html.psp-booking-inline form.psp-request-service-form.psp-booking-embed.webform-submission-form {
+  padding: 4px 4px 8px;
+}
+
+/* The card already introduced the form. */
+form.psp-booking-embed.webform-submission-form .webform-section:first-of-type .form-type-processed-text:first-child {
+  display: none;
+}
+
+/* Section titles: left-aligned, like the card title. */
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-section-title[class] {
+  margin: 0 0 12px;
+  color: var(--bc-primary);
+  font-family: var(--bc-title-font);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: left;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-section + .webform-section[class] {
+  margin-top: 24px;
+}
+
+/* Labels and fields. */
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .form-item[class] {
+  margin: 0 0 16px;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-flexbox .form-item[class] {
+  margin: 0;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .form-item__label {
+  margin: 0 0 6px;
+  color: var(--bc-text);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .form-element[class] {
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid var(--bc-border);
+  border-radius: 4px;
+  color: var(--bc-text);
+  font-family: inherit;
+  font-size: 16px;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .form-element[class]:focus {
+  border-color: var(--bc-primary);
+  box-shadow: 0 0 0 3px var(--bc-tint);
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form textarea.form-element[class] {
+  min-height: 104px;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form :is(input[type="checkbox"], input[type="radio"]).form-element[class] {
+  min-height: auto;
+  padding: 0;
+  accent-color: var(--bc-primary);
+}
+
+/* Option buttons as the card's pill chips. */
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-options-display-buttons[class] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-options-display-buttons-wrapper[class] {
+  flex: none;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-options-display-buttons-label[class] {
+  min-height: 0;
+  padding: 8px 14px;
+  border: 1px solid var(--bc-border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--bc-text);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-options-display-buttons-label[class]:hover {
+  border-color: var(--bc-primary);
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form input:checked + .webform-options-display-buttons-label[class] {
+  border-color: var(--bc-primary);
+  background: var(--bc-primary);
+  color: #fff;
+}
+
+/* Submit: the card's Continue button. */
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-button--submit[class] {
+  padding: 14px;
+  border-radius: 4px;
+  background: var(--bc-primary);
+  font-family: inherit;
+  font-size: 16px;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-button--submit[class]:is(:hover, :focus-visible) {
+  background: var(--bc-primary-dark);
+}
+
+/* Validation alerts and the zip check messages: 4px radii to match. */
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .messages {
+  border-radius: 4px;
+}

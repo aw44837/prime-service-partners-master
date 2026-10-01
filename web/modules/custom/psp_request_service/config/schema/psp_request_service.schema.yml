@@ -17,3 +17,34 @@ psp_request_service.settings:
       sequence:
         type: string
         label: 'Zip code'
+
+block.settings.psp_booking_card:
+  type: block_settings
+  label: 'Booking card block'
+  constraints:
+    FullyValidatable: ~
+  mapping:
+    webform:
+      type: string
+      label: 'Webform'
+      constraints:
+        NotBlank: []
+        Regex:
+          pattern: '/^[a-z0-9_]+$/'
+          message: 'The webform must be a machine name.'
+    title:
+      type: label
+      label: 'Title'
+    subtitle:
+      type: label
+      label: 'Subtitle'
+    button_label:
+      type: required_label
+      label: 'Button label'
+    display:
+      type: string
+      label: 'Where the rest of the form opens'
+      constraints:
+        Choice:
+          - panel
+          - inline

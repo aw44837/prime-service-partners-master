@@ -1,0 +1,53 @@
+{#
+/**
+ * @file
+ * Booking card: a webform's first two questions (a choice and a date).
+ *
+ * Day tiles and the calendar are drawn by booking-card.js in the visitor's
+ * own time zone; the choice chips render here so the card has content
+ * before scripts run.
+ */
+#}
+{% set icon_calendar %}<svg class="psp-booking-card__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 10h17M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>{% endset %}
+{% set icon_arrow %}<svg class="psp-booking-card__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endset %}
+{% set icon_prev %}<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endset %}
+{% set icon_next %}<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endset %}
+<div class="psp-booking-card"
+  data-display="{{ display }}"
+  data-form-url="{{ form_url }}"
+  data-form-title="{{ form_title }}"
+  data-choice-name="{{ choice_name }}"
+  data-date-name="{{ date_name }}"
+  data-months-ahead="{{ months_ahead }}">
+  <div class="psp-booking-card__step" data-step="pick">
+    {% if title or subtitle %}
+      <div class="psp-booking-card__head">
+        {% if title %}<h2 class="psp-booking-card__title">{{ title }}</h2>{% endif %}
+        {% if subtitle %}<p class="psp-booking-card__sub">{{ subtitle }}</p>{% endif %}
+      </div>
+    {% endif %}
+    <div class="psp-booking-card__chips" role="group" aria-label="{{ choice_label|default('Service'|t) }}">
+      {% for option in options %}
+        <button type="button" class="psp-booking-card__chip" data-value="{{ option.value }}" aria-pressed="{{ loop.first ? 'true' : 'false' }}">{{ option.label }}</button>
+      {% endfor %}
+    </div>
+    <div class="psp-booking-card__days" role="group" aria-label="{{ 'Day'|t }}"></div>
+    <button type="button" class="psp-booking-card__link" aria-expanded="false">{{ icon_calendar }}<span>{{ 'Select a different date'|t }}</span></button>
+    <div class="psp-booking-card__cal" hidden>
+      <div class="psp-booking-card__calhead">
+        <button type="button" class="psp-booking-card__nav" data-dir="-1" aria-label="{{ 'Previous month'|t }}">{{ icon_prev }}</button>
+        <span class="psp-booking-card__month" aria-live="polite"></span>
+        <button type="button" class="psp-booking-card__nav" data-dir="1" aria-label="{{ 'Next month'|t }}">{{ icon_next }}</button>
+      </div>
+      <div class="psp-booking-card__wk" aria-hidden="true"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+      <div class="psp-booking-card__dates"></div>
+    </div>
+    <button type="button" class="psp-booking-card__cta">{{ button_label }} {{ icon_arrow }}</button>
+  </div>
+  {% if display == 'inline' %}
+    <div class="psp-booking-card__step psp-booking-card__form" data-step="form" hidden>
+      <button type="button" class="psp-booking-card__back">{{ icon_prev }}<span>{{ 'Change service or date'|t }}</span></button>
+      <iframe class="psp-booking-card__frame" title="{{ form_title }}" loading="lazy"></iframe>
+    </div>
+  {% endif %}
+</div>

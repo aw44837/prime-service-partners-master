@@ -8,10 +8,46 @@
 use Drupal\Core\Form\FormStateInterface;
 
 /**
+ * Implements hook_theme().
+ */
+function psp_request_service_theme(): array {
+  return [
+    'psp_booking_card' => [
+      'variables' => [
+        'title' => '',
+        'subtitle' => '',
+        'button_label' => 'Continue',
+        'display' => 'panel',
+        'form_title' => '',
+        'options' => [],
+        'choice_name' => '',
+        'choice_label' => '',
+        'date_name' => '',
+        'months_ahead' => 5,
+        'form_url' => '',
+      ],
+    ],
+  ];
+}
+
+/**
  * Implements hook_webform_submission_form_alter().
  */
 function psp_request_service_webform_submission_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
-  if (str_starts_with($form_id, 'webform_submission_request_service_')) {
+  // Other webforms opt in to the same styling by adding the
+  // psp-request-service-form class under Settings > Form > CSS classes.
+  $webform = $form_state->getFormObject()->getEntity()->getWebform();
+  $classes = $webform->getSetting('form_attributes')['class'] ?? [];
+  if (str_starts_with($form_id, 'webform_submission_request_service_') || in_array('psp-request-service-form', $classes, TRUE)) {
+    $form['#attributes']['class'][] = 'psp-request-service-form';
     $form['#attached']['library'][] = 'psp_request_service/form';
+  }
+
+  // Opened from the booking card (psp_card=1 on the share page URL): style
+  // the fields like the card instead of the standalone form well.
+  $form['#cache']['contexts'][] = 'url.query_args:psp_card';
+  if (\Drupal::request()->query->get('psp_card')) {
+    $form['#attributes']['class'][] = 'psp-booking-embed';
+    $form['#attached']['library'][] = 'psp_request_service/booking_embed';
   }
 }

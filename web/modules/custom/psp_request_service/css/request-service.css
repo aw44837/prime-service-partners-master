@@ -2,7 +2,8 @@
  * @file
  * Request Service (Book Online) form styling.
  *
- * Scoped to the request_service webform (and its share page), so a site's
+ * Scoped to forms carrying .psp-request-service-form (request_service, plus any
+ * webform that opts in via its form CSS classes setting), so a site's
  * theme and other forms are untouched. Colours follow the site's primary
  * brand colour via --theme-setting-base-primary-color.
  */
@@ -12,7 +13,7 @@
  * soft well instead of white fieldset cards, 16px gaps, white fields with a
  * 1px border and 10px radius, navy bold labels, full-width navy submit.
  * [class] on the inner selectors outranks the Dripyard defaults. */
-form.webform-submission-request-service-form.webform-submission-form {
+form.psp-request-service-form.webform-submission-form {
   --psp-form-well: #f3f4f9;
   --psp-form-border: #c9ccd8;
   --psp-form-field-border: #b9bccc;
@@ -27,36 +28,36 @@ form.webform-submission-request-service-form.webform-submission-form {
   background: var(--psp-form-well);
 }
 /* Inside an already-light cell (contact page "Reach Out" panel) go white. */
-.theme--light form.webform-submission-request-service-form.webform-submission-form,
-.layout-dynamic--theme-light form.webform-submission-request-service-form.webform-submission-form {
+.theme--light form.psp-request-service-form.webform-submission-form,
+.layout-dynamic--theme-light form.psp-request-service-form.webform-submission-form {
   background: #fff;
 }
-form.webform-submission-request-service-form.webform-submission-form .fieldset[class],
-form.webform-submission-request-service-form.webform-submission-form fieldset[class] {
+form.psp-request-service-form.webform-submission-form .fieldset[class],
+form.psp-request-service-form.webform-submission-form fieldset[class] {
   margin: 0;
   padding: 0;
   border: 0;
   background: none;
   box-shadow: none;
 }
-form.webform-submission-request-service-form.webform-submission-form .fieldset__wrapper[class],
-form.webform-submission-request-service-form.webform-submission-form .fieldset__legend[class] {
+form.psp-request-service-form.webform-submission-form .fieldset__wrapper[class],
+form.psp-request-service-form.webform-submission-form .fieldset__legend[class] {
   padding: 0;
 }
-form.webform-submission-request-service-form.webform-submission-form .webform-flexbox[class] {
+form.psp-request-service-form.webform-submission-form .webform-flexbox[class] {
   gap: 16px;
   margin: 0 0 16px;
 }
-form.webform-submission-request-service-form.webform-submission-form .webform-flex--container[class] {
+form.psp-request-service-form.webform-submission-form .webform-flex--container[class] {
   margin: 0;
 }
-form.webform-submission-request-service-form.webform-submission-form .form-item[class] {
+form.psp-request-service-form.webform-submission-form .form-item[class] {
   margin: 0 0 16px;
 }
-form.webform-submission-request-service-form.webform-submission-form .webform-flexbox .form-item[class] {
+form.psp-request-service-form.webform-submission-form .webform-flexbox .form-item[class] {
   margin: 0;
 }
-form.webform-submission-request-service-form.webform-submission-form .form-item__label[class] {
+form.psp-request-service-form.webform-submission-form .form-item__label[class] {
   display: block;
   margin: 0 0 6px;
   color: var(--psp-form-navy);
@@ -65,10 +66,10 @@ form.webform-submission-request-service-form.webform-submission-form .form-item_
   font-weight: 700;
   line-height: 1.3;
 }
-form.webform-submission-request-service-form.webform-submission-form .form-item__label.form-required::after {
+form.psp-request-service-form.webform-submission-form .form-item__label.form-required::after {
   color: #c48a00;
 }
-form.webform-submission-request-service-form.webform-submission-form .form-element[class] {
+form.psp-request-service-form.webform-submission-form .form-element[class] {
   box-sizing: border-box;
   width: 100%;
   min-height: 0;
@@ -83,15 +84,15 @@ form.webform-submission-request-service-form.webform-submission-form .form-eleme
   line-height: 1.4;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
-form.webform-submission-request-service-form.webform-submission-form .form-element[class]:focus {
+form.psp-request-service-form.webform-submission-form .form-element[class]:focus {
   outline: none;
   border-color: var(--psp-form-navy);
   box-shadow: 0 0 0 3px rgba(1, 38, 110, 0.15);
 }
-form.webform-submission-request-service-form.webform-submission-form .form-element[class]::placeholder {
+form.psp-request-service-form.webform-submission-form .form-element[class]::placeholder {
   color: var(--psp-form-muted);
 }
-form.webform-submission-request-service-form.webform-submission-form select.form-element[class] {
+form.psp-request-service-form.webform-submission-form select.form-element[class] {
   padding-right: 44px;
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234a4766' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
@@ -99,22 +100,22 @@ form.webform-submission-request-service-form.webform-submission-form select.form
   background-position: right 16px center;
   background-size: 16px;
 }
-form.webform-submission-request-service-form.webform-submission-form textarea.form-element[class] {
+form.psp-request-service-form.webform-submission-form textarea.form-element[class] {
   min-height: 112px;
   resize: vertical;
 }
-form.webform-submission-request-service-form.webform-submission-form .form-item--checkbox .form-element[class],
-form.webform-submission-request-service-form.webform-submission-form input[type="checkbox"].form-element[class],
-form.webform-submission-request-service-form.webform-submission-form input[type="radio"].form-element[class] {
+form.psp-request-service-form.webform-submission-form .form-item--checkbox .form-element[class],
+form.psp-request-service-form.webform-submission-form input[type="checkbox"].form-element[class],
+form.psp-request-service-form.webform-submission-form input[type="radio"].form-element[class] {
   width: auto;
   min-height: auto;
   padding: 0;
   border-radius: 4px;
 }
-form.webform-submission-request-service-form.webform-submission-form .form-actions[class] {
+form.psp-request-service-form.webform-submission-form .form-actions[class] {
   margin: 8px 0 0;
 }
-form.webform-submission-request-service-form.webform-submission-form .webform-button--submit[class] {
+form.psp-request-service-form.webform-submission-form .webform-button--submit[class] {
   display: block;
   width: 100%;
   margin: 0;
@@ -131,94 +132,94 @@ form.webform-submission-request-service-form.webform-submission-form .webform-bu
   cursor: pointer;
   transition: background-color 0.2s;
 }
-form.webform-submission-request-service-form.webform-submission-form .webform-button--submit[class]:hover,
-form.webform-submission-request-service-form.webform-submission-form .webform-button--submit[class]:focus-visible {
+form.psp-request-service-form.webform-submission-form .webform-button--submit[class]:hover,
+form.psp-request-service-form.webform-submission-form .webform-button--submit[class]:focus-visible {
   color: #fff;
   background: var(--psp-form-navy-dark);
 }
-form.webform-submission-request-service-form.webform-submission-form .description[class],
-form.webform-submission-request-service-form.webform-submission-form .form-item__description[class],
-form.webform-submission-request-service-form.webform-submission-form .webform-element-description[class],
-form.webform-submission-request-service-form.webform-submission-form .webform-element-help[class],
-form.webform-submission-request-service-form.webform-submission-form .form-item--markup[class],
-form.webform-submission-request-service-form.webform-submission-form .webform-markup[class] {
+form.psp-request-service-form.webform-submission-form .description[class],
+form.psp-request-service-form.webform-submission-form .form-item__description[class],
+form.psp-request-service-form.webform-submission-form .webform-element-description[class],
+form.psp-request-service-form.webform-submission-form .webform-element-help[class],
+form.psp-request-service-form.webform-submission-form .form-item--markup[class],
+form.psp-request-service-form.webform-submission-form .webform-markup[class] {
   color: var(--psp-form-muted);
   font-size: 13px;
   line-height: 1.45;
 }
 /* The well is light regardless of the section theme, so pin all text in it
  * (dark sections otherwise cascade white text into the consent copy). */
-form.webform-submission-request-service-form.webform-submission-form[class] :is(p, div, span, small, li, legend) {
+form.psp-request-service-form.webform-submission-form[class] :is(p, div, span, small, li, legend) {
   color: var(--psp-form-text);
 }
-form.webform-submission-request-service-form.webform-submission-form[class] :is(.description, .form-item__description, .webform-element-description, .form-item--markup, .webform-markup, .form-item--markup p) {
+form.psp-request-service-form.webform-submission-form[class] :is(.description, .form-item__description, .webform-element-description, .form-item--markup, .webform-markup, .form-item--markup p) {
   color: var(--psp-form-muted);
   font-size: 13px;
   line-height: 1.45;
 }
-form.webform-submission-request-service-form.webform-submission-form[class] a {
+form.psp-request-service-form.webform-submission-form[class] a {
   color: var(--psp-form-navy);
 }
-form.webform-submission-request-service-form.webform-submission-form[class] .form-item__label {
+form.psp-request-service-form.webform-submission-form[class] .form-item__label {
   color: var(--psp-form-navy);
 }
 @media (width <= 600px) {
-  form.webform-submission-request-service-form.webform-submission-form {
+  form.psp-request-service-form.webform-submission-form {
     padding: 20px;
   }
 }
 
 /* SMS consent checkboxes: checkbox on the left, consent text in its own
  * column to the right, so long copy never wraps underneath the box. */
-form.webform-submission-request-service-form.webform-submission-form .psp-consent-checkbox {
+form.psp-request-service-form.webform-submission-form .psp-consent-checkbox {
   display: flex;
   align-items: flex-start;
   gap: 12px;
 }
-form.webform-submission-request-service-form.webform-submission-form .psp-consent-checkbox .form-item__label.option {
+form.psp-request-service-form.webform-submission-form .psp-consent-checkbox .form-item__label.option {
   flex: 1;
   margin: 0;
   line-height: 1.45;
 }
-form.webform-submission-request-service-form.webform-submission-form .psp-consent-checkbox [type="checkbox"] {
+form.psp-request-service-form.webform-submission-form .psp-consent-checkbox [type="checkbox"] {
   flex: none;
   margin: 0;
 }
-form.webform-submission-request-service-form.webform-submission-form[class] .form-item-sms-rates-notice p {
+form.psp-request-service-form.webform-submission-form[class] .form-item-sms-rates-notice p {
   margin: 0;
   font-size: 14px;
   line-height: 1.45;
 }
 
-form.webform-submission-request-service-form.webform-submission-form[class] .psp-zip-error:not([hidden]),
-form.webform-submission-request-service-form.webform-submission-form[class] .form-item--error-message {
+form.psp-request-service-form.webform-submission-form[class] .psp-zip-error:not([hidden]),
+form.psp-request-service-form.webform-submission-form[class] .form-item--error-message {
   margin-top: 6px;
   color: #b3261e;
   font-size: 14px;
   line-height: 1.4;
 }
-form.webform-submission-request-service-form.webform-submission-form .form-element.error[class] {
+form.psp-request-service-form.webform-submission-form .form-element.error[class] {
   border-color: #b3261e;
 }
 /* Dripyard adds an arrow icon to any button labelled exactly "Submit"; the
  * webform submit is full-width text-only everywhere, so drop it. */
-form.webform-submission-request-service-form.webform-submission-form .webform-button--submit .button__suffix {
+form.psp-request-service-form.webform-submission-form .webform-button--submit .button__suffix {
   display: none;
 }
 
 /* Sections: centered section headlines with
  * breathing room between sections. */
-form.webform-submission-request-service-form.webform-submission-form .webform-section[class] {
+form.psp-request-service-form.webform-submission-form .webform-section[class] {
   margin: 0 0 8px;
 }
-form.webform-submission-request-service-form.webform-submission-form .webform-section + .webform-section[class] {
+form.psp-request-service-form.webform-submission-form .webform-section + .webform-section[class] {
   margin-top: 32px;
 }
 /* Auto-scroll target after a valid zip: clear the sticky header. */
-form.webform-submission-request-service-form.webform-submission-form .psp-zip-reveal {
+form.psp-request-service-form.webform-submission-form .psp-zip-reveal {
   scroll-margin-top: calc(var(--psp-header-logo-height, 90px) + 60px);
 }
-form.webform-submission-request-service-form.webform-submission-form .webform-section-title[class] {
+form.psp-request-service-form.webform-submission-form .webform-section-title[class] {
   margin: 0 0 16px;
   color: var(--psp-form-navy);
   font-size: 24px;
@@ -228,10 +229,10 @@ form.webform-submission-request-service-form.webform-submission-form .webform-se
 
 /* Request Service zip: out-of-area error only when shown; green check inside
  * the field once a service-area zip is entered. */
-form.webform-submission-request-service-form.webform-submission-form .psp-zip-error[hidden] {
+form.psp-request-service-form.webform-submission-form .psp-zip-error[hidden] {
   display: none;
 }
-form.webform-submission-request-service-form.webform-submission-form .psp-zip-valid .form-element[class] {
+form.psp-request-service-form.webform-submission-form .psp-zip-valid .form-element[class] {
   padding-right: 48px;
   border-color: #2e7d32;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%232e7d32'/%3E%3Cpath d='m6.5 12.5 3.5 3.5 7.5-8' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -249,18 +250,18 @@ form.webform-submission-request-service-form.webform-submission-form .psp-zip-va
 }
 /* The zip script shows its own out-of-area message the moment 5 digits are
  * typed; hide the validator's duplicate (added on blur/submit) while it shows. */
-form.webform-submission-request-service-form.webform-submission-form .form-item-zip:has(.psp-zip-error:not([hidden])) .form-item--error-message {
+form.psp-request-service-form.webform-submission-form .form-item-zip:has(.psp-zip-error:not([hidden])) .form-item--error-message {
   display: none !important; /* jQuery Validate sets an inline display. */
 }
 /* Request Service zip: confirmation under the field for a service-area zip. */
-form.webform-submission-request-service-form.webform-submission-form[class] .psp-zip-success {
+form.psp-request-service-form.webform-submission-form[class] .psp-zip-success {
   margin-top: 6px;
   color: #2e7d32;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
 }
-form.webform-submission-request-service-form.webform-submission-form .psp-zip-success[hidden] {
+form.psp-request-service-form.webform-submission-form .psp-zip-success[hidden] {
   display: none;
 }
 /* Drupal messages on the webform share page (Book Online panel): the page
@@ -278,17 +279,17 @@ form.webform-submission-request-service-form.webform-submission-form .psp-zip-su
 }
 /* A field placed directly after the buttons (Request Service consent
  * checkboxes under "Proceed") gets a little breathing room. */
-form.webform-submission-request-service-form.webform-submission-form .form-actions[class] + .form-item[class] {
+form.psp-request-service-form.webform-submission-form .form-actions[class] + .form-item[class] {
   margin-top: 10px;
 }
 
 /* Inline Form Errors summary ("N errors have been found") inside the form:
  * Dripyard paints it as a black card, and the well's text colour rule above
  * turns its text navy-on-black. Render it as a light alert instead. */
-form.webform-submission-request-service-form.webform-submission-form[class] .messages-list {
+form.psp-request-service-form.webform-submission-form[class] .messages-list {
   margin: 0 0 16px;
 }
-form.webform-submission-request-service-form.webform-submission-form[class] .messages {
+form.psp-request-service-form.webform-submission-form[class] .messages {
   padding: 14px 16px;
   border: 1px solid #e3b5b5;
   border-left: 4px solid #c62828;
@@ -296,27 +297,94 @@ form.webform-submission-request-service-form.webform-submission-form[class] .mes
   background: #fff5f5;
   box-shadow: none;
 }
-form.webform-submission-request-service-form.webform-submission-form[class] .messages,
-form.webform-submission-request-service-form.webform-submission-form[class] .messages :is(div, span, p, li, h2) {
+form.psp-request-service-form.webform-submission-form[class] .messages,
+form.psp-request-service-form.webform-submission-form[class] .messages :is(div, span, p, li, h2) {
   color: #7a1c1c;
 }
-form.webform-submission-request-service-form.webform-submission-form[class] .messages a {
+form.psp-request-service-form.webform-submission-form[class] .messages a {
   color: #7a1c1c;
   text-decoration: underline;
 }
-form.webform-submission-request-service-form.webform-submission-form[class] .messages .messages__icon,
-form.webform-submission-request-service-form.webform-submission-form[class] .messages .messages__icon svg {
+form.psp-request-service-form.webform-submission-form[class] .messages .messages__icon,
+form.psp-request-service-form.webform-submission-form[class] .messages .messages__icon svg {
   color: #c62828;
   fill: #c62828;
   width: 22px;
   height: 22px;
 }
-form.webform-submission-request-service-form.webform-submission-form[class] .messages--status {
+form.psp-request-service-form.webform-submission-form[class] .messages--status {
   border-color: #b9d9c1;
   border-left-color: #2e7d32;
   background: #f2faf4;
 }
-form.webform-submission-request-service-form.webform-submission-form[class] .messages--status,
-form.webform-submission-request-service-form.webform-submission-form[class] .messages--status :is(div, span, p, li, h2, a) {
+form.psp-request-service-form.webform-submission-form[class] .messages--status,
+form.psp-request-service-form.webform-submission-form[class] .messages--status :is(div, span, p, li, h2, a) {
   color: #1b4d21;
+}
+
+/* Intro text block (e.g. Book Online's "Book in under 2 minutes"): styled
+ * like a section headline, with the hidden section title adding no gap. */
+form.psp-request-service-form.webform-submission-form .form-type-processed-text[class] {
+  margin: 0 0 16px;
+  text-align: center;
+}
+form.psp-request-service-form.webform-submission-form .form-type-processed-text[class] :is(h2, h3, h4, h5, h6) {
+  margin: 0 0 4px;
+  color: var(--psp-form-navy);
+  font-size: 24px;
+  line-height: 1.25;
+}
+form.psp-request-service-form.webform-submission-form .form-type-processed-text[class] p {
+  margin: 0;
+  color: var(--psp-form-muted);
+  font-size: 16px;
+}
+
+/* Option buttons (radios/checkboxes with "Options display: buttons"): white
+ * tiles like the text fields; navy fill when selected. */
+form.psp-request-service-form.webform-submission-form .webform-options-display-buttons[class] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 0 0 16px;
+}
+form.psp-request-service-form.webform-submission-form .webform-options-display-buttons-wrapper[class],
+form.psp-request-service-form.webform-submission-form .webform-options-display-buttons-wrapper[class] .form-item {
+  margin: 0;
+  padding: 0;
+}
+form.psp-request-service-form.webform-submission-form .webform-options-display-buttons-label[class] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--psp-form-field-border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--psp-form-navy);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .15s, background-color .15s, color .15s;
+}
+form.psp-request-service-form.webform-submission-form .webform-options-display-buttons-label[class]:hover {
+  border-color: var(--psp-form-navy);
+}
+form.psp-request-service-form.webform-submission-form input:checked + .webform-options-display-buttons-label[class] {
+  border-color: var(--psp-form-navy);
+  background: var(--psp-form-navy);
+  color: #fff;
+}
+form.psp-request-service-form.webform-submission-form input:focus-visible + .webform-options-display-buttons-label[class] {
+  outline: 2px solid var(--psp-form-navy);
+  outline-offset: 2px;
+}
+form.psp-request-service-form.webform-submission-form .webform-options-display-buttons + .fieldset__legend,
+form.psp-request-service-form.webform-submission-form fieldset.webform-type-radios[class] {
+  margin: 0;
+  padding: 0;
+  border: 0;
 }

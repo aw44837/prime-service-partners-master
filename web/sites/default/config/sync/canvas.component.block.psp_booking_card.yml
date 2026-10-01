@@ -1,0 +1,27 @@
+uuid: ccf1d739-c0bc-40ea-a265-ef4076b0c5b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - psp_request_service
+active_version: 64679140223cd9ed
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: psp_booking_card
+        label: 'Booking card'
+        label_display: '0'
+        provider: psp_request_service
+        webform: book_online
+        title: 'Book in under 2 minutes'
+        subtitle: 'Pick a service and a time that works for you.'
+        button_label: Continue
+        display: panel
+    fallback_metadata:
+      slot_definitions: null
+label: 'Booking card'
+id: block.psp_booking_card
+provider: psp_request_service
+source: block
+source_local_id: psp_booking_card

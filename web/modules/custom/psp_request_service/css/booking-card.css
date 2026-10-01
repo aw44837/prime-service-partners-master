@@ -1,0 +1,384 @@
+/**
+ * @file
+ * Booking card ("Book in under 2 minutes") and its side panel.
+ *
+ * Built from the PSP booking-card design handoff. Colours derive from the
+ * site's primary brand colour, fonts from the theme's heading/body fonts, so
+ * each fleet site reskins it.
+ */
+
+.psp-booking-card,
+.psp-booking-panel {
+  --bc-primary: var(--theme-setting-base-primary-color, #133564);
+  --bc-primary-dark: color-mix(in srgb, var(--bc-primary) 78%, #000);
+  --bc-tint: color-mix(in srgb, var(--bc-primary) 12%, #fff);
+  --bc-text: #262626;
+  --bc-text-2: #535556;
+  --bc-border: #cdcdcd;
+  --bc-white: #fff;
+  --bc-title-font: var(--title-font-family, inherit);
+}
+
+.psp-booking-card {
+  box-sizing: border-box;
+  width: min(100%, 390px);
+  padding: 24px;
+  border-top: 4px solid var(--bc-primary);
+  border-radius: 8px;
+  background: var(--bc-white);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .25);
+  color: var(--bc-text);
+  text-align: left;
+  -webkit-font-smoothing: antialiased;
+}
+.psp-booking-card *,
+.psp-booking-card *::before,
+.psp-booking-card *::after {
+  box-sizing: border-box;
+}
+.psp-booking-card button {
+  margin: 0;
+  font: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.psp-booking-card[data-display="inline"]:has([data-step="form"]:not([hidden])) {
+  width: min(100%, 480px);
+}
+
+.psp-booking-card__step {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.psp-booking-card__step[hidden] {
+  display: none;
+}
+
+.psp-booking-card__head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.psp-booking-card .psp-booking-card__title {
+  margin: 0;
+  color: var(--bc-primary);
+  font-family: var(--bc-title-font);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+.psp-booking-card .psp-booking-card__sub {
+  margin: 0;
+  color: var(--bc-text-2);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* Choice chips. */
+.psp-booking-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.psp-booking-card .psp-booking-card__chip {
+  padding: 8px 14px;
+  border: 1px solid var(--bc-border);
+  border-radius: 999px;
+  background: var(--bc-white);
+  color: var(--bc-text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.psp-booking-card .psp-booking-card__chip:hover {
+  border-color: var(--bc-primary);
+}
+.psp-booking-card .psp-booking-card__chip[aria-pressed="true"] {
+  border-color: var(--bc-primary);
+  background: var(--bc-primary);
+  color: var(--bc-white);
+}
+
+/* Quick days. */
+.psp-booking-card__days {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.psp-booking-card .psp-booking-card__day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 4px;
+  border: 1px solid var(--bc-border);
+  border-radius: 4px;
+  background: var(--bc-white);
+  color: var(--bc-primary);
+  line-height: 1.2;
+  cursor: pointer;
+}
+.psp-booking-card .psp-booking-card__day[aria-pressed="true"] {
+  padding: 9px 3px;
+  border: 2px solid var(--bc-primary);
+  background: var(--bc-tint);
+}
+.psp-booking-card__dow {
+  font-size: 12px;
+  font-weight: 600;
+}
+.psp-booking-card__date {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+/* "Select a different date" / back links. */
+.psp-booking-card .psp-booking-card__link,
+.psp-booking-card .psp-booking-card__back {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--bc-primary);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.psp-booking-card .psp-booking-card__link {
+  margin-top: -6px;
+}
+.psp-booking-card .psp-booking-card__link:hover,
+.psp-booking-card .psp-booking-card__back:hover {
+  color: var(--bc-primary-dark);
+}
+.psp-booking-card__icon {
+  flex: none;
+}
+
+/* Month calendar. */
+.psp-booking-card__cal {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--bc-border);
+  border-radius: 8px;
+}
+.psp-booking-card__cal[hidden] {
+  display: none;
+}
+.psp-booking-card__calhead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.psp-booking-card__month {
+  color: var(--bc-primary);
+  font-size: 15px;
+  font-weight: 800;
+}
+.psp-booking-card .psp-booking-card__nav {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--bc-primary);
+  cursor: pointer;
+}
+.psp-booking-card .psp-booking-card__nav:hover:not(:disabled) {
+  background: var(--bc-tint);
+}
+.psp-booking-card .psp-booking-card__nav:disabled {
+  color: var(--bc-border);
+  cursor: default;
+}
+.psp-booking-card__wk,
+.psp-booking-card__dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+.psp-booking-card__wk {
+  color: var(--bc-text-2);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+.psp-booking-card .psp-booking-card__cell {
+  height: 36px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: none;
+  color: var(--bc-primary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.psp-booking-card .psp-booking-card__cell:hover:not(:disabled):not([aria-pressed="true"]) {
+  background: var(--bc-tint);
+}
+.psp-booking-card .psp-booking-card__cell:disabled {
+  color: var(--bc-border);
+  cursor: default;
+}
+.psp-booking-card .psp-booking-card__cell--today {
+  border-color: var(--bc-primary);
+  font-weight: 800;
+}
+.psp-booking-card .psp-booking-card__cell[aria-pressed="true"] {
+  border-color: transparent;
+  background: var(--bc-primary);
+  color: var(--bc-white);
+  font-weight: 800;
+}
+
+/* Continue. */
+.psp-booking-card .psp-booking-card__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--bc-primary);
+  color: var(--bc-white);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+.psp-booking-card .psp-booking-card__cta:hover {
+  background: var(--bc-primary-dark);
+}
+
+.psp-booking-card :is(button, iframe):focus-visible {
+  outline: 2px solid var(--bc-primary);
+  outline-offset: 2px;
+}
+
+/* Inline: the full form inside the card. */
+.psp-booking-card__frame {
+  display: block;
+  width: 100%;
+  height: 420px;
+  border: 0;
+  background: transparent;
+  transition: height .2s ease;
+}
+
+/* Side panel: slides in from the right over part of the page. */
+.psp-booking-panel-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, .45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+.psp-booking-panel-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.psp-booking-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  width: min(100vw, 480px);
+  border-top: 4px solid var(--bc-primary);
+  background: var(--bc-white);
+  box-shadow: -15px 0 40px rgba(0, 0, 0, .25);
+  color: var(--bc-text);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform .35s cubic-bezier(.32, .72, 0, 1), visibility 0s linear .35s;
+}
+.psp-booking-panel.is-open {
+  transform: none;
+  visibility: visible;
+  transition: transform .35s cubic-bezier(.32, .72, 0, 1);
+}
+.psp-booking-panel__head {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--bc-border);
+}
+.psp-booking-panel .psp-booking-panel__title {
+  margin: 0;
+  color: var(--bc-primary);
+  font-family: var(--bc-title-font);
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+.psp-booking-panel .psp-booking-panel__close {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 -8px 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--bc-primary);
+  cursor: pointer;
+}
+.psp-booking-panel .psp-booking-panel__close:hover {
+  background: var(--bc-tint);
+}
+.psp-booking-panel .psp-booking-panel__close:focus-visible {
+  outline: 2px solid var(--bc-primary);
+  outline-offset: 2px;
+}
+.psp-booking-panel__frame {
+  flex: 1;
+  width: 100%;
+  border: 0;
+}
+.psp-booking-panel__loading {
+  position: absolute;
+  inset: 80px 0 auto;
+  color: var(--bc-text-2);
+  font-size: 14px;
+  text-align: center;
+}
+.psp-booking-panel.is-loaded .psp-booking-panel__loading {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .psp-booking-panel,
+  .psp-booking-panel.is-open,
+  .psp-booking-panel-backdrop,
+  .psp-booking-card__frame {
+    transition: none;
+  }
+}
