@@ -242,3 +242,51 @@ form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform
 form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .messages {
   border-radius: 4px;
 }
+
+/* Service buttons as the card's trade icons (psp_icons=1, booking-embed.js). */
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-options-display-buttons.psp-booking-picker-icons[class] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+  gap: 6px;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-options-display-buttons-label.psp-booking-card__trade[class] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 2px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  white-space: normal;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form input + .webform-options-display-buttons-label.psp-booking-card__trade[class]:hover {
+  border: 0;
+  background: none;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form input:checked + .webform-options-display-buttons-label.psp-booking-card__trade[class] {
+  border: 0;
+  background: none;
+  color: var(--bc-accent);
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-booking-card__trade .psp-booking-card__trade-label {
+  color: var(--bc-accent);
+}
+form.psp-booking-embed input:focus-visible + .psp-booking-card__trade .psp-booking-card__badge {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 10px 22px rgba(14, 0, 72, .28);
+}
+form.psp-booking-embed input:focus-visible + .psp-booking-card__trade .psp-booking-card__badge svg {
+  animation: psp-booking-wiggle .5s ease;
+}
+form.psp-booking-embed input:checked + .psp-booking-card__trade .psp-booking-card__badge {
+  box-shadow: 0 0 0 3px var(--bc-surface), 0 0 0 6px var(--bc-selected-border);
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] input:checked + .psp-booking-card__trade .psp-booking-card__trade-label {
+  background: var(--bc-selected-bg);
+  color: var(--bc-selected-text);
+}
+/* The form pins span colours (request-service.css); badge glyphs stay white. */
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-booking-card__badge {
+  color: #fff;
+}

@@ -4,9 +4,28 @@ status: true
 dependencies:
   module:
     - psp_request_service
-active_version: d1e417e524379c49
+active_version: 934e3945f5d98fe4
 versioned_properties:
   active:
+    settings:
+      default_settings:
+        id: psp_booking_card
+        label: 'Booking card'
+        label_display: '0'
+        provider: psp_request_service
+        webform: book_online
+        title: 'Book in under 2 minutes'
+        subtitle: 'Pick a service and a time that works for you.'
+        button_label: Continue
+        display: panel
+        theme: white
+        call_label: Call
+        phone: ''
+        online_heading: 'Or book online'
+        choice_style: icons
+    fallback_metadata:
+      slot_definitions: null
+  d1e417e524379c49:
     settings:
       default_settings:
         id: psp_booking_card

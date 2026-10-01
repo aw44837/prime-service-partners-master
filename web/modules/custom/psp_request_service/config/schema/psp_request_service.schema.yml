@@ -88,3 +88,19 @@ block.settings.psp_booking_card:
           - black
           - primary
           - secondary
+    call_label:
+      type: label
+      label: 'Call button label'
+    phone:
+      type: label
+      label: 'Phone number (empty = site main number)'
+    online_heading:
+      type: label
+      label: 'Book online heading'
+    choice_style:
+      type: string
+      label: 'Service buttons'
+      constraints:
+        Choice:
+          - icons
+          - pills

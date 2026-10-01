@@ -170,6 +170,139 @@
   color: var(--bc-selected-text);
 }
 
+/* Call button: the same accent as a selection (secondary; primary on the
+ * secondary background), so it stands out from booking online. */
+.psp-booking-card .psp-booking-card__call {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--bc-selected-border);
+  border-radius: 4px;
+  background: var(--bc-selected-bg);
+  color: var(--bc-selected-text);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background .2s ease;
+}
+.psp-booking-card .psp-booking-card__call:hover {
+  background: oklch(from var(--bc-selected-bg) calc(l - 0.06) c h);
+  color: var(--bc-selected-text);
+}
+.psp-booking-card .psp-booking-card__call:focus-visible {
+  outline: 2px solid var(--bc-focus);
+  outline-offset: 2px;
+}
+
+/* "Or book online": a heading between rules. */
+.psp-booking-card .psp-booking-card__divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  color: var(--bc-accent);
+  font-family: var(--bc-title-font);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.psp-booking-card .psp-booking-card__divider::before,
+.psp-booking-card .psp-booking-card__divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--bc-border);
+}
+.psp-booking-card .psp-booking-card__divider + .psp-booking-card__sub {
+  text-align: center;
+}
+
+/* Service buttons as animated trade icons. */
+.psp-booking-card__chips.psp-booking-card__chips--icons,
+.psp-booking-picker-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+  gap: 6px;
+}
+:is(.psp-booking-card, form) .psp-booking-card__trade[class] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 6px 2px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  color: var(--bc-accent);
+  cursor: pointer;
+  white-space: normal;
+}
+:is(.psp-booking-card, form) .psp-booking-card__trade[class]:hover:not([aria-pressed="true"]) {
+  border: 0;
+  background: none;
+}
+.psp-booking-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bc-accent);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(14, 0, 72, .18);
+  transition: transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s ease;
+}
+.psp-booking-card__badge svg {
+  width: 48%;
+  height: 48%;
+}
+.psp-booking-card__badge--plumbing { background: var(--psp-trade-plumbing, #1b4fa0); }
+.psp-booking-card__badge--heating { background: var(--psp-trade-heating, #d63a2a); }
+.psp-booking-card__badge--air { background: var(--psp-trade-air, #1e7bd1); }
+.psp-booking-card__badge--electric { background: var(--psp-trade-electric, #fdb515); }
+.psp-booking-card__trade-label {
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: var(--bc-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  line-height: 1.3;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* Hover/focus: lift with a little overshoot and wiggle the glyph. */
+.psp-booking-card__trade:is(:hover, :focus-visible) .psp-booking-card__badge {
+  transform: translateY(-4px) scale(1.06);
+  box-shadow: 0 10px 22px rgba(14, 0, 72, .28);
+}
+.psp-booking-card__trade:is(:hover, :focus-visible) .psp-booking-card__badge svg {
+  animation: psp-booking-wiggle .5s ease;
+}
+/* Selected: a ring round the badge and the label highlighted. */
+.psp-booking-card__trade[aria-pressed="true"] .psp-booking-card__badge {
+  box-shadow: 0 0 0 3px var(--bc-surface), 0 0 0 6px var(--bc-selected-border);
+}
+.psp-booking-card__trade[aria-pressed="true"] .psp-booking-card__trade-label {
+  background: var(--bc-selected-bg);
+  color: var(--bc-selected-text);
+}
+:is(.psp-booking-card, form) .psp-booking-card__trade[class]:focus-visible {
+  outline: 2px solid var(--bc-focus);
+  outline-offset: 2px;
+}
+@keyframes psp-booking-wiggle {
+  0%, 100% { transform: rotate(0); }
+  30% { transform: rotate(-10deg); }
+  60% { transform: rotate(8deg); }
+}
+
 /* Day picker (shared with the full form): quick days, link, calendar. */
 .psp-booking-picker {
   display: flex;
@@ -497,6 +630,15 @@
 
 /* Very narrow cards (small phones, sidebars). */
 @container psp-booking-card (max-width: 320px) {
+  .psp-booking-card__badge {
+    width: 48px;
+    height: 48px;
+  }
+  .psp-booking-card__trade-label {
+    padding-inline: 4px;
+    font-size: 11px;
+    letter-spacing: .02em;
+  }
   .psp-booking-card__days {
     gap: 6px;
   }
@@ -511,6 +653,14 @@
 /* Wide cards (a full-width section): keep the controls at a comfortable
  * size instead of stretching them edge to edge. */
 @container psp-booking-card (min-width: 560px) {
+  .psp-booking-card__chips.psp-booking-card__chips--icons {
+    grid-template-columns: repeat(auto-fit, minmax(0, 96px));
+  }
+  .psp-booking-card .psp-booking-card__call {
+    align-self: flex-start;
+    min-width: 280px;
+    padding-inline: 28px;
+  }
   .psp-booking-card__days {
     grid-template-columns: repeat(3, minmax(0, 160px));
   }
@@ -531,8 +681,15 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .psp-booking-card__cta.is-missing {
-    animation: none;
+  .psp-booking-card__cta.is-missing,
+  .psp-booking-card__trade .psp-booking-card__badge svg {
+    animation: none !important;
+  }
+  .psp-booking-card__badge {
+    transition: none;
+  }
+  .psp-booking-card__trade:is(:hover, :focus-visible) .psp-booking-card__badge {
+    transform: none;
   }
   .psp-booking-panel,
   .psp-booking-panel.is-open,

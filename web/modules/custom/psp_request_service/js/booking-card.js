@@ -386,6 +386,9 @@
       params.set(root.dataset.choiceName, chips[choice].dataset.value);
       params.set(root.dataset.dateName, picker.value());
       params.set('psp_card', '1');
+      if (root.querySelector('.psp-booking-card__chips--icons')) {
+        params.set('psp_icons', '1');
+      }
       if (root.dataset.theme && root.dataset.theme !== 'inherit') {
         params.set('psp_theme', root.dataset.theme);
       }

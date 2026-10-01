@@ -26,6 +26,11 @@ function psp_request_service_theme(): array {
         'months_ahead' => 5,
         'form_url' => '',
         'theme_name' => 'white',
+        'choice_style' => 'icons',
+        'call_label' => '',
+        'phone_display' => '',
+        'phone_uri' => '',
+        'online_heading' => '',
       ],
     ],
   ];
@@ -113,9 +118,27 @@ function psp_request_service_webform_submission_form_alter(array &$form, FormSta
   // Opened from the booking card (psp_card=1 on the share page URL): style
   // the fields like the card instead of the standalone form well.
   $form['#cache']['contexts'][] = 'url.query_args:psp_card';
-  if (\Drupal::request()->query->get('psp_card')) {
+  $form['#cache']['contexts'][] = 'url.query_args:psp_icons';
+  $request = \Drupal::request();
+  if ($request->query->get('psp_card')) {
     $form['#attributes']['class'][] = 'psp-booking-embed';
     $form['#attached']['library'][] = 'psp_request_service/booking_embed';
+    // The card used trade icons: give the form's service buttons the same.
+    if ($request->query->get('psp_icons')) {
+      foreach ($elements ?? $webform->getElementsInitializedFlattenedAndHasValue() as $key => $element) {
+        if (isset($element['#options']) && ($element['#options_display'] ?? '') === 'buttons') {
+          $icons = [];
+          foreach (\Drupal\webform\Entity\WebformOptions::getElementOptions($element) as $value => $label) {
+            if (is_string($label)) {
+              $icon = \Drupal\psp_request_service\ServiceIcons::forLabel($label);
+              $icons[(string) $value] = ['icon' => $icon, 'path' => \Drupal\psp_request_service\ServiceIcons::PATHS[$icon]];
+            }
+          }
+          $form['#attached']['drupalSettings']['pspBookingIcons'] = ['name' => $key, 'icons' => $icons];
+          break;
+        }
+      }
+    }
   }
 }
 

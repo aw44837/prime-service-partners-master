@@ -26,6 +26,7 @@ booking_embed:
   js:
     js/booking-embed.js: {}
   dependencies:
+    - core/drupalSettings
     - psp_request_service/booking_card
 
 address_lookup:

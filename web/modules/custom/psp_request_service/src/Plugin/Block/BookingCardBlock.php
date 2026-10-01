@@ -7,6 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
+use Drupal\psp_request_service\ServiceIcons;
 use Drupal\webform\Entity\WebformOptions;
 use Drupal\webform\WebformInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -69,6 +70,10 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       'button_label' => 'Continue',
       'display' => 'panel',
       'theme' => 'white',
+      'call_label' => 'Call',
+      'phone' => '',
+      'online_heading' => 'Or book online',
+      'choice_style' => 'icons',
     ];
   }
 
@@ -95,10 +100,37 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#title' => $this->t('Title'),
       '#default_value' => $this->configuration['title'],
     ];
+    $form['call_label'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Call button label'),
+      '#description' => $this->t('Shown before the phone number. Leave empty for no call button.'),
+      '#default_value' => $this->configuration['call_label'],
+    ];
+    $form['phone'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Phone number'),
+      '#description' => $this->t("Leave empty to use the site's main number (@phone).", ['@phone' => $this->sitePhone()['display'] ?: $this->t('none set')]),
+      '#default_value' => $this->configuration['phone'],
+    ];
+    $form['online_heading'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Book online heading'),
+      '#description' => $this->t('Separates calling from booking online, e.g. "Or book online".'),
+      '#default_value' => $this->configuration['online_heading'],
+    ];
     $form['subtitle'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Subtitle'),
+      '#title' => $this->t('Book online text'),
       '#default_value' => $this->configuration['subtitle'],
+    ];
+    $form['choice_style'] = [
+      '#type' => 'radios',
+      '#title' => $this->t('Service buttons'),
+      '#options' => [
+        'icons' => $this->t('Animated trade icons'),
+        'pills' => $this->t('Text buttons'),
+      ],
+      '#default_value' => $this->configuration['choice_style'],
     ];
     $form['button_label'] = [
       '#type' => 'textfield',
@@ -162,6 +194,13 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
     }
 
     [$choice, $date] = $questions;
+    $icons = ($this->configuration['choice_style'] ?? 'icons') === 'icons';
+    foreach ($choice['options'] as &$option) {
+      $option['icon'] = ServiceIcons::forLabel($option['label']);
+      $option['path'] = ServiceIcons::PATHS[$option['icon']];
+    }
+    unset($option);
+    $phone = $this->phone();
     $build = [
       '#theme' => 'psp_booking_card',
       '#title' => $this->configuration['title'],
@@ -176,10 +215,43 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#date_name' => $date['key'],
       '#months_ahead' => $date['months_ahead'],
       '#form_url' => Url::fromRoute('entity.webform.share_page', ['webform' => $webform->id()])->toString(),
+      '#choice_style' => $icons ? 'icons' : 'pills',
+      '#call_label' => trim((string) ($this->configuration['call_label'] ?? '')),
+      '#phone_display' => $phone['display'],
+      '#phone_uri' => $phone['uri'],
+      '#online_heading' => trim((string) ($this->configuration['online_heading'] ?? '')),
       '#attached' => ['library' => ['psp_request_service/booking_card']],
     ];
-    $build['#cache']['tags'] = $webform->getCacheTags();
+    $build['#cache']['tags'] = array_merge($webform->getCacheTags(), ['config:psp_service_area.settings']);
     return $build;
+  }
+
+  /**
+   * The phone for the call button: this block's, else the site's main one.
+   *
+   * @return array
+   *   ['display' => '(877) 325-0180', 'uri' => 'tel:8773250180'] or empties.
+   */
+  protected function phone(): array {
+    $display = trim((string) ($this->configuration['phone'] ?? ''));
+    if ($display !== '') {
+      $digits = preg_replace('/\D+/', '', $display);
+      return ['display' => $display, 'uri' => $digits !== '' ? 'tel:' . $digits : ''];
+    }
+    return $this->sitePhone();
+  }
+
+  /**
+   * The site's main phone (PSP service-area settings), if set.
+   */
+  protected function sitePhone(): array {
+    $config = \Drupal::config('psp_service_area.settings');
+    $display = trim((string) $config->get('default_phone_display'));
+    $uri = trim((string) $config->get('default_phone_uri'));
+    if ($display !== '' && $uri === '') {
+      $uri = 'tel:' . preg_replace('/\D+/', '', $display);
+    }
+    return ['display' => $display, 'uri' => $display !== '' ? $uri : ''];
   }
 
   /**
