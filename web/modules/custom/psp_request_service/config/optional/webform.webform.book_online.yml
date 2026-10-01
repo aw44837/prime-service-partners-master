@@ -53,9 +53,23 @@ elements: |
     '#type': webform_section
     '#title': 'Where do you need service?'
     '#title_tag': h3
+    service_address:
+      '#type': textfield
+      '#title': 'Service address'
+      '#required': true
+      '#required_error': 'Please enter your service address.'
+      '#placeholder': 'Start typing your street address'
+      '#maxlength': 200
+      '#attributes':
+        autocomplete: 'off'
+        class:
+          - psp-address-input
+      '#wrapper_attributes':
+        class:
+          - psp-address-lookup
     zip:
       '#type': textfield
-      '#title': 'Zip Code'
+      '#title': 'Service zip code'
       '#required': true
       '#maxlength': 5
       '#pattern': '[0-9]{5}'
@@ -63,6 +77,21 @@ elements: |
       '#attributes':
         inputmode: numeric
         autocomplete: postal-code
+      '#wrapper_attributes':
+        class:
+          - psp-address-zip
+    service_street:
+      '#type': hidden
+      '#title': 'Service street'
+    service_city:
+      '#type': hidden
+      '#title': 'Service city'
+    service_state:
+      '#type': hidden
+      '#title': 'Service state'
+    service_place_id:
+      '#type': hidden
+      '#title': 'Service place ID'
   how_can_we_help_you:
     '#type': webform_section
     '#title': 'How can we help you?'
@@ -512,6 +541,7 @@ handlers:
         Service type: [webform_submission:values:service_type:clear]
         Preferred date: [webform_submission:values:preferred_service_date:clear]
         Emergency: [webform_submission:values:emergency_service:clear]
+        Service address: [webform_submission:values:service_address:clear]
         Zip: [webform_submission:values:zip:clear]
         Lead source: [webform_submission:values:lead_source:clear]
         Service: [webform_submission:values:comments:clear]

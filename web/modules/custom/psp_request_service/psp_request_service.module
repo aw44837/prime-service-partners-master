@@ -96,6 +96,20 @@ function psp_request_service_webform_submission_form_alter(array &$form, FormSta
     }
   }
 
+  // Service-address field: suggestions + zip from the chosen address.
+  $elements = $webform->getElementsInitializedFlattenedAndHasValue();
+  if (isset($elements['service_address'], $elements['zip'])) {
+    $lookup = \Drupal::service('psp_request_service.address_lookup');
+    $form['#attached']['library'][] = 'psp_request_service/address_lookup';
+    $form['#attached']['drupalSettings']['pspAddress'] = [
+      'available' => $lookup->isAvailable(),
+      'suggest' => \Drupal\Core\Url::fromRoute('psp_request_service.address_suggest')->toString(),
+      'place' => \Drupal\Core\Url::fromRoute('psp_request_service.address_place')->toString(),
+      'attribution' => 'Powered by Google',
+    ];
+    $form['#cache']['tags'][] = 'config:psp_request_service.settings';
+  }
+
   // Opened from the booking card (psp_card=1 on the share page URL): style
   // the fields like the card instead of the standalone form well.
   $form['#cache']['contexts'][] = 'url.query_args:psp_card';

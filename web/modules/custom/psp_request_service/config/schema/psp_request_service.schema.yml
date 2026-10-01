@@ -17,6 +17,34 @@ psp_request_service.settings:
       sequence:
         type: string
         label: 'Zip code'
+    address_key_id:
+      type: string
+      label: 'Key entity holding the Google Places API (New) key for the service-address lookup'
+    address_stub:
+      type: boolean
+      label: 'Address lookup stub mode (canned results, no API calls; testing only)'
+    zip_places:
+      type: sequence
+      label: 'City/state/location of each service-area zip (drush psp-rs-zips)'
+      sequence:
+        type: mapping
+        label: 'Zip place'
+        mapping:
+          zip:
+            type: string
+            label: 'Zip'
+          city:
+            type: string
+            label: 'City'
+          state:
+            type: string
+            label: 'State'
+          lat:
+            type: float
+            label: 'Latitude'
+          lng:
+            type: float
+            label: 'Longitude'
 
 block.settings.psp_booking_card:
   type: block_settings

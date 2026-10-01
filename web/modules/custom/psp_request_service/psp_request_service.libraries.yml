@@ -27,3 +27,14 @@ booking_embed:
     js/booking-embed.js: {}
   dependencies:
     - psp_request_service/booking_card
+
+address_lookup:
+  css:
+    theme:
+      css/address-lookup.css: {}
+  js:
+    js/address-lookup.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once

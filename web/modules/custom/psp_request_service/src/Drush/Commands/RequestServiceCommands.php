@@ -38,4 +38,17 @@ final class RequestServiceCommands extends DrushCommands {
       : $this->logger()->error(dt('No request_service or book_online webform on this site.'));
   }
 
+  /**
+   * Looks up the city/state/location of each service-area zip.
+   */
+  #[CLI\Command(name: 'psp-request-service:zip-places', aliases: ['psp-rs-zips'])]
+  #[CLI\Usage(name: 'drush psp-rs-zips', description: 'Refresh the city list used when a visitor enters a city instead of an address.')]
+  public function zipPlaces(): void {
+    $result = \Drupal::service('psp_request_service.address_lookup')->refreshZipPlaces();
+    $this->logger()->success(dt('@count service-area zips have a city.', ['@count' => $result['found']]));
+    if ($result['missing']) {
+      $this->logger()->warning(dt('No city found for: @zips', ['@zips' => implode(', ', $result['missing'])]));
+    }
+  }
+
 }

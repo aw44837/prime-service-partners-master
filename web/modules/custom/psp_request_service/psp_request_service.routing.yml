@@ -5,3 +5,23 @@ psp_request_service.settings:
     _title: 'Request Service form'
   requirements:
     _permission: 'administer psp request service'
+
+psp_request_service.address_suggest:
+  path: '/psp-address/suggest'
+  defaults:
+    _controller: '\Drupal\psp_request_service\Controller\AddressController::suggest'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE
+
+psp_request_service.address_place:
+  path: '/psp-address/place'
+  defaults:
+    _controller: '\Drupal\psp_request_service\Controller\AddressController::place'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+  options:
+    no_cache: TRUE

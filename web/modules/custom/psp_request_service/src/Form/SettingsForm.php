@@ -57,6 +57,37 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => implode("\n", (array) $config->get('zips')),
       '#rows' => 10,
     ];
+    $form['address'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Service-address lookup (Book Online)'),
+      '#open' => TRUE,
+    ];
+    $keys = [];
+    foreach ($this->entityTypeManager()->getStorage('key')->loadMultiple() as $id => $key) {
+      $keys[$id] = $key->label();
+    }
+    $form['address']['address_key_id'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Google Places API key'),
+      '#description' => $this->t('A Key entity holding a Google Maps Platform key with Places API (New) enabled, restricted to this server\'s IP. Without one the form asks for a zip code only.'),
+      '#options' => $keys,
+      '#empty_option' => $this->t('- None (zip code only) -'),
+      '#default_value' => $config->get('address_key_id'),
+    ];
+    $form['address']['address_stub'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Stub mode (testing only)'),
+      '#description' => $this->t('Canned suggestions, no API calls. Type "nowhere" for not found, "outage" for a service failure, or a service-area city name.'),
+      '#default_value' => $config->get('address_stub'),
+    ];
+    $places = (array) $config->get('zip_places');
+    $form['address']['zip_places'] = [
+      '#type' => 'item',
+      '#title' => $this->t('Service-area cities'),
+      '#markup' => $places
+        ? $this->t('@count of the service-area zips have a city on file, used when a visitor enters a city instead of an address. New zips are looked up when you save.', ['@count' => count($places)])
+        : $this->t('No cities on file yet; they are looked up when you save.'),
+    ];
     if (!$this->entityTypeManager()->getStorage('webform')->load('request_service')) {
       $this->messenger()->addWarning($this->t('This site has no request_service webform yet. Run <code>drush psp-request-service:reset-form</code> to install it.'));
     }
@@ -83,7 +114,13 @@ class SettingsForm extends ConfigFormBase {
       ->set('lead_source', trim($form_state->getValue('lead_source')))
       ->set('email_subject', trim($form_state->getValue('email_subject')))
       ->set('zips', $this->parseZips($form_state->getValue('zips')))
+      ->set('address_key_id', (string) $form_state->getValue('address_key_id'))
+      ->set('address_stub', (bool) $form_state->getValue('address_stub'))
       ->save();
+    $result = \Drupal::service('psp_request_service.address_lookup')->refreshZipPlaces();
+    if ($result['missing']) {
+      $this->messenger()->addWarning($this->t('No city found for: @zips', ['@zips' => implode(', ', $result['missing'])]));
+    }
     if (\Drupal::service('psp_request_service.configurator')->apply()) {
       $this->messenger()->addStatus($this->t('The Request Service form was updated.'));
     }

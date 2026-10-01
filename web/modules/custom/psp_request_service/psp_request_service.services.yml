@@ -2,3 +2,9 @@ services:
   psp_request_service.configurator:
     class: Drupal\psp_request_service\FormConfigurator
     arguments: ['@config.factory', '@entity_type.manager']
+  psp_request_service.address_lookup:
+    class: Drupal\psp_request_service\AddressLookup
+    arguments: ['@config.factory', '@key.repository', '@http_client', '@logger.channel.psp_request_service']
+  logger.channel.psp_request_service:
+    parent: logger.channel_base
+    arguments: ['psp_request_service']

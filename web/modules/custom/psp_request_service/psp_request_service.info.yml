@@ -8,3 +8,4 @@ dependencies:
   - webform:webform
   - webform:webform_share
   - psp_lead_guard:psp_lead_guard
+  - key:key

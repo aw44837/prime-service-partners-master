@@ -2,3 +2,6 @@ company_name: ''
 lead_source: ''
 zips: {  }
 email_subject: ''
+address_key_id: ''
+address_stub: false
+zip_places: {  }
