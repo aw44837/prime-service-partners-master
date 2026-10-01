@@ -404,3 +404,7 @@ form.psp-request-service-form.webform-submission-form fieldset.webform-type-radi
 form.psp-request-service-form.webform-submission-form .psp-same-day-question[hidden] {
   display: none !important;
 }
+/* The zip section waits for an answer to the same-day question. */
+form.psp-request-service-form.webform-submission-form .psp-awaiting-same-day {
+  display: none !important;
+}
