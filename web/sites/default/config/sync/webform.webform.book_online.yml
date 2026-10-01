@@ -43,7 +43,7 @@ elements: |-
       '#type': radios
       '#title': 'You selected same-day service. Do you need emergency service?'
       '#options':
-        "Not an emergency, but I'd prefer same-day service.": "Not an emergency, but I'd prefer same-day service."
+        "I prefer same-day service, but it's not an emergency.": "I prefer same-day service, but it's not an emergency."
         'Yes, I need emergency service.': 'Yes, I need emergency service.'
       '#options_display': buttons
       '#prepopulate': true
