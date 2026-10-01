@@ -31,6 +31,29 @@ function psp_request_service_theme(): array {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for html__webform_share.
+ *
+ * Webform's share page (the Book Online panel and the booking card's form)
+ * has its own html template, which Dripyard's colour preprocessor skips, so
+ * --theme-setting-* colours were undefined there and the form fell back to a
+ * default navy instead of the site's brand colour. Add them the same way.
+ */
+function psp_request_service_preprocess_html__webform_share(array &$variables): void {
+  $theme = \Drupal::theme()->getActiveTheme()->getName();
+  $colors = \Drupal::config($theme . '.settings')->get('theme_colors.colors') ?? [];
+  $style = '';
+  foreach ($colors as $name => $value) {
+    if (is_string($value) && !str_contains($name, '_brightness') && preg_match('/^#[0-9a-fA-F]{3,8}$/', $value)) {
+      $style .= '--theme-setting-' . str_replace('_', '-', $name) . ': ' . $value . '; ';
+    }
+  }
+  if ($style !== '') {
+    $existing = $variables['html_attributes']->hasAttribute('style') ? (string) $variables['html_attributes']->storage()['style'] : '';
+    $variables['html_attributes']->setAttribute('style', $existing . $style);
+  }
+}
+
+/**
  * Implements hook_webform_submission_form_alter().
  */
 function psp_request_service_webform_submission_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {

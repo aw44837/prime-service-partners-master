@@ -22,3 +22,7 @@ booking_embed:
   css:
     theme:
       css/booking-embed.css: {}
+  js:
+    js/booking-embed.js: {}
+  dependencies:
+    - psp_request_service/booking_card

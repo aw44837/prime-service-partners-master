@@ -116,14 +116,18 @@ form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform
 }
 form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-options-display-buttons-label[class] {
   min-height: 0;
+  margin: 0;
   padding: 8px 14px;
   border: 1px solid var(--bc-border);
   border-radius: 999px;
   background: #fff;
   color: var(--bc-text);
+  font-family: inherit;
   font-size: 14px;
   font-weight: 600;
+  line-height: 1.2;
   white-space: nowrap;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
 }
 form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-options-display-buttons-label[class]:hover {
   border-color: var(--bc-primary);
@@ -132,6 +136,37 @@ form.psp-request-service-form.psp-booking-embed.webform-submission-form input:ch
   border-color: var(--bc-primary);
   background: var(--bc-primary);
   color: #fff;
+}
+
+form.psp-request-service-form.psp-booking-embed.webform-submission-form input:focus-visible + .webform-options-display-buttons-label[class] {
+  outline: 2px solid var(--bc-primary);
+  outline-offset: 2px;
+}
+
+/* Dates: the card's day picker (booking-embed.js) stands in for the date
+ * input, which stays in the form, visually hidden, holding the value. */
+form.psp-booking-embed.webform-submission-form .psp-booking-date-input[class] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-height: 0;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+  white-space: nowrap;
+}
+/* The form pins its text colour (request-service.css); give the picker its
+ * own colours back. */
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-booking-picker :is(button span, button div) {
+  color: inherit;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-booking-picker .psp-booking-card__month {
+  color: var(--bc-primary);
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-booking-picker .psp-booking-card__wk span {
+  color: var(--bc-text-2);
 }
 
 /* Submit: the card's Continue button. */
