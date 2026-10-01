@@ -10,7 +10,8 @@
 #}
 {% set icon_arrow %}<svg class="psp-booking-card__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endset %}
 {% set icon_prev %}<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endset %}
-<div class="psp-booking-card"
+<div class="psp-booking-card{{ theme_name != 'inherit' ? ' theme--' ~ theme_name }}"
+  data-theme="{{ theme_name }}"
   data-display="{{ display }}"
   data-form-url="{{ form_url }}"
   data-form-title="{{ form_title }}"

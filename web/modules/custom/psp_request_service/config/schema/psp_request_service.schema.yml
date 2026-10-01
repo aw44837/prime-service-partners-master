@@ -48,3 +48,15 @@ block.settings.psp_booking_card:
         Choice:
           - panel
           - inline
+    theme:
+      type: string
+      label: 'Background'
+      constraints:
+        Choice:
+          - inherit
+          - white
+          - light
+          - dark
+          - black
+          - primary
+          - secondary

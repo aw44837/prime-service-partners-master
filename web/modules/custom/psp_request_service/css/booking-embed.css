@@ -2,23 +2,28 @@
  * @file
  * The full webform opened from the booking card (psp_card=1).
  *
- * Restyles the form's fields to the booking card design: 4px radii, grey
- * 1px borders, pill chips for option buttons and the card's primary CTA.
+ * Restyles the form to the booking card design: 4px radii, pill chips for
+ * option buttons, the card's day picker and Continue button, and the same
+ * Dripyard theme roles (booking-card.css) so it follows the card's background
+ * (psp_theme on the share page) with readable text and visible borders.
  * Overrides the standalone Request Service well (request-service.css) one
  * class deeper, so neither stylesheet's load order matters.
  */
 
 form.psp-booking-embed.webform-submission-form {
-  --bc-primary: var(--theme-setting-base-primary-color, #133564);
-  --bc-primary-dark: color-mix(in srgb, var(--bc-primary) 78%, #000);
-  --bc-tint: color-mix(in srgb, var(--bc-primary) 12%, #fff);
-  --bc-text: #262626;
-  --bc-text-2: #535556;
-  --bc-border: #cdcdcd;
+  --bc-surface: var(--theme-surface, #fff);
+  --bc-text: var(--theme-text-color-loud, #262626);
+  --bc-text-2: var(--theme-text-color-soft, #535556);
+  --bc-border: var(--bc-on-color-border, var(--theme-border-color, #8a8a8a));
+  --bc-focus: var(--theme-focus-ring-color, var(--bc-accent));
+  --bc-error: var(--bc-on-color-status, var(--theme-color-error, #b3261e));
+  --bc-success: var(--bc-on-color-status, var(--theme-color-success, #2e7d32));
+  --bc-hover: color-mix(in oklch, var(--bc-accent) 10%, var(--bc-surface));
+  --bc-cta-hover: oklch(from var(--bc-cta-bg) calc(l + (0.5 - l) * 0.25) c h);
   --bc-title-font: var(--title-font-family, inherit);
   /* The standalone form's tokens, remapped. */
-  --psp-form-navy: var(--bc-primary);
-  --psp-form-navy-dark: var(--bc-primary-dark);
+  --psp-form-navy: var(--bc-accent);
+  --psp-form-navy-dark: var(--bc-accent);
   --psp-form-text: var(--bc-text);
   --psp-form-muted: var(--bc-text-2);
   --psp-form-field-border: var(--bc-border);
@@ -29,7 +34,8 @@ form.psp-booking-embed.webform-submission-form {
 html body.webform-share-page-body:has(form.psp-booking-embed) {
   margin: 0;
   padding: 0;
-  background: #fff;
+  background: var(--theme-surface, #fff);
+  color: var(--theme-text-color-loud, #262626);
 }
 html body.webform-share-page-body:has(form.psp-booking-embed) :is(.region-content, .region-container) {
   width: auto;
@@ -38,12 +44,12 @@ html body.webform-share-page-body:has(form.psp-booking-embed) :is(.region-conten
   padding: 0;
 }
 form.psp-request-service-form.psp-booking-embed.webform-submission-form,
-.theme--light form.psp-request-service-form.psp-booking-embed.webform-submission-form {
+:is(.theme--white, .theme--light) form.psp-request-service-form.psp-booking-embed.webform-submission-form {
   margin: 0;
   padding: 24px;
   border: 0;
   border-radius: 0;
-  background: #fff;
+  background: var(--bc-surface);
 }
 /* Inside the card the card already has its padding. */
 html.psp-booking-inline form.psp-request-service-form.psp-booking-embed.webform-submission-form {
@@ -58,7 +64,7 @@ form.psp-booking-embed.webform-submission-form .webform-section:first-of-type .f
 /* Section titles: left-aligned, like the card title. */
 form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-section-title[class] {
   margin: 0 0 12px;
-  color: var(--bc-primary);
+  color: var(--bc-accent);
   font-family: var(--bc-title-font);
   font-size: 20px;
   font-weight: 900;
@@ -83,18 +89,25 @@ form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .
   font-size: 14px;
   font-weight: 600;
 }
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .form-item__label.form-required::after {
+  color: var(--bc-text-2);
+}
 form.psp-request-service-form.psp-booking-embed.webform-submission-form .form-element[class] {
   min-height: 48px;
   padding: 12px 14px;
   border: 1px solid var(--bc-border);
   border-radius: 4px;
+  background-color: var(--bc-surface);
   color: var(--bc-text);
   font-family: inherit;
   font-size: 16px;
 }
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .form-element[class]::placeholder {
+  color: var(--bc-text-2);
+}
 form.psp-request-service-form.psp-booking-embed.webform-submission-form .form-element[class]:focus {
-  border-color: var(--bc-primary);
-  box-shadow: 0 0 0 3px var(--bc-tint);
+  border-color: var(--bc-focus);
+  box-shadow: 0 0 0 1px var(--bc-focus);
 }
 form.psp-request-service-form.psp-booking-embed.webform-submission-form textarea.form-element[class] {
   min-height: 104px;
@@ -102,7 +115,7 @@ form.psp-request-service-form.psp-booking-embed.webform-submission-form textarea
 form.psp-request-service-form.psp-booking-embed.webform-submission-form :is(input[type="checkbox"], input[type="radio"]).form-element[class] {
   min-height: auto;
   padding: 0;
-  accent-color: var(--bc-primary);
+  accent-color: var(--bc-selected-bg);
 }
 
 /* Option buttons as the card's pill chips. */
@@ -120,7 +133,7 @@ form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform
   padding: 8px 14px;
   border: 1px solid var(--bc-border);
   border-radius: 999px;
-  background: #fff;
+  background: var(--bc-surface);
   color: var(--bc-text);
   font-family: inherit;
   font-size: 14px;
@@ -129,17 +142,17 @@ form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform
   white-space: nowrap;
   transition: background .2s ease, border-color .2s ease, color .2s ease;
 }
-form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-options-display-buttons-label[class]:hover {
-  border-color: var(--bc-primary);
+form.psp-request-service-form.psp-booking-embed.webform-submission-form input:not(:checked) + .webform-options-display-buttons-label[class]:hover {
+  border-color: var(--bc-accent);
+  background: var(--bc-hover);
 }
 form.psp-request-service-form.psp-booking-embed.webform-submission-form input:checked + .webform-options-display-buttons-label[class] {
-  border-color: var(--bc-primary);
-  background: var(--bc-primary);
-  color: #fff;
+  border-color: var(--bc-selected-border);
+  background: var(--bc-selected-bg);
+  color: var(--bc-selected-text);
 }
-
 form.psp-request-service-form.psp-booking-embed.webform-submission-form input:focus-visible + .webform-options-display-buttons-label[class] {
-  outline: 2px solid var(--bc-primary);
+  outline: 2px solid var(--bc-focus);
   outline-offset: 2px;
 }
 
@@ -151,18 +164,15 @@ form.psp-request-service-form.psp-booking-embed.webform-submission-form .psp-sam
   display: block;
   padding: 10px 12px;
   border-radius: 4px;
-  color: var(--bc-primary);
+  color: var(--bc-accent);
   text-align: left;
   white-space: normal;
 }
-form.psp-request-service-form.psp-booking-embed.webform-submission-form .psp-same-day-question .webform-options-display-buttons-label[class]:hover {
-  background: color-mix(in srgb, var(--bc-primary) 5%, #fff);
-}
 form.psp-request-service-form.psp-booking-embed.webform-submission-form .psp-same-day-question input:checked + .webform-options-display-buttons-label[class] {
   padding: 9px 11px;
-  border: 2px solid var(--bc-primary);
-  background: var(--bc-tint);
-  color: var(--bc-primary);
+  border: 2px solid var(--bc-selected-border);
+  background: var(--bc-selected-bg);
+  color: var(--bc-selected-text);
 }
 form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-same-day-question legend,
 form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-same-day-question .fieldset__legend-inner {
@@ -193,25 +203,42 @@ form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .
   color: inherit;
 }
 form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-booking-picker .psp-booking-card__month {
-  color: var(--bc-primary);
+  color: var(--bc-accent);
 }
 form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-booking-picker .psp-booking-card__wk span {
   color: var(--bc-text-2);
+}
+
+/* Zip check messages and links follow the background. */
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] :is(.psp-zip-error:not([hidden]), .form-item--error-message) {
+  color: var(--bc-error);
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-zip-success {
+  color: var(--bc-success);
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] a {
+  color: var(--bc-accent);
 }
 
 /* Submit: the card's Continue button. */
 form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-button--submit[class] {
   padding: 14px;
   border-radius: 4px;
-  background: var(--bc-primary);
+  background: var(--bc-cta-bg);
+  color: var(--bc-cta-text);
   font-family: inherit;
   font-size: 16px;
 }
 form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-button--submit[class]:is(:hover, :focus-visible) {
-  background: var(--bc-primary-dark);
+  background: var(--bc-cta-hover);
+  color: var(--bc-cta-text);
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .webform-button--submit[class]:focus-visible {
+  outline: 2px solid var(--bc-focus);
+  outline-offset: 2px;
 }
 
-/* Validation alerts and the zip check messages: 4px radii to match. */
+/* Validation alerts: 4px radii to match (they keep their own light colours). */
 form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .messages {
   border-radius: 4px;
 }

@@ -219,11 +219,16 @@
       document.body.append(this.backdrop, this.el);
     },
 
-    open(url, title, opener) {
+    open(url, title, opener, theme) {
       if (!this.el) {
         this.build();
       }
       this.opener = opener;
+      // Same Dripyard background as the card that opened it.
+      [...this.el.classList].filter((c) => c.startsWith('theme--')).forEach((c) => this.el.classList.remove(c));
+      if (theme && theme !== 'inherit') {
+        this.el.classList.add(`theme--${theme}`);
+      }
       this.el.querySelector('.psp-booking-panel__title').textContent = title;
       this.frame.title = title;
       this.el.classList.remove('is-loaded');
@@ -311,6 +316,9 @@
         params.set(sameDay.dataset.name, answers[answer].dataset.value);
       }
       params.set('psp_card', '1');
+      if (root.dataset.theme && root.dataset.theme !== 'inherit') {
+        params.set('psp_theme', root.dataset.theme);
+      }
       return `${root.dataset.formUrl}?${params}`;
     }
 
@@ -328,7 +336,7 @@
         $('.psp-booking-card__back').focus();
         return;
       }
-      panel.open(url, root.dataset.formTitle, button);
+      panel.open(url, root.dataset.formTitle, button, root.dataset.theme);
     }
 
     root.addEventListener('click', (e) => {

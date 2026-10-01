@@ -26,6 +26,7 @@ function psp_request_service_theme(): array {
         'months_ahead' => 5,
         'form_url' => '',
         'same_day' => NULL,
+        'theme_name' => 'white',
       ],
     ],
   ];
@@ -51,6 +52,25 @@ function psp_request_service_preprocess_html__webform_share(array &$variables): 
   if ($style !== '') {
     $existing = $variables['html_attributes']->hasAttribute('style') ? (string) $variables['html_attributes']->storage()['style'] : '';
     $variables['html_attributes']->setAttribute('style', $existing . $style);
+  }
+  // Dripyard picks white/black text on primary/secondary surfaces from these
+  // <html> classes, and the site theme class sets the default surface.
+  foreach (['primary', 'secondary'] as $which) {
+    if (!empty($colors['base_' . $which . '_color_brightness'])) {
+      $variables['html_attributes']->addClass($which . '-color-is-' . $colors['base_' . $which . '_color_brightness']);
+    }
+  }
+  if ($site_theme = \Drupal::config($theme . '.settings')->get('theme_colors.site_theme')) {
+    $variables['html_attributes']->addClass('theme--' . $site_theme);
+  }
+
+  // Opened from a booking card with a background choice (psp_theme): the
+  // form page takes the same Dripyard theme as the card.
+  $requested = (string) \Drupal::request()->query->get('psp_theme');
+  if (in_array($requested, ['white', 'light', 'dark', 'black', 'primary', 'secondary'], TRUE)) {
+    $classes = array_filter((array) ($variables['attributes']['class'] ?? []), fn($class) => !str_starts_with((string) $class, 'theme--'));
+    $classes[] = 'theme--' . $requested;
+    $variables['attributes']['class'] = array_values($classes);
   }
 }
 

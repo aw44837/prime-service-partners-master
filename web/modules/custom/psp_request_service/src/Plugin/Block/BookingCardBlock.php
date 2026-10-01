@@ -33,6 +33,11 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
   const DEFAULT_MONTHS_AHEAD = 5;
 
   /**
+   * Dripyard background themes (theme--* classes), as other components offer.
+   */
+  const THEMES = ['inherit', 'white', 'light', 'dark', 'black', 'primary', 'secondary'];
+
+  /**
    * Element types that hold a date the card can fill.
    */
   const DATE_TYPES = ['date', 'datetime', 'datelist'];
@@ -63,6 +68,7 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       'subtitle' => 'Pick a service and a time that works for you.',
       'button_label' => 'Continue',
       'display' => 'panel',
+      'theme' => 'white',
     ];
   }
 
@@ -109,6 +115,21 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       ],
       '#default_value' => $this->configuration['display'],
     ];
+    $form['theme'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Background'),
+      '#description' => $this->t('The card, its side panel and the form inside follow this background; text, borders and buttons adjust for contrast.'),
+      '#options' => [
+        'inherit' => $this->t('Inherit'),
+        'white' => $this->t('White'),
+        'light' => $this->t('Light'),
+        'dark' => $this->t('Dark'),
+        'black' => $this->t('Black'),
+        'primary' => $this->t('Primary'),
+        'secondary' => $this->t('Secondary'),
+      ],
+      '#default_value' => $this->configuration['theme'],
+    ];
     return $form;
   }
 
@@ -147,6 +168,7 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#subtitle' => $this->configuration['subtitle'],
       '#button_label' => $this->configuration['button_label'],
       '#display' => $this->configuration['display'] === 'inline' ? 'inline' : 'panel',
+      '#theme_name' => in_array($this->configuration['theme'] ?? 'white', self::THEMES, TRUE) ? ($this->configuration['theme'] ?? 'white') : 'white',
       '#form_title' => $webform->label(),
       '#options' => $choice['options'],
       '#choice_name' => $choice['key'],
