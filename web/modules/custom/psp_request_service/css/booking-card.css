@@ -299,6 +299,21 @@
 .psp-booking-card__trade:is(:hover, :focus-visible) .psp-booking-card__badge svg {
   animation: psp-booking-wiggle .5s ease;
 }
+/* Once one is chosen, the others' icons fade to half strength (labels stay
+ * at full contrast) and come back on hover/focus. */
+.psp-booking-card__badge {
+  transition: transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s ease, opacity .2s ease;
+}
+.psp-booking-card__chips--icons:has([aria-pressed="true"]) .psp-booking-card__trade:not([aria-pressed="true"]) .psp-booking-card__badge,
+.psp-booking-picker-icons:has(input:checked) input:not(:checked) + .psp-booking-card__trade .psp-booking-card__badge {
+  opacity: .5;
+}
+.psp-booking-card__chips--icons:has([aria-pressed="true"]) .psp-booking-card__trade:not([aria-pressed="true"]):is(:hover, :focus-visible) .psp-booking-card__badge,
+.psp-booking-picker-icons:has(input:checked) input:not(:checked):focus-visible + .psp-booking-card__trade .psp-booking-card__badge,
+.psp-booking-picker-icons:has(input:checked) input:not(:checked) + .psp-booking-card__trade:hover .psp-booking-card__badge {
+  opacity: 1;
+}
+
 /* Selected: a ring round the badge and the label highlighted. */
 .psp-booking-card__trade[aria-pressed="true"] .psp-booking-card__badge {
   box-shadow: 0 0 0 3px var(--bc-surface), 0 0 0 6px var(--bc-selected-border);
