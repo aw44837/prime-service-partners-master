@@ -22,7 +22,10 @@
 
 .psp-booking-card {
   box-sizing: border-box;
-  width: min(100%, 390px);
+  /* Fill the section/column it's placed in; the contents adapt to the
+   * card's own width (container queries at the end of this file). */
+  width: 100%;
+  container: psp-booking-card / inline-size;
   padding: 24px;
   border-top: 4px solid var(--bc-primary);
   border-radius: 8px;
@@ -45,9 +48,6 @@
   font: inherit;
   letter-spacing: normal;
   text-transform: none;
-}
-.psp-booking-card[data-display="inline"]:has([data-step="form"]:not([hidden])) {
-  width: min(100%, 480px);
 }
 
 .psp-booking-card__step {
@@ -444,6 +444,57 @@
 }
 .psp-booking-panel.is-loaded .psp-booking-panel__loading {
   display: none;
+}
+
+/* Phones: a little less padding so the day cards keep their room. */
+@media (max-width: 480px) {
+  .psp-booking-card {
+    padding: 20px 16px;
+  }
+}
+
+/* Very narrow cards (small phones, sidebars). */
+@container psp-booking-card (max-width: 320px) {
+  .psp-booking-card__days {
+    gap: 6px;
+  }
+  .psp-booking-card__date {
+    font-size: 15px;
+  }
+  :is(.psp-booking-card, .psp-booking-picker) .psp-booking-card__chip {
+    padding: 7px 12px;
+  }
+}
+
+/* Wide cards (a full-width section): keep the controls at a comfortable
+ * size instead of stretching them edge to edge. */
+@container psp-booking-card (min-width: 560px) {
+  .psp-booking-card__days {
+    grid-template-columns: repeat(3, minmax(0, 160px));
+  }
+  .psp-booking-card__cal {
+    max-width: 400px;
+  }
+  .psp-booking-card__answers {
+    flex-direction: row;
+  }
+  .psp-booking-card .psp-booking-card__answer {
+    flex: 1;
+  }
+}
+@container psp-booking-card (min-width: 720px) {
+  .psp-booking-card .psp-booking-card__title {
+    font-size: 26px;
+  }
+  .psp-booking-card .psp-booking-card__cta {
+    align-self: flex-start;
+    width: auto;
+    min-width: 240px;
+    padding: 14px 32px;
+  }
+  .psp-booking-card__answers {
+    max-width: 720px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
