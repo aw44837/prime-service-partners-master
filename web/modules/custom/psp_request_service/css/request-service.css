@@ -44,9 +44,19 @@ form.psp-request-service-form.webform-submission-form .fieldset__wrapper[class],
 form.psp-request-service-form.webform-submission-form .fieldset__legend[class] {
   padding: 0;
 }
+/* Field rows (Phone + Email): webform only makes these flex at 768px+ and
+ * stacks them as plain blocks below that, so the gap vanished and the fields
+ * touched. Always flex-wrap with the same 16px gap: side by side when there's
+ * room, stacked with even spacing when not (phones, the booking panel). */
 form.psp-request-service-form.webform-submission-form .webform-flexbox[class] {
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   margin: 0 0 16px;
+}
+form.psp-request-service-form.webform-submission-form .webform-flexbox[class] > .webform-flex {
+  flex: 1 1 220px;
+  min-width: 0;
 }
 form.psp-request-service-form.webform-submission-form .webform-flex--container[class] {
   margin: 0;
