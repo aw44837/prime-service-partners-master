@@ -124,13 +124,14 @@
 .psp-booking-card__head {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  text-align: center;
 }
 :is(.psp-booking-card, .psp-booking-picker) .psp-booking-card__title {
   margin: 0;
   color: var(--bc-accent);
   font-family: var(--bc-title-font);
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 900;
   line-height: 1.2;
 }
@@ -139,6 +140,20 @@
   color: var(--bc-text-2);
   font-size: 14px;
   line-height: 1.45;
+}
+/* The instructions sit between thin grey rules (decorative). */
+.psp-booking-card .psp-booking-card__head .psp-booking-card__sub {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+.psp-booking-card .psp-booking-card__head .psp-booking-card__sub::before,
+.psp-booking-card .psp-booking-card__head .psp-booking-card__sub::after {
+  content: '';
+  flex: 1 0 16px;
+  height: 1px;
+  background: color-mix(in oklch, var(--bc-border) 45%, var(--bc-surface));
 }
 
 /* Choice chips. */
@@ -694,7 +709,7 @@
 }
 @container psp-booking-card (min-width: 720px) {
   .psp-booking-card .psp-booking-card__title {
-    font-size: 26px;
+    font-size: 30px;
   }
   .psp-booking-card .psp-booking-card__cta {
     align-self: flex-start;
