@@ -143,6 +143,36 @@ form.psp-request-service-form.psp-booking-embed.webform-submission-form input:fo
   outline-offset: 2px;
 }
 
+/* Same-day follow-up: stacked tiles like the card's answers. */
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .psp-same-day-question .webform-options-display-buttons[class] {
+  flex-direction: column;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .psp-same-day-question .webform-options-display-buttons-label[class] {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 4px;
+  color: var(--bc-primary);
+  text-align: left;
+  white-space: normal;
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .psp-same-day-question .webform-options-display-buttons-label[class]:hover {
+  background: color-mix(in srgb, var(--bc-primary) 5%, #fff);
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form .psp-same-day-question input:checked + .webform-options-display-buttons-label[class] {
+  padding: 9px 11px;
+  border: 2px solid var(--bc-primary);
+  background: var(--bc-tint);
+  color: var(--bc-primary);
+}
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-same-day-question legend,
+form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-same-day-question .fieldset__legend-inner {
+  margin: 0 0 8px;
+  color: var(--bc-text);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 /* Dates: the card's day picker (booking-embed.js) stands in for the date
  * input, which stays in the form, visually hidden, holding the value. */
 form.psp-booking-embed.webform-submission-form .psp-booking-date-input[class] {

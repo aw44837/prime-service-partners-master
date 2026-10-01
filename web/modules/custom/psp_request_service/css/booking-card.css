@@ -263,6 +263,50 @@
   font-weight: 800;
 }
 
+/* Same-day follow-up: answers as stacked tiles, styled like the day cards. */
+.psp-booking-card__sameday {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.psp-booking-card__sameday[hidden] {
+  display: none;
+}
+.psp-booking-card .psp-booking-card__question {
+  margin: 0;
+  color: var(--bc-text);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.psp-booking-card__answers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.psp-booking-card .psp-booking-card__answer {
+  padding: 10px 12px;
+  border: 1px solid var(--bc-border);
+  border-radius: 4px;
+  background: var(--bc-white);
+  color: var(--bc-primary);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease;
+}
+.psp-booking-card .psp-booking-card__answer:hover:not([aria-pressed="true"]) {
+  border-color: var(--bc-primary);
+  background: color-mix(in srgb, var(--bc-primary) 5%, #fff);
+}
+.psp-booking-card .psp-booking-card__answer[aria-pressed="true"] {
+  padding: 9px 11px;
+  border: 2px solid var(--bc-primary);
+  background: var(--bc-tint);
+}
+
 /* "Choose a service and a day to continue." */
 .psp-booking-card .psp-booking-card__error {
   margin: -4px 0 -4px;

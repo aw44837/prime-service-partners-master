@@ -4,6 +4,7 @@ form:
       css/request-service.css: {}
   js:
     js/enter-guard.js: {}
+    js/same-day.js: {}
   dependencies:
     - core/drupal
     - core/once

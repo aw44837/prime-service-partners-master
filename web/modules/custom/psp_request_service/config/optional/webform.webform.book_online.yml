@@ -38,6 +38,17 @@ elements: |
       '#date_date_min': today
       '#date_date_max': '+5 months'
       '#prepopulate': true
+    emergency_service:
+      '#type': radios
+      '#title': 'You selected same-day service. Do you need emergency service?'
+      '#options':
+        "Not an emergency, but I'd prefer same-day service.": "Not an emergency, but I'd prefer same-day service."
+        'Yes, I need emergency service.': 'Yes, I need emergency service.'
+      '#options_display': buttons
+      '#prepopulate': true
+      '#wrapper_attributes':
+        class:
+          - psp-same-day-question
   service_area:
     '#type': webform_section
     '#title': 'Where do you need service?'
@@ -500,6 +511,7 @@ handlers:
         Email: [webform_submission:values:email:clear]
         Service type: [webform_submission:values:service_type:clear]
         Preferred date: [webform_submission:values:preferred_service_date:clear]
+        Emergency: [webform_submission:values:emergency_service:clear]
         Zip: [webform_submission:values:zip:clear]
         Lead source: [webform_submission:values:lead_source:clear]
         Service: [webform_submission:values:comments:clear]

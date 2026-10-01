@@ -25,6 +25,7 @@ function psp_request_service_theme(): array {
         'date_name' => '',
         'months_ahead' => 5,
         'form_url' => '',
+        'same_day' => NULL,
       ],
     ],
   ];
@@ -66,11 +67,44 @@ function psp_request_service_webform_submission_form_alter(array &$form, FormSta
     $form['#attached']['library'][] = 'psp_request_service/form';
   }
 
+  // Same-day follow-up: required when the date is today, dropped otherwise.
+  // same-day.js shows/hides it in the browser.
+  foreach ($webform->getElementsInitializedFlattenedAndHasValue() as $key => $element) {
+    if (in_array('psp-same-day-question', (array) ($element['#wrapper_attributes']['class'] ?? []), TRUE)) {
+      $form['#validate'][] = 'psp_request_service_same_day_validate';
+      $form_state->set('psp_same_day_key', $key);
+      break;
+    }
+  }
+
   // Opened from the booking card (psp_card=1 on the share page URL): style
   // the fields like the card instead of the standalone form well.
   $form['#cache']['contexts'][] = 'url.query_args:psp_card';
   if (\Drupal::request()->query->get('psp_card')) {
     $form['#attributes']['class'][] = 'psp-booking-embed';
     $form['#attached']['library'][] = 'psp_request_service/booking_embed';
+  }
+}
+
+/**
+ * Form validation: the same-day question is answered only for today's date.
+ */
+function psp_request_service_same_day_validate(array &$form, FormStateInterface $form_state): void {
+  $key = $form_state->get('psp_same_day_key');
+  $date = NULL;
+  foreach ($form_state->getFormObject()->getEntity()->getWebform()->getElementsInitializedFlattenedAndHasValue() as $name => $element) {
+    if (($element['#type'] ?? '') === 'date') {
+      $date = (string) $form_state->getValue($name);
+      break;
+    }
+  }
+  $today = \Drupal::service('date.formatter')->format(\Drupal::time()->getRequestTime(), 'custom', 'Y-m-d');
+  if ($date === $today) {
+    if ((string) $form_state->getValue($key) === '') {
+      $form_state->setErrorByName($key, t('Please tell us whether you need emergency service.'));
+    }
+  }
+  else {
+    $form_state->setValue($key, '');
   }
 }

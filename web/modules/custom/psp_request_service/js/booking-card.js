@@ -256,11 +256,32 @@
     const $ = (s) => root.querySelector(s);
     const chips = [...root.querySelectorAll('.psp-booking-card__chip')];
     const error = $('.psp-booking-card__error');
+    // Same-day follow-up ("Do you need emergency service?"), when the
+    // webform has one: shown only while today is the picked day.
+    const sameDay = $('.psp-booking-card__sameday');
+    const answers = sameDay ? [...sameDay.querySelectorAll('.psp-booking-card__answer')] : [];
+    const now = new Date();
+    const todayValue = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
     // Nothing is selected until the visitor picks.
     let choice = -1;
+    let answer = -1;
+
+    function setAnswer(index) {
+      answer = index;
+      answers.forEach((button, i) => button.setAttribute('aria-pressed', String(i === index)));
+    }
+
     const picker = Drupal.pspBookingDatePicker($('.psp-booking-card__picker'), {
       monthsAhead: parseInt(root.dataset.monthsAhead, 10) || 0,
-      onChange: () => validate(false),
+      onChange: (value) => {
+        if (sameDay) {
+          sameDay.hidden = value !== todayValue;
+          if (sameDay.hidden) {
+            setAnswer(-1);
+          }
+        }
+        validate(false);
+      },
     });
 
     // Shows what's still missing once the visitor has tried to continue.
@@ -274,6 +295,9 @@
       if (!picker.value()) {
         missing.push(Drupal.t('a day'));
       }
+      else if (sameDay && !sameDay.hidden && answer < 0) {
+        missing.push(Drupal.t('whether you need emergency service'));
+      }
       error.hidden = !tried || !missing.length;
       error.textContent = missing.length ? Drupal.t('Choose @missing to continue.', { '@missing': missing.join(Drupal.t(' and ')) }) : '';
       return !missing.length;
@@ -283,6 +307,9 @@
       const params = new URLSearchParams();
       params.set(root.dataset.choiceName, chips[choice].dataset.value);
       params.set(root.dataset.dateName, picker.value());
+      if (sameDay && !sameDay.hidden && answer >= 0) {
+        params.set(sameDay.dataset.name, answers[answer].dataset.value);
+      }
       params.set('psp_card', '1');
       return `${root.dataset.formUrl}?${params}`;
     }
@@ -312,6 +339,10 @@
       if (button.matches('.psp-booking-card__chip')) {
         choice = chips.indexOf(button);
         chips.forEach((chip, i) => chip.setAttribute('aria-pressed', String(i === choice)));
+        validate(false);
+      }
+      else if (button.matches('.psp-booking-card__answer')) {
+        setAnswer(answers.indexOf(button));
         validate(false);
       }
       else if (button.matches('.psp-booking-card__cta')) {

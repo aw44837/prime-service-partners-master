@@ -388,3 +388,9 @@ form.psp-request-service-form.webform-submission-form fieldset.webform-type-radi
   padding: 0;
   border: 0;
 }
+
+/* Same-day follow-up (same-day.js): hidden unless the date is today, even
+ * where the theme gives fieldsets a display value. */
+form.psp-request-service-form.webform-submission-form .psp-same-day-question[hidden] {
+  display: none !important;
+}

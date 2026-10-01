@@ -30,6 +30,17 @@
       {% endfor %}
     </div>
     <div class="psp-booking-card__picker"></div>
+    {% if same_day %}
+      {% set same_day_id = 'psp-same-day-' ~ random() %}
+      <div class="psp-booking-card__sameday" data-name="{{ same_day.key }}" hidden>
+        <p class="psp-booking-card__question" id="{{ same_day_id }}">{{ same_day.title }}</p>
+        <div class="psp-booking-card__answers" role="group" aria-labelledby="{{ same_day_id }}">
+          {% for option in same_day.options %}
+            <button type="button" class="psp-booking-card__answer" data-value="{{ option.value }}" aria-pressed="false">{{ option.label }}</button>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
     <p class="psp-booking-card__error" role="alert" hidden></p>
     <button type="button" class="psp-booking-card__cta">{{ button_label }} {{ icon_arrow }}</button>
   </div>

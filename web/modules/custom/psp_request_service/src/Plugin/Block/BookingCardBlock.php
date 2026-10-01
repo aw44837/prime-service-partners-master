@@ -153,6 +153,7 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#choice_label' => $choice['title'],
       '#date_name' => $date['key'],
       '#months_ahead' => $date['months_ahead'],
+      '#same_day' => $this->sameDayQuestion($webform),
       '#form_url' => Url::fromRoute('entity.webform.share_page', ['webform' => $webform->id()])->toString(),
       '#attached' => ['library' => ['psp_request_service/booking_card']],
     ];
@@ -215,6 +216,35 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       }
     }
     return $choice && $date ? [$choice, $date] : NULL;
+  }
+
+  /**
+   * Finds the optional question asked when the visitor picks today.
+   *
+   * Any choice element whose wrapper has the psp-same-day-question class
+   * (Book Online's "Do you need emergency service?").
+   *
+   * @return array|null
+   *   key/title/options, or NULL when the webform has none.
+   */
+  protected function sameDayQuestion(WebformInterface $webform): ?array {
+    foreach ($webform->getElementsInitializedFlattenedAndHasValue() as $key => $element) {
+      $classes = $element['#wrapper_attributes']['class'] ?? [];
+      if (!in_array('psp-same-day-question', (array) $classes, TRUE) || !isset($element['#options'])) {
+        continue;
+      }
+      $options = WebformOptions::getElementOptions($element);
+      $flat = [];
+      array_walk_recursive($options, function ($label, $value) use (&$flat) {
+        $flat[] = ['value' => (string) $value, 'label' => strip_tags((string) $label)];
+      });
+      return [
+        'key' => $key,
+        'title' => (string) ($element['#title'] ?? ''),
+        'options' => $flat,
+      ];
+    }
+    return NULL;
   }
 
   /**
