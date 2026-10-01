@@ -170,31 +170,42 @@
   color: var(--bc-selected-text);
 }
 
-/* Call button: the same accent as a selection (secondary; primary on the
- * secondary background), so it stands out from booking online. */
-.psp-booking-card .psp-booking-card__call {
+/* Wrapper: the call button above the card. Fills its column like the card. */
+.psp-booking {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Call button (above the card, on the section's own background): the same
+ * accent as a selection (secondary; primary on a secondary background). */
+.psp-booking .psp-booking__call {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   padding: 14px;
-  border: 1px solid var(--bc-selected-border);
+  border: 1px solid var(--bc-selected-border, #8a5d00);
   border-radius: 4px;
-  background: var(--bc-selected-bg);
-  color: var(--bc-selected-text);
+  background: var(--bc-selected-bg, #fdb515);
+  color: var(--bc-selected-text, #000);
   font-size: 18px;
   font-weight: 700;
   line-height: 1.2;
   text-decoration: none;
   transition: background .2s ease;
 }
-.psp-booking-card .psp-booking-card__call:hover {
-  background: oklch(from var(--bc-selected-bg) calc(l - 0.06) c h);
-  color: var(--bc-selected-text);
+.psp-booking .psp-booking__call:hover {
+  background: oklch(from var(--bc-selected-bg, #fdb515) calc(l - 0.06) c h);
+  color: var(--bc-selected-text, #000);
 }
-.psp-booking-card .psp-booking-card__call:focus-visible {
-  outline: 2px solid var(--bc-focus);
+.psp-booking .psp-booking__call:focus-visible {
+  outline: 2px solid var(--theme-focus-ring-color, currentColor);
   outline-offset: 2px;
+}
+.psp-booking__call .psp-booking-card__icon {
+  flex: none;
 }
 
 /* "Or book online": a heading between rules. */
@@ -216,6 +227,9 @@
   flex: 1;
   height: 1px;
   background: var(--bc-border);
+}
+.psp-booking-card .psp-booking-card__divider {
+  margin-top: 8px;
 }
 .psp-booking-card .psp-booking-card__divider + .psp-booking-card__sub {
   text-align: center;
@@ -655,11 +669,6 @@
 @container psp-booking-card (min-width: 560px) {
   .psp-booking-card__chips.psp-booking-card__chips--icons {
     grid-template-columns: repeat(auto-fit, minmax(0, 96px));
-  }
-  .psp-booking-card .psp-booking-card__call {
-    align-self: flex-start;
-    min-width: 280px;
-    padding-inline: 28px;
   }
   .psp-booking-card__days {
     grid-template-columns: repeat(3, minmax(0, 160px));

@@ -72,7 +72,7 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       'theme' => 'white',
       'call_label' => 'Call',
       'phone' => '',
-      'online_heading' => 'Or book online',
+      'online_heading' => '',
       'choice_style' => 'icons',
     ];
   }
@@ -115,7 +115,7 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
     $form['online_heading'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Book online heading'),
-      '#description' => $this->t('Separates calling from booking online, e.g. "Or book online".'),
+      '#description' => $this->t('Optional heading under the title, e.g. "Or book online".'),
       '#default_value' => $this->configuration['online_heading'],
     ];
     $form['subtitle'] = [
