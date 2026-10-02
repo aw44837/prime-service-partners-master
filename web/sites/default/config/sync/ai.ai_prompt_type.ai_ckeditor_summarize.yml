@@ -1,0 +1,15 @@
+uuid: 3632584c-2c2a-4f81-a14d-1cd5e27844db
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - ai_ckeditor
+id: ai_ckeditor_summarize
+label: 'AI CKEditor summarize prompt'
+variables:
+  -
+    name: inputText
+    help_text: 'The input text to summarize'
+    required: true
+tokens: {  }

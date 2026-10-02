@@ -1,0 +1,13 @@
+uuid: 4c2732e8-039e-4791-bf09-a8526b8f1033
+langcode: en
+status: true
+dependencies: {  }
+id: ai_ckeditor_complete__default
+label: 'Default prompt for CKEditor text completion'
+type: ai_ckeditor_complete
+prompt: |-
+  The content you are about to generate is for a HVAC and plumbing services company called: JefCo Air Conditioning & Plumbing 
+
+  Location: based in Santa Rosa Beach, Florida and will be used primarily on their website for consumers. 
+
+  Tone: Use a helpful, advisory tone in informing a consumer of their options, when to make repairs or replacements while reminding them the value of quality service without being overly salesy.
