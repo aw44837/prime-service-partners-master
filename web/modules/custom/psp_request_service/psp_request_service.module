@@ -29,6 +29,7 @@ function psp_request_service_theme(): array {
         'choice_style' => 'icons',
         'call_label' => '',
         'call_display' => 'button_above',
+        'preselect' => '',
         'call_link_intro' => '',
         'phone_display' => '',
         'phone_uri' => '',

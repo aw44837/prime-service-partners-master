@@ -230,10 +230,17 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
     }
     unset($option);
     $phone = $this->phone();
+    $preselect = $this->preselect($choice['options']);
+    $subtitle = $this->configuration['subtitle'];
+    // The service is decided by the page, so the card only asks for a day.
+    if ($preselect !== '' && $subtitle === 'Pick a service and a time that works for you.') {
+      $subtitle = 'Pick a time that works for you.';
+    }
     $build = [
       '#theme' => 'psp_booking_card',
       '#title' => $this->configuration['title'],
-      '#subtitle' => $this->configuration['subtitle'],
+      '#subtitle' => $subtitle,
+      '#preselect' => $preselect,
       '#button_label' => $this->configuration['button_label'],
       '#display' => $this->configuration['display'] === 'inline' ? 'inline' : 'panel',
       '#theme_name' => in_array($this->configuration['theme'] ?? 'white', self::THEMES, TRUE) ? ($this->configuration['theme'] ?? 'white') : 'white',
@@ -253,8 +260,50 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#online_heading' => trim((string) ($this->configuration['online_heading'] ?? '')),
       '#attached' => ['library' => ['psp_request_service/booking_card']],
     ];
-    $build['#cache']['tags'] = array_merge($webform->getCacheTags(), ['config:psp_service_area.settings']);
+    $build['#cache']['tags'] = array_merge($webform->getCacheTags(), ['config:psp_service_area.settings', 'config:psp_request_service.settings']);
+    // The pre-selected service depends on the page.
+    $build['#cache']['contexts'][] = 'url.path';
     return $build;
+  }
+
+  /**
+   * The service this page pre-selects (booking_service_rules), or ''.
+   *
+   * Rules are "URL pattern|Service" lines; * matches anything and the most
+   * specific matching pattern wins (an empty service means none). The service
+   * must be one of the choice's options (value or label, any case).
+   */
+  protected function preselect(array $options): string {
+    $rules = (string) \Drupal::config('psp_request_service.settings')->get('booking_service_rules');
+    if (trim($rules) === '') {
+      return '';
+    }
+    $path = \Drupal::service('path.current')->getPath();
+    $alias = mb_strtolower(rtrim(\Drupal::service('path_alias.manager')->getAliasByPath($path), '/') ?: '/');
+    $best = NULL;
+    $score = -1;
+    foreach (preg_split('/\R/', $rules) as $line) {
+      if (!str_contains($line, '|')) {
+        continue;
+      }
+      [$pattern, $service] = array_map('trim', explode('|', $line, 2));
+      $pattern = mb_strtolower(rtrim($pattern, '/') ?: '/');
+      $regex = '#^' . str_replace('\*', '.*', preg_quote($pattern, '#')) . '$#u';
+      $specificity = mb_strlen(str_replace('*', '', $pattern));
+      if (preg_match($regex, $alias) && $specificity > $score) {
+        $best = $service;
+        $score = $specificity;
+      }
+    }
+    if ($best === NULL || $best === '') {
+      return '';
+    }
+    foreach ($options as $option) {
+      if (strcasecmp($option['value'], $best) === 0 || strcasecmp($option['label'], $best) === 0) {
+        return $option['value'];
+      }
+    }
+    return '';
   }
 
   /**

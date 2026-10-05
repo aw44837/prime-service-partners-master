@@ -341,7 +341,9 @@
     const cta = $('.psp-booking-card__cta');
     const ctaLabel = cta.innerHTML;
     const status = $('.psp-booking-card__status');
-    // Nothing is selected until the visitor picks.
+    // Nothing is selected until the visitor picks, unless the page decided
+    // the service (data-preselect; the card then shows no service step).
+    const preset = root.dataset.preselect || '';
     let choice = -1;
     let resetTimer;
 
@@ -357,9 +359,9 @@
     let tried = false;
     function validate(show) {
       tried = tried || show;
-      const needService = choice < 0;
+      const needService = choice < 0 && !preset;
       const needDay = !picker.value();
-      root.querySelector('.psp-booking-card__chips').classList.toggle('is-missing', tried && needService);
+      root.querySelector('.psp-booking-card__chips')?.classList.toggle('is-missing', tried && needService);
       root.querySelector('.psp-booking-card__days').classList.toggle('is-missing', tried && needDay);
       const message = needService && needDay
         ? Drupal.t('Pick a service and day')
@@ -383,10 +385,10 @@
 
     function formUrl() {
       const params = new URLSearchParams();
-      params.set(root.dataset.choiceName, chips[choice].dataset.value);
+      params.set(root.dataset.choiceName, choice >= 0 ? chips[choice].dataset.value : preset);
       params.set(root.dataset.dateName, picker.value());
       params.set('psp_card', '1');
-      if (root.querySelector('.psp-booking-card__chips--icons')) {
+      if (root.dataset.choiceStyle === 'icons') {
         params.set('psp_icons', '1');
       }
       if (root.dataset.theme && root.dataset.theme !== 'inherit') {

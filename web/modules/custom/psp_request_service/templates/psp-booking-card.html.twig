@@ -28,6 +28,8 @@
 {% if call_parts[1]|default('above') == 'above' %}{{ call }}{% endif %}
 <div class="psp-booking-card{{ theme_name != 'inherit' ? ' theme--' ~ theme_name }}"
   data-theme="{{ theme_name }}"
+  {% if preselect %}data-preselect="{{ preselect }}"{% endif %}
+  data-choice-style="{{ choice_style }}"
   data-display="{{ display }}"
   data-form-url="{{ form_url }}"
   data-form-title="{{ form_title }}"
@@ -40,6 +42,9 @@
       {% if online_heading %}<h3 class="psp-booking-card__divider"><span>{{ online_heading }}</span></h3>{% endif %}
       {% if subtitle %}<p class="psp-booking-card__sub">{{ subtitle }}</p>{% endif %}
     </div>
+    {# A page that decides the service (booking_service_rules) skips this step;
+       the service shows, changeable, in the form the card opens. #}
+    {% if not preselect %}
     <div class="psp-booking-card__chips{{ choice_style == 'icons' ? ' psp-booking-card__chips--icons' }}" role="group" aria-label="{{ choice_label|default('Service'|t) }}">
       {% for option in options %}
         {% if choice_style == 'icons' %}
@@ -54,6 +59,7 @@
         {% endif %}
       {% endfor %}
     </div>
+    {% endif %}
     <div class="psp-booking-card__picker"></div>
     <p class="psp-booking-card__status visually-hidden" role="status"></p>
     <button type="button" class="psp-booking-card__cta">{{ button_label }} {{ icon_arrow }}</button>

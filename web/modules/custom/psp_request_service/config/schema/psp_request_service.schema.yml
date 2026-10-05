@@ -17,6 +17,9 @@ psp_request_service.settings:
       sequence:
         type: string
         label: 'Zip code'
+    booking_service_rules:
+      type: text
+      label: 'Booking card: URL pattern|Service per line; the most specific match pre-selects the service'
     address_key_id:
       type: string
       label: 'Key entity holding the Google Places API (New) key for the service-address lookup'

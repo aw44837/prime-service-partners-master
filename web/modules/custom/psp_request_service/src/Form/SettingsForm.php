@@ -57,6 +57,13 @@ class SettingsForm extends ConfigFormBase {
       '#default_value' => implode("\n", (array) $config->get('zips')),
       '#rows' => 10,
     ];
+    $form['booking_service_rules'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Booking card: pre-select the service by page'),
+      '#description' => $this->t('One rule per line: <code>URL pattern|Service</code>, where * matches anything, e.g. <code>/plumbing*|Plumbing</code>. The most specific matching pattern wins; leave the service empty (<code>/hvac|</code>) to pre-select nothing on matching pages. The service must be one of the booking form\'s options. Pages with no match show all services.'),
+      '#default_value' => (string) $config->get('booking_service_rules'),
+      '#rows' => 10,
+    ];
     $form['address'] = [
       '#type' => 'details',
       '#title' => $this->t('Service-address lookup (Book Online)'),
@@ -98,6 +105,12 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
+    foreach (preg_split('/\R/', (string) $form_state->getValue('booking_service_rules')) as $n => $line) {
+      $line = trim($line);
+      if ($line !== '' && !preg_match('#^/[^|]*\|[^|]*$#', $line)) {
+        $form_state->setErrorByName('booking_service_rules', $this->t('Line @n should look like <code>/path*|Service</code>: %line', ['@n' => $n + 1, '%line' => $line]));
+      }
+    }
     $bad = array_filter($this->parseZips($form_state->getValue('zips')), fn($z) => !preg_match('/^\d{5}$/', $z));
     if ($bad) {
       $form_state->setErrorByName('zips', $this->t('Not 5-digit zip codes: %zips', ['%zips' => implode(', ', $bad)]));
@@ -114,6 +127,7 @@ class SettingsForm extends ConfigFormBase {
       ->set('lead_source', trim($form_state->getValue('lead_source')))
       ->set('email_subject', trim($form_state->getValue('email_subject')))
       ->set('zips', $this->parseZips($form_state->getValue('zips')))
+      ->set('booking_service_rules', trim((string) $form_state->getValue('booking_service_rules')))
       ->set('address_key_id', (string) $form_state->getValue('address_key_id'))
       ->set('address_stub', (bool) $form_state->getValue('address_stub'))
       ->save();

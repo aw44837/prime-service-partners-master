@@ -5,3 +5,4 @@ email_subject: ''
 address_key_id: ''
 address_stub: false
 zip_places: {  }
+booking_service_rules: ''
