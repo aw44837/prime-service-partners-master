@@ -20,6 +20,17 @@ final class ServiceIcons {
   ];
 
   /**
+   * Example text for the request description, by trade (never submitted).
+   */
+  const PLACEHOLDERS = [
+    'plumbing' => 'e.g. Water heater leaking, no hot water, or a slow drain',
+    'heating' => 'e.g. Furnace not turning on, or no heat upstairs',
+    'air' => 'e.g. AC not cooling, making noise, or leaking water',
+    'electric' => 'e.g. Breaker keeps tripping, or adding an EV charger',
+    'other' => 'e.g. What is happening, and when it started',
+  ];
+
+  /**
    * Keywords (start of a word) for each trade, checked in order.
    */
   const KEYWORDS = [

@@ -205,6 +205,10 @@ elements: |-
   utm_content:
     '#type': hidden
     '#title': utm_content
+  page_topic:
+    '#type': hidden
+    '#title': 'Page topic'
+    '#prepopulate': true
   page_url:
     '#type': hidden
     '#title': 'Page URL'
@@ -552,6 +556,7 @@ handlers:
         Zip: [webform_submission:values:zip:clear]
         Lead source: [webform_submission:values:lead_source:clear]
         Service: [webform_submission:values:comments:clear]
+        Page topic: [webform_submission:values:page_topic:clear]
         Page URL: [webform_submission:values:page_url:clear]
         UTM Source: [webform_submission:values:utm_source:clear]
         UTM Medium: [webform_submission:values:utm_medium:clear]

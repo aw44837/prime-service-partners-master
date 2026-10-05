@@ -241,6 +241,7 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#title' => $this->configuration['title'],
       '#subtitle' => $subtitle,
       '#preselect' => $preselect,
+      '#topic' => $this->pageTopic(),
       '#button_label' => $this->configuration['button_label'],
       '#display' => $this->configuration['display'] === 'inline' ? 'inline' : 'panel',
       '#theme_name' => in_array($this->configuration['theme'] ?? 'white', self::THEMES, TRUE) ? ($this->configuration['theme'] ?? 'white') : 'white',
@@ -264,6 +265,24 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
     // The pre-selected service depends on the page.
     $build['#cache']['contexts'][] = 'url.path';
     return $build;
+  }
+
+  /**
+   * The title of the page the card is on (node or Canvas page), or ''.
+   *
+   * Sent with the booking as "Page topic" so staff see what the visitor was
+   * reading. Not for the front page, whose title says nothing.
+   */
+  protected function pageTopic(): string {
+    if (\Drupal::service('path.matcher')->isFrontPage()) {
+      return '';
+    }
+    foreach (\Drupal::routeMatch()->getParameters() as $parameter) {
+      if ($parameter instanceof \Drupal\Core\Entity\ContentEntityInterface && in_array($parameter->getEntityTypeId(), ['node', 'canvas_page'], TRUE)) {
+        return mb_substr(trim((string) $parameter->label()), 0, 200);
+      }
+    }
+    return '';
   }
 
   /**

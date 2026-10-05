@@ -30,6 +30,7 @@ function psp_request_service_theme(): array {
         'call_label' => '',
         'call_display' => 'button_above',
         'preselect' => '',
+        'topic' => '',
         'call_link_intro' => '',
         'phone_display' => '',
         'phone_uri' => '',
@@ -92,6 +93,27 @@ function psp_request_service_webform_submission_form_alter(array &$form, FormSta
   if (str_starts_with($form_id, 'webform_submission_request_service_') || in_array('psp-request-service-form', $classes, TRUE)) {
     $form['#attributes']['class'][] = 'psp-request-service-form';
     $form['#attached']['library'][] = 'psp_request_service/form';
+    // Request description: example text that follows the chosen service.
+    $all = $webform->getElementsInitializedFlattenedAndHasValue();
+    if (isset($all['comments'])) {
+      foreach ($all as $key => $element) {
+        if (isset($element['#options']) && ($element['#options_display'] ?? '') === 'buttons' && empty($element['#wrapper_attributes']['class'])) {
+          $map = [];
+          foreach (\Drupal\webform\Entity\WebformOptions::getElementOptions($element) as $value => $label) {
+            if (is_string($label)) {
+              $map[(string) $value] = \Drupal\psp_request_service\ServiceIcons::forLabel($label);
+            }
+          }
+          $form['#attached']['drupalSettings']['pspServicePlaceholders'] = [
+            'name' => $key,
+            'map' => $map,
+            'text' => array_map(fn($text) => (string) t($text), \Drupal\psp_request_service\ServiceIcons::PLACEHOLDERS),
+            'default' => (string) t('Briefly describe what is going on so we can prepare.'),
+          ];
+          break;
+        }
+      }
+    }
   }
 
   // Same-day follow-up: required when the date is today, dropped otherwise.

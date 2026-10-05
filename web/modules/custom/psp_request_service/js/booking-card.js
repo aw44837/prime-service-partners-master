@@ -387,6 +387,9 @@
       const params = new URLSearchParams();
       params.set(root.dataset.choiceName, choice >= 0 ? chips[choice].dataset.value : preset);
       params.set(root.dataset.dateName, picker.value());
+      if (root.dataset.topic) {
+        params.set('page_topic', root.dataset.topic);
+      }
       params.set('psp_card', '1');
       if (root.dataset.choiceStyle === 'icons') {
         params.set('psp_icons', '1');

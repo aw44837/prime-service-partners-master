@@ -5,8 +5,10 @@ form:
   js:
     js/enter-guard.js: {}
     js/same-day.js: {}
+    js/service-placeholder.js: {}
   dependencies:
     - core/drupal
+    - core/drupalSettings
     - core/once
 
 booking_card:
