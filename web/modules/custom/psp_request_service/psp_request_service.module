@@ -115,16 +115,24 @@ function psp_request_service_webform_submission_form_alter(array &$form, FormSta
     $form['#cache']['tags'][] = 'config:psp_request_service.settings';
   }
 
-  // Opened from the booking card (psp_card=1 on the share page URL): style
-  // the fields like the card instead of the standalone form well.
+  // Booking card styling: fields, trade-icon service buttons, the day picker
+  // and the emergency answers, as in the form the booking card opens.
+  // - Opened from the card (psp_card=1 on the share page URL): the panel's
+  //   flat form, with icons when the card used them (psp_icons=1).
+  // - Any webform listing psp-booking-style under Settings > Form > CSS
+  //   classes (Book Online's own page): the same fields in a card-shaped form.
   $form['#cache']['contexts'][] = 'url.query_args:psp_card';
   $form['#cache']['contexts'][] = 'url.query_args:psp_icons';
   $request = \Drupal::request();
-  if ($request->query->get('psp_card')) {
+  $from_card = (bool) $request->query->get('psp_card');
+  $standalone = !$from_card && in_array('psp-booking-style', $classes, TRUE);
+  if ($from_card || $standalone) {
     $form['#attributes']['class'][] = 'psp-booking-embed';
+    if ($standalone) {
+      $form['#attributes']['class'][] = 'psp-booking-standalone';
+    }
     $form['#attached']['library'][] = 'psp_request_service/booking_embed';
-    // The card used trade icons: give the form's service buttons the same.
-    if ($request->query->get('psp_icons')) {
+    if ($standalone || $request->query->get('psp_icons')) {
       foreach ($elements ?? $webform->getElementsInitializedFlattenedAndHasValue() as $key => $element) {
         if (isset($element['#options']) && ($element['#options_display'] ?? '') === 'buttons') {
           $icons = [];

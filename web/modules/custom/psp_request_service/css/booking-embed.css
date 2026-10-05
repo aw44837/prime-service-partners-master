@@ -290,3 +290,54 @@ form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] i
 form.psp-request-service-form.psp-booking-embed.webform-submission-form[class] .psp-booking-card__badge {
   color: #fff;
 }
+
+/* Standalone page (webform CSS class psp-booking-style): the same fields, in
+ * a form shaped like the booking card instead of the panel's flat sheet. */
+form.psp-request-service-form.psp-booking-embed.psp-booking-standalone.webform-submission-form,
+:is(.theme--white, .theme--light) form.psp-request-service-form.psp-booking-embed.psp-booking-standalone.webform-submission-form {
+  padding: 32px;
+  border: 0;
+  border-top: 4px solid var(--bc-edge);
+  border-radius: 8px;
+  background: var(--bc-surface);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .12);
+}
+@media (max-width: 600px) {
+  form.psp-request-service-form.psp-booking-embed.psp-booking-standalone.webform-submission-form {
+    padding: 24px 16px;
+  }
+}
+/* No card above it here, so the form's own intro stays. */
+form.psp-booking-embed.psp-booking-standalone.webform-submission-form .webform-section:first-of-type .form-type-processed-text:first-child {
+  display: block;
+}
+form.psp-booking-embed.psp-booking-standalone.webform-submission-form[class] .form-type-processed-text p {
+  line-height: 1.45;
+}
+/* The page form is wider than the panel: keep the day cards, icons and
+ * calendar at the card's comfortable sizes instead of stretching them. */
+@media (min-width: 640px) {
+  form.psp-booking-standalone .psp-booking-card__days {
+    grid-template-columns: repeat(3, minmax(0, 160px));
+  }
+  form.psp-booking-standalone .psp-booking-card__cal {
+    max-width: 400px;
+  }
+  form.psp-request-service-form.psp-booking-embed.psp-booking-standalone.webform-submission-form .webform-options-display-buttons.psp-booking-picker-icons[class] {
+    grid-template-columns: repeat(auto-fit, minmax(0, 96px));
+    justify-content: center;
+  }
+  /* Centred under the centred intro: services, days, date link, calendar. */
+  form.psp-booking-standalone .psp-booking-card__days {
+    justify-content: center;
+  }
+  form.psp-booking-standalone .psp-booking-picker {
+    align-items: center;
+  }
+  form.psp-booking-standalone .psp-booking-picker .psp-booking-card__link[class] {
+    align-self: center;
+  }
+  form.psp-booking-standalone .psp-booking-card__cal {
+    width: 100%;
+  }
+}
