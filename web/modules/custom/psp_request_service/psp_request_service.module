@@ -28,6 +28,8 @@ function psp_request_service_theme(): array {
         'theme_name' => 'white',
         'choice_style' => 'icons',
         'call_label' => '',
+        'call_display' => 'button_above',
+        'call_link_intro' => '',
         'phone_display' => '',
         'phone_uri' => '',
         'online_heading' => '',

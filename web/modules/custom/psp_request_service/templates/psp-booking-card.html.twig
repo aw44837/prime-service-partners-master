@@ -2,7 +2,7 @@
 /**
  * @file
  * Booking card: a webform's first two questions (a choice and a date),
- * with an optional call button above the card.
+ * with an optional call action (button or text link, above or below it).
  *
  * The day picker (quick days + calendar) is drawn by booking-card.js in the
  * visitor's own time zone; the choice chips render here. Nothing starts
@@ -12,10 +12,20 @@
 {% set icon_arrow %}<svg class="psp-booking-card__icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endset %}
 {% set icon_phone %}<svg class="psp-booking-card__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6.6 3.5 9 3l1.6 4-2 1.4a12 12 0 0 0 7 7l1.4-2 4 1.6-.5 2.4A2.5 2.5 0 0 1 18 20 15 15 0 0 1 4 6a2.5 2.5 0 0 1 2.6-2.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>{% endset %}
 {% set icon_prev %}<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endset %}
+{% set call_parts = call_display|default('button_above')|split('_') %}
+{% set call %}
+  {% if phone_display and call_parts[0] != 'none' %}
+    {% if call_parts[0] == 'link' %}
+      <p class="psp-booking__call-link psp-booking__call-link--{{ call_parts[1] }}">
+        {% if call_link_intro %}<span>{{ call_link_intro }}</span> {% endif %}<a href="{{ phone_uri }}">{{ icon_phone }}<span>{{ call_label|default('Call'|t) }} {{ phone_display }}</span></a>
+      </p>
+    {% else %}
+      <a class="psp-booking__call" href="{{ phone_uri }}">{{ icon_phone }}<span>{{ call_label|default('Call'|t) }} {{ phone_display }}</span></a>
+    {% endif %}
+  {% endif %}
+{% endset %}
 <div class="psp-booking">
-{% if call_label and phone_display %}
-  <a class="psp-booking__call" href="{{ phone_uri }}">{{ icon_phone }}<span>{{ call_label }} {{ phone_display }}</span></a>
-{% endif %}
+{% if call_parts[1]|default('above') == 'above' %}{{ call }}{% endif %}
 <div class="psp-booking-card{{ theme_name != 'inherit' ? ' theme--' ~ theme_name }}"
   data-theme="{{ theme_name }}"
   data-display="{{ display }}"
@@ -55,4 +65,5 @@
     </div>
   {% endif %}
 </div>
+{% if call_parts[1]|default('above') == 'below' %}{{ call }}{% endif %}
 </div>

@@ -39,6 +39,17 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
   const THEMES = ['inherit', 'white', 'light', 'dark', 'black', 'primary', 'secondary'];
 
   /**
+   * Call option choices: style and position in one plain-language list.
+   */
+  const CALL_DISPLAYS = [
+    'button_above' => 'Button above the card',
+    'button_below' => 'Button below the card',
+    'link_above' => 'Text link above the card',
+    'link_below' => 'Text link below the card',
+    'none' => 'No call option',
+  ];
+
+  /**
    * Element types that hold a date the card can fill.
    */
   const DATE_TYPES = ['date', 'datetime', 'datelist'];
@@ -70,7 +81,9 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       'button_label' => 'Continue',
       'display' => 'panel',
       'theme' => 'white',
+      'call_display' => 'button_above',
       'call_label' => 'Call',
+      'call_link_intro' => 'Prefer to talk?',
       'phone' => '',
       'online_heading' => '',
       'choice_style' => 'icons',
@@ -100,11 +113,24 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#title' => $this->t('Title'),
       '#default_value' => $this->configuration['title'],
     ];
+    $form['call_display'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Call option'),
+      '#description' => $this->t('A way to call instead of booking online.'),
+      '#options' => array_map(fn($label) => $this->t($label), self::CALL_DISPLAYS),
+      '#default_value' => $this->configuration['call_display'] ?? 'button_above',
+    ];
     $form['call_label'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Call button label'),
-      '#description' => $this->t('Shown before the phone number. Leave empty for no call button.'),
+      '#title' => $this->t('Call label'),
+      '#description' => $this->t('Shown before the phone number, e.g. "Call".'),
       '#default_value' => $this->configuration['call_label'],
+    ];
+    $form['call_link_intro'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Text link lead-in'),
+      '#description' => $this->t('For the text link options, e.g. "Prefer to talk?" before "Call (877) 325-0180".'),
+      '#default_value' => $this->configuration['call_link_intro'] ?? 'Prefer to talk?',
     ];
     $form['phone'] = [
       '#type' => 'textfield',
@@ -217,6 +243,8 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#form_url' => Url::fromRoute('entity.webform.share_page', ['webform' => $webform->id()])->toString(),
       '#choice_style' => $icons ? 'icons' : 'pills',
       '#call_label' => trim((string) ($this->configuration['call_label'] ?? '')),
+      '#call_display' => isset(self::CALL_DISPLAYS[$this->configuration['call_display'] ?? '']) ? $this->configuration['call_display'] : 'button_above',
+      '#call_link_intro' => trim((string) ($this->configuration['call_link_intro'] ?? 'Prefer to talk?')),
       '#phone_display' => $phone['display'],
       '#phone_uri' => $phone['uri'],
       '#online_heading' => trim((string) ($this->configuration['online_heading'] ?? '')),

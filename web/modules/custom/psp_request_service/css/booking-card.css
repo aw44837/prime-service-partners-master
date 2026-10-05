@@ -258,6 +258,44 @@
   flex: none;
 }
 
+/* Call as a text link ("Prefer to talk? Call (877) 325-0180"), above or
+ * below the card, on the section's own background. */
+.psp-booking .psp-booking__call-link {
+  margin: 0;
+  color: var(--theme-text-color-medium, #3a3a3a);
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: center;
+}
+.psp-booking .psp-booking__call-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  /* A comfortable touch target without changing the line's look. */
+  min-height: 44px;
+  padding: 0 4px;
+  color: var(--bc-accent, #133564);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  vertical-align: middle;
+}
+.psp-booking .psp-booking__call-link a:hover {
+  text-decoration-thickness: 2px;
+}
+.psp-booking .psp-booking__call-link a:focus-visible {
+  border-radius: 4px;
+  outline: 2px solid var(--theme-focus-ring-color, currentColor);
+  outline-offset: 2px;
+}
+.psp-booking .psp-booking__call-link--above {
+  margin-bottom: -4px;
+}
+.psp-booking .psp-booking__call-link--below {
+  margin-top: -4px;
+}
+
 /* "Or book online": a heading between rules. */
 .psp-booking-card .psp-booking-card__divider {
   display: flex;

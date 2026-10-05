@@ -88,9 +88,22 @@ block.settings.psp_booking_card:
           - black
           - primary
           - secondary
+    call_display:
+      type: string
+      label: 'Call option'
+      constraints:
+        Choice:
+          - button_above
+          - button_below
+          - link_above
+          - link_below
+          - none
     call_label:
       type: label
-      label: 'Call button label'
+      label: 'Call label'
+    call_link_intro:
+      type: label
+      label: 'Text link lead-in'
     phone:
       type: label
       label: 'Phone number (empty = site main number)'
