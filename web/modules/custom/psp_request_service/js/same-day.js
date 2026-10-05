@@ -15,9 +15,28 @@
 
   const pad = (n) => String(n).padStart(2, '0');
 
+  // Answer styling: the emergency answer red with a warning icon, the other
+  // (it says "not … emergency") green with a clock.
+  const ICONS = {
+    urgent: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 3.5 2.5 20h19L12 3.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.2" r="1.25" fill="currentColor"/></svg>',
+    standard: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  };
+  function decorate(question) {
+    question.querySelectorAll('input[type="radio"]').forEach((input) => {
+      const label = input.id && question.querySelector(`label[for="${input.id}"]`);
+      if (!label || label.querySelector('.psp-same-day-option__icon')) {
+        return;
+      }
+      const kind = /\bnot\b/i.test(input.value) ? 'standard' : 'urgent';
+      label.classList.add('psp-same-day-option', `psp-same-day-option--${kind}`);
+      label.insertAdjacentHTML('afterbegin', `<span class="psp-same-day-option__icon">${ICONS[kind]}</span>`);
+    });
+  }
+
   Drupal.behaviors.pspSameDayQuestion = {
     attach(context) {
       once('psp-same-day', '.psp-same-day-question', context).forEach((question) => {
+        decorate(question);
         const form = question.closest('form');
         const date = form && form.querySelector('input[type="date"]');
         if (!date) {

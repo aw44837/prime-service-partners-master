@@ -408,3 +408,36 @@ form.psp-request-service-form.webform-submission-form .psp-same-day-question[hid
 form.psp-request-service-form.webform-submission-form .psp-awaiting-same-day {
   display: none !important;
 }
+
+/* Same-day question answers (same-day.js tags them): the emergency answer in
+ * red with a warning icon, the other in dark green with a clock. They reuse
+ * the form's button styles by recolouring its tokens; the booking card's
+ * themes supply per-background shades (--bc-emergency / --bc-ok). */
+form.psp-request-service-form .psp-same-day-option--urgent {
+  --sd: var(--bc-emergency, #b3261e);
+  --sd-on: var(--bc-emergency-on, #fff);
+}
+form.psp-request-service-form .psp-same-day-option--standard {
+  --sd: var(--bc-ok, #1b5e20);
+  --sd-on: var(--bc-ok-on, #fff);
+}
+form.psp-request-service-form .psp-same-day-option {
+  --bc-accent: var(--sd);
+  --bc-border: var(--sd);
+  --bc-hover: color-mix(in oklch, var(--sd) 10%, var(--bc-surface, #fff));
+  --bc-selected-bg: var(--sd);
+  --bc-selected-border: var(--sd);
+  --bc-selected-text: var(--sd-on);
+  --psp-form-navy: var(--sd);
+  --psp-form-navy-dark: var(--sd);
+  --psp-form-field-border: var(--sd);
+}
+form.psp-request-service-form.webform-submission-form[class] .psp-same-day-option--urgent {
+  font-weight: 700;
+}
+form.psp-request-service-form.webform-submission-form[class] .psp-same-day-option__icon {
+  display: inline-flex;
+  margin-right: 8px;
+  color: inherit;
+  vertical-align: -4px;
+}

@@ -27,6 +27,11 @@
   /* Dripyard's neutral-theme borders and status colours meet contrast. */
   --bc-on-color-border: initial;
   --bc-on-color-status: initial;
+  /* Emergency (red) / not an emergency (green) answers. */
+  --bc-emergency: #b3261e;
+  --bc-emergency-on: #fff;
+  --bc-ok: #1b5e20;
+  --bc-ok-on: #fff;
 }
 .theme--dark,
 .theme--black {
@@ -39,11 +44,19 @@
   --bc-selected-border: var(--secondary, #fdb515);
   --bc-on-color-border: initial;
   --bc-on-color-status: initial;
+  --bc-emergency: #ff8a80;
+  --bc-emergency-on: #000;
+  --bc-ok: #81c784;
+  --bc-ok-on: #000;
 }
 /* Brand-colour surfaces: Dripyard's borders (the colour's 200 tint) and
  * light status colours can fall below contrast on a light brand colour, so
  * derive both from the surface's own text colour (white or black). */
 .theme--primary {
+  --bc-emergency: #ff8a80;
+  --bc-emergency-on: #000;
+  --bc-ok: #81c784;
+  --bc-ok-on: #000;
   --bc-on-color-border: color-mix(in oklch, var(--color-primary-text-color, #fff) 55%, var(--primary, #133564));
   --bc-on-color-status: var(--color-primary-text-color, #fff);
   --bc-accent: var(--color-primary-text-color, #fff);
@@ -56,6 +69,10 @@
 }
 /* On a secondary surface the secondary colour can't mark a selection. */
 .theme--secondary {
+  --bc-emergency: #8c1d18;
+  --bc-emergency-on: #fff;
+  --bc-ok: #14532d;
+  --bc-ok-on: #fff;
   --bc-on-color-border: color-mix(in oklch, var(--color-secondary-text-color, #000) 55%, var(--secondary, #fdb515));
   --bc-on-color-status: var(--color-secondary-text-color, #000);
   --bc-accent: var(--color-secondary-text-color, #000);
@@ -65,6 +82,24 @@
   --bc-selected-bg: var(--primary, #133564);
   --bc-selected-text: var(--color-primary-text-color, #fff);
   --bc-selected-border: var(--primary, #133564);
+}
+
+/* Emergency colours follow the brand colour's lightness on brand surfaces. */
+.primary-color-is-light .theme--primary,
+.primary-color-is-light.theme--primary,
+.secondary-color-is-light .theme--secondary,
+.secondary-color-is-light.theme--secondary {
+  --bc-emergency: #8c1d18;
+  --bc-emergency-on: #fff;
+  --bc-ok: #14532d;
+  --bc-ok-on: #fff;
+}
+.secondary-color-is-dark .theme--secondary,
+.secondary-color-is-dark.theme--secondary {
+  --bc-emergency: #ff8a80;
+  --bc-emergency-on: #000;
+  --bc-ok: #81c784;
+  --bc-ok-on: #000;
 }
 
 .psp-booking-card,
