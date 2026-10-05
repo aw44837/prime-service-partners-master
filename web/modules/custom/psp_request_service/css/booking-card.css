@@ -390,16 +390,33 @@
 /* Once one is chosen, the others' icons fade to half strength (labels stay
  * at full contrast) and come back on hover/focus. */
 .psp-booking-card__badge {
-  transition: transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s ease, opacity .2s ease;
+  transition: transform .25s cubic-bezier(.34, 1.56, .64, 1), box-shadow .25s ease, opacity .2s ease, filter .2s ease;
 }
+.psp-booking-card__trade-label {
+  transition: color .2s ease;
+}
+/* Unchosen icons recede: faded and partly greyed; their labels drop to the
+ * soft text colour (still readable). Card, panel form and Book Online page. */
 .psp-booking-card__chips--icons:has([aria-pressed="true"]) .psp-booking-card__trade:not([aria-pressed="true"]) .psp-booking-card__badge,
 .psp-booking-picker-icons:has(input:checked) input:not(:checked) + .psp-booking-card__trade .psp-booking-card__badge {
-  opacity: .5;
+  opacity: .35;
+  filter: grayscale(.4);
+  box-shadow: none;
+}
+.psp-booking-card__chips--icons:has([aria-pressed="true"]) .psp-booking-card__trade:not([aria-pressed="true"]) .psp-booking-card__trade-label[class],
+form.webform-submission-form[class] .psp-booking-picker-icons:has(input:checked) input:not(:checked) + .psp-booking-card__trade .psp-booking-card__trade-label[class] {
+  color: var(--bc-text-2);
 }
 .psp-booking-card__chips--icons:has([aria-pressed="true"]) .psp-booking-card__trade:not([aria-pressed="true"]):is(:hover, :focus-visible) .psp-booking-card__badge,
 .psp-booking-picker-icons:has(input:checked) input:not(:checked):focus-visible + .psp-booking-card__trade .psp-booking-card__badge,
 .psp-booking-picker-icons:has(input:checked) input:not(:checked) + .psp-booking-card__trade:hover .psp-booking-card__badge {
   opacity: 1;
+  filter: none;
+}
+.psp-booking-card__chips--icons:has([aria-pressed="true"]) .psp-booking-card__trade:not([aria-pressed="true"]):is(:hover, :focus-visible) .psp-booking-card__trade-label[class],
+form.webform-submission-form[class] .psp-booking-picker-icons:has(input:checked) input:not(:checked):focus-visible + .psp-booking-card__trade .psp-booking-card__trade-label[class],
+form.webform-submission-form[class] .psp-booking-picker-icons:has(input:checked) input:not(:checked) + .psp-booking-card__trade:hover .psp-booking-card__trade-label[class] {
+  color: var(--bc-accent);
 }
 
 /* Selected: a ring round the badge and the label highlighted. */
