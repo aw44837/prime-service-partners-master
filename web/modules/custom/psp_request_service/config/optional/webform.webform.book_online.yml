@@ -38,6 +38,7 @@ elements: |
       '#date_date_min': today
       '#date_date_max': '+5 months'
       '#prepopulate': true
+      '#format': 'F j, Y'
     emergency_service:
       '#type': radios
       '#title': 'You selected same-day service. Do you need emergency service?'
