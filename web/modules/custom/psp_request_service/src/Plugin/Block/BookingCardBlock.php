@@ -150,7 +150,7 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#default_value' => $this->configuration['subtitle'],
     ];
     $form['choice_style'] = [
-      '#type' => 'radios',
+      '#type' => 'select',
       '#title' => $this->t('Service buttons'),
       '#options' => [
         'icons' => $this->t('Animated trade icons'),
@@ -164,8 +164,10 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#default_value' => $this->configuration['button_label'],
       '#required' => TRUE,
     ];
+    // Selects, not radios: the Canvas editor sends radios back as "undefined"
+    // whenever another setting changes.
     $form['display'] = [
-      '#type' => 'radios',
+      '#type' => 'select',
       '#title' => $this->t('Show the rest of the form'),
       '#options' => [
         'panel' => $this->t('In a side panel over the page'),
@@ -220,7 +222,8 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
     }
 
     [$choice, $date] = $questions;
-    $icons = ($this->configuration['choice_style'] ?? 'icons') === 'icons';
+    // Anything but "pills" (incl. a stray value from the editor) means icons.
+    $icons = ($this->configuration['choice_style'] ?? 'icons') !== 'pills';
     foreach ($choice['options'] as &$option) {
       $option['icon'] = ServiceIcons::forLabel($option['label']);
       $option['path'] = ServiceIcons::PATHS[$option['icon']];
