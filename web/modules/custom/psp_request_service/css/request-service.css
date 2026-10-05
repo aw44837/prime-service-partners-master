@@ -435,9 +435,24 @@ form.psp-request-service-form .psp-same-day-option {
 form.psp-request-service-form.webform-submission-form[class] .psp-same-day-option--urgent {
   font-weight: 700;
 }
+/* Icon in a fixed left column, text beside it: wrapped lines indent past
+ * the icon like a bulleted list (panel and standalone form alike). */
+form.psp-request-service-form.webform-submission-form .psp-same-day-question .webform-options-display-buttons-label.psp-same-day-option[class][class] {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  text-align: left;
+}
 form.psp-request-service-form.webform-submission-form[class] .psp-same-day-option__icon {
-  display: inline-flex;
-  margin-right: 8px;
+  display: flex;
+  flex: none;
+  /* Centre the 18px icon on the first line of text. */
+  margin-top: calc((1lh - 18px) / 2);
   color: inherit;
-  vertical-align: -4px;
+}
+form.psp-request-service-form.webform-submission-form[class] .psp-same-day-option__text {
+  flex: 1;
+  min-width: 0;
+  color: inherit;
 }

@@ -29,6 +29,11 @@
       }
       const kind = /\bnot\b/i.test(input.value) ? 'standard' : 'urgent';
       label.classList.add('psp-same-day-option', `psp-same-day-option--${kind}`);
+      // Text in its own column so wrapped lines indent past the icon.
+      const text = document.createElement('span');
+      text.className = 'psp-same-day-option__text';
+      text.append(...label.childNodes);
+      label.append(text);
       label.insertAdjacentHTML('afterbegin', `<span class="psp-same-day-option__icon">${ICONS[kind]}</span>`);
     });
   }
