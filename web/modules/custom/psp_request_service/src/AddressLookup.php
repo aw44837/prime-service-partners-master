@@ -278,13 +278,18 @@ class AddressLookup {
   }
 
   /**
+   * The fleet-wide key, shipped in master's config sync.
+   */
+  const FLEET_KEY_ID = 'google_places_api_key';
+
+  /**
    * The decrypted API key, or ''.
+   *
+   * Uses the site's own key when address_key_id names one, otherwise the
+   * fleet-wide key (one key for every site on the server, IP-restricted).
    */
   protected function apiKey(): string {
-    $id = (string) $this->configFactory->get('psp_request_service.settings')->get('address_key_id');
-    if ($id === '') {
-      return '';
-    }
+    $id = (string) $this->configFactory->get('psp_request_service.settings')->get('address_key_id') ?: self::FLEET_KEY_ID;
     $key = $this->keyRepository->getKey($id);
     return $key ? trim((string) $key->getKeyValue()) : '';
   }

@@ -76,9 +76,9 @@ class SettingsForm extends ConfigFormBase {
     $form['address']['address_key_id'] = [
       '#type' => 'select',
       '#title' => $this->t('Google Places API key'),
-      '#description' => $this->t('A Key entity holding a Google Maps Platform key with Places API (New) enabled, restricted to this server\'s IP. Without one the form asks for a zip code only.'),
+      '#description' => $this->t('Leave on the fleet key (Key entity google_places_api_key, shipped in the master config) unless this site needs its own. Any Key entity holding a Google Maps Platform key with Places API (New) enabled, restricted to the server\'s IP. Without a key the form asks for a zip code only.'),
       '#options' => $keys,
-      '#empty_option' => $this->t('- None (zip code only) -'),
+      '#empty_option' => $this->t('- Fleet key (google_places_api_key) -'),
       '#default_value' => $config->get('address_key_id'),
     ];
     $form['address']['address_stub'] = [
