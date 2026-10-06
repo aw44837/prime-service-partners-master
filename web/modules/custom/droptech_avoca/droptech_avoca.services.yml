@@ -1,0 +1,11 @@
+services:
+  logger.channel.droptech_avoca:
+    parent: logger.channel_base
+    arguments: ['droptech_avoca']
+
+  droptech_avoca.client:
+    class: Drupal\droptech_avoca\AvocaClient
+    arguments:
+      - '@http_client'
+      - '@key.repository'
+      - '@logger.channel.droptech_avoca'

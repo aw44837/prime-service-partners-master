@@ -9,3 +9,5 @@ dependencies:
   - webform:webform_share
   - psp_lead_guard:psp_lead_guard
   - key:key
+  - droptech_avoca:droptech_avoca
+  - droptech_tracking:droptech_tracking

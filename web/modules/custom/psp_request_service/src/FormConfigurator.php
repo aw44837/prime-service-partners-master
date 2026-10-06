@@ -85,6 +85,15 @@ class FormConfigurator {
       }
     };
     $walk($elements);
+    // Multi-market sites (psp_service_area with a zip map): the booking is
+    // tagged with its market; see psp_request_service_webform_submission_presave().
+    if (static::markets() && !isset($elements['service_market'])) {
+      $elements['service_market'] = [
+        '#type' => 'hidden',
+        '#title' => 'Service market',
+        '#prepopulate' => TRUE,
+      ];
+    }
     $webform->setElements($elements);
 
     if ($webform->getHandlers()->has('email_booking')) {
@@ -95,6 +104,26 @@ class FormConfigurator {
       $webform->updateWebformHandler($handler);
     }
     $webform->save();
+  }
+
+  /**
+   * The site's markets on multi-market sites, keyed by path prefix.
+   *
+   * @return string[]
+   *   e.g. ['raleigh-nc' => 'Raleigh, NC']; empty without psp_service_area
+   *   service areas that have a path prefix and a zip map.
+   */
+  public static function markets(): array {
+    if (!\Drupal::moduleHandler()->moduleExists('psp_service_area') || !\Drupal::config('psp_service_area.zip_map')->get('map')) {
+      return [];
+    }
+    $markets = [];
+    foreach (\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'service_area']) as $term) {
+      if ($term->hasField('field_path_prefix') && !$term->get('field_path_prefix')->isEmpty()) {
+        $markets[trim((string) $term->get('field_path_prefix')->value)] = $term->label();
+      }
+    }
+    return $markets;
   }
 
   /**

@@ -1,0 +1,8 @@
+name: 'Droptech Avoca'
+type: module
+description: 'Webform handler that posts completed leads to Avoca Speed-to-Lead (webhook ingest), with automatic retries.'
+package: Droptech
+core_version_requirement: ^11
+dependencies:
+  - webform:webform
+  - key:key

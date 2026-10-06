@@ -242,6 +242,7 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#subtitle' => $subtitle,
       '#preselect' => $preselect,
       '#topic' => $this->pageTopic(),
+      '#market' => $this->market()['id'] ?? '',
       '#button_label' => $this->configuration['button_label'],
       '#display' => $this->configuration['display'] === 'inline' ? 'inline' : 'panel',
       '#theme_name' => in_array($this->configuration['theme'] ?? 'white', self::THEMES, TRUE) ? ($this->configuration['theme'] ?? 'white') : 'white',
@@ -264,6 +265,10 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
     $build['#cache']['tags'] = array_merge($webform->getCacheTags(), ['config:psp_service_area.settings', 'config:psp_request_service.settings']);
     // The pre-selected service depends on the page.
     $build['#cache']['contexts'][] = 'url.path';
+    if (\Drupal::hasService('cache_context.service_area')) {
+      $build['#cache']['contexts'][] = 'service_area';
+      $build['#cache']['tags'][] = 'taxonomy_term_list:service_area';
+    }
     return $build;
   }
 
@@ -337,7 +342,33 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       $digits = preg_replace('/\D+/', '', $display);
       return ['display' => $display, 'uri' => $digits !== '' ? 'tel:' . $digits : ''];
     }
+    $market = $this->market();
+    if ($market && $market['phone'] !== '') {
+      return ['display' => $market['phone'], 'uri' => 'tel:' . preg_replace('/\D+/', '', $market['phone'])];
+    }
     return $this->sitePhone();
+  }
+
+  /**
+   * The service area (market) this page belongs to, on multi-market sites.
+   *
+   * Uses psp_service_area's resolver (path prefix such as /raleigh-nc, or the
+   * page's field_service_area). The card shows that market's phone and tags
+   * the booking with it; the submitted zip still decides in the end.
+   *
+   * @return array|null
+   *   ['id' => 'raleigh-nc', 'phone' => '984-201-0061'], or NULL.
+   */
+  protected function market(): ?array {
+    if (!\Drupal::hasService('psp_service_area.area_resolver')) {
+      return NULL;
+    }
+    $term = \Drupal::service('psp_service_area.area_resolver')->resolve();
+    if (!$term || !$term->hasField('field_path_prefix') || $term->get('field_path_prefix')->isEmpty()) {
+      return NULL;
+    }
+    $phone = $term->hasField('field_phone') && !$term->get('field_phone')->isEmpty() ? trim((string) $term->get('field_phone')->value) : '';
+    return ['id' => trim((string) $term->get('field_path_prefix')->value), 'phone' => $phone];
   }
 
   /**

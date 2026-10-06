@@ -46,6 +46,7 @@ module:
   dashboard: 0
   datetime: 0
   dblog: 0
+  droptech_avoca: 0
   droptech_tracking: 0
   drupal_cms_helper: 0
   drupical: 0

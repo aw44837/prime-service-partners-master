@@ -2,6 +2,7 @@ langcode: en
 status: open
 dependencies:
   module:
+    - droptech_avoca
     - psp_lead_guard
 weight: 0
 open: null
@@ -11,32 +12,36 @@ template: false
 archive: false
 id: book_online
 title: 'Book Online'
-description: '<p>Service and date first (prefilled by the booking card component), then the Request Service steps.</p>'
+description: '<p>This is a concept form for beginning an online booking experience.&nbsp;</p>'
 categories: {  }
 elements: |
-  service_and_date:
+  service_type_and_date:
     '#type': webform_section
-    '#title': 'What do you need, and when?'
-    '#title_tag': h3
+    '#title': 'Service Type & Date'
+    '#title_display': invisible
+    booking_headline:
+      '#type': processed_text
+      '#text': '<h3><strong>Book in under 2 minutes</strong></h3><p>Pick a service and a time that works for you.</p>'
+      '#format': full_html
     service_type:
       '#type': radios
-      '#title': Service
+      '#title': 'Service Type'
+      '#title_display': invisible
       '#options':
-        Heating: Heating
-        'Air Conditioning': 'Air Conditioning'
         Plumbing: Plumbing
-        Electrical: Electrical
+        Heating: Heating
+        Air: Air
+        Electric: Electric
       '#options_display': buttons
-      '#required': true
-      '#required_error': 'Please choose the service you need.'
       '#prepopulate': true
     preferred_service_date:
       '#type': date
-      '#title': 'Preferred date'
+      '#title': 'Preferred Service Date'
+      '#title_display': invisible
       '#required': true
-      '#required_error': 'Please pick a preferred service date.'
+      '#required_error': 'Please select a preferred service date to proceed.'
       '#date_date_min': today
-      '#date_date_max': '+5 months'
+      '#date_date_max': '+3 months'
       '#prepopulate': true
       '#format': 'F j, Y'
     emergency_service:
@@ -73,7 +78,7 @@ elements: |
       '#title': 'Service zip code'
       '#required': true
       '#maxlength': 5
-      '#pattern': '[0-9]{5}'
+      '#pattern': 33901|33902|33903|33904|33905|33906|33907|33908|33909|33912|33913|33914|33916|33919|33928|33931|33936|33948|33949|33950|33952|33953|33954|33955|33956|33957|33966|33967|33971|33972|33973|33974|33976|33980|33981|33982|33983|33990|33991|33993|33994|34101|34102|34103|34104|34105|34106|34107|34108|34109|34110|34112|34113|34114|34116|34117|34119|34120|34133|34134|34135|34136|34139|34145|34146|34223|34224|34229|34231|34232|34233|34234|34235|34236|34237|34238|34239|34240|34241|34242|34243|34275|34285|34292|34293
       '#pattern_error': 'It appears that you have entered a zip code outside of our service area.'
       '#attributes':
         inputmode: numeric
@@ -101,7 +106,7 @@ elements: |
       visible:
         ':input[name="zip"]':
           value:
-            pattern: '^[0-9]{5}$'
+            pattern: ^(33901|33902|33903|33904|33905|33906|33907|33908|33909|33912|33913|33914|33916|33919|33928|33931|33936|33948|33949|33950|33952|33953|33954|33955|33956|33957|33966|33967|33971|33972|33973|33974|33976|33980|33981|33982|33983|33990|33991|33993|33994|34101|34102|34103|34104|34105|34106|34107|34108|34109|34110|34112|34113|34114|34116|34117|34119|34120|34133|34134|34135|34136|34139|34145|34146|34223|34224|34229|34231|34232|34233|34234|34235|34236|34237|34238|34239|34240|34241|34242|34243|34275|34285|34292|34293)$
     '#attributes':
       class:
         - psp-zip-reveal
@@ -118,7 +123,7 @@ elements: |
       visible:
         ':input[name="zip"]':
           value:
-            pattern: '^[0-9]{5}$'
+            pattern: ^(33901|33902|33903|33904|33905|33906|33907|33908|33909|33912|33913|33914|33916|33919|33928|33931|33936|33948|33949|33950|33952|33953|33954|33955|33956|33957|33966|33967|33971|33972|33973|33974|33976|33980|33981|33982|33983|33990|33991|33993|33994|34101|34102|34103|34104|34105|34106|34107|34108|34109|34110|34112|34113|34114|34116|34117|34119|34120|34133|34134|34135|34136|34139|34145|34146|34223|34224|34229|34231|34232|34233|34234|34235|34236|34237|34238|34239|34240|34241|34242|34243|34275|34285|34292|34293)$
     '#attributes':
       class:
         - psp-zip-reveal
@@ -158,7 +163,7 @@ elements: |
         visible:
           ':input[name="zip"]':
             value:
-              pattern: '^[0-9]{5}$'
+              pattern: ^(33901|33902|33903|33904|33905|33906|33907|33908|33909|33912|33913|33914|33916|33919|33928|33931|33936|33948|33949|33950|33952|33953|33954|33955|33956|33957|33966|33967|33971|33972|33973|33974|33976|33980|33981|33982|33983|33990|33991|33993|33994|34101|34102|34103|34104|34105|34106|34107|34108|34109|34110|34112|34113|34114|34116|34117|34119|34120|34133|34134|34135|34136|34139|34145|34146|34223|34224|34229|34231|34232|34233|34234|34235|34236|34237|34238|34239|34240|34241|34242|34243|34275|34285|34292|34293)$
       '#submit__label': Proceed
     receive_text_messages_about_appointment:
       '#type': checkbox
@@ -225,7 +230,7 @@ javascript: |
       attach: function (context) {
         var root = context.querySelectorAll ? context : document;
 
-        root.querySelectorAll('form.psp-request-service-form input[name="zip"]:not([data-psp-zip])').forEach(function (zip) {
+        root.querySelectorAll('form.webform-submission-book-online-form input[name="zip"]:not([data-psp-zip])').forEach(function (zip) {
           zip.setAttribute('data-psp-zip', '');
           var form = zip.form;
           var wrapper = zip.closest('.form-item') || zip.parentNode;
@@ -284,7 +289,7 @@ javascript: |
           update(false);
         });
 
-        root.querySelectorAll('form.psp-request-service-form input[name="page_url"]:not([data-psp-page-url])').forEach(function (input) {
+        root.querySelectorAll('form.webform-submission-book-online-form input[name="page_url"]:not([data-psp-page-url])').forEach(function (input) {
           input.setAttribute('data-psp-page-url', '');
           var url = window.location.href;
           if (window.top !== window.self) {
@@ -297,7 +302,7 @@ javascript: |
           }
           input.value = url;
         });
-        root.querySelectorAll('form.psp-request-service-form input[name="phone_number"]:not([data-psp-phone])').forEach(function (phone) {
+        root.querySelectorAll('form.webform-submission-book-online-form input[name="phone_number"]:not([data-psp-phone])').forEach(function (phone) {
           phone.setAttribute('data-psp-phone', '');
           phone.addEventListener('input', function () {
             var d = phone.value.replace(/\D/g, '');
@@ -427,17 +432,17 @@ settings:
   draft_loaded_message: ''
   draft_pending_single_message: ''
   draft_pending_multiple_message: ''
-  confirmation_type: inline
+  confirmation_type: modal
   confirmation_url: ''
-  confirmation_title: 'Success! '
-  confirmation_message: '<p>We will call you within 60 seconds to confirm your service address and appointment needs.&nbsp;</p>'
+  confirmation_title: 'Almost Complete...'
+  confirmation_message: '<p>We will call you within 60 seconds to confirm the remaining appointment details so that we dispatch the right technician and equipment for your service needs.</p>'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
   confirmation_back_attributes: {  }
   confirmation_exclude_query: false
   confirmation_exclude_token: false
-  confirmation_update: false
+  confirmation_update: true
   limit_total: null
   limit_total_interval: null
   limit_total_message: ''
@@ -574,4 +579,48 @@ handlers:
       langcode: ''
       parameters: {  }
       debug: false
+  avoca:
+    id: avoca_speed_to_lead
+    handler_id: avoca
+    label: 'Avoca Speed-to-Lead'
+    notes: "Sends only leads that pass AI Lead Guard. Needs this client's Speed-to-Lead ingest key as Key entity avoca_speed_to_lead (Configuration > Keys)."
+    status: true
+    conditions:
+      enabled:
+        ':input[name="ai_action"]':
+          '!value': suppress
+    weight: -48
+    settings:
+      endpoint: 'https://app.avoca.ai/api/outbound/speed-to-lead/ingest'
+      key_id: avoca_speed_to_lead
+      auth_header: Authorization
+      auth_prefix: 'Bearer '
+      timeout: 5
+      notes_elements: |-
+        preferred_service_date|Preferred date
+        emergency_service|Emergency
+        service_address|Service address (as entered)
+        comments|Request
+        page_topic|Page topic
+        page_url|Submitted from
+      mapping:
+        address: service_street
+        city: service_city
+        state: service_state
+        service_type: service_type
+        external_id: '[webform:id]-[webform_submission:sid]'
+        customer_name: customer_name
+        phone_number: phone_number
+        email: email
+        zip: zip
+        lead_source: lead_source
+        utm_source: utm_source
+        utm_medium: utm_medium
+        utm_campaign: utm_campaign
+        utm_term: utm_term
+        utm_content: utm_content
+        country: ''
+      notes_labels: true
+      key_element: ''
+      key_map: ''
 variants: {  }

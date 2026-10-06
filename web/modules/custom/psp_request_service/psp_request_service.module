@@ -31,6 +31,7 @@ function psp_request_service_theme(): array {
         'call_display' => 'button_above',
         'preselect' => '',
         'topic' => '',
+        'market' => '',
         'call_link_intro' => '',
         'phone_display' => '',
         'phone_uri' => '',
@@ -195,5 +196,36 @@ function psp_request_service_same_day_validate(array &$form, FormStateInterface 
   }
   else {
     $form_state->setValue($key, '');
+  }
+}
+
+/**
+ * Implements hook_webform_submission_presave().
+ *
+ * Multi-market sites: tags a new booking with its market (the zip's market
+ * from psp_service_area's zip map, else the page's market the booking card
+ * passed in, if it is a real one) and makes the lead source market-specific,
+ * e.g. "Swift Brothers - Raleigh, NC". Per-market Avoca keys key off this.
+ */
+function psp_request_service_webform_submission_presave(\Drupal\webform\WebformSubmissionInterface $submission): void {
+  if (!$submission->isNew() || !$submission->getWebform()->getElement('service_market')) {
+    return;
+  }
+  $markets = \Drupal\psp_request_service\FormConfigurator::markets();
+  if (!$markets) {
+    return;
+  }
+  $zip = substr(preg_replace('/\D+/', '', (string) $submission->getElementData('zip')), 0, 5);
+  $map = (array) \Drupal::config('psp_service_area.zip_map')->get('map');
+  $market = (string) ($map[$zip] ?? '');
+  if (!isset($markets[$market])) {
+    $given = trim((string) $submission->getElementData('service_market'));
+    $market = isset($markets[$given]) ? $given : '';
+  }
+  $submission->setElementData('service_market', $market);
+  if ($market !== '' && $submission->getWebform()->getElement('lead_source')) {
+    $settings = \Drupal::config('psp_request_service.settings');
+    $base = trim((string) $settings->get('lead_source')) ?: (trim((string) $settings->get('company_name')) ?: (string) \Drupal::config('system.site')->get('name'));
+    $submission->setElementData('lead_source', $base . ' - ' . $markets[$market]);
   }
 }
