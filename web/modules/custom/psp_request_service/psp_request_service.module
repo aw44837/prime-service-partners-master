@@ -208,7 +208,7 @@ function psp_request_service_same_day_validate(array &$form, FormStateInterface 
  * e.g. "Swift Brothers - Raleigh, NC". Per-market Avoca keys key off this.
  */
 function psp_request_service_webform_submission_presave(\Drupal\webform\WebformSubmissionInterface $submission): void {
-  if (!$submission->isNew() || !$submission->getWebform()->getElement('service_market')) {
+  if (!$submission->isNew() || !$submission->getWebform()->getElement('psp_market')) {
     return;
   }
   $markets = \Drupal\psp_request_service\FormConfigurator::markets();
@@ -219,10 +219,10 @@ function psp_request_service_webform_submission_presave(\Drupal\webform\WebformS
   $map = (array) \Drupal::config('psp_service_area.zip_map')->get('map');
   $market = (string) ($map[$zip] ?? '');
   if (!isset($markets[$market])) {
-    $given = trim((string) $submission->getElementData('service_market'));
+    $given = trim((string) $submission->getElementData('psp_market'));
     $market = isset($markets[$given]) ? $given : '';
   }
-  $submission->setElementData('service_market', $market);
+  $submission->setElementData('psp_market', $market);
   if ($market !== '' && $submission->getWebform()->getElement('lead_source')) {
     $settings = \Drupal::config('psp_request_service.settings');
     $base = trim((string) $settings->get('lead_source')) ?: (trim((string) $settings->get('company_name')) ?: (string) \Drupal::config('system.site')->get('name'));

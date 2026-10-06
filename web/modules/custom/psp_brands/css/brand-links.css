@@ -1,0 +1,100 @@
+/*
+ * Brand crosslink lists: services-for-brand columns and brand pill strip.
+ */
+.psp-brand-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.psp-brand-links__heading {
+  margin: 0 0 16px;
+}
+
+/* Curated featured services: emphasized links. */
+.psp-brand-links--featured {
+  margin-bottom: 16px;
+}
+
+.psp-brand-links--featured .psp-brand-links__item {
+  padding: 4px 0;
+}
+
+.psp-brand-links__featured-link {
+  font-weight: 700;
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Repairs checklist. */
+.psp-brand-links--repairs {
+  columns: 2;
+  column-gap: 32px;
+}
+
+@media (max-width: 700px) {
+  .psp-brand-links--repairs {
+    columns: 1;
+  }
+}
+
+.psp-brand-links__item--check {
+  break-inside: avoid;
+  padding: 4px 0 4px 26px;
+  position: relative;
+}
+
+.psp-brand-links__item--check::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+/* Services on a brand page: multi-column link list. */
+.psp-brand-links--services {
+  columns: 2;
+  column-gap: 32px;
+}
+
+@media (max-width: 700px) {
+  .psp-brand-links--services {
+    columns: 1;
+  }
+}
+
+.psp-brand-links--services .psp-brand-links__item {
+  break-inside: avoid;
+  padding: 4px 0;
+}
+
+.psp-brand-links__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.psp-brand-links__link:hover {
+  text-decoration: underline;
+}
+
+/* Brand pills on service pages. */
+.psp-brand-links--brands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.psp-brand-links__pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.psp-brand-links__pill:hover {
+  text-decoration: underline;
+}

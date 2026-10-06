@@ -1,0 +1,7 @@
+psp_brands.index:
+  path: '/brands'
+  defaults:
+    _controller: '\Drupal\psp_brands\Controller\BrandIndexController::index'
+    _title: 'Brands We Service'
+  requirements:
+    _access: 'TRUE'

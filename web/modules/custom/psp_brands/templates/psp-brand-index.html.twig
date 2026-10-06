@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * /brands index: brand pages grouped by equipment category.
+ */
+#}
+<div class="psp-brand-index">
+  {% for group in groups %}
+    <section class="psp-brand-index__group">
+      {% if group.label %}
+        <h2 class="psp-brand-index__heading">{{ group.label }}</h2>
+      {% endif %}
+      <ul class="psp-brand-index__grid">
+        {% for brand in group.brands %}
+          <li class="psp-brand-index__card">
+            <a href="{{ brand.url }}" class="psp-brand-index__name">{{ brand.title }}</a>
+            {% if brand.intro %}
+              <p class="psp-brand-index__intro">{{ brand.intro }}</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% else %}
+    <p>{{ 'Brand pages are coming soon.'|t }}</p>
+  {% endfor %}
+</div>

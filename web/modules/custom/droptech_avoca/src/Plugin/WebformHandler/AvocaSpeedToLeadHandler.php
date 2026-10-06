@@ -149,7 +149,7 @@ class AvocaSpeedToLeadHandler extends WebformHandlerBase {
     $form['connection']['key_element'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Key per value of'),
-      '#description' => $this->t('Optional. A form element (e.g. <code>service_market</code>) whose value picks the key from the list below, for clients with a separate Avoca account per market. Values not listed use the API key above.'),
+      '#description' => $this->t('Optional. A form element (e.g. <code>psp_market</code>) whose value picks the key from the list below, for clients with a separate Avoca account per market. Values not listed use the API key above.'),
       '#default_value' => $this->configuration['key_element'],
       '#size' => 30,
     ];

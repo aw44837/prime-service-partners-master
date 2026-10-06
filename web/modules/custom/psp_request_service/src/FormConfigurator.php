@@ -87,8 +87,8 @@ class FormConfigurator {
     $walk($elements);
     // Multi-market sites (psp_service_area with a zip map): the booking is
     // tagged with its market; see psp_request_service_webform_submission_presave().
-    if (static::markets() && !isset($elements['service_market'])) {
-      $elements['service_market'] = [
+    if (static::markets() && !isset($elements['psp_market'])) {
+      $elements['psp_market'] = [
         '#type' => 'hidden',
         '#title' => 'Service market',
         '#prepopulate' => TRUE,

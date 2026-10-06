@@ -1,0 +1,8 @@
+name: 'PSP Brands'
+type: module
+description: 'Brand pages support: automatic crosslink blocks between brand pages and service pages, plus the /brands index.'
+package: 'Prime Service Partners'
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:taxonomy

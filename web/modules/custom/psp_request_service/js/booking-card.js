@@ -388,7 +388,7 @@
       params.set(root.dataset.choiceName, choice >= 0 ? chips[choice].dataset.value : preset);
       params.set(root.dataset.dateName, picker.value());
       if (root.dataset.market) {
-        params.set('service_market', root.dataset.market);
+        params.set('psp_market', root.dataset.market);
       }
       if (root.dataset.topic) {
         params.set('page_topic', root.dataset.topic);

@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Brand pages: crosslink blocks + /brands index theming.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function psp_brands_theme(): array {
+  return [
+    'psp_brand_services' => [
+      'variables' => ['heading' => NULL, 'featured' => [], 'links' => []],
+    ],
+    'psp_brands_we_service' => [
+      'variables' => ['heading' => NULL, 'links' => []],
+    ],
+    'psp_brand_repairs' => [
+      'variables' => ['heading' => NULL, 'repairs' => []],
+    ],
+    'psp_brand_index' => [
+      'variables' => ['groups' => []],
+    ],
+  ];
+}

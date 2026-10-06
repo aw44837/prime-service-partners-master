@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Common repairs list on a brand page (field_common_repairs).
+ */
+#}
+<div class="psp-brand-repairs">
+  <h2 class="psp-brand-links__heading">{{ heading }}</h2>
+  <ul class="psp-brand-links psp-brand-links--repairs">
+    {% for repair in repairs %}
+      <li class="psp-brand-links__item psp-brand-links__item--check">{{ repair }}</li>
+    {% endfor %}
+  </ul>
+</div>

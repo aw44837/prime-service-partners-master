@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * "Brands we service" link strip (services pages, brand pages, anywhere).
+ */
+#}
+{% if heading %}
+  <h2 class="psp-brand-links__heading">{{ heading }}</h2>
+{% endif %}
+<ul class="psp-brand-links psp-brand-links--brands">
+  {% for link in links %}
+    <li class="psp-brand-links__item">
+      <a href="{{ link.url }}" class="psp-brand-links__pill">{{ link.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

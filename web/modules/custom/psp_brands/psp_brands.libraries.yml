@@ -1,0 +1,9 @@
+brand_links:
+  css:
+    component:
+      css/brand-links.css: {}
+
+brand_index:
+  css:
+    component:
+      css/brand-index.css: {}
