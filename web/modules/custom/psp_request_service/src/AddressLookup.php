@@ -58,25 +58,49 @@ class AddressLookup {
     if ($session !== '') {
       $body['sessionToken'] = $session;
     }
-    if ($bias = $this->bias()) {
-      $body['locationBias'] = ['circle' => $bias];
+    $area = $this->area();
+    $items = [];
+    if ($area) {
+      // Each prediction then carries distanceMeters from the area's centre.
+      $body['origin'] = $area['center'];
+      // First only places inside the area; a short list is topped up from an
+      // area-biased search, so out-of-area addresses can still be found.
+      $data = $this->request('POST', 'places:autocomplete', ['json' => $body + ['locationRestriction' => ['rectangle' => $area['box']]]]);
+      $items = $data['suggestions'] ?? [];
+      if (count($items) < self::MAX_SUGGESTIONS) {
+        $data = $this->request('POST', 'places:autocomplete', ['json' => $body + ['locationBias' => ['rectangle' => $area['box']]]]);
+        $items = array_merge($items, $data['suggestions'] ?? []);
+      }
     }
-    $data = $this->request('POST', 'places:autocomplete', ['json' => $body]);
-    $suggestions = [];
-    foreach ($data['suggestions'] ?? [] as $item) {
+    else {
+      $data = $this->request('POST', 'places:autocomplete', ['json' => $body]);
+      $items = $data['suggestions'] ?? [];
+    }
+    $near = $far = $seen = [];
+    foreach ($items as $item) {
       $p = $item['placePrediction'] ?? NULL;
-      if (!$p || empty($p['placeId'])) {
+      if (!$p || empty($p['placeId']) || isset($seen[$p['placeId']])) {
         continue;
       }
-      $suggestions[] = [
+      $seen[$p['placeId']] = TRUE;
+      $suggestion = [
         'id' => $p['placeId'],
         'main' => $p['structuredFormat']['mainText']['text'] ?? $p['text']['text'] ?? '',
         'secondary' => preg_replace('/, USA$/', '', $p['structuredFormat']['secondaryText']['text'] ?? ''),
         'kind' => $this->kind($p['types'] ?? []),
       ];
+      // In-area suggestions first, each group in Google's order. Far ones
+      // stay listed so the zip check can say "not in our service area".
+      $distance = $p['distanceMeters'] ?? NULL;
+      if ($area && $distance !== NULL && $distance > $area['reach']) {
+        $far[] = $suggestion;
+      }
+      else {
+        $near[] = $suggestion;
+      }
     }
     // Not cached: Places terms allow storing place IDs only.
-    return $suggestions;
+    return array_slice(array_merge($near, $far), 0, self::MAX_SUGGESTIONS);
   }
 
   /**
@@ -203,24 +227,51 @@ class AddressLookup {
   }
 
   /**
-   * A circle around the service area (centre of its zips, max 50 km).
+   * The service area, from the zips' locations.
+   *
+   * @return array|null
+   *   'box': a rectangle around every zip, padded by AREA_PAD degrees (a
+   *   rectangle bias has no size cap, unlike a 50 km circle); 'center': the
+   *   zips' centroid; 'reach': metres from the centre still counted as in the
+   *   area (the farthest zip plus AREA_SLACK). NULL without zip locations.
    */
-  protected function bias(): ?array {
+  protected function area(): ?array {
     $places = array_filter($this->zipPlaces(), fn($p) => !empty($p['lat']) && !empty($p['lng']));
     if (!$places) {
       return NULL;
     }
-    $lat = array_sum(array_column($places, 'lat')) / count($places);
-    $lng = array_sum(array_column($places, 'lng')) / count($places);
-    $radius = 0;
+    $lats = array_map('floatval', array_column($places, 'lat'));
+    $lngs = array_map('floatval', array_column($places, 'lng'));
+    $lat = array_sum($lats) / count($lats);
+    $lng = array_sum($lngs) / count($lngs);
+    $reach = 0;
     foreach ($places as $p) {
-      $radius = max($radius, $this->distance($lat, $lng, $p['lat'], $p['lng']));
+      $reach = max($reach, $this->distance($lat, $lng, (float) $p['lat'], (float) $p['lng']));
     }
     return [
+      'box' => [
+        'low' => ['latitude' => min($lats) - self::AREA_PAD, 'longitude' => min($lngs) - self::AREA_PAD],
+        'high' => ['latitude' => max($lats) + self::AREA_PAD, 'longitude' => max($lngs) + self::AREA_PAD],
+      ],
       'center' => ['latitude' => $lat, 'longitude' => $lng],
-      'radius' => min(50000.0, max(5000.0, $radius + 5000)),
+      'reach' => $reach + self::AREA_SLACK,
     ];
   }
+
+  /**
+   * Suggestions shown (Places returns at most five per request).
+   */
+  const MAX_SUGGESTIONS = 5;
+
+  /**
+   * Degrees added around the zips' box (about 11 km).
+   */
+  const AREA_PAD = 0.1;
+
+  /**
+   * Metres beyond the farthest zip centre still treated as in the area.
+   */
+  const AREA_SLACK = 25000;
 
   /**
    * Metres between two points.
