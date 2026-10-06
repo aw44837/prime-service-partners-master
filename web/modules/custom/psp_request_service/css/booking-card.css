@@ -785,16 +785,24 @@ form.webform-submission-form[class] .psp-booking-picker-icons:has(input:checked)
 }
 
 /* Wide cards (a full-width section): keep the controls at a comfortable
- * size instead of stretching them edge to edge. */
+ * size instead of stretching them edge to edge, centred under the
+ * centred heading. */
 @container psp-booking-card (min-width: 560px) {
   .psp-booking-card__chips.psp-booking-card__chips--icons {
     grid-template-columns: repeat(auto-fit, minmax(0, 96px));
+    justify-content: center;
   }
   .psp-booking-card__days {
     grid-template-columns: repeat(3, minmax(0, 160px));
+    justify-content: center;
   }
   .psp-booking-card__cal {
+    width: 100%;
     max-width: 400px;
+    margin-inline: auto;
+  }
+  .psp-booking-card .psp-booking-card__link {
+    align-self: center;
   }
 }
 @container psp-booking-card (min-width: 720px) {
@@ -802,7 +810,7 @@ form.webform-submission-form[class] .psp-booking-picker-icons:has(input:checked)
     font-size: 30px;
   }
   .psp-booking-card .psp-booking-card__cta {
-    align-self: flex-start;
+    align-self: center;
     width: auto;
     min-width: 240px;
     padding: 14px 32px;
