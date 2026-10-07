@@ -226,6 +226,9 @@
   flex-direction: column;
   gap: 16px;
   width: 100%;
+  /* Card + call button stay compact in wide columns and full-width
+   * sections; override --psp-booking-max-width per site if needed. */
+  max-width: var(--psp-booking-max-width, 450px);
 }
 
 /* Call button (above the card, on the section's own background): the same
