@@ -2,7 +2,8 @@
 /**
  * @file
  * Booking card: a webform's first two questions (a choice and a date),
- * with an optional call action (button or text link, above or below it).
+ * with an optional call action (button — solid or outline — or text link,
+ * above or below it).
  *
  * The day picker (quick days + calendar) is drawn by booking-card.js in the
  * visitor's own time zone; the choice chips render here. Nothing starts
@@ -20,7 +21,7 @@
         {% if call_link_intro %}<span>{{ call_link_intro }}</span> {% endif %}<a href="{{ phone_uri }}">{{ icon_phone }}<span>{{ call_label|default('Call'|t) }} {{ phone_display }}</span></a>
       </p>
     {% else %}
-      <a class="psp-booking__call" href="{{ phone_uri }}">{{ icon_phone }}<span>{{ call_label|default('Call'|t) }} {{ phone_display }}</span></a>
+      <a class="psp-booking__call psp-booking__call--{{ call_style|default('solid') }}" href="{{ phone_uri }}">{{ icon_phone }}<span>{{ call_label|default('Call'|t) }} {{ phone_display }}</span></a>
     {% endif %}
   {% endif %}
 {% endset %}

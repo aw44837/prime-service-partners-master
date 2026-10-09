@@ -101,6 +101,13 @@ block.settings.psp_booking_card:
           - link_above
           - link_below
           - none
+    call_style:
+      type: string
+      label: 'Call button style'
+      constraints:
+        Choice:
+          - solid
+          - outline
     call_label:
       type: label
       label: 'Call label'

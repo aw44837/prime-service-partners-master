@@ -50,6 +50,15 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
   ];
 
   /**
+   * Call button styles. Solid is the original look (and the default for every
+   * existing card); outline is a transparent button with a 2px border.
+   */
+  const CALL_STYLES = [
+    'solid' => 'Solid',
+    'outline' => 'Outline',
+  ];
+
+  /**
    * Element types that hold a date the card can fill.
    */
   const DATE_TYPES = ['date', 'datetime', 'datelist'];
@@ -83,6 +92,7 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       'theme' => 'white',
       'call_display' => 'button_above',
       'call_label' => 'Call',
+      'call_style' => 'solid',
       'call_link_intro' => 'Prefer to talk?',
       'phone' => '',
       'online_heading' => '',
@@ -119,6 +129,13 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#description' => $this->t('A way to call instead of booking online.'),
       '#options' => array_map(fn($label) => $this->t($label), self::CALL_DISPLAYS),
       '#default_value' => $this->configuration['call_display'] ?? 'button_above',
+    ];
+    $form['call_style'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Call button style'),
+      '#description' => $this->t('For the call button options. Outline is transparent with a border; set --psp-booking-call-outline on a section to change its colour (e.g. white on a photo).'),
+      '#options' => array_map(fn($label) => $this->t($label), self::CALL_STYLES),
+      '#default_value' => $this->configuration['call_style'] ?? 'solid',
     ];
     $form['call_label'] = [
       '#type' => 'textfield',
@@ -256,6 +273,8 @@ class BookingCardBlock extends BlockBase implements ContainerFactoryPluginInterf
       '#choice_style' => $icons ? 'icons' : 'pills',
       '#call_label' => trim((string) ($this->configuration['call_label'] ?? '')),
       '#call_display' => isset(self::CALL_DISPLAYS[$this->configuration['call_display'] ?? '']) ? $this->configuration['call_display'] : 'button_above',
+      // Cards saved before this setting existed have no value: keep solid.
+      '#call_style' => isset(self::CALL_STYLES[$this->configuration['call_style'] ?? '']) ? $this->configuration['call_style'] : 'solid',
       '#call_link_intro' => trim((string) ($this->configuration['call_link_intro'] ?? 'Prefer to talk?')),
       '#phone_display' => $phone['display'],
       '#phone_uri' => $phone['uri'],

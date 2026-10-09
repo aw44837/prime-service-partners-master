@@ -261,6 +261,21 @@
   flex: none;
 }
 
+/* Outline call button: transparent with a 2px border in the accent colour.
+ * Set --psp-booking-call-outline on a section to recolour it (e.g. white when
+ * the card sits on a dark photo). */
+.psp-booking .psp-booking__call--outline {
+  --psp-booking-call-outline-color: var(--psp-booking-call-outline, var(--bc-accent, #133564));
+  padding: 13px;
+  border: 2px solid var(--psp-booking-call-outline-color);
+  background: transparent;
+  color: var(--psp-booking-call-outline-color);
+}
+.psp-booking .psp-booking__call--outline:hover {
+  background: color-mix(in srgb, var(--psp-booking-call-outline-color) 12%, transparent);
+  color: var(--psp-booking-call-outline-color);
+}
+
 /* Call as a text link ("Prefer to talk? Call (877) 325-0180"), above or
  * below the card, on the section's own background. */
 .psp-booking .psp-booking__call-link {
