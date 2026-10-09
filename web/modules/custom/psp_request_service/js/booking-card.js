@@ -10,6 +10,16 @@
  * The day picker (three quick days, "Select a different date", month
  * calendar) is shared as Drupal.pspBookingDatePicker so the full form can
  * show the same picker in place of its date input (booking-embed.js).
+ *
+ * Any link can open its href in the same side panel by carrying
+ * data-psp-booking-panel, e.g.
+ *   <a href="/webform/book_online/share" data-psp-booking-panel="Book Online">
+ * The panel title is the attribute value, falling back to the link text and
+ * then "Book Online"; a psp_theme query param on the URL picks the panel
+ * theme (default white). Plain left clicks only, so modified clicks still
+ * navigate. The page needs the psp_request_service/booking_card library
+ * (attach it from the theme to make the panel available everywhere). The
+ * panel itself is exposed as Drupal.pspBookingPanel.
  */
 ((Drupal, once) => {
   'use strict';
@@ -334,6 +344,21 @@
       }, 400);
     },
   };
+
+  // Links can open a webform share page (e.g. Book Online) in the same side
+  // panel: mark them data-psp-booking-panel (value = panel title, optional).
+  // Delegated, so links added later work too; modified clicks still navigate.
+  Drupal.pspBookingPanel = panel;
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[data-psp-booking-panel]');
+    if (!link || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) {
+      return;
+    }
+    e.preventDefault();
+    const url = new URL(link.href, window.location.href);
+    const title = link.dataset.pspBookingPanel || link.textContent.trim() || Drupal.t('Book Online');
+    panel.open(url.toString(), title, link, url.searchParams.get('psp_theme') || 'white');
+  });
 
   function init(root) {
     const $ = (s) => root.querySelector(s);
