@@ -1,0 +1,53 @@
+uuid: 2a5136dd-6b51-4fa6-bb7b-7fda1e00a774
+langcode: en
+status: true
+dependencies:
+  module:
+    - psp_service_area
+active_version: 8ae40fada4ceed46
+versioned_properties:
+  active:
+    settings:
+      prop_field_definitions:
+        placeholder:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Enter your ZIP code'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        button_label:
+          required: false
+          field_type: string
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: string_textfield
+          default_value:
+            -
+              value: 'Find My Location'
+          expression: ℹ︎string␟value
+          derived_schema_metadata:
+            string_shape: {  }
+        center:
+          required: false
+          field_type: boolean
+          field_storage_settings: {  }
+          field_instance_settings: {  }
+          field_widget: boolean_checkbox
+          default_value:
+            -
+              value: false
+          expression: ℹ︎boolean␟value
+          derived_schema_metadata: {  }
+    fallback_metadata:
+      slot_definitions: {  }
+label: 'ZIP Code Search'
+id: sdc.psp_service_area.zip-search
+provider: psp_service_area
+source: sdc
+source_local_id: 'psp_service_area:zip-search'

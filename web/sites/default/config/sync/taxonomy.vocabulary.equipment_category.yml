@@ -1,0 +1,9 @@
+uuid: 0c4dfaa8-22a5-4261-8e0c-c4935f4aadec
+langcode: en
+status: true
+dependencies: {  }
+name: 'Equipment category'
+vid: equipment_category
+description: 'Types of branded equipment (Air Conditioners, Water Heaters…).'
+weight: 0
+new_revision: false

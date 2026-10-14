@@ -1,0 +1,22 @@
+uuid: 15d9c3a8-a002-4299-8d3b-6347424b7676
+langcode: en
+status: true
+dependencies:
+  module:
+    - psp_service_area
+active_version: b7d09a2aff227a07
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: psp_area_location_selector
+        label: 'Choose Your Location selector'
+        label_display: '0'
+        provider: psp_service_area
+    fallback_metadata:
+      slot_definitions: null
+label: 'Choose Your Location selector'
+id: block.psp_area_location_selector
+provider: psp_service_area
+source: block
+source_local_id: psp_area_location_selector

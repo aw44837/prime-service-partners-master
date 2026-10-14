@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - canvas.component.block.jefco_menu_block
+    - canvas.component.block.psp_brands_we_service
     - canvas.component.block.system_breadcrumb_block
     - canvas.component.sdc.dripyard_base.button
     - canvas.component.sdc.dripyard_base.canvas-image
@@ -45,6 +46,7 @@ dependencies:
     - media
     - node
     - options
+    - psp_brands
     - text
 id: node.services.full
 content_entity_type_id: node
@@ -676,4 +678,33 @@ component_tree:
       padding_bottom: medium
       column_gutter: large
       row_gutter: default
+  '4:2888ff3a-b0e6-4844-8848-ae2cafe07d23':
+    uuid: 2888ff3a-b0e6-4844-8848-ae2cafe07d23
+    component_id: sdc.dripyard_base.layout-dynamic
+    component_version: 32fe1576b04d9d74
+    inputs:
+      theme: inherit
+      column_count: 1
+      row_count: 1
+      two_column_layout: '50% / 50%'
+      three_column_layout: '33% / 33% / 33%'
+      cell_align_x: default
+      cell_align_y: default
+      section_width: edge-to-edge
+      content_width: max-width
+      margin_top: zero
+      margin_bottom: zero
+      padding_top: medium
+      padding_bottom: medium
+      column_gutter: large
+      row_gutter: default
+  '4:cell_1:0:dcb186b5-849e-471b-af28-2550a5d18870':
+    parent_uuid: 2888ff3a-b0e6-4844-8848-ae2cafe07d23
+    slot: cell_1
+    uuid: dcb186b5-849e-471b-af28-2550a5d18870
+    component_id: block.psp_brands_we_service
+    component_version: b6db954a0fe924fb
+    inputs:
+      label: 'Brands we service'
+      label_display: '0'
 exposed_slots: {  }

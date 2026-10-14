@@ -1,0 +1,22 @@
+uuid: b342080a-ecfb-4d3c-ad6b-d66ace201ced
+langcode: en
+status: true
+dependencies:
+  module:
+    - psp_service_area
+active_version: 6664bd4902547111
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: psp_area_location_bar
+        label: 'Service area location bar'
+        label_display: '0'
+        provider: psp_service_area
+    fallback_metadata:
+      slot_definitions: null
+label: 'Service area location bar'
+id: block.psp_area_location_bar
+provider: psp_service_area
+source: block
+source_local_id: psp_area_location_bar

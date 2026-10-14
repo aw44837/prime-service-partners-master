@@ -1,0 +1,24 @@
+uuid: 9ceac8e2-f247-4ef6-b147-2ed921c709f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intro_description
+    - filter.format.full_html
+    - node.type.brand_page
+  module:
+    - text
+id: node.brand_page.field_intro_description
+field_name: field_intro_description
+entity_type: node
+bundle: brand_page
+label: 'Intro description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

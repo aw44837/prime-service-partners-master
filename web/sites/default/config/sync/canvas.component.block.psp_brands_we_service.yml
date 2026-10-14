@@ -1,0 +1,22 @@
+uuid: 75add4ef-0b9e-4685-837e-19a96e68cc8c
+langcode: en
+status: true
+dependencies:
+  module:
+    - psp_brands
+active_version: b6db954a0fe924fb
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: psp_brands_we_service
+        label: 'Brand: brands we service'
+        label_display: '0'
+        provider: psp_brands
+    fallback_metadata:
+      slot_definitions: null
+label: 'Brand: brands we service'
+id: block.psp_brands_we_service
+provider: psp_brands
+source: block
+source_local_id: psp_brands_we_service

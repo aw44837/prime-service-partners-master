@@ -5,9 +5,27 @@ dependencies:
   config:
     - canvas.component.block.psp_area_branding
     - canvas.component.block.psp_area_footer_info
+    - canvas.component.block.psp_area_footer_locations
+    - canvas.component.block.psp_area_location_bar
+    - canvas.component.block.psp_area_location_selector
+    - canvas.component.block.psp_area_phone_directory
+    - canvas.component.block.psp_booking_card
+    - canvas.component.block.psp_brand_repairs
+    - canvas.component.block.psp_brand_services
+    - canvas.component.block.psp_brands_we_service
+    - canvas.component.sdc.psp_service_area.zip-search
 name: 'Prime Service Partners'
 configEntityTypeId: component
 weight: 0
 items:
   - block.psp_area_branding
   - block.psp_area_footer_info
+  - block.psp_area_footer_locations
+  - block.psp_area_location_bar
+  - block.psp_area_location_selector
+  - block.psp_area_phone_directory
+  - block.psp_booking_card
+  - block.psp_brand_repairs
+  - block.psp_brand_services
+  - block.psp_brands_we_service
+  - sdc.psp_service_area.zip-search

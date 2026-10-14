@@ -1,0 +1,25 @@
+uuid: 04264a21-d5df-4218-a64d-2048ac1cd9f3
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:dripyard_hero:1b08c6e0-aa04-4d92-aeac-9a04e4a3d9c5'
+  module:
+    - block_content
+active_version: 28d4e61af0824a58
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'block_content:1b08c6e0-aa04-4d92-aeac-9a04e4a3d9c5'
+        label: 'Hero secondary test'
+        label_display: '0'
+        provider: block_content
+        view_mode: full
+    fallback_metadata:
+      slot_definitions: null
+label: 'Hero secondary test'
+id: block.block_content.1b08c6e0-aa04-4d92-aeac-9a04e4a3d9c5
+provider: block_content
+source: block
+source_local_id: 'block_content:1b08c6e0-aa04-4d92-aeac-9a04e4a3d9c5'

@@ -1,0 +1,10 @@
+uuid: 7bba5188-a3b5-456d-a980-3732916f7984
+langcode: en
+status: true
+dependencies: {  }
+id: node__brand_page
+label: 'Content: Brand page'
+tags:
+  title: '[node:title] Repair, Service & Installation | [site:name]'
+  description: '[node:field_intro_description]'
+  canonical_url: '[node:url]'

@@ -1,0 +1,23 @@
+uuid: fa258779-ae58-4b26-bd12-bae29297d30f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.brand_page
+  module:
+    - node
+id: brand_page
+label: 'Brand pages'
+type: 'canonical_entities:node'
+pattern: '/brands/[node:title]'
+selection_criteria:
+  bf8a26b0-0832-476f-8fbf-e1663a5d0809:
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      brand_page: brand_page
+selection_logic: and
+weight: -5
+relationships: {  }

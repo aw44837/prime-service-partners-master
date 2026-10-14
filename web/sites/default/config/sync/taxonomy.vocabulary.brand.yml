@@ -1,0 +1,9 @@
+uuid: a6aff646-35d1-47a0-8dbe-9c569cbe44aa
+langcode: en
+status: true
+dependencies: {  }
+name: Brand
+vid: brand
+description: 'Equipment manufacturers the company services (Carrier, Trane, Kohler…).'
+weight: 0
+new_revision: false

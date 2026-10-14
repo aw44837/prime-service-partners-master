@@ -6,6 +6,7 @@ dependencies:
     - canvas.component.block.block_content.0a885524-3461-46a7-af04-a13b08f08d6a
     - canvas.component.block.block_content.0ead4788-1baa-43da-bedc-31e3a4e27df5
     - canvas.component.block.block_content.192edb9e-7c1e-4244-a309-2f623a8307f2
+    - canvas.component.block.block_content.1b08c6e0-aa04-4d92-aeac-9a04e4a3d9c5
     - canvas.component.block.block_content.2bad27be-c17c-4034-9645-58056e6c5833
     - canvas.component.block.block_content.405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c
     - canvas.component.block.block_content.4b11f2dc-65a0-4cf8-a6db-914ccab3610c
@@ -22,6 +23,7 @@ items:
   - block.block_content.0a885524-3461-46a7-af04-a13b08f08d6a
   - block.block_content.0ead4788-1baa-43da-bedc-31e3a4e27df5
   - block.block_content.192edb9e-7c1e-4244-a309-2f623a8307f2
+  - block.block_content.1b08c6e0-aa04-4d92-aeac-9a04e4a3d9c5
   - block.block_content.2bad27be-c17c-4034-9645-58056e6c5833
   - block.block_content.405cb2c3-0d4c-492b-8a9e-b0ccc7d2a57c
   - block.block_content.4b11f2dc-65a0-4cf8-a6db-914ccab3610c

@@ -1,0 +1,19 @@
+uuid: a6f1893d-0f16-4fa2-b0e4-ad54c3c338a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_common_repairs
+    - node.type.brand_page
+id: node.brand_page.field_common_repairs
+field_name: field_common_repairs
+entity_type: node
+bundle: brand_page
+label: 'Common repairs'
+description: 'One repair per item, e.g. "Compressor replacement". Rendered as a list on the page.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

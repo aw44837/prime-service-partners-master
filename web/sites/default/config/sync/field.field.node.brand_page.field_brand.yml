@@ -1,0 +1,28 @@
+uuid: ae56d22f-1ae4-4495-91c2-a7c90168d5b4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_brand
+    - node.type.brand_page
+    - taxonomy.vocabulary.brand
+id: node.brand_page.field_brand
+field_name: field_brand
+entity_type: node
+bundle: brand_page
+label: Brand
+description: 'The brand this page is about. Used for automatic crosslinks to service pages.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      brand: brand
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+field_type: entity_reference

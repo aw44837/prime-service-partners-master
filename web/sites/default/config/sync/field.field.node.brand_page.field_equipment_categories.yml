@@ -1,0 +1,28 @@
+uuid: eac4f568-e477-4761-9f27-734b467816d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_equipment_categories
+    - node.type.brand_page
+    - taxonomy.vocabulary.equipment_category
+id: node.brand_page.field_equipment_categories
+field_name: field_equipment_categories
+entity_type: node
+bundle: brand_page
+label: 'Equipment categories'
+description: 'What kinds of equipment this brand makes that we service and install.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      equipment_category: equipment_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+field_type: entity_reference

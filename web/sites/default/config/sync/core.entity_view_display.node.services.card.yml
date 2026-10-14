@@ -7,9 +7,12 @@ dependencies:
     - field.field.node.services.ai_automator_status
     - field.field.node.services.field_additional_body_content
     - field.field.node.services.field_body
+    - field.field.node.services.field_brand
     - field.field.node.services.field_featured_image
     - field.field.node.services.field_featured_image_prompt
     - field.field.node.services.field_intro_description
+    - field.field.node.services.field_meta_tags
+    - field.field.node.services.field_service_area
     - node.type.services
   module:
     - user
@@ -36,5 +39,8 @@ hidden:
   ai_automator_status: true
   field_additional_body_content: true
   field_body: true
+  field_brand: true
   field_featured_image_prompt: true
   field_intro_description: true
+  field_meta_tags: true
+  field_service_area: true

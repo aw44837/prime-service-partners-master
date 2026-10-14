@@ -1,0 +1,22 @@
+uuid: 67beaa47-9987-44fb-bd6f-e5c46c7d3a89
+langcode: en
+status: true
+dependencies:
+  module:
+    - psp_brands
+active_version: d0b926a2fac4d864
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: psp_brand_services
+        label: 'Brand: services for this brand'
+        label_display: '0'
+        provider: psp_brands
+    fallback_metadata:
+      slot_definitions: null
+label: 'Brand: services for this brand'
+id: block.psp_brand_services
+provider: psp_brands
+source: block
+source_local_id: psp_brand_services

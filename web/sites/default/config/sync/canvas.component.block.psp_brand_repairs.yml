@@ -1,0 +1,22 @@
+uuid: e3594860-f603-4919-ae1b-46b77a5e4035
+langcode: en
+status: true
+dependencies:
+  module:
+    - psp_brands
+active_version: 1c008a4cc8ac93fa
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: psp_brand_repairs
+        label: 'Brand: common repairs list'
+        label_display: '0'
+        provider: psp_brands
+    fallback_metadata:
+      slot_definitions: null
+label: 'Brand: common repairs list'
+id: block.psp_brand_repairs
+provider: psp_brands
+source: block
+source_local_id: psp_brand_repairs

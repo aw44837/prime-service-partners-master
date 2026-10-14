@@ -1,0 +1,22 @@
+uuid: c8fdff6f-3e59-48ca-9bdd-16f76d25dd9b
+langcode: en
+status: true
+dependencies:
+  module:
+    - psp_service_area
+active_version: fa38f0bc17862016
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: psp_area_phone_directory
+        label: 'Call Today! market phone directory'
+        label_display: '0'
+        provider: psp_service_area
+    fallback_metadata:
+      slot_definitions: null
+label: 'Call Today! market phone directory'
+id: block.psp_area_phone_directory
+provider: psp_service_area
+source: block
+source_local_id: psp_area_phone_directory

@@ -114,6 +114,7 @@ module:
   path: 0
   path_alias: 0
   project_browser: 0
+  psp_brands: 0
   psp_lead_guard: 0
   psp_link_schemes: 0
   psp_request_service: 0

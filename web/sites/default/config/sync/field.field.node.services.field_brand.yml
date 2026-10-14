@@ -1,0 +1,28 @@
+uuid: 92c3ee1f-d363-467b-a283-25851c9cbb6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_brand
+    - node.type.services
+    - taxonomy.vocabulary.brand
+id: node.services.field_brand
+field_name: field_brand
+entity_type: node
+bundle: services
+label: Brands
+description: 'Brands this service applies to. Powers "Brands we service" crosslinks.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      brand: brand
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+field_type: entity_reference

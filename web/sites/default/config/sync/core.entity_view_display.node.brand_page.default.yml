@@ -1,0 +1,33 @@
+uuid: dc941657-c97f-4062-84f4-2004b2fdc37e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.brand_page.field_additional_body_content
+    - field.field.node.brand_page.field_body
+    - field.field.node.brand_page.field_brand
+    - field.field.node.brand_page.field_common_repairs
+    - field.field.node.brand_page.field_equipment_categories
+    - field.field.node.brand_page.field_featured_image
+    - field.field.node.brand_page.field_intro_description
+    - field.field.node.brand_page.field_meta_tags
+    - field.field.node.brand_page.field_related_services
+    - node.type.brand_page
+  module:
+    - user
+id: node.brand_page.default
+targetEntityType: node
+bundle: brand_page
+mode: default
+content: {  }
+hidden:
+  field_additional_body_content: true
+  field_body: true
+  field_brand: true
+  field_common_repairs: true
+  field_equipment_categories: true
+  field_featured_image: true
+  field_intro_description: true
+  field_meta_tags: true
+  field_related_services: true
+  links: true

@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.services.ai_automator_status
     - field.field.node.services.field_additional_body_content
     - field.field.node.services.field_body
+    - field.field.node.services.field_brand
     - field.field.node.services.field_featured_image
     - field.field.node.services.field_featured_image_prompt
     - field.field.node.services.field_intro_description
@@ -76,6 +77,16 @@ content:
           weight: 0
           settings:
             automator_id: node.services.field_body.default
+  field_brand:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_featured_image:
     type: media_library_widget
     weight: 3
