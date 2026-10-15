@@ -105,7 +105,7 @@ class LlmsTxtController extends ControllerBase {
       $facts[] = 'Areas served: ' . implode(', ', $areas);
     }
     if (($booking = $s->get('booking_url')) && preg_match('@^(https?://|/)@', $booking)) {
-      $facts[] = 'Book online: ' . (str_starts_with($booking, '/') ? $this->getRequest()->getSchemeAndHttpHost() . $booking : $booking);
+      $facts[] = 'Book online: ' . (str_starts_with($booking, '/') ? \Drupal::request()->getSchemeAndHttpHost() . $booking : $booking);
     }
     foreach (array_filter((array) $s->get('llms_facts')) as $fact) {
       $facts[] = $fact;
@@ -135,7 +135,7 @@ class LlmsTxtController extends ControllerBase {
           }
         }
         if ($term->hasField('field_path_prefix') && ($prefix = trim((string) $term->get('field_path_prefix')->value, "/ \t\n"))) {
-          $parts[] = $this->getRequest()->getSchemeAndHttpHost() . '/' . $prefix;
+          $parts[] = \Drupal::request()->getSchemeAndHttpHost() . '/' . $prefix;
         }
         $offices[] = '- ' . implode(' — ', $parts);
       }
