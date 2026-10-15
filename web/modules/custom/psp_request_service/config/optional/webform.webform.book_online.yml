@@ -608,7 +608,8 @@ handlers:
         city: service_city
         state: service_state
         service_type: service_type
-        external_id: '[webform:id]-[webform_submission:sid]'
+        external_id: '[webform_submission:sid]'
+        appointment_datetime: preferred_service_date
         customer_name: customer_name
         phone_number: phone_number
         email: email

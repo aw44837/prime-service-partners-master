@@ -42,6 +42,7 @@ class AvocaSpeedToLeadHandler extends WebformHandlerBase {
     'country' => 'Country',
     'service_type' => 'Service type',
     'external_id' => 'External ID',
+    'appointment_datetime' => 'Preferred appointment date (sent as ISO 8601 YYYY-MM-DD)',
     'lead_source' => 'Lead source',
     'utm_source' => 'UTM source',
     'utm_medium' => 'UTM medium',
@@ -93,6 +94,7 @@ class AvocaSpeedToLeadHandler extends WebformHandlerBase {
         'country' => '',
         'service_type' => '',
         'external_id' => '',
+        'appointment_datetime' => '',
         'lead_source' => 'lead_source',
         'utm_source' => 'utm_source',
         'utm_medium' => 'utm_medium',
@@ -299,6 +301,15 @@ class AvocaSpeedToLeadHandler extends WebformHandlerBase {
       $digits = substr($digits, 1);
     }
     $payload['phone_number'] = $digits;
+    if (isset($payload['appointment_datetime'])) {
+      $iso = $this->isoDatetime($payload['appointment_datetime']);
+      if ($iso === '') {
+        unset($payload['appointment_datetime']);
+      }
+      else {
+        $payload['appointment_datetime'] = $iso;
+      }
+    }
 
     $notes = [];
     $labelled = !empty($this->configuration['notes_labels']);
@@ -326,6 +337,23 @@ class AvocaSpeedToLeadHandler extends WebformHandlerBase {
       }
     }
     return $ordered;
+  }
+
+  /**
+   * Formats a submitted date or date/time as an ISO 8601 date, "2026-10-20".
+   *
+   * Any time is dropped (after converting to the site timezone). Returns ''
+   * when the value is not a date.
+   */
+  protected function isoDatetime(string $value): string {
+    $timezone = new \DateTimeZone(\Drupal::config('system.date')->get('timezone.default') ?: date_default_timezone_get());
+    try {
+      $date = new \DateTime($value, $timezone);
+    }
+    catch (\Exception $e) {
+      return '';
+    }
+    return $date->setTimezone($timezone)->format('Y-m-d');
   }
 
   /**
