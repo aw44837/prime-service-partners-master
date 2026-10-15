@@ -30,6 +30,7 @@ class LlmsTxtController extends ControllerBase {
       $lines[] = '> ' . $description;
       $lines[] = '';
     }
+    array_push($lines, ...$this->keyFacts());
     if ($md_links) {
       $lines[] = 'Links below point to Markdown versions of each page; remove the `.md` suffix for the HTML version.';
       $lines[] = '';
@@ -63,6 +64,87 @@ class LlmsTxtController extends ControllerBase {
     $meta->addCacheContexts(['url.site']);
     $response->addCacheableDependency($meta);
     return $response;
+  }
+
+  /**
+   * Builds the "Key facts" (and, on multi-market sites, "Locations") sections.
+   *
+   * Lets an AI agent answer the common questions — phone, address, hours,
+   * area served, trades, how to book — from one fetch, using the same
+   * psp_seo.settings values that feed the schema.org markup.
+   *
+   * @return string[]
+   */
+  protected function keyFacts(): array {
+    $s = $this->config('psp_seo.settings');
+    if (!$s->get('company_name')) {
+      return [];
+    }
+    $trades = [
+      'Plumber' => 'plumbing',
+      'HVACBusiness' => 'heating & air conditioning (HVAC)',
+      'Electrician' => 'electrical',
+      'RoofingContractor' => 'roofing',
+    ];
+    $facts = [];
+    $offered = array_filter(array_map(fn($t) => $trades[$t] ?? NULL, (array) $s->get('business_types')));
+    if ($offered) {
+      $facts[] = 'Services: ' . implode(', ', $offered);
+    }
+    if ($phone = $s->get('phone')) {
+      $facts[] = 'Phone: ' . $phone;
+    }
+    if ($address = $s->get('address')) {
+      $facts[] = 'Address: ' . preg_replace('/\s*\R\s*/', ', ', trim($address));
+    }
+    $hours = array_values(array_filter((array) $s->get('opening_hours')));
+    if ($hours) {
+      $facts[] = 'Hours: ' . ($hours === ['Mo-Su 00:00-23:59'] ? 'open 24/7' : implode('; ', $hours));
+    }
+    if ($areas = array_values(array_filter((array) $s->get('area_served')))) {
+      $facts[] = 'Areas served: ' . implode(', ', $areas);
+    }
+    if (($booking = $s->get('booking_url')) && preg_match('@^(https?://|/)@', $booking)) {
+      $facts[] = 'Book online: ' . (str_starts_with($booking, '/') ? $this->getRequest()->getSchemeAndHttpHost() . $booking : $booking);
+    }
+    foreach (array_filter((array) $s->get('llms_facts')) as $fact) {
+      $facts[] = $fact;
+    }
+    if ($profiles = array_values(array_filter((array) $s->get('same_as')))) {
+      $facts[] = 'Profiles: ' . implode(', ', $profiles);
+    }
+    $lines = [];
+    if ($facts) {
+      $lines[] = '## Key facts';
+      $lines[] = '';
+      foreach ($facts as $fact) {
+        $lines[] = '- ' . $fact;
+      }
+      $lines[] = '';
+    }
+
+    // Multi-market sites: one line per market office (psp_service_area).
+    if ($this->moduleHandler()->moduleExists('psp_service_area')) {
+      $terms = $this->entityTypeManager()->getStorage('taxonomy_term')->loadTree('service_area', 0, NULL, TRUE);
+      $offices = [];
+      foreach ($terms as $term) {
+        $parts = [$term->label()];
+        foreach (['field_phone' => 'phone', 'field_address' => 'address'] as $field => $label) {
+          if ($term->hasField($field) && ($v = trim((string) $term->get($field)->value)) !== '') {
+            $parts[] = $label . ' ' . preg_replace('/\s*\R\s*/', ', ', $v);
+          }
+        }
+        if ($term->hasField('field_path_prefix') && ($prefix = trim((string) $term->get('field_path_prefix')->value, "/ \t\n"))) {
+          $parts[] = $this->getRequest()->getSchemeAndHttpHost() . '/' . $prefix;
+        }
+        $offices[] = '- ' . implode(' — ', $parts);
+      }
+      if ($offices) {
+        array_push($lines, '## Locations', '', ...$offices);
+        $lines[] = '';
+      }
+    }
+    return $lines;
   }
 
   /**

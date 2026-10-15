@@ -187,6 +187,8 @@ AddType image/webp .webp
   # https://httpd.apache.org/docs/current/mod/mod_headers.html.
   Header onsuccess unset X-Content-Type-Options
   Header always set X-Content-Type-Options nosniff
+  # HSTS: browsers stay on HTTPS for a year (no includeSubDomains/preload).
+  Header always set Strict-Transport-Security "max-age=31536000"
   # Disable Proxy header, since it's an attack vector.
   RequestHeader unset Proxy
 </IfModule>

@@ -72,7 +72,7 @@ component_tree:
     inputs:
       text: 'Call Us'
       href:
-        uri: 'internal:/contact'
+        uri: 'internal:/contact-us'
         options: {  }
       style: outline
       size: medium

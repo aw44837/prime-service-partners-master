@@ -11,6 +11,7 @@
 
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Render\Markup;
+use Drupal\node\NodeInterface;
 
 /**
  * Implements hook_page_attachments().
@@ -157,6 +158,143 @@ function psp_seo_page_attachments(array &$attachments): void {
     ],
     'psp_seo_site_entity',
   ];
+
+  $provider_id = $base . ($multi_market ? '/#organization' : '/#business');
+  if ($page_entity = _psp_seo_page_entity($attachments, $base, $provider_id, $settings)) {
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#tag' => 'script',
+        '#attributes' => ['type' => 'application/ld+json'],
+        '#value' => Markup::create(json_encode($page_entity, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT)),
+      ],
+      'psp_seo_page_entity',
+    ];
+  }
+}
+
+/**
+ * Builds the schema.org entity for the node being viewed, if any.
+ *
+ * - services nodes: a Service provided by the site business (or, on
+ *   multi-market sites, the node's market LocalBusiness from
+ *   psp_service_area), with areaServed. Skipped when psp_services is enabled
+ *   (it emits its own Service + FAQPage graph).
+ * - article nodes: a BlogPosting with publish/modified dates, so AI and search
+ *   engines can judge freshness.
+ */
+function _psp_seo_page_entity(array &$attachments, string $base, string $provider_id, $settings): ?array {
+  $route = \Drupal::routeMatch();
+  $node = $route->getParameter('node');
+  $attachments['#cache']['contexts'][] = 'route';
+  if (!$node instanceof NodeInterface || $route->getRouteName() !== 'entity.node.canonical') {
+    return NULL;
+  }
+  $attachments['#cache']['tags'] = Cache::mergeTags($attachments['#cache']['tags'], $node->getCacheTags());
+  $url = $node->toUrl('canonical', ['absolute' => TRUE])->toString();
+  $publisher = ['@id' => $provider_id];
+
+  if ($node->bundle() === 'services' && !\Drupal::moduleHandler()->moduleExists('psp_services')) {
+    $data = [
+      '@context' => 'https://schema.org',
+      '@type' => 'Service',
+      '@id' => $url . '#service',
+      'name' => $node->label(),
+      'serviceType' => $node->label(),
+      'url' => $url,
+      'provider' => $publisher,
+    ];
+    $term = $node->hasField('field_service_area') ? $node->get('field_service_area')->entity : NULL;
+    if ($term && $term->hasField('field_path_prefix') && ($prefix = trim((string) $term->get('field_path_prefix')->value, "/ \t\n"))) {
+      // Multi-market site: the market's LocalBusiness (psp_service_area).
+      $data['provider'] = ['@id' => $base . '/' . $prefix . '#business'];
+      $data['areaServed'] = ['@type' => 'Place', 'name' => $term->getName()];
+    }
+    elseif ($areas = array_values(array_filter((array) $settings->get('area_served')))) {
+      $data['areaServed'] = array_map(fn($a) => ['@type' => 'Place', 'name' => $a], $areas);
+    }
+    elseif (($address = $settings->get('address')) && ($postal = _psp_seo_postal_address($address)) && !empty($postal['addressLocality'])) {
+      $data['areaServed'] = ['@type' => 'Place', 'name' => $postal['addressLocality'] . ', ' . $postal['addressRegion']];
+    }
+    if ($description = _psp_seo_node_description($node)) {
+      $data['description'] = $description;
+    }
+    return $data;
+  }
+
+  if ($node->bundle() === 'article') {
+    $data = [
+      '@context' => 'https://schema.org',
+      '@type' => 'BlogPosting',
+      '@id' => $url . '#article',
+      'headline' => mb_substr($node->label(), 0, 110),
+      'url' => $url,
+      'mainEntityOfPage' => $url,
+      'datePublished' => date('c', (int) $node->getCreatedTime()),
+      'dateModified' => date('c', (int) $node->getChangedTime()),
+      'author' => $publisher,
+      'publisher' => $publisher,
+    ];
+    if ($image = _psp_seo_node_image($node)) {
+      $data['image'] = $image;
+    }
+    if ($description = _psp_seo_node_description($node)) {
+      $data['description'] = $description;
+    }
+    return $data;
+  }
+  return NULL;
+}
+
+/**
+ * Returns the node's own meta description, when one was entered.
+ */
+function _psp_seo_node_description(NodeInterface $node): ?string {
+  if (!$node->hasField('field_meta_tags') || $node->get('field_meta_tags')->isEmpty()) {
+    return NULL;
+  }
+  $raw = (string) $node->get('field_meta_tags')->value;
+  $tags = json_decode($raw, TRUE) ?: @unserialize($raw, ['allowed_classes' => FALSE]) ?: [];
+  $description = trim((string) ($tags['description'] ?? ''));
+  return $description !== '' && !str_contains($description, '[') ? $description : NULL;
+}
+
+/**
+ * Returns the absolute URL of the node's featured image, if any.
+ */
+function _psp_seo_node_image(NodeInterface $node): ?string {
+  if (!$node->hasField('field_featured_image') || !($media = $node->get('field_featured_image')->entity)) {
+    return NULL;
+  }
+  $source_field = $media->getSource()->getConfiguration()['source_field'] ?? NULL;
+  $file = $source_field && $media->hasField($source_field) ? $media->get($source_field)->entity : NULL;
+  return $file ? \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri()) : NULL;
+}
+
+/**
+ * Implements hook_metatags_alter().
+ *
+ * Utility pages that must stay published but out of search results (form
+ * confirmation pages, etc.) are listed in psp_seo.settings:noindex_paths.
+ */
+function psp_seo_metatags_alter(array &$metatags, array &$context): void {
+  // Nodes without a featured image share the site default og:image instead of
+  // emitting none (the node default points og:image at the featured image).
+  $entity = $context['entity'] ?? NULL;
+  if ($entity instanceof NodeInterface && $entity->hasField('field_featured_image') && $entity->get('field_featured_image')->isEmpty()) {
+    $metatags['og_image'] = '[site:url]modules/custom/psp_seo/images/psp-og-default.jpg';
+  }
+
+  $paths = \Drupal::config('psp_seo.settings')->get('noindex_paths') ?? ['/thank-you'];
+  if (!$paths) {
+    return;
+  }
+  $current = \Drupal::service('path.current')->getPath();
+  $alias = \Drupal::service('path_alias.manager')->getAliasByPath($current);
+  $patterns = implode("\n", (array) $paths);
+  $matcher = \Drupal::service('path.matcher');
+  if ($matcher->matchPath($alias, $patterns) || $matcher->matchPath($current, $patterns)) {
+    $metatags['robots'] = 'noindex, follow';
+  }
 }
 
 /**

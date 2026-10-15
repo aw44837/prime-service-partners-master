@@ -15,3 +15,7 @@ price_range: ''
 opening_hours: {  }
 locations: {  }
 llms_description: ''
+llms_facts: {  }
+area_served: {  }
+noindex_paths:
+  - /thank-you

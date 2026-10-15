@@ -69,3 +69,21 @@ psp_seo.settings:
     llms_description:
       type: string
       label: 'One-line site summary for llms.txt (falls back to the site slogan)'
+    llms_facts:
+      type: sequence
+      label: 'Key facts listed in llms.txt (licenses, founded year, brands serviced, guarantees…)'
+      sequence:
+        type: string
+        label: 'Fact'
+    area_served:
+      type: sequence
+      label: 'Cities/areas served (schema.org areaServed and llms.txt)'
+      sequence:
+        type: string
+        label: 'Area'
+    noindex_paths:
+      type: sequence
+      label: 'Paths kept out of search results with robots noindex (path patterns, e.g. /thank-you)'
+      sequence:
+        type: string
+        label: 'Path pattern'

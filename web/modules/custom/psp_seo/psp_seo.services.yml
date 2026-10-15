@@ -4,3 +4,8 @@ services:
     arguments: ['@path.matcher']
     tags:
       - { name: event_subscriber }
+  psp_seo.html_enhancement_subscriber:
+    class: Drupal\psp_seo\EventSubscriber\HtmlEnhancementSubscriber
+    arguments: ['@router.admin_context']
+    tags:
+      - { name: event_subscriber }
