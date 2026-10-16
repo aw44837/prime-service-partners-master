@@ -92,3 +92,8 @@ h1, h2, h3, h4, h5, h6,
     align-self: center;
   }
 }
+
+/* Review dates: the base theme's #888 is 3.5:1 on white; WCAG AA needs 4.5:1. */
+.review-card .review-card__date {
+  color: #6b6b6b;
+}
