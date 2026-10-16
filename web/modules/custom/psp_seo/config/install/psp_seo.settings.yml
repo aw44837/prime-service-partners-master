@@ -19,3 +19,4 @@ llms_facts: {  }
 area_served: {  }
 noindex_paths:
   - /thank-you
+path_descriptions: {  }

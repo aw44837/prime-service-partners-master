@@ -284,6 +284,19 @@ function psp_seo_metatags_alter(array &$metatags, array &$context): void {
     $metatags['og_image'] = '[site:url]modules/custom/psp_seo/images/psp-og-default.jpg';
   }
 
+  // Meta descriptions for pages that have no entity to carry one (Views
+  // listings such as /blog and /reviews): psp_seo.settings:path_descriptions.
+  $descriptions = (array) \Drupal::config('psp_seo.settings')->get('path_descriptions');
+  if ($descriptions && empty($context['entity'])) {
+    $current_alias = \Drupal::service('path_alias.manager')->getAliasByPath(\Drupal::service('path.current')->getPath());
+    foreach ($descriptions as $item) {
+      if (($item['path'] ?? NULL) === $current_alias && !empty($item['description'])) {
+        $metatags['description'] = $item['description'];
+        break;
+      }
+    }
+  }
+
   $paths = \Drupal::config('psp_seo.settings')->get('noindex_paths') ?? ['/thank-you'];
   if (!$paths) {
     return;

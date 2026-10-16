@@ -87,3 +87,16 @@ psp_seo.settings:
       sequence:
         type: string
         label: 'Path pattern'
+    path_descriptions:
+      type: sequence
+      label: 'Meta descriptions for pages without an entity (Views listings like /blog)'
+      sequence:
+        type: mapping
+        label: 'Path description'
+        mapping:
+          path:
+            type: string
+            label: 'Path alias (e.g. /blog)'
+          description:
+            type: string
+            label: 'Meta description'

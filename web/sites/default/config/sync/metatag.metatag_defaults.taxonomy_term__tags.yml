@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_term__tags
+label: 'Taxonomy term: Tags'
+tags:
+  robots: 'noindex, follow'
