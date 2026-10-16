@@ -46,9 +46,9 @@ final class HtmlEnhancementSubscriber implements EventSubscriberInterface {
     }
 
     $new = $this->demoteExtraH1s($html);
+    $new = $this->fixCardHeadingLevels($new);
     $new = $this->addFaqSchema($new);
     $new = $this->prioritizeHeroImage($new);
-    $new = $this->sizeLocalImages($new);
     $new = $this->fixVideoPosters($new);
     if ($new !== $html) {
       $response->setContent($new);
@@ -66,6 +66,37 @@ final class HtmlEnhancementSubscriber implements EventSubscriberInterface {
       static fn(array $m): string => '<h2' . ($m[1] ?? '') . '>' . $m[2] . '</h2>',
       $html);
     return is_string($out) ? $out : $html;
+  }
+
+  /**
+   * Keeps card titles from skipping heading levels.
+   *
+   * Dripyard's card components hard-code <h3> titles. Placed directly under
+   * the page H1 (blog listings, service card rows) that skips H2. A card title
+   * that would skip a level takes the next valid level instead, and every
+   * following card title of the same kind in that run gets the same level so
+   * the cards stay siblings. Size and spacing come from the card classes and
+   * H2/H3 share weight and font family, so the change is not visible.
+   */
+  private function fixCardHeadingLevels(string $html): string {
+    $card_class = '#\bclass="(card__title|card-full-image__title|icon-card__title|content-card__title)\b#';
+    $prev = 0;
+    $run = [];
+    return preg_replace_callback('#<h([1-6])(\b[^>]*)>(.*?)</h\1>#si', static function (array $m) use (&$prev, &$run, $card_class): string {
+      $level = (int) $m[1];
+      if (!preg_match($card_class, $m[2], $c)) {
+        $run = [];
+        $prev = $level;
+        return $m[0];
+      }
+      $key = $c[1] . ':' . $level;
+      if (!isset($run[$key])) {
+        $run[$key] = ($prev && $level > $prev + 1) ? $prev + 1 : $level;
+        $prev = $run[$key];
+      }
+      $new = $run[$key];
+      return $new === $level ? $m[0] : '<h' . $new . $m[2] . '>' . $m[3] . '</h' . $new . '>';
+    }, $html) ?? $html;
   }
 
   /**
@@ -170,28 +201,6 @@ final class HtmlEnhancementSubscriber implements EventSubscriberInterface {
       $html = substr_replace($html, $eager, $next[0][1], strlen($next[0][0]));
     }
     return $html;
-  }
-
-  /**
-   * Adds width/height to local raster images that lack them (e.g. logos).
-   *
-   * Without intrinsic dimensions the browser cannot reserve space before the
-   * image loads. Dimensions are read from the file on disk; the page cache
-   * stores the result, so this runs once per cached page.
-   */
-  private function sizeLocalImages(string $html): string {
-    static $dims = [];
-    return preg_replace_callback('#<img\b(?![^>]*\bwidth=)[^>]*\bsrc="(/(?:sites|themes|modules)/[^"?]+\.(?:png|jpe?g|gif|webp))(?:\?[^"]*)?"[^>]*>#i', static function (array $m) use (&$dims): string {
-      $path = DRUPAL_ROOT . rawurldecode($m[1]);
-      if (!array_key_exists($path, $dims)) {
-        $size = is_file($path) ? @getimagesize($path) : FALSE;
-        $dims[$path] = $size ? [$size[0], $size[1]] : NULL;
-      }
-      if (!$dims[$path]) {
-        return $m[0];
-      }
-      return preg_replace('#^<img\b#', sprintf('<img width="%d" height="%d"', $dims[$path][0], $dims[$path][1]), $m[0]);
-    }, $html) ?? $html;
   }
 
   /**
