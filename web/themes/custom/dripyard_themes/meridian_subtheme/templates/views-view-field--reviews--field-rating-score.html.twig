@@ -9,7 +9,7 @@
 {%- set rating = rating is empty ? 0 : rating|round -%}
 {%- set rating = max(0, min(5, rating)) -%}
 {%- apply spaceless -%}
-  <span class="review-card__stars-inner" aria-label="{{ rating }} out of 5 stars">
+  <span class="review-card__stars-inner" role="img" aria-label="{{ rating }} out of 5 stars">
     {%- for i in 1..5 -%}
       <span aria-hidden="true">{{ i <= rating ? '★' : '☆' }}</span>
     {%- endfor -%}
