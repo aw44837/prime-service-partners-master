@@ -136,13 +136,16 @@ final class HtmlEnhancementSubscriber implements EventSubscriberInterface {
   }
 
   /**
-   * Makes the hero image (the usual LCP element) load first.
+   * Makes the hero image (the usual LCP element) load without delay.
    *
-   * Canvas renders hero images with loading="lazy" on most pages and nothing
-   * marks them high priority, so mobile browsers fetch them late. The first
-   * image inside .hero__media gets loading="eager", fetchpriority="high" and
-   * a <link rel="preload"> in <head> so the request starts with the HTML.
-   * The header logo's fetchpriority="high" is dropped so it does not compete.
+   * Canvas renders hero images with loading="lazy" on most pages, so mobile
+   * browsers fetch them late. The first image inside .hero__media, and the
+   * first lazy image after it (e.g. a blog post's inline featured image,
+   * which is the LCP element there), load eagerly; Chrome raises in-viewport
+   * images to high priority on its own. Measured on PageSpeed (2026-10): an
+   * explicit fetchpriority="high" or a <link rel="preload"> did not help and
+   * the preload made several pages slower, so neither is added. The header
+   * logo's fetchpriority="high" is dropped so it does not compete.
    */
   private function prioritizeHeroImage(string $html): string {
     $html = preg_replace('#(<img\b[^>]*class="header-logo__image"[^>]*?)\s+fetchpriority="high"#', '$1', $html) ?? $html;
@@ -157,16 +160,14 @@ final class HtmlEnhancementSubscriber implements EventSubscriberInterface {
     }
     $new = preg_replace('#\sloading="[^"]*"#', '', $tag);
     $new = preg_replace('#\ssizes="auto,?\s*#', ' sizes="', $new);
-    $new = preg_replace('#^<img\b#', '<img loading="eager" fetchpriority="high"', str_replace(' fetchpriority="high"', '', $new));
+    $new = preg_replace('#^<img\b#', '<img loading="eager"', $new);
     $html = substr_replace($html, $new, $pos, strlen($tag));
 
-    if (preg_match('#\ssrcset="([^"]+)"#', $new, $srcset) && stripos($html, 'rel="preload" as="image"') === FALSE) {
-      preg_match('#\ssizes="([^"]+)"#', $new, $sizes);
-      $link = '<link rel="preload" as="image" imagesrcset="' . $srcset[1] . '" imagesizes="' . ($sizes[1] ?? '100vw') . '" fetchpriority="high">';
-      $head = stripos($html, '</head>');
-      if ($head !== FALSE) {
-        $html = substr_replace($html, $link . "\n", $head, 0);
-      }
+    $after = strpos($html, '</div>', $pos + strlen($new));
+    if ($after !== FALSE && preg_match('#<img\b[^>]*\bloading="lazy"[^>]*>#', $html, $next, PREG_OFFSET_CAPTURE, $after)) {
+      $eager = str_replace(' loading="lazy"', ' loading="eager"', $next[0][0]);
+      $eager = preg_replace('#\ssizes="auto,?\s*#', ' sizes="', $eager);
+      $html = substr_replace($html, $eager, $next[0][1], strlen($next[0][0]));
     }
     return $html;
   }
