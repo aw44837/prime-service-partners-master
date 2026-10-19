@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a158b53ea04c73bb52cc86257e756719",
+    "content-hash": "3b833fa464ce26da4b45643e8935d5e7",
     "packages": [
         {
             "name": "altcha-org/altcha",
@@ -9986,6 +9986,15 @@
                 "source": "https://github.com/mtibben/html2text/tree/4.3.2"
             },
             "time": "2024-08-20T02:43:29+00:00"
+        },
+        {
+            "name": "jquery-validation/jquery-validation",
+            "version": "1.21.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/jquery-validation/jquery-validation/releases/download/1.21.0/jquery-validation-1.21.0.zip"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "justinrainbow/json-schema",

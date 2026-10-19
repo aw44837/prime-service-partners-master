@@ -13,6 +13,18 @@
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        "jquery-validation": {
+            "type": "package",
+            "package": {
+                "name": "jquery-validation/jquery-validation",
+                "version": "1.21.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/jquery-validation/jquery-validation/releases/download/1.21.0/jquery-validation-1.21.0.zip",
+                    "type": "zip"
+                }
+            }
         }
     },
     "require": {
@@ -66,7 +78,8 @@
         "drupal/trash": "^3.0",
         "drupal/visitors": "^2.33",
         "drupal/webform": "^6.3@beta",
-        "drupal/webform_validation": "^2.0"
+        "drupal/webform_validation": "^2.0",
+        "jquery-validation/jquery-validation": "1.21.0"
     },
     "require-dev": {
         "drush/drush": "^13.7"

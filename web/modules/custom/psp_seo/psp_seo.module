@@ -430,3 +430,23 @@ function _psp_seo_absolute_url(?string $url): ?string {
   }
   return \Drupal\Core\Url::fromUserInput($url, ['absolute' => TRUE])->toString();
 }
+
+/**
+ * Implements hook_library_info_alter().
+ *
+ * Google Tag's two small loader scripts (gtm.js, gtag.js) sit in <head>
+ * without async or defer, so the browser must fetch and run them before it
+ * can draw the page. Deferring them keeps the early download but runs them
+ * after the HTML is parsed, in order, before deferred scripts that come later
+ * in the page (Klaro's consent callbacks rely on dataLayer/gtag existing).
+ */
+function psp_seo_library_info_alter(array &$libraries, string $extension): void {
+  if ($extension !== 'google_tag') {
+    return;
+  }
+  foreach (['gtm' => 'js/gtm.js', 'gtag' => 'js/gtag.js'] as $library => $file) {
+    if (isset($libraries[$library]['js'][$file])) {
+      $libraries[$library]['js'][$file]['attributes']['defer'] = TRUE;
+    }
+  }
+}

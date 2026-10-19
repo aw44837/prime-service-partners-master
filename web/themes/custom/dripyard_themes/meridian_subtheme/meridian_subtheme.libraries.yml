@@ -2,6 +2,7 @@
 base:
   css:
     theme:
+      css/fonts.css: {}
       css/base.css: {}
       css/cta-box.css: {}
 

@@ -3,8 +3,7 @@
  * Global styles.
  */
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Nunito:ital,wght@0,200..900;1,200..900&display=swap');
+/* Caprasimo, Nunito are self-hosted: see css/fonts.css. */
 
 /* Two-column dropdown for "Areas we Serve" menu item (desktop only) */
 @container (width > 1000px) {
