@@ -449,4 +449,12 @@ function psp_seo_library_info_alter(array &$libraries, string $extension): void 
       $libraries[$library]['js'][$file]['attributes']['defer'] = TRUE;
     }
   }
+  // Optional: start GTM only on first interaction or 4s after load, so its
+  // container and tags stay out of the initial page load (js/gtm-lazy.js).
+  if (\Drupal::config('psp_seo.settings')->get('lazy_gtm') && isset($libraries['gtm']['js']['js/gtm.js'])) {
+    $definition = $libraries['gtm']['js']['js/gtm.js'];
+    unset($libraries['gtm']['js']['js/gtm.js']);
+    $path = '/' . \Drupal::service('extension.list.module')->getPath('psp_seo') . '/js/gtm-lazy.js';
+    $libraries['gtm']['js'][$path] = $definition;
+  }
 }

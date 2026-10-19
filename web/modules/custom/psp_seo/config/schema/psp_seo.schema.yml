@@ -87,6 +87,9 @@ psp_seo.settings:
       sequence:
         type: string
         label: 'Path pattern'
+    lazy_gtm:
+      type: boolean
+      label: 'Load Google Tag Manager on first interaction or 4s after page load'
     path_descriptions:
       type: sequence
       label: 'Meta descriptions for pages without an entity (Views listings like /blog)'
