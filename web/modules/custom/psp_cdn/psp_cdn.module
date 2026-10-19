@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Purges the Hostinger CDN when page content changes.
+ *
+ * Hostinger's API purges a whole website (no per-URL or per-tag purge), so
+ * cache tags only decide whether a purge is needed: see CdnPurger.
+ */
+
+/**
+ * Implements hook_cron().
+ *
+ * Sends a purge that was held back by the cooldown and never picked up by a
+ * later request.
+ */
+function psp_cdn_cron(): void {
+  \Drupal::service('psp_cdn.purger')->purgePending();
+}

@@ -1,0 +1,5 @@
+name: 'PSP CDN purge'
+type: module
+description: 'Purges the Hostinger CDN edge cache when content or configuration that affects pages changes.'
+package: 'Prime Service Partners'
+core_version_requirement: ^10.3 || ^11

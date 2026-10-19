@@ -1,0 +1,10 @@
+services:
+  logger.channel.psp_cdn:
+    parent: logger.channel_base
+    arguments: ['psp_cdn']
+  psp_cdn.purger:
+    class: Drupal\psp_cdn\CdnPurger
+    arguments: ['@state', '@http_client', '@logger.channel.psp_cdn', '@datetime.time']
+    tags:
+      - { name: cache_tags_invalidator }
+      - { name: needs_destruction }
