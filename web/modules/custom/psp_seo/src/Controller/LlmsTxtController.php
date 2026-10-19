@@ -170,7 +170,12 @@ class LlmsTxtController extends ControllerBase {
         && ($term = $node->get('field_service_area')->entity)) {
         $label .= ' — ' . $term->label();
       }
-      $links[] = '- [' . $label . '](' . $url . ($md_links ? '.md' : '') . ')';
+      $line = '- [' . $label . '](' . $url . ($md_links ? '.md' : '') . ')';
+      // The page's quick answer (intro under the H1), as llms.txt link notes.
+      if ($intro = _psp_seo_node_intro($node)) {
+        $line .= ': ' . $intro;
+      }
+      $links[] = $line;
     }
     if ($sort === 'title') {
       sort($links);

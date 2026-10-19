@@ -215,7 +215,9 @@ function _psp_seo_page_entity(array &$attachments, string $base, string $provide
     elseif (($address = $settings->get('address')) && ($postal = _psp_seo_postal_address($address)) && !empty($postal['addressLocality'])) {
       $data['areaServed'] = ['@type' => 'Place', 'name' => $postal['addressLocality'] . ', ' . $postal['addressRegion']];
     }
-    if ($description = _psp_seo_node_description($node)) {
+    // Prefer the visible intro under the H1 (the page's quick answer), so the
+    // schema matches what visitors read; fall back to the meta description.
+    if ($description = _psp_seo_node_intro($node) ?? _psp_seo_node_description($node)) {
       $data['description'] = $description;
     }
     return $data;
@@ -243,6 +245,18 @@ function _psp_seo_page_entity(array &$attachments, string $base, string $provide
     return $data;
   }
   return NULL;
+}
+
+/**
+ * Returns the node's intro text (field_intro_description) as plain text.
+ */
+function _psp_seo_node_intro(NodeInterface $node): ?string {
+  if (!$node->hasField('field_intro_description') || $node->get('field_intro_description')->isEmpty()) {
+    return NULL;
+  }
+  $text = html_entity_decode(strip_tags((string) $node->get('field_intro_description')->value), ENT_QUOTES | ENT_HTML5);
+  $text = trim(preg_replace('/\s+/u', ' ', $text));
+  return $text !== '' ? $text : NULL;
 }
 
 /**
