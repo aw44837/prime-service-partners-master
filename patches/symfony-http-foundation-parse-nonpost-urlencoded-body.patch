@@ -1,11 +1,11 @@
 --- a/Request.php
 +++ b/Request.php
-@@ -303,11 +303,20 @@
+@@ -311,11 +311,20 @@
              return self::createRequestFromFactory($_GET, $post, [], $_COOKIE, $_FILES, $_SERVER, $content);
          }
  
 -        try {
--            [$post, $files] = request_parse_body();
+-            [$post, $files] = @request_parse_body();
 -        } catch (\RequestParseBodyException) {
 -            $post = $_POST;
 -            $files = $_FILES;
@@ -18,7 +18,7 @@
 +            $files = [];
 +        } else {
 +            try {
-+                [$post, $files] = request_parse_body();
++                [$post, $files] = @request_parse_body();
 +            } catch (\RequestParseBodyException) {
 +                $post = $_POST;
 +                $files = $_FILES;
