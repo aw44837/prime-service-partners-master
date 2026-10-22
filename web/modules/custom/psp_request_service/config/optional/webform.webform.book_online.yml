@@ -12,7 +12,7 @@ template: false
 archive: false
 id: book_online
 title: 'Book Online'
-description: '<p>This is a concept form for beginning an online booking experience.&nbsp;</p>'
+description: '<p>This is an integrated booking form to connect customers looking to schedule service with Avoca speed-to-lead APIs to complete the booking.&nbsp;</p>'
 categories: {  }
 elements: |
   service_type_and_date:
