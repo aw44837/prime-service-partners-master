@@ -1,0 +1,6 @@
+services:
+  psp_focal_point.twig_extension:
+    class: Drupal\psp_focal_point\FocalPointTwigExtension
+    arguments: ['@entity_type.manager', '@image.factory', '@stream_wrapper.public']
+    tags:
+      - { name: twig.extension }

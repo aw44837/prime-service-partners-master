@@ -1,0 +1,7 @@
+name: 'PSP Focal Point'
+type: module
+description: 'Applies Focal Point crops to images that are cropped in CSS (object-fit: cover), such as Canvas hero images, by exposing a focal_point_position() Twig function.'
+core_version_requirement: ^11
+package: 'PSP'
+dependencies:
+  - focal_point:focal_point
