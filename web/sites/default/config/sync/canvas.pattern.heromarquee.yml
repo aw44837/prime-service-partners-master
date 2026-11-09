@@ -29,7 +29,7 @@ component_tree:
     slot: cell_1
     uuid: 3c9a25bf-2e5f-4eac-9121-a2e264903e8a
     component_id: sdc.neonbyte.hero
-    component_version: fd16917fc8f81fbc
+    component_version: d7d12a494153aabb
     inputs:
       theme: dark
       height: medium

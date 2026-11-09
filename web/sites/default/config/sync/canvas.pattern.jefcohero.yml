@@ -30,7 +30,7 @@ component_tree:
   '0:8499481b-1ed5-4577-ad38-b0003b711b49':
     uuid: 8499481b-1ed5-4577-ad38-b0003b711b49
     component_id: sdc.neonbyte.hero
-    component_version: fd16917fc8f81fbc
+    component_version: d7d12a494153aabb
     inputs:
       theme: primary
       height: small

@@ -44,7 +44,7 @@ component_tree:
     slot: cell_1
     uuid: bbb8f34a-4e35-4f6a-904a-7729c3450958
     component_id: sdc.neonbyte.hero
-    component_version: fd16917fc8f81fbc
+    component_version: d7d12a494153aabb
     inputs:
       theme: inherit
       height: full-screen
