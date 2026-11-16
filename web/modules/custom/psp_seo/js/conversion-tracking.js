@@ -36,10 +36,14 @@
     return window;
   }
 
-  function push(data) {
+  function push(data, startNow = false) {
     const w = target();
     w.dataLayer = w.dataLayer || [];
     w.dataLayer.push(data);
+    // Lazy GTM (gtm-lazy.js) otherwise waits for an interaction or 4s.
+    if (startNow && typeof w.pspStartGtm === 'function') {
+      w.pspStartGtm();
+    }
   }
 
   function normalisePhone(href) {
@@ -100,7 +104,7 @@
         form_type: form.form_type,
         form_id: form.form_id,
         form_name: form.form_name,
-      });
+      }, true);
     });
   }
 

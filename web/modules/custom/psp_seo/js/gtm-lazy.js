@@ -60,6 +60,9 @@
     });
   }
 
+  // conversion-tracking.js starts GTM at once when a form completes, so the
+  // event is sent even if the visitor leaves the confirmation straight away.
+  window.pspStartGtm = start;
   events.forEach((name) => window.addEventListener(name, start, options));
   const later = () => setTimeout(start, 4000);
   if (document.readyState === 'complete') {
