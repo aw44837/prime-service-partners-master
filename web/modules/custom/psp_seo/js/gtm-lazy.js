@@ -16,6 +16,17 @@
   if (!drupalSettings.gtm) {
     return;
   }
+  // Inside a same-origin iframe (the booking card's form) the parent page
+  // already runs GTM and conversion-tracking.js reports there; a second
+  // container here would only add a stray page view for the share page.
+  try {
+    if (window.parent !== window && window.parent.location.origin === window.location.origin) {
+      return;
+    }
+  }
+  catch (e) {
+    // Cross-origin parent: keep tracking in this window.
+  }
   const config = drupalSettings.gtm;
   const events = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
   const options = { passive: true, capture: true };

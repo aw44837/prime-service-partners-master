@@ -1,0 +1,9 @@
+# Conversion signals pushed to the GTM dataLayer (phone clicks, ServiceTitan
+# scheduler opens, completed webforms). Attached to every page by
+# Drupal\psp_seo\Hook\ConversionTrackingHooks.
+conversion_tracking:
+  js:
+    js/conversion-tracking.js: { attributes: { defer: true } }
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
