@@ -96,13 +96,13 @@ component_tree:
     component_id: sdc.dripyard_base.content-card
     component_version: 7afc561cf35c01e5
     inputs:
-      title: '"What a Great Team!"'
+      title: REVIEW_TITLE
       link_href:
         uri: 'internal:/'
         options: {  }
-      metadata: 'Jack P.'
+      metadata: REVIEWER_NAME
       body_text:
-        value: '<p>“Jessie, Dylan, and Will were great and courteous Professionals. With an Encore visit from John, my tech from the initial call out, just to check on how things were going.”</p>'
+        value: '<p>“REVIEW_QUOTE”</p>'
         format: canvas_html_block
       background: true
   '0:cell_1:2:carousel_items:1:3cd36a54-c74f-408b-a743-4a2c482527c5':
@@ -112,13 +112,13 @@ component_tree:
     component_id: sdc.dripyard_base.content-card
     component_version: 7afc561cf35c01e5
     inputs:
-      title: '“HIGHLY RECOMMEND!!!”'
+      title: REVIEW_TITLE
       link_href:
         uri: 'internal:/'
         options: {  }
-      metadata: 'Peggy M.'
+      metadata: REVIEWER_NAME
       body_text:
-        value: '<p>“Every person I came in contact with from beginning to end was wonderful. I do want to do a special shout-out to Darlene (Office) and Dee (Technician). Both of them have exceptional CUSTOMER SERVICE skills.”</p>'
+        value: '<p>“REVIEW_QUOTE”</p>'
         format: canvas_html_block
       background: true
   '0:cell_1:2:carousel_items:2:ccd9a5de-e397-438a-ac13-b5ea70e109fc':
@@ -128,13 +128,13 @@ component_tree:
     component_id: sdc.dripyard_base.content-card
     component_version: 7afc561cf35c01e5
     inputs:
-      title: '“Knowledgeable, Friendly Technicians, & Fair Pricing”'
+      title: REVIEW_TITLE
       link_href:
         uri: 'internal:/'
         options: {  }
-      metadata: 'Jason A.'
+      metadata: REVIEWER_NAME
       body_text:
-        value: '<p>“Always get great service from everyone at Jefco! They are available. Quick to respond. Great at communicating. I highly recommend them!”</p>'
+        value: '<p>“REVIEW_QUOTE”</p>'
         format: canvas_html_block
       background: true
   '0:cell_1:3:82518764-f93c-4954-9d81-99370226b1b6':

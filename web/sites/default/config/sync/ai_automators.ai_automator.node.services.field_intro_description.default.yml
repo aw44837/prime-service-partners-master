@@ -17,7 +17,7 @@ edit_mode: false
 base_field: revision_log
 prompt: ''
 token: |+
-  Based on the context found here, write a short intro paragraph about this page that focuses on the user's potential pain point and how JeffCo can be the solution.
+  Based on the context found here, write a short intro paragraph about this page that focuses on the user's potential pain point and how BRAND_NAME can be the solution.
 
   Primary context is the page title: [node:title]
 
@@ -31,7 +31,7 @@ plugin_config:
   automator_base_field: revision_log
   automator_prompt: ''
   automator_token: |+
-    Based on the context found here, write a short intro paragraph about this page that focuses on the user's potential pain point and how JeffCo can be the solution.
+    Based on the context found here, write a short intro paragraph about this page that focuses on the user's potential pain point and how BRAND_NAME can be the solution.
 
     Primary context is the page title: [node:title]
 

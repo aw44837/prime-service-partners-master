@@ -5,7 +5,7 @@ dependencies:
   config:
     - canvas.component.block.jefco_menu_block
     - canvas.component.sdc.meridian.menu-display
-name: JefCo
+name: Menus
 configEntityTypeId: component
 weight: 0
 items:

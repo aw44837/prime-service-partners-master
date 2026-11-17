@@ -176,7 +176,7 @@ component_tree:
     inputs:
       text: 'Call Us'
       href:
-        uri: 'tel:850-616-2183'
+        uri: 'tel:555-555-5555'
         options: {  }
       style: outline
       size: large
@@ -276,7 +276,7 @@ component_tree:
     component_version: 05732cb45a35eac6
     inputs:
       text:
-        value: '<p>Get in touch with JefCo if you need service at your home or business.</p>'
+        value: '<p>Get in touch with BRAND_NAME if you need service at your home or business.</p>'
         format: canvas_html_block
       style: body_m
       color: inherit
@@ -447,13 +447,13 @@ component_tree:
     component_id: sdc.dripyard_base.content-card
     component_version: 7afc561cf35c01e5
     inputs:
-      title: '"What a Great Team!"'
+      title: REVIEW_TITLE
       link_href:
         uri: 'internal:/'
         options: {  }
-      metadata: 'Jack P.'
+      metadata: REVIEWER_NAME
       body_text:
-        value: '<p>“Jessie, Dylan, and Will were great and courteous Professionals. With an Encore visit from John, my tech from the initial call out, just to check on how things were going.”</p>'
+        value: '<p>“REVIEW_QUOTE”</p>'
         format: canvas_html_block
       background: true
   '2:cell_1:2:carousel_items:1:9caae2d7-0114-4e71-88ce-aeb04e01604e':
@@ -463,13 +463,13 @@ component_tree:
     component_id: sdc.dripyard_base.content-card
     component_version: 7afc561cf35c01e5
     inputs:
-      title: '“HIGHLY RECOMMEND!!!”'
+      title: REVIEW_TITLE
       link_href:
         uri: 'internal:/'
         options: {  }
-      metadata: 'Peggy M.'
+      metadata: REVIEWER_NAME
       body_text:
-        value: '<p>“Every person I came in contact with from beginning to end was wonderful. I do want to do a special shout-out to Darlene (Office) and Dee (Technician). Both of them have exceptional CUSTOMER SERVICE skills.”</p>'
+        value: '<p>“REVIEW_QUOTE”</p>'
         format: canvas_html_block
       background: true
   '2:cell_1:2:carousel_items:2:91c98fdc-df43-4ecd-b95d-a97576ef5182':
@@ -479,13 +479,13 @@ component_tree:
     component_id: sdc.dripyard_base.content-card
     component_version: 7afc561cf35c01e5
     inputs:
-      title: '“Knowledgeable, Friendly Technicians, & Fair Pricing”'
+      title: REVIEW_TITLE
       link_href:
         uri: 'internal:/'
         options: {  }
-      metadata: 'Jason A.'
+      metadata: REVIEWER_NAME
       body_text:
-        value: '<p>“Always get great service from everyone at Jefco! They are available. Quick to respond. Great at communicating. I highly recommend them!”</p>'
+        value: '<p>“REVIEW_QUOTE”</p>'
         format: canvas_html_block
       background: true
   '2:cell_1:3:2b6edec8-56bd-4e3b-b961-179f65d521b8':
@@ -586,7 +586,7 @@ component_tree:
       icon: city
       text: 'City 2'
       href:
-        uri: 'internal:/area-we-serve/30a'
+        uri: 'internal:/areas-we-serve'
         options: {  }
   '3:cell_1:0:fieldset_content:2:content:2:f798c2ba-9b10-43f4-95c0-7986a2d41f01':
     parent_uuid: 209e85e9-0c84-4235-9c44-dab7c43254e3
@@ -677,3 +677,4 @@ component_tree:
       column_gutter: large
       row_gutter: default
 exposed_slots: {  }
+page_variant: null

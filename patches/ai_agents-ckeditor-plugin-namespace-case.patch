@@ -1,0 +1,18 @@
+Fix namespace case of the AI Agents CKEditor plugin so it matches its directory.
+
+The class lives in src/Plugin/AiCKEditor/ but declares the namespace
+Drupal\ai_agents\Plugin\AICKEditor. Plugin discovery derives the class name
+from the directory, so on case-sensitive filesystems with the Symfony
+DebugClassLoader active this throws "Case mismatch between loaded and
+declared class names" on every text-format render after a cache rebuild.
+
+--- a/src/Plugin/AiCKEditor/AiAgentsCKEditor.php
++++ b/src/Plugin/AiCKEditor/AiAgentsCKEditor.php
+@@ -1,6 +1,6 @@
+ <?php
+ 
+-namespace Drupal\ai_agents\Plugin\AICKEditor;
++namespace Drupal\ai_agents\Plugin\AiCKEditor;
+ 
+ declare(strict_types=1);
+ 

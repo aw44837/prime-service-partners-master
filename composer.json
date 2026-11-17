@@ -176,6 +176,9 @@
         "patches": {
             "symfony/http-foundation": {
                 "Parse non-POST urlencoded bodies when PHP 8.4 request_parse_body() returns empty (LiteSpeed/lsphp fix for Canvas PUT/PATCH)": "patches/symfony-http-foundation-parse-nonpost-urlencoded-body.patch"
+            },
+            "drupal/ai_agents": {
+                "AI Agents CKEditor plugin namespace case does not match its directory (breaks discovery on Linux)": "patches/ai_agents-ckeditor-plugin-namespace-case.patch"
             }
         }
     },

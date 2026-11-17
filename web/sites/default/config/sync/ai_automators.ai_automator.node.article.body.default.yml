@@ -18,9 +18,9 @@ base_field: title
 prompt: |-
   Generate a website article from the context found here: {{ context }}
 
-  The content you are about to generate is for a HVAC and plumbing services company called: JefCo Air Conditioning & Plumbing 
+  The content you are about to generate is for a HVAC and plumbing services company called: BRAND_NAME 
 
-  Location: based in Santa Rosa Beach, Florida and will be used primarily on their website for consumers. 
+  Location: based in MARKET_AREA and will be used primarily on their website for consumers. 
 
   Tone: Use a helpful, advisory tone in informing a consumer of their options, when to make repairs or replacements while reminding them the value of quality service without being overly salesy.
 
@@ -35,9 +35,9 @@ plugin_config:
   automator_prompt: |-
     Generate a website article from the context found here: {{ context }}
 
-    The content you are about to generate is for a HVAC and plumbing services company called: JefCo Air Conditioning & Plumbing 
+    The content you are about to generate is for a HVAC and plumbing services company called: BRAND_NAME 
 
-    Location: based in Santa Rosa Beach, Florida and will be used primarily on their website for consumers. 
+    Location: based in MARKET_AREA and will be used primarily on their website for consumers. 
 
     Tone: Use a helpful, advisory tone in informing a consumer of their options, when to make repairs or replacements while reminding them the value of quality service without being overly salesy.
 

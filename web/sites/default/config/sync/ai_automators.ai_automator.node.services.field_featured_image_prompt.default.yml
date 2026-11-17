@@ -18,7 +18,7 @@ base_field: title
 prompt: |-
   Generate an image generation prompt based on the context found here: {{ context }}
 
-  Images should be high quality photographs. If generating images of outside, make them realistic to Santa Rosa Beach, Florida region.  
+  Images should be high quality photographs. If generating images of outside, make them realistic to MARKET_AREA region.  
 token: ''
 guardrail_set_id: null
 plugin_config:
@@ -29,7 +29,7 @@ plugin_config:
   automator_prompt: |-
     Generate an image generation prompt based on the context found here: {{ context }}
 
-    Images should be high quality photographs. If generating images of outside, make them realistic to Santa Rosa Beach, Florida region.  
+    Images should be high quality photographs. If generating images of outside, make them realistic to MARKET_AREA region.  
   automator_token: ''
   automator_edit_mode: 0
   automator_label: 'Generate image prompt'

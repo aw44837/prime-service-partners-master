@@ -328,7 +328,7 @@ component_tree:
     component_id: sdc.dripyard_base.heading
     component_version: 69804e3c5ff45a2b
     inputs:
-      text: 'Why Choose JefCo?'
+      text: 'Why Choose BRAND_NAME?'
       html_element: h2
       style: h2
       center: true

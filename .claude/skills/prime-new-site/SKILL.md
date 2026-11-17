@@ -52,7 +52,10 @@ file paths) directly. Echo a summary back before executing.
 | 9 | **Header logo** | absolute path to PNG/SVG (transparent). |
 | 10 | **Footer logo (white)** | absolute path, optional. For the dark footer. |
 | 11 | **Favicon** | absolute path to square PNG/ICO. |
-| 12 | **Market (City, State)** | e.g. `Newport, New Hampshire` — localizes the AI prompts (§9b). Accept "none / multiple markets" → strip location phrasing instead. Spell the state out, don't abbreviate. |
+| 12 | **Market (City, State)** | e.g. `Newport, New Hampshire` — fills `MARKET_AREA` (§9b). Accept "none / multiple markets" → strip location phrasing instead. Spell the state out, don't abbreviate. |
+| 13 | **Main phone number** | REQUIRED, ask the user every time — fills `555-555-5555` / `tel:` links (§9b). Never reuse a number from another site or the master. Re-confirmed before launch. |
+| 14 | **Street address** | for the Footer Address block — fills `BRAND_ADDRESS` (§9b). Optional; if not given, the scan gate keeps flagging it until filled. |
+| 15 | **Real reviews** | optional — up to 3 for the review carousel cards; otherwise the cards are removed (§9b). Never invent reviews. |
 
 **Branding shortcut:** if the client already has a live website, offer to **scrape
 inputs 5–11 from its URL** instead of asking for each — see §1b. Confirm the extracted
@@ -168,28 +171,56 @@ TCFG="$TDIR/config/install/$THEME.settings.yml"   # source settings to keep in s
 cd "$WS/$SLUG" && ddev drush config:set system.site name '<Site display name>' --yes
 ```
 
-## 9b. Localize the AI prompts (market + company name)
+## 9b. Replace master placeholders (REQUIRED — do not skip)
 
-The master template's AI prompts reference **JefCo's** company name and market
-(`Santa Rosa Beach, Florida`) in three configs — every child inherits them via the
-DB seed (found the hard way 2026-07-09: five live sites generated content for the
-wrong city). Replace them right after setting the site name:
+The master template carries **placeholders**, never a real brand. Every child inherits
+them via the DB seed:
 
-- `ai_ckeditor.settings` (prompts.complete)
-- `ai_automators.ai_automator.node.article.body.default`
-- `ai_automators.ai_automator.node.services.field_featured_image_prompt.default`
+| Placeholder | Where | Replace with |
+|---|---|---|
+| `BRAND_NAME` | AI prompts/automators, Canvas templates + patterns, contact webform (title, SMS-consent text, lead email), page/block copy, metatags | full business name |
+| `MARKET_AREA` | AI prompts ("based in", image realism), sample copy, Financing page, local-service-area template, blog tag | main market, e.g. `Raleigh, NC` |
+| `555-555-5555` (and `tel:555-555-5555`) | Call Us buttons in templates/patterns, sample copy | the real main phone — **ask the user for it during input gathering (§1); never copy one from another site** |
+| `BRAND_ADDRESS` | Footer Address block, local-service-area template | street address (HTML `<br>` between lines) |
+| `REVIEW_TITLE` / `REVIEWER_NAME` / `REVIEW_QUOTE` | review carousel cards (Home page, services template, `reviewstwocolumnwithima` pattern) | the brand's own real reviews, or remove the cards — never invent reviews |
 
-With a market (input 12): replace `Santa Rosa Beach, Florida` → `<City, State>` and
-`JefCo Air Conditioning & Plumbing` → `<Site display name>` in all string values of
-those configs (recursive walk + `str_replace` via `drush php:script`, then
-`cache:rebuild`).
+History: master used to carry JefCo's real name, Santa Rosa Beach market, (850) 616-2183
+phone, street address and customer reviews. Five sites generated content for the wrong
+city (2026-07-09), and on 2026-11-17 JefCo text, its phone number and its reviews were
+found across the fleet. Run right after §9:
 
-Without a market ("none/multiple" — Swift Brothers pattern), instead replace:
-- `Location: based in Santa Rosa Beach, Florida and will be used` → `The content will be used`
-- `If generating images of outside, make them realistic to Santa Rosa Beach, Florida region.` → `If generating images of outside, make them realistic.`
-- company name as above.
+```bash
+cp .claude/skills/prime-new-site/brand-tokens.php .claude/skills/prime-new-site/brand-scan.php .ddev/
+# Dry run, then apply. Multi-market site (Swift Brothers pattern): MARKET_AREA=""
+ddev exec 'BRAND_NAME="<Full name>" MARKET_AREA="<City, ST>" BRAND_PHONE="<(xxx) xxx-xxxx>" BRAND_ADDRESS="<Street<br>City, ST ZIP>" drush php:script .ddev/brand-tokens.php'
+ddev exec 'BRAND_NAME="<Full name>" MARKET_AREA="<City, ST>" BRAND_PHONE="<(xxx) xxx-xxxx>" BRAND_ADDRESS="<Street<br>City, ST ZIP>" APPLY=1 drush php:script .ddev/brand-tokens.php'
+ddev drush cr
+```
 
-Verify: `grep -h 'company called\|Location: based\|realistic' <sync>/ai_ckeditor.settings.yml <sync>/ai_automators.*.yml` after the final config:export shows the new market/name and no `Santa Rosa`.
+Then fix the review cards by hand (real reviews or delete the cards). Use the full name
+for `BRAND_NAME`; afterwards shorten it by hand in running prose where a short form reads
+better (e.g. "Progressive" in paragraphs; full name in headings, footer, webform consent
+text and AI prompts).
+
+**Gate — the build is not done until this scan prints `TOTAL 0`** apart from the
+allowlist below. It includes items in the Trash.
+
+```bash
+ddev exec 'SCAN_RE="/BRAND_NAME|MARKET_AREA|BRAND_ADDRESS|555-555-5555|REVIEW_(TITLE|QUOTE)|REVIEWER_NAME|jef+co|santa rosa|emerald coast|616-?2183/i" drush php:script .ddev/brand-scan.php'
+```
+
+Allowlist (internal machine names, never shown to visitors — leave them):
+`jefco_menu_block` (module/block id), `contact_jefco` / `/form/contact-jefco`
+(webform id + aliases), `are_you_an_existing_jefco_customer` (element key),
+`jefcohero` (pattern id), `JefCo-Plumbing-Logo.png` (unused file).
+
+Then `ddev drush config:export --yes` and confirm the exported AI configs show the new
+name/market: `grep -h 'company called\|Location: based\|realistic\|can be the solution' web/sites/default/config/sync/ai.ai_prompt.*.yml web/sites/default/config/sync/ai_automators.*.yml`
+
+**Pre-launch re-check (required):** before DNS goes live, run the same scan gate again
+and confirm with the user that every `tel:` link and displayed phone number is the
+site's real main number (`git grep -n "tel:" web/sites/default/config/sync` plus the
+live pages). Phone numbers are never copied from another site.
 
 ## 10. Rebrand the theme
 

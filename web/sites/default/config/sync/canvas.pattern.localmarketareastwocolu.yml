@@ -96,7 +96,7 @@ component_tree:
       icon: city
       text: 'City 2'
       href:
-        uri: 'internal:/area-we-serve/30a'
+        uri: 'internal:/areas-we-serve'
         options: {  }
   '0:cell_1:0:fieldset_content:2:content:2:98f88257-4b28-4b83-9c2e-2e404374f060':
     parent_uuid: 8011fac0-876f-4623-95a9-37062dcea2e3

@@ -25,7 +25,7 @@ dependencies:
     - options
     - text
 id: jefcohero
-label: 'JefCo Hero'
+label: 'Brand Hero'
 component_tree:
   '0:8499481b-1ed5-4577-ad38-b0003b711b49':
     uuid: 8499481b-1ed5-4577-ad38-b0003b711b49

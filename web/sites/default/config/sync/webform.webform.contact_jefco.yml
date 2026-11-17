@@ -18,7 +18,7 @@ uid: 1
 template: false
 archive: false
 id: contact_jefco
-title: 'Contact JefCo'
+title: 'Contact BRAND_NAME'
 description: ''
 categories: {  }
 elements: |-
@@ -54,7 +54,7 @@ elements: |-
     '#country__access': false
   are_you_an_existing_jefco_customer:
     '#type': select
-    '#title': 'Are you an existing JefCo customer?'
+    '#title': 'Are you an existing BRAND_NAME customer?'
     '#options':
       'Yes, I am': 'Yes, I am'
       'No, I am a new customer': 'No, I am a new customer'
@@ -65,7 +65,7 @@ elements: |-
     '#title': 'How can we help you?'
   disclaimer:
     '#type': processed_text
-    '#text': '<p style="font-size:12px;">By submitting, you agree to receive text messages from JefCo Air Conditioning &amp; Refrigeration at the number provided, including those related to your inquiry, follow-ups, and review requests, via automated technology. Consent is not a condition of purchase. Msg &amp; data rates may apply. Msg frequency may vary. Reply STOP to cancel or HELP for assistance. <a href="https://www.scorpion.co/acceptable-use-policy/">Acceptable Use Policy</a></p>'
+    '#text': '<p style="font-size:12px;">By submitting, you agree to receive text messages from BRAND_NAME at the number provided, including those related to your inquiry, follow-ups, and review requests, via automated technology. Consent is not a condition of purchase. Msg &amp; data rates may apply. Msg frequency may vary. Reply STOP to cancel or HELP for assistance. <a href="https://www.scorpion.co/acceptable-use-policy/">Acceptable Use Policy</a></p>'
     '#format': content_format
   actions:
     '#type': webform_actions
@@ -286,12 +286,12 @@ handlers:
       cc_options: {  }
       from_mail: noreply@droptech.dev
       from_options: {  }
-      from_name: 'JefCo Website'
+      from_name: 'BRAND_NAME Website'
       reply_to: ''
       return_path: ''
       sender_mail: ''
       sender_name: ''
-      subject: 'New JefCo Website Lead!'
+      subject: 'New BRAND_NAME Website Lead!'
       body: '<p>Submitted values are:</p><p>[webform_submission:values]</p><p>Submitted on [webform_submission:created]</p><p>Submitted by: [webform_submission:user]</p>'
       excluded_elements: {  }
       ignore_access: false

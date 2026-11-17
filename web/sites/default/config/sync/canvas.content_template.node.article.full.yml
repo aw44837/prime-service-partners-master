@@ -127,7 +127,7 @@ component_tree:
     inputs:
       text: 'Call Us'
       href:
-        uri: 'tel:850-616-2183'
+        uri: 'tel:555-555-5555'
         options: {  }
       style: outline
       size: large
@@ -256,3 +256,4 @@ component_tree:
       formatter_third_party_settings: {  }
       label_display: hidden
 exposed_slots: {  }
+page_variant: null

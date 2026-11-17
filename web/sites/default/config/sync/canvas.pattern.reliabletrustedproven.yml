@@ -55,7 +55,7 @@ component_tree:
     component_version: 05732cb45a35eac6
     inputs:
       text:
-        value: '<p>When you need the job done right,<em> <strong>JefCo has got you covered.&nbsp;</strong></em></p>'
+        value: '<p>When you need the job done right,<em> <strong>BRAND_NAME has got you covered.&nbsp;</strong></em></p>'
         format: canvas_html_block
       style: body_m
       color: medium
