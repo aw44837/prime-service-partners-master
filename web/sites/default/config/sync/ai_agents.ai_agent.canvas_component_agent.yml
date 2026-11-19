@@ -12,7 +12,7 @@ _core:
   default_config_hash: D8zWWDI4Q7RSgi7Uuck7A2aTN2aRrvL_oXdqGwmaztY
 id: canvas_component_agent
 label: 'Drupal Canvas Component Agent'
-description: 'This agent can manipulate things in Drupal Canvas. Since it outputs a very specific JSON format, please do not use this in other contexts.'
+description: 'Creates and edits React components for Drupal Canvas.'
 default_information_tools: |
   get_prop_context:
     label: 'Get props context'
