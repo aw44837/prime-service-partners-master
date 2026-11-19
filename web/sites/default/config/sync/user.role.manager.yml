@@ -1,0 +1,314 @@
+uuid: 75fa53a5-d63f-4724-a748-f7e0f0eea821
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - block_content.type.dripyard_accordion_item
+    - block_content.type.dripyard_button
+    - block_content.type.dripyard_card
+    - block_content.type.dripyard_card_full_image
+    - block_content.type.dripyard_event_listing_item
+    - block_content.type.dripyard_hero
+    - block_content.type.dripyard_icon_card
+    - block_content.type.dripyard_logo_item
+    - block_content.type.dripyard_media
+    - block_content.type.dripyard_menu_card
+    - block_content.type.dripyard_promo
+    - block_content.type.dripyard_statistic
+    - block_content.type.dripyard_tab_item
+    - block_content.type.dripyard_testimonial
+    - block_content.type.dripyard_title_cta
+    - block_content.type.dripyard_wrapper
+    - dashboard.dashboard.welcome
+    - filter.format.basic_html
+    - filter.format.canvas_html_block
+    - filter.format.canvas_html_inline
+    - filter.format.content_format
+    - filter.format.dripyard_superbasic
+    - media.type.document
+    - media.type.image
+    - media.type.remote_video
+    - media.type.svg_image
+    - media.type.video
+    - node.type.article
+    - node.type.local_service_area_page
+    - node.type.page
+    - node.type.review
+    - node.type.services
+    - node.type.webform
+    - taxonomy.vocabulary.tags
+    - workflows.workflow.basic_editorial
+  module:
+    - ai_ckeditor
+    - ai_content_suggestions
+    - ai_image_alt_text
+    - block_content
+    - canvas
+    - content_moderation
+    - contextual
+    - dashboard
+    - filter
+    - media
+    - media_library_bulk_upload
+    - menu_link_attributes
+    - navigation
+    - node
+    - path
+    - pathauto
+    - redirect
+    - scheduler
+    - simple_sitemap
+    - system
+    - taxonomy
+    - trash
+id: manager
+label: Manager
+weight: 3
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access ai content suggestion tools'
+  - 'access block library'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access media overview'
+  - 'access navigation'
+  - 'access taxonomy overview'
+  - 'access trash'
+  - 'administer menu'
+  - 'administer redirects'
+  - 'administer url aliases'
+  - 'create article content'
+  - 'create basic block content'
+  - 'create canvas_page'
+  - 'create document media'
+  - 'create dripyard_accordion_item block content'
+  - 'create dripyard_button block content'
+  - 'create dripyard_card block content'
+  - 'create dripyard_card_full_image block content'
+  - 'create dripyard_event_listing_item block content'
+  - 'create dripyard_hero block content'
+  - 'create dripyard_icon_card block content'
+  - 'create dripyard_logo_item block content'
+  - 'create dripyard_media block content'
+  - 'create dripyard_menu_card block content'
+  - 'create dripyard_promo block content'
+  - 'create dripyard_statistic block content'
+  - 'create dripyard_tab_item block content'
+  - 'create dripyard_testimonial block content'
+  - 'create dripyard_title_cta block content'
+  - 'create dripyard_wrapper block content'
+  - 'create image media'
+  - 'create local_service_area_page content'
+  - 'create page content'
+  - 'create remote_video media'
+  - 'create review content'
+  - 'create services content'
+  - 'create svg_image media'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'create video media'
+  - 'create webform content'
+  - 'delete all revisions'
+  - 'delete any article content'
+  - 'delete any basic block content'
+  - 'delete any basic block content revisions'
+  - 'delete any document media'
+  - 'delete any document media revisions'
+  - 'delete any dripyard_accordion_item block content'
+  - 'delete any dripyard_accordion_item block content revisions'
+  - 'delete any dripyard_button block content'
+  - 'delete any dripyard_button block content revisions'
+  - 'delete any dripyard_card block content'
+  - 'delete any dripyard_card block content revisions'
+  - 'delete any dripyard_card_full_image block content'
+  - 'delete any dripyard_card_full_image block content revisions'
+  - 'delete any dripyard_event_listing_item block content'
+  - 'delete any dripyard_event_listing_item block content revisions'
+  - 'delete any dripyard_hero block content'
+  - 'delete any dripyard_hero block content revisions'
+  - 'delete any dripyard_icon_card block content'
+  - 'delete any dripyard_icon_card block content revisions'
+  - 'delete any dripyard_logo_item block content'
+  - 'delete any dripyard_logo_item block content revisions'
+  - 'delete any dripyard_media block content'
+  - 'delete any dripyard_media block content revisions'
+  - 'delete any dripyard_menu_card block content'
+  - 'delete any dripyard_menu_card block content revisions'
+  - 'delete any dripyard_promo block content'
+  - 'delete any dripyard_promo block content revisions'
+  - 'delete any dripyard_statistic block content'
+  - 'delete any dripyard_statistic block content revisions'
+  - 'delete any dripyard_tab_item block content'
+  - 'delete any dripyard_tab_item block content revisions'
+  - 'delete any dripyard_testimonial block content'
+  - 'delete any dripyard_testimonial block content revisions'
+  - 'delete any dripyard_title_cta block content'
+  - 'delete any dripyard_title_cta block content revisions'
+  - 'delete any dripyard_wrapper block content'
+  - 'delete any dripyard_wrapper block content revisions'
+  - 'delete any image media'
+  - 'delete any image media revisions'
+  - 'delete any local_service_area_page content'
+  - 'delete any page content'
+  - 'delete any remote_video media'
+  - 'delete any remote_video media revisions'
+  - 'delete any review content'
+  - 'delete any services content'
+  - 'delete any svg_image media'
+  - 'delete any svg_image media revisions'
+  - 'delete any video media'
+  - 'delete any video media revisions'
+  - 'delete any webform content'
+  - 'delete article revisions'
+  - 'delete canvas_page'
+  - 'delete local_service_area_page revisions'
+  - 'delete own article content'
+  - 'delete own document media'
+  - 'delete own image media'
+  - 'delete own local_service_area_page content'
+  - 'delete own page content'
+  - 'delete own remote_video media'
+  - 'delete own review content'
+  - 'delete own services content'
+  - 'delete own svg_image media'
+  - 'delete own video media'
+  - 'delete own webform content'
+  - 'delete page revisions'
+  - 'delete review revisions'
+  - 'delete services revisions'
+  - 'delete terms in tags'
+  - 'delete webform revisions'
+  - 'edit any article content'
+  - 'edit any basic block content'
+  - 'edit any document media'
+  - 'edit any dripyard_accordion_item block content'
+  - 'edit any dripyard_button block content'
+  - 'edit any dripyard_card block content'
+  - 'edit any dripyard_card_full_image block content'
+  - 'edit any dripyard_event_listing_item block content'
+  - 'edit any dripyard_hero block content'
+  - 'edit any dripyard_icon_card block content'
+  - 'edit any dripyard_logo_item block content'
+  - 'edit any dripyard_media block content'
+  - 'edit any dripyard_menu_card block content'
+  - 'edit any dripyard_promo block content'
+  - 'edit any dripyard_statistic block content'
+  - 'edit any dripyard_tab_item block content'
+  - 'edit any dripyard_testimonial block content'
+  - 'edit any dripyard_title_cta block content'
+  - 'edit any dripyard_wrapper block content'
+  - 'edit any image media'
+  - 'edit any local_service_area_page content'
+  - 'edit any page content'
+  - 'edit any remote_video media'
+  - 'edit any review content'
+  - 'edit any services content'
+  - 'edit any svg_image media'
+  - 'edit any video media'
+  - 'edit any webform content'
+  - 'edit canvas_page'
+  - 'edit entity sitemap settings'
+  - 'edit own article content'
+  - 'edit own document media'
+  - 'edit own image media'
+  - 'edit own local_service_area_page content'
+  - 'edit own page content'
+  - 'edit own remote_video media'
+  - 'edit own review content'
+  - 'edit own services content'
+  - 'edit own svg_image media'
+  - 'edit own video media'
+  - 'edit own webform content'
+  - 'edit terms in tags'
+  - 'generate ai alt tags'
+  - 'notify of path changes'
+  - 'publish auto-saves'
+  - 'restore node entities'
+  - 'restore node translations'
+  - 'revert all revisions'
+  - 'revert any basic block content revisions'
+  - 'revert any document media revisions'
+  - 'revert any dripyard_accordion_item block content revisions'
+  - 'revert any dripyard_button block content revisions'
+  - 'revert any dripyard_card block content revisions'
+  - 'revert any dripyard_card_full_image block content revisions'
+  - 'revert any dripyard_event_listing_item block content revisions'
+  - 'revert any dripyard_hero block content revisions'
+  - 'revert any dripyard_icon_card block content revisions'
+  - 'revert any dripyard_logo_item block content revisions'
+  - 'revert any dripyard_media block content revisions'
+  - 'revert any dripyard_menu_card block content revisions'
+  - 'revert any dripyard_promo block content revisions'
+  - 'revert any dripyard_statistic block content revisions'
+  - 'revert any dripyard_tab_item block content revisions'
+  - 'revert any dripyard_testimonial block content revisions'
+  - 'revert any dripyard_title_cta block content revisions'
+  - 'revert any dripyard_wrapper block content revisions'
+  - 'revert any image media revisions'
+  - 'revert any remote_video media revisions'
+  - 'revert any svg_image media revisions'
+  - 'revert any video media revisions'
+  - 'revert article revisions'
+  - 'revert local_service_area_page revisions'
+  - 'revert page revisions'
+  - 'revert review revisions'
+  - 'revert services revisions'
+  - 'revert webform revisions'
+  - 'schedule publishing of media'
+  - 'schedule publishing of nodes'
+  - 'use ai ckeditor'
+  - 'use basic_editorial transition create_new_draft'
+  - 'use basic_editorial transition publish'
+  - 'use basic_editorial transition unpublish'
+  - 'use media document bulk upload form'
+  - 'use media image bulk upload form'
+  - 'use media remote_video bulk upload form'
+  - 'use media svg_image bulk upload form'
+  - 'use media video bulk upload form'
+  - 'use menu link attributes'
+  - 'use text format basic_html'
+  - 'use text format canvas_html_block'
+  - 'use text format canvas_html_inline'
+  - 'use text format content_format'
+  - 'use text format dripyard_superbasic'
+  - 'view all revisions'
+  - 'view any basic block content history'
+  - 'view any document media revisions'
+  - 'view any dripyard_accordion_item block content history'
+  - 'view any dripyard_button block content history'
+  - 'view any dripyard_card block content history'
+  - 'view any dripyard_card_full_image block content history'
+  - 'view any dripyard_event_listing_item block content history'
+  - 'view any dripyard_hero block content history'
+  - 'view any dripyard_icon_card block content history'
+  - 'view any dripyard_logo_item block content history'
+  - 'view any dripyard_media block content history'
+  - 'view any dripyard_menu_card block content history'
+  - 'view any dripyard_promo block content history'
+  - 'view any dripyard_statistic block content history'
+  - 'view any dripyard_tab_item block content history'
+  - 'view any dripyard_testimonial block content history'
+  - 'view any dripyard_title_cta block content history'
+  - 'view any dripyard_wrapper block content history'
+  - 'view any image media revisions'
+  - 'view any remote_video media revisions'
+  - 'view any svg_image media revisions'
+  - 'view any unpublished content'
+  - 'view any video media revisions'
+  - 'view article revisions'
+  - 'view deleted entities'
+  - 'view latest version'
+  - 'view local_service_area_page revisions'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view page revisions'
+  - 'view review revisions'
+  - 'view scheduled content'
+  - 'view scheduled media'
+  - 'view services revisions'
+  - 'view the administration theme'
+  - 'view vocabulary labels'
+  - 'view webform revisions'
+  - 'view welcome dashboard'
